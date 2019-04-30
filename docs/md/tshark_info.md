@@ -1,21 +1,8 @@
----
-title: "Wireshark Info"
-date: 2019-03-12T12:44:45Z
-author: Ross Jacobs
-desc: "Get info about a packet capture"
-tags:
-  - networking
-  - wireshark
-image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
-
-draft: true
----
-
-# <a name="info"></a>Info
+# Info
 
 _Read a packet capture and print data about it._
 
-## <a name="capinfos"></a>capinfos
+## capinfos
 
 capinfos gets metadata about a packet capture. You can be very granular about
 what pieces of data you want displayed and the output format. 
@@ -36,7 +23,7 @@ parse `capinfos <file>` into a hashtable in your $language. For an example in
 Python, check out get_capinfos() in my [wsutils
 gist](https://gist.github.com/pocc/2c89dd92d6a64abca3db2a29a11f1404).
 
-## <a name=rawshark></a>rawshark
+## rawshark
 
 rawshark is a utility that takes an input stream and parses it. It is low-level
 and provides options you would expect to see if you were working

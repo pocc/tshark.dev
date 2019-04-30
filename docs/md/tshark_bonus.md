@@ -1,20 +1,6 @@
----
-title: "Wireshark Bonus Topics"
-date: 2019-03-12T12:44:45Z
-author: Ross Jacobs
-desc: "Wireshark Bonus Topics"
-tags:
-  - networking
-  - wireshark
-  - draft1
-image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
+# Wireshark Bonus Topics
 
-draft: true
----
-
-_Wireshark Bonus Topics_
-
-## <a name=editing-hex></a>Editing Hex
+## Editing Hex
 
 There are a couple ways to edit the hex of a packet capture.  For this scenario,
 let's say we want to change all instances of broadcast address 255.255.255.255
@@ -79,7 +65,7 @@ with `M-x hexl-find-file` and use `C-M-x` to insert hex:
 * [wxhexeditor](http://www.wxhexeditor.org/): The only cross-platform GUI hex
   editor with native binaries.
 
-## <a name=piping></a>Piping 
+## Piping 
 
 Piping is important to using many of these utilities. For example, it is not
 really possible to use rawshark without piping as it expects a FIFO or stream. 

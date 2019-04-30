@@ -1,15 +1,3 @@
----
-title: "Tshark Export Objects"
-date: 2019-03-12T12:44:45Z
-author: Ross Jacobs
-desc: "Exporting files from packet captures"
-tags:
-  - networking
-  - tshark
-image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
-
-draft: true
----
 
 <!-- draft until
 * [ ] Type existing written version 
@@ -58,4 +46,4 @@ Headless firefox can grab the files we care about (using wget/curl will not
 get all of the same files). Ten seconds should be sufficient to download all
 files before killing the processes.
 
-<discuss 3 or 4 files here. Include screenshot of firefox loading the same files using developer tools. While its cool to look at he trasnferred files in the abstract, we can also watch all of them download them in realtime with developer tools. This will also show us ALL of the files downloaded, including ones we may have missed with firefox headless. As we can see, <X>, <Y>, and <Z> files are the same, but we're missing files A, B, & C.>
+note: discuss 3 or 4 files here. Include screenshot of firefox loading the same files using developer tools. While its cool to look at he trasnferred files in the abstract, we can also watch all of them download them in realtime with developer tools. This will also show us ALL of the files downloaded, including ones we may have missed with firefox headless. As we can see, <X>, <Y>, and <Z> files are the same, but we're missing files A, B, & C.

@@ -1,15 +1,3 @@
----
-title: "Wireshark Generation"
-date: 2019-03-12T12:44:45Z
-author: Ross Jacobs
-desc: "Generating pcaps for fun and profit!"
-tags:
-  - networking
-  - wireshark
-image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
-
-draft: true
----
 
 _Make traffic that didn't exist before._
 
@@ -17,7 +5,7 @@ __Note for Windows users__: _By default, `randpkt`, `androiddump`, `sshdump`,
 `udpdump`, and `randpktdump` are not installed during a Windows installation. If
 you want to use these, you will need to manually select them for installation._
 
-## <a name=randpkt></a>randpkt
+## randpkt
 
 Note: <i>On Windows, the default is to not install randpkt. You must select
 randpkt manually during installation.</i>

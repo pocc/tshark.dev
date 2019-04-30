@@ -1,16 +1,4 @@
----
-title: "Tshark, Colorized"
-date: 2019-04-08T12:44:45Z
-author: Ross Jacobs
-desc: "Wireshark Bonus Topics"
-tags:
-  - networking
-  - tshark
-  - bash
-image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
-
-draft: false
----
+# Color
 
 > _"With color one obtains an energy that seems to stem from witchcraft."  
 -- Henri Matisse_

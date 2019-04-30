@@ -1,15 +1,3 @@
----
-title: "Building Your Tshark Capture Command"
-date: 2019-04-08T12:44:45Z
-author: Ross Jacobs
-desc: "Like building a regex but more fun!"
-tags:
-  - networking
-  - tshark
-image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
-
-draft: true
----
 
 <!-- Draft Until
 * [ ] Bug 2874
@@ -17,13 +5,15 @@ draft: true
 * [ ] tshark vs dumpcap
 -->
 
+# Capturing
+
 > _Everything comes to us that belongs to us if we create the capacity to receive it._ 
 >
 > _-Rabindranath Tagore_
 
 Question: In what significant ways do dumpcap and tshark differ?
 
-# 1. Determine your interface
+## 1. Determine your interface
 
 If you run `ping 8.8.8.8 >/dev/null & tshark`, you should start seeing
 numbered packets. If you don't, you should find out what interfaces you have
@@ -41,7 +31,7 @@ route get default | awk '/interface:/{print $NF}'
 route | awk '/^default|^0.0.0.0/{print $NF}'
 ```
 
-## Caveat
+### Caveat
 
 You shouldn't need to specify link layer type as that is automatically
 detected. `tshark -i ${interface} -L` will show yo uthe available DLTs for
@@ -58,7 +48,7 @@ traffic, not just the packets destination of your MAC (normally these are
 discarded). Turning it off gives you a view of what th eCPU sees instead of
 the network adapter.
 
-# 2. Reading from a source
+## 2. Reading from a source
 
 You can read from stdin like so: `tshark -w - | tshark -r -`. Note that if you
 are reading from stdin, then the dat astream MUST confrom to a capture type that
@@ -79,7 +69,7 @@ tshark -Q -w myfifo & tshark -i myfifo
 Confusingly, reading a pipe is through `-i` even though a pipe is not a
 configured interface.
 
-# 3. Filter Traffic
+## 3. Filter Traffic
 
 There are two types of filters: Capture filters and display filters. Capture
 filters are more limited and are based on [eBPF syntax](). Capture filters are
@@ -93,7 +83,7 @@ To specify a capture filter, use -f <filter>. To specify a display filter,
 use -Y <filter>. If you would like to optimize display filtering over 2
 passes, you can spceify the first with `-R <filter> -2 -Y <2nd filter>`.
 
-# 4. Advanced: Capture Parameters
+## 4. Advanced: Capture Parameters
 
 If you are taking a long continuous capture, then space will eventually become a
 concern. There a couple ways to parameterize your capture.
@@ -113,9 +103,9 @@ seconds.
 -B  : Size of the Kernel Buffer => Default is 2MB. (How can you verify this?)
 -s <num> : limit each packet to NUM bytes to save on space.
 
-# 5. Add context
+## 5. Add context
 
-## 5A. Name resolution
+### 5A. Name resolution
 
 There are ways to polish a packet capture. What you add should depend on what
 you are troubleshooting.
@@ -135,7 +125,7 @@ you are troubleshooting.
 
 ??? How do you strip DNS info from a file ???
 
-## 5B. Decoding protocols
+### 5B. Decoding protocols
 
 Sometimes you might be using network protocools in ways that Wireshark isn't
 expecting (or aren't standard). In these cases, it is important to decode the
@@ -147,11 +137,11 @@ en/disable protocols/heuristics can do the same thing.
 
 ??? What is a heuristic vis-a-vis wireshark vs protocol ???
 
-## Usage for already-captured files
+### Usage for already-captured files
 
 - Use Tshark to [Decrypt Kerberos, TLS, or 802.11](/post/tshark-decryption)
 
-## 6. tshark vs dumpcap
+### 6. tshark vs dumpcap
 
 At first glance, tshark looks like it has most of dumpcap's functionality, and that's mostly true.
 

@@ -1,19 +1,8 @@
----
-title: "Wireshark Editing"
-date: 2019-03-12T12:44:45Z
-author: Ross Jacobs
-desc: "Remember to use a spellchecker when you edit your pcaps"
-tags:
-  - networking
-  - wireshark
-image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
-
-draft: true
----
+# Editing
 
 _Remember to use a spellchecker when you edit your pcaps_
 
-## <a name="filtering-packets"></a>filtering packets
+## filtering packets
 
 ### Editcap
 Editcap allows you to filter out packets with -A, -B, packet range selection
@@ -45,7 +34,7 @@ this capability
 
 tshark can be used to reduce packet size 
 
-## <a name=reordercap></a>reordercap
+## reordercap
 Sometimes packets are out of order. Reordercap fixes that.
 
 ### Truncate packet size
@@ -55,8 +44,8 @@ Use -a
 
 ### Change number of commets
 
-## <a name=mergecap></a>mergecap
+## mergecap
 Merge two or more packet captures together
 
-## <a name=text2pcap></a>text2pcap
+## text2pcap
 Convert a hexstring into a packet capture

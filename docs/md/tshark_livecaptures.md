@@ -1,17 +1,4 @@
----
-title: "Live Capturing on Unusual Interfaces"
-date: 2019-03-12T12:44:45Z
-author: Ross Jacobs
-desc: "Wireshark Bonus Topics"
-tags:
-  - networking
-  - wireshark
-  - commandfu
-  - draft1
-image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
-
-draft: true
----
+# Live Capturing
 
 _WANTED: Suspect is trafficking in packets. Reward paid upon capture._
 
