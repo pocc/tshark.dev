@@ -1,6 +1,3 @@
-[submodule "hugo-theme-learn"]
-	path = hugo-theme-learn
-	url = https://github.com/matcornic/hugo-theme-learn.git
-[submodule "themes/hugo-themes-learn"]
-	path = themes/hugo-themes-learn
+[submodule "themes/hugo-theme-learn"]
+	path = themes/hugo-theme-learn
 	url = https://github.com/matcornic/hugo-theme-learn.git
