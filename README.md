@@ -1,4 +1,4 @@
 # tshark-guide
-Repo for managing tshark-guide content
+Repo for managing tshark.dev content. This website uses sphinx to convert
+markdown files into a static documentation site.
 
-This is an experiment to see if creating this guide outside of hugo is easier.
