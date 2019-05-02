@@ -2,19 +2,20 @@ baseURL = "/"
 languageCode = "en-US"
 defaultContentLanguage = "en"
 
-title = "Hugo Learn Documentation"
+title = "Tshark Guide"
 theme = "hugo-theme-learn"
 themesdir = "themes"
 metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= true
 
 [params]
-  editURL = "https://github.com/matcornic/hugo-theme-learn/edit/master/exampleSite/content/"
-  description = "Documentation for Hugo Learn Theme"
-  author = "Mathieu Cornic"
-  showVisitedLinks = true
+  editURL = "https://swit.sh"
+  description = "Packet Analysis, Scripted"
+  author = "Ross Jacobs"
+  showVisitedLinks = false
   disableBreadcrumb = false
   disableNextPrev = false
+  themeVariant = "blue"
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
@@ -28,48 +29,44 @@ languageName = "English"
 [[Languages.en.menu.shortcuts]]
 name = "<i class='fab fa-fw fa-github'></i> Github repo"
 identifier = "ds"
-url = "https://github.com/matcornic/hugo-theme-learn"
-weight = 10
-
-[[Languages.en.menu.shortcuts]]
-name = "<i class='fas fa-fw fa-camera'></i> Showcases"
-url = "showcase"
-weight = 11
-
-[[Languages.en.menu.shortcuts]]
-name = "<i class='fas fa-fw fa-bookmark'></i> Hugo Documentation"
-identifier = "hugodoc"
-url = "https://gohugo.io/"
-weight = 20
+url = "https://github.com/pocc/tshark.dev"
+weight = 0
 
 [[Languages.en.menu.shortcuts]]
 name = "<i class='fas fa-fw fa-bullhorn'></i> Credits"
-url = "/credits"
-weight = 30
-
-[Languages.fr]
-title = "Documentation du thème Hugo Learn"
-weight = 2
-languageName = "Français"
-
-[[Languages.fr.menu.shortcuts]]
-name = "<i class='fab fa-fw fa-github'></i> Repo Github"
-identifier = "ds"
-url = "https://github.com/matcornic/hugo-theme-learn"
+url = "https://github.com/pocc/tshark.dev/contributors"
 weight = 10
 
-[[Languages.fr.menu.shortcuts]]
-name = "<i class='fas fa-fw fa-camera'></i> Vitrine"
-url = "/showcase"
-weight = 11
+[[Languages.en.menu.shortcuts]]
+name = "　"
+weight = 15
 
-[[Languages.fr.menu.shortcuts]]
-name = "<i class='fas fa-fw fa-bookmark'></i> Documentation Hugo"
-identifier = "hugodoc"
-url = "https://gohugo.io/"
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-servicestack'></i> Wireshark Links"
+url = "https://wireshark.org"
 weight = 20
 
-[[Languages.fr.menu.shortcuts]]
-name = "<i class='fas fa-fw fa-bullhorn'></i> Crédits"
-url = "/credits"
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-servicestack'></i> Wireshark Links"
+url = "https://wireshark.org"
 weight = 30
+
+[[Languages.en.menu.shortcuts]]
+name = "　<i class='fas fa-question-circle'></i> Ask Wireshark"
+url = "https://ask.wireshark.org"
+weight = 40
+
+[[Languages.en.menu.shortcuts]]
+name = "　<i class='fas fa-fw fa-atlas'></i> Developer's Guide"
+url = "https://www.wireshark.org/docs/wsdg_html_chunked/"
+weight = 50
+
+[[Languages.en.menu.shortcuts]]
+name = "　<i class='fas fa-fw fa-book'></i> Man Pages"
+url = "https://www.wireshark.org/docs/man-pages/"
+weight = 60
+
+[[Languages.en.menu.shortcuts]]
+name = "　<i class='fas fa-fw fa-bug'></i> Bugzilla"
+url = "https://www.wireshark.org/docs/man-pages/"
+weight = 70
