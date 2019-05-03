@@ -11,8 +11,6 @@ chapter: false
 image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
 ---
 
-# Tshark Setup
-
 _Setup Wireshark 3.0.0 on your $System_
 
 _All package managers have versions 2.6.6 and prior. If you want this version,

@@ -12,9 +12,8 @@ image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
 draft: true
 ---
 
-Not sure whether to include this or not as the content is so basic (and is probably covered better by a Wireshark article).
-
-# Packet Analysis
+**Not sure whether to include this or not as the content is so basic (and is
+probably covered better by a Wireshark article).**
 
 Wireshark is like Google Maps. While you could look at the entire world, Maps
 is useful when you zoom into the streets in your town. Maps is also useful

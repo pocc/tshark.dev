@@ -14,7 +14,7 @@ defaultContentLanguageInSubdir= true
   author = "Ross Jacobs"
   showVisitedLinks = false
   disableBreadcrumb = false
-  disableNextPrev = false
+  disableNextPrev = true
   themeVariant = "blue"
   logo = "Wireshark_icon.svg"
 

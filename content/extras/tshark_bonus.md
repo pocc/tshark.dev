@@ -12,9 +12,7 @@ image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
 draft: true
 ---
 
-_Wireshark Bonus Topics_
-
-## <a name=editing-hex></a>Editing Hex
+## Editing Hex
 
 There are a couple ways to edit the hex of a packet capture.  For this scenario,
 let's say we want to change all instances of broadcast address 255.255.255.255
