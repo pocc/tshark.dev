@@ -17,8 +17,6 @@ draft: true
 * [ ] Discuss 3 or 4 files
 -->
 
-# --export-object
-
 ## Available protocols
 
 - **dicom**: medical image

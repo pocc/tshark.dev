@@ -12,8 +12,6 @@ image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
 draft: false
 ---
 
-# Decryption
-
 There are many protocols that can be decrypted in Wireshark:
 
 ## [Kerberos](https://wiki.wireshark.org/Kerberos)
