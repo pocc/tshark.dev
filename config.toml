@@ -16,6 +16,7 @@ defaultContentLanguageInSubdir= true
   disableBreadcrumb = false
   disableNextPrev = false
   themeVariant = "blue"
+  logo = "Wireshark_icon.svg"
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
