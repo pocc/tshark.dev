@@ -1,5 +1,5 @@
 ---
-title: Content
+title: Setup
 weight: 10
 chapter: true
 pre: "<b>2. </b>"
