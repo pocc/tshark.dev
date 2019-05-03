@@ -3,8 +3,10 @@ title: "Tshark Setup"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
 tags:
-  - networking
-  - wireshark
+  - setup
+  - linux
+  - macos
+  - windows
 chapter: false
 image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
 ---
