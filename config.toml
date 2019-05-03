@@ -28,6 +28,11 @@ weight = 1
 languageName = "English"
 
 [[Languages.en.menu.shortcuts]]
+name = "<i class='fas fa-tags'></i> Tag List"
+url = "/tags"
+weight = -10
+
+[[Languages.en.menu.shortcuts]]
 name = "<i class='fab fa-fw fa-github'></i> Github repo"
 identifier = "ds"
 url = "https://github.com/pocc/tshark.dev"

@@ -1,5 +1,5 @@
 ---
-title: "Building Your Tshark Capture Command"
+title: "Build your Command"
 date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
 desc: "Like building a regex but more fun!"
@@ -7,6 +7,7 @@ tags:
   - networking
   - tshark
 image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
+weight: 10
 
 draft: true
 ---
