@@ -1,12 +1,10 @@
 ---
 title: Setup
-weight: 10
 chapter: true
-pre: "<b>2. </b>"
+pre: "<b>0. </b>"
+weight: 1
 ---
 
-### Chapter 2
-
-# Content
+# Setup
 
 Find out how to create and organize your content quickly and intuitively.
