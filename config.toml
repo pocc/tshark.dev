@@ -16,14 +16,14 @@ defaultContentLanguageInSubdir= true
   disableBreadcrumb = false
   disableNextPrev = true
   themeVariant = "blue"
-  logo = "Wireshark_icon.svg"
+  disableInlineCopyToClipBoard = "true"
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
 
 [Languages]
 [Languages.en]
-title = "Documentation for Hugo Learn Theme"
+title = "tshark scripting"
 weight = 1
 languageName = "English"
 

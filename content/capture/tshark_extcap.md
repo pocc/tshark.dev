@@ -8,7 +8,6 @@ tags:
   - wireshark
   - commandfu
   - draft1
-image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
 weight: 90
 
 draft: true
