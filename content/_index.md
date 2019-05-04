@@ -21,6 +21,27 @@ how to use to do X with the CLI, you've come to the right place. As a
 contributor to Wireshark and daily user, I am writing this as an unofficial
 tshark guide.
 
+## You are Here <i class="fas fa-map-marked-alt"></i>
+
+```mermaid
+graph LR;
+	SUWS[<a href={{< ref "/setup/tshark_setup" >}}>0. Setup Wireshark</a>]
+	has_iface[Interface found?]
+	CAPT[<a href={{< ref "/capture" >}}>1. Capture</a>]
+	SUCI[<a href={{< ref "/capture/choose_interface" >}}>Setup Capture Interface</a>]
+	ANLS[<a href={{< ref "/analyze" >}}>2. Analysis</a>] 
+	GEN8[<a href=google.com>3. Generation</a>] 
+	INTRO[<a href=/>Introduction</a>]
+
+	INTRO
+	SUWS --> has_iface
+	has_iface--> CAPT
+	has_iface -- no --> SUCI
+	CAPT -- interface not found --> COMM
+	
+	GEN8
+```
+
 ## Motivation
 
 There are a couple things that motivate this guide:
