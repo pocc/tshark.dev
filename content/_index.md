@@ -1,17 +1,13 @@
 ---
-title: "Wireshark CLI"
+title: "tshark guide"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
 desc: "Using the Wireshark CLI for Packet Analysis"
-tags:
-  - networking
-  - wireshark
-image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
 
 draft: false
 ---
 
-# _Packet Analysis, Scripted_
+# Packet Analysis, Scripted
 
 ## Introduction
 
@@ -23,24 +19,53 @@ tshark guide.
 
 ## You are Here <i class="fas fa-map-marked-alt"></i>
 
-```mermaid
-graph LR;
-	SUWS[<a href={{< ref "/setup/tshark_setup" >}}>0. Setup Wireshark</a>]
-	has_iface[Interface found?]
-	CAPT[<a href={{< ref "/capture" >}}>1. Capture</a>]
-	SUCI[<a href={{< ref "/capture/choose_interface" >}}>Setup Capture Interface</a>]
-	ANLS[<a href={{< ref "/analyze" >}}>2. Analysis</a>] 
-	GEN8[<a href=google.com>3. Generation</a>] 
-	INTRO[<a href=/>Introduction</a>]
 
-	INTRO
-	SUWS --> has_iface
-	has_iface--> CAPT
-	has_iface -- no --> SUCI
-	CAPT -- interface not found --> COMM
+{{<mermaid align="right">}}
+graph LR;
+	%% Elements
+	subgraph GET STARTED
+	SETUP[Setup tshark]
+	INTRO[Intro]
+	end
+	subgraph GET PCAP
+	CAPTURE[Capture to Pcap]
+	DOWNLOAD[Download Pcap]
+	GENERATE[Generate Pcap]
+	end
+
+	subgraph ANALYZE PCAP
+	PCAP[Pcap File]
+	EDIT[Edit]
+	EXPORT[Export Files]
+	INFO[Get Info]
+	end
 	
-	GEN8
-```
+	subgraph ADVANCED TOPICS
+	COMM[Communicate Results]
+	ADVANCED[Wizardcraft]
+	end
+
+	%% CSS
+	style SETUP fill:#1c90f3,stroke:
+	linkStyle default interpolate basis
+
+	%% Relationships
+	INTRO --> SETUP
+	SETUP --> CAPTURE
+	SETUP --> GENERATE
+	CAPTURE --> PCAP
+	DOWNLOAD --> PCAP
+	GENERATE --> PCAP
+	
+	PCAP --> EDIT
+	EDIT --> PCAP
+	PCAP --> EXPORT
+	PCAP --> INFO
+	PCAP --> COMM
+	EXPORT --> COMM
+	INFO --> COMM
+	
+{{< /mermaid >}}
 
 ## Motivation
 

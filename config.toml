@@ -23,7 +23,7 @@ home = [ "HTML", "RSS", "JSON"]
 
 [Languages]
 [Languages.en]
-title = "tshark scripting"
+title = "Tshark Guide"
 weight = 1
 languageName = "English"
 
