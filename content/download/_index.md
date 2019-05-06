@@ -1,13 +1,10 @@
 ---
-title: "Generate Pcap"
+title: "Download Pcap"
 author: Ross Jacobs
-chapter: false
-pre: <b><i class="fas fa-industry"></i>　</b>
+pre: <b><i class="fas fa-download"></i>　</b>
 desc: "Generating pcaps for fun and profit!"
 tags: [networking, wireshark]
 weight: 12
-
-draft: true
 ---
 
 ```mermaid
@@ -19,8 +16,8 @@ graph LR;
 	
 	subgraph GET PCAP
 	CAPTURE(<a href={{< ref "/capture" >}}>fa:fa-network-wired Capture Pcap</a>)
-	GEN(fa:fa-industry Generate Pcap)
-	DL(<a href={{< ref "/download" >}}>fa:fa-download Download Pcap</a>)
+	GEN(<a href={{< ref "/generation" >}}>fa:fa-industry Generate Pcap</a>)
+	DL(fa:fa-download Download Pcap)
 	end
 
 	subgraph ANALYZE PCAP
@@ -41,9 +38,9 @@ graph LR;
 	linkStyle default interpolate monotoneX
 	classDef others fill:#D6EAF8,stroke:#1B4F72;
 	classDef thisnode fill:#5DADE2,stroke:#1B4F72;
-	class SETUP,CAPTURE,DL,PCAP,EDIT,EXPORT,INFO,COMM,ADV,HELP others
-	class GEN thisnode
-	style GEN stroke-width:3px;
+	class SETUP,CAPTURE,DL,GEN,PCAP,EDIT,EXPORT,INFO,COMM,ADV,HELP others
+	class DL thisnode
+	style DL stroke-width:3px;
 
 	%% Relationships
 	SETUP --> CAPTURE
@@ -55,11 +52,11 @@ graph LR;
 	PCAP --> EDIT
 	EDIT --> PCAP
 	PCAP --> EXPORT
-	PCAP --> INFO
-	PCAP --> COMM
-	EXPORT --> COMM
-	INFO --> COMM
-```	
+    PCAP --> INFO
+    PCAP --> COMM
+    EXPORT --> COMM
+    INFO --> COMM
+```
 
 _Make traffic that didn't exist before._
 

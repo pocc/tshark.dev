@@ -1,8 +1,8 @@
 ---
-title: "Editing"
+title: "Edit Pcap"
 chapter: true
-pre: <b>2.2 <i class="fas fa-edit"></i> </b>
-weight: 30
+pre: <b><i class="fas fa-edit"></i>　</b>
+weight: 21
 ---
 
 ## Editing is cool n stuff

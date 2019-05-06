@@ -9,17 +9,7 @@ draft: false
 
 # Packet Analysis
 
-## Introduction
-
-In line with the Unix philosophy of "Do one thing well", Wireshark has many
-small CLI utilities. If you are reading this article because you want to know
-how to use to do X with the CLI, you've come to the right place. As a
-contributor to Wireshark and daily user, I am writing this as an unofficial
-tshark guide.
-
 ## You are Here <i class="fas fa-map-marked-alt"></i>
-
-You will find this map on every page. Use it to find what you need.
 
 ```mermaid
 graph LR;
@@ -31,20 +21,21 @@ graph LR;
 	
 	subgraph GET PCAP
 	CAPTURE(<a href={{< ref "/capture" >}}>fa:fa-network-wired Capture Pcap</a>)
-	GEN(<a href={{< ref "/setup" >}}>fa:fa-drafting-compass Generate Pcap</a>)
-	DL(<a href={{< ref "/setup" >}}>fa:fa-download Download Pcap</a>)
+	GEN(<a href={{< ref "/generation" >}}>fa:fa-industry Generate Pcap</a>)
+	DL(<a href={{< ref "/download" >}}>fa:fa-download Download Pcap</a>)
 	end
 
 	subgraph ANALYZE PCAP
-	PCAP((<a href={{< ref "/setup" >}}>fa:fa-file Pcap File</a>))
-	EDIT(<a href={{< ref "/edit" >}}>fa:fa-edit Edit</a>)
-	EXPORT(<a href={{< ref "/setup" >}}>fa:fa-file-export Export Files</a>)
-	INFO(<a href={{< ref "/setup" >}}>fa:fa-info-circle Get Info</a>)
+	PCAP((<a href={{< ref "/" >}}>fa:fa-file Pcap File</a>))
+	EDIT(<a href={{< ref "/edit" >}}>fa:fa-edit Edit Pcap</a>)
+	EXPORT(<a href={{< ref "/export" >}}>fa:fa-file-export Export Files</a>)
+	INFO(<a href={{< ref "/getinfo" >}}>fa:fa-info-circle Get Info</a>)
 	end
 	
 	subgraph ADVANCED TOPICS
-	ADV(<a href={{< ref "/advanced" >}}>fa:fa-hat-wizard Wizardcraft</a>)
-	COMM(<a href={{< ref "/communicate" >}}>fa:fa-envelope Communicate Results</a>)
+	ADV(<a href={{< ref "/advanced" >}}>fa:fa-hat-wizard Packetcraft</a>)
+	COMM(<a href={{< ref "/communicate" >}}>fa:fa-envelope Communicate<br/> Results</a>)
+	HELP(<a href={{< ref "/contribute" >}}>fa:fa-code-branch Contribute</a>)
 	end
 	
 	%% CSS
@@ -52,7 +43,7 @@ graph LR;
 	linkStyle default interpolate monotoneX
 	classDef others fill:#D6EAF8,stroke:#1B4F72;
 	classDef thisnode fill:#5DADE2,stroke:#1B4F72;
-	class SETUP,CAPTURE,DL,GEN,PCAP,EDIT,EXPORT,INFO,COMM,ADV,SEEALSO others
+	class SETUP,CAPTURE,DL,GEN,PCAP,EDIT,EXPORT,INFO,COMM,ADV,HELP others
 	class MAP thisnode
 	style MAP stroke-width:3px;
 
@@ -67,11 +58,20 @@ graph LR;
 	EDIT --> PCAP
 	PCAP --> EXPORT
 	PCAP --> INFO
-	MAP
 	PCAP --> COMM
 	EXPORT --> COMM
 	INFO --> COMM
 ```	
+
+You will find this map on every page. Use it to find what you need.
+
+## Introduction
+
+In line with the Unix philosophy of "Do one thing well", Wireshark has many
+small CLI utilities. If you are reading this article because you want to know
+how to use to do X with the CLI, you've come to the right place. As a
+contributor to Wireshark and daily user, I am writing this as an unofficial
+tshark guide.
 
 ## Motivation
 
