@@ -7,7 +7,7 @@ desc: "Using the Wireshark CLI for Packet Analysis"
 draft: false
 ---
 
-# Packet Analysis, Scripted
+# Packet Analysis
 
 ## Introduction
 
@@ -19,43 +19,51 @@ tshark guide.
 
 ## You are Here <i class="fas fa-map-marked-alt"></i>
 
+You will find this map on every page. Use it to find what you need.
 
-{{<mermaid align="right">}}
+```mermaid
 graph LR;
 	%% Elements
 	subgraph GET STARTED
-	SETUP[Setup tshark]
-	INTRO[Intro]
+	MAP(fa:fa-map-marked-alt About)
+	SETUP(<a href={{< ref "/setup" >}}>fa:fa-fighter-jet Setup tshark</a>)
 	end
+	
 	subgraph GET PCAP
-	CAPTURE[Capture to Pcap]
-	DOWNLOAD[Download Pcap]
-	GENERATE[Generate Pcap]
+	CAPTURE(<a href={{< ref "/capture" >}}>fa:fa-network-wired Capture Pcap</a>)
+	GEN(<a href={{< ref "/setup" >}}>fa:fa-drafting-compass Generate Pcap</a>)
+	DL(<a href={{< ref "/setup" >}}>fa:fa-download Download Pcap</a>)
 	end
 
 	subgraph ANALYZE PCAP
-	PCAP[Pcap File]
-	EDIT[Edit]
-	EXPORT[Export Files]
-	INFO[Get Info]
+	PCAP((<a href={{< ref "/setup" >}}>fa:fa-file Pcap File</a>))
+	EDIT(<a href={{< ref "/edit" >}}>fa:fa-edit Edit</a>)
+	EXPORT(<a href={{< ref "/setup" >}}>fa:fa-file-export Export Files</a>)
+	INFO(<a href={{< ref "/setup" >}}>fa:fa-info-circle Get Info</a>)
 	end
 	
 	subgraph ADVANCED TOPICS
-	COMM[Communicate Results]
-	ADVANCED[Wizardcraft]
+	ADV(<a href={{< ref "/setup" >}}>fa:fa-hat-wizard Wizardcraft</a>)
+	COMM(<a href={{< ref "/setup" >}}>fa:fa-envelope Communicate Results</a>)
 	end
-
+	
 	%% CSS
-	style SETUP fill:#1c90f3,stroke:
-	linkStyle default interpolate basis
+	%% Using blues from https://htmlcolorcodes.com/ 
+	linkStyle default interpolate monotoneX
+	classDef others fill:#D6EAF8,stroke:#1B4F72;
+	classDef thisnode fill:#5DADE2,stroke:#1B4F72;
+	class SETUP,CAPTURE,DL,GEN,PCAP,EDIT,EXPORT,INFO,COMM,ADV,SEEALSO others
+	class MAP thisnode
+	style MAP stroke-width:3px;
 
 	%% Relationships
-	INTRO --> SETUP
+	MAP
+	
 	SETUP --> CAPTURE
-	SETUP --> GENERATE
+	SETUP --> GEN
 	CAPTURE --> PCAP
-	DOWNLOAD --> PCAP
-	GENERATE --> PCAP
+	DL --> PCAP
+	GEN --> PCAP
 	
 	PCAP --> EDIT
 	EDIT --> PCAP
@@ -64,8 +72,7 @@ graph LR;
 	PCAP --> COMM
 	EXPORT --> COMM
 	INFO --> COMM
-	
-{{< /mermaid >}}
+```	
 
 ## Motivation
 
@@ -145,11 +152,6 @@ colleagues/customers.
   - [ ] <using randpkt gif (upload from desktop as gif/webp)>
   - [ ] Wireshark extcap_example.py with GUI and screen recording
 
-## <a name=closing-thoughts></a>Closing Thoughts
-
-Personally, I think that wireshark's CLI needs a better API. For example, git
-has a large amount of functionality, but.
-
 ## Further Reading
 
 _The end of one adventure is the beginning of another._
@@ -169,3 +171,4 @@ _The end of one adventure is the beginning of another._
 * [Get the Sourcecode](https://www.wireshark.org/develop.html)
 * [File a Bug Report](https://wiki.wireshark.org/ReportingBugs)
 * [Contribute!](https://www.wireshark.org/docs/wsdg_html_chunked/)
+
