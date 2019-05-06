@@ -24,8 +24,8 @@ You will find this map on every page. Use it to find what you need.
 ```mermaid
 graph LR;
 	%% Elements
-	subgraph GET STARTED
 	MAP(fa:fa-map-marked-alt About)
+	subgraph GET STARTED
 	SETUP(<a href={{< ref "/setup" >}}>fa:fa-fighter-jet Setup tshark</a>)
 	end
 	
@@ -43,8 +43,8 @@ graph LR;
 	end
 	
 	subgraph ADVANCED TOPICS
-	ADV(<a href={{< ref "/setup" >}}>fa:fa-hat-wizard Wizardcraft</a>)
-	COMM(<a href={{< ref "/setup" >}}>fa:fa-envelope Communicate Results</a>)
+	ADV(<a href={{< ref "/advanced" >}}>fa:fa-hat-wizard Wizardcraft</a>)
+	COMM(<a href={{< ref "/communicate" >}}>fa:fa-envelope Communicate Results</a>)
 	end
 	
 	%% CSS
@@ -57,8 +57,6 @@ graph LR;
 	style MAP stroke-width:3px;
 
 	%% Relationships
-	MAP
-	
 	SETUP --> CAPTURE
 	SETUP --> GEN
 	CAPTURE --> PCAP
@@ -69,6 +67,7 @@ graph LR;
 	EDIT --> PCAP
 	PCAP --> EXPORT
 	PCAP --> INFO
+	MAP
 	PCAP --> COMM
 	EXPORT --> COMM
 	INFO --> COMM
@@ -165,7 +164,21 @@ _The end of one adventure is the beginning of another._
 * [Python Guide](https://docs.python-guide.org/): For when you want to turn your
   script into a project.
 
-### Wireshark
+### Content from another page (edit this)
+
+There are many wireshark command line utilities. I plan on going over how to use
+them as part of networking troubleshooting and pcap munging.
+
+This article is focused on different packet libraries like Google's Go Packet
+library, Python's PyShark and Scapy. 
+
+Things I care about:
+* Speed
+* Capabilities
+
+https://wiki.wireshark.org/Tools
+
+## Wireshark
 
 * [Official Docs](https://www.wireshark.org/docs/man-pages/)
 * [Get the Sourcecode](https://www.wireshark.org/develop.html)

@@ -1,7 +1,7 @@
 ---
 title: "Editing"
 chapter: true
-pre: "<b>3. </b>"
+pre: <b>2.2 <i class="fas fa-edit"></i> </b>
 weight: 30
 ---
 
