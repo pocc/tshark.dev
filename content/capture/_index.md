@@ -1,7 +1,7 @@
 ---
 title: "Capturing"
 chapter: true
-pre: "<b>1. </b>"
+pre: <b>1.1 <i class="fas fa-network-wired"></i> </b>
 weight: 10
 ---
 
