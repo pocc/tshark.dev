@@ -1,7 +1,7 @@
 ---
 title: Tshark Setup
 author: Ross Jacobs
-pre: <b>0. <i class="fas fa-fighter-jet"></i> </b>
+pre: <b><i class="fas fa-fighter-jet"></i>　</b>
 tags:
   - setup
   - linux
@@ -9,6 +9,56 @@ tags:
   - windows
 weight: 1
 ---
+```mermaid
+graph LR;
+	%% Elements
+	subgraph GET STARTED
+	SETUP(fa:fa-fighter-jet Setup tshark)
+	end
+	
+	subgraph GET PCAP
+	CAPTURE(<a href={{< ref "/capture" >}}>fa:fa-network-wired Capture Pcap</a>)
+	GEN(<a href={{< ref "/generation" >}}>fa:fa-industry Generate Pcap</a>)
+	DL(<a href={{< ref "/download" >}}>fa:fa-download Download Pcap</a>)
+	end
+
+	subgraph ANALYZE PCAP
+	PCAP((<a href={{< ref "/" >}}>fa:fa-file Pcap File</a>))
+	EDIT(<a href={{< ref "/edit" >}}>fa:fa-edit Edit Pcap</a>)
+	EXPORT(<a href={{< ref "/export" >}}>fa:fa-file-export Export Files</a>)
+	INFO(<a href={{< ref "/getinfo" >}}>fa:fa-info-circle Get Info</a>)
+	end
+	
+	subgraph ADVANCED TOPICS
+	ADV(<a href={{< ref "/advanced" >}}>fa:fa-hat-wizard Packetcraft</a>)
+	COMM(<a href={{< ref "/communicate" >}}>fa:fa-envelope Communicate<br/> Results</a>)
+	HELP(<a href={{< ref "/contribute" >}}>fa:fa-code-branch Contribute</a>)
+	end
+	
+	%% CSS
+	%% Using blues from https://htmlcolorcodes.com/ 
+	linkStyle default interpolate monotoneX
+	classDef others fill:#D6EAF8,stroke:#1B4F72;
+	classDef thisnode fill:#5DADE2,stroke:#1B4F72;
+	class CAPTURE,DL,GEN,PCAP,EDIT,EXPORT,INFO,COMM,ADV,HELP others
+	class SETUP thisnode
+	style SETUP stroke-width:3px;
+
+	%% Relationships
+	SETUP --> CAPTURE
+	SETUP --> GEN
+	CAPTURE --> PCAP
+	DL --> PCAP
+	GEN --> PCAP
+	
+	PCAP --> EDIT
+	EDIT --> PCAP
+	PCAP --> EXPORT
+    PCAP --> INFO
+    PCAP --> COMM
+    EXPORT --> COMM
+    INFO --> COMM
+```
 
 _Setup Wireshark 3.0.0 on your $System_
 
