@@ -1,5 +1,6 @@
+// hubcap.go
 // Utility to download online pcaps to a temporary folder
-package main 
+package main
 
 import (
     "fmt"
@@ -58,6 +59,7 @@ func main() {
     base_url := "http://packetlife.net"
 	num_pages := get_pl_capture_qty(base_url)
 	filenames, descs := get_capture_paths(base_url, num_pages)
+	fmt.Println(S.Ret5())
 	// * [ ] Download all files to a temp dir
 	// * [ ] Compute the hash of all files
 	// * [ ] Get capinfos json for all files
