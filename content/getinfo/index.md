@@ -13,7 +13,6 @@ draft: true
 ```mermaid
 graph LR;
 	%% Elements
-	MAP(fa:fa-map-marked-alt About)
 	subgraph GET STARTED
 	SETUP(<a href={{< ref "/setup" >}}>fa:fa-fighter-jet Setup tshark</a>)
 	end
