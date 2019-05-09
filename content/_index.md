@@ -21,6 +21,7 @@ graph LR;
 	
 	subgraph GET PCAP
 	CAPTURE(<a href={{< ref "/capture" >}}>fa:fa-network-wired Capture Pcap</a>)
+	LIVE(fa:fa-wind Live Capture)
 	GEN(<a href={{< ref "/generation" >}}>fa:fa-industry Generate Pcap</a>)
 	DL(<a href={{< ref "/download" >}}>fa:fa-download Download Pcap</a>)
 	end
@@ -30,6 +31,7 @@ graph LR;
 	EDIT(<a href={{< ref "/edit" >}}>fa:fa-edit Edit Pcap</a>)
 	EXPORT(<a href={{< ref "/export" >}}>fa:fa-file-export Export Files</a>)
 	INFO(<a href={{< ref "/getinfo" >}}>fa:fa-info-circle Get Info</a>)
+	ANLS(Packet Analysis)
 	end
 	
 	subgraph ADVANCED TOPICS
@@ -43,22 +45,25 @@ graph LR;
 	linkStyle default interpolate monotoneX
 	classDef others fill:#D6EAF8,stroke:#1B4F72;
 	classDef thisnode fill:#5DADE2,stroke:#1B4F72;
-	class SETUP,CAPTURE,DL,GEN,PCAP,EDIT,EXPORT,INFO,COMM,ADV,HELP others
+	class SETUP,CAPTURE,DL,GEN,LIVE,PCAP,EDIT,EXPORT,INFO,COMM,ADV,HELP others
 	class MAP thisnode
 	style MAP stroke-width:3px;
 
 	%% Relationships
 	SETUP --> CAPTURE
+	SETUP --> LIVE
 	SETUP --> GEN
-	CAPTURE --> PCAP
 	DL --> PCAP
-	GEN --> PCAP
+	GEN --> ANLS
+	CAPTURE --> PCAP
+	LIVE --> ANLS
 	
 	PCAP --> EDIT
 	EDIT --> PCAP
 	PCAP --> EXPORT
 	PCAP --> INFO
-	PCAP --> COMM
+	PCAP --> ANLS
+	ANLS --> COMM
 	EXPORT --> COMM
 	INFO --> COMM
 ```	
@@ -86,70 +91,6 @@ This guide will help you to capture traffic, edit it, clean it, and send it. The
 scenario being that you are reporting on a network problem and want to use
 wireshark to provide a packet capture you can then send on to
 colleagues/customers.
-
-<!-- Kludgy TOC until I can figure out how to include {{ hugo toc }} in the content -->
-
-# Table of Contents
-
-## Getting Started
-
-	* [ ] Installing 
-* [X] [Getting Started](/post/wireshark-setup)
-  <!-- [[wireshark_setup]] -->
-	* [Installing Latest Package](/post/wireshark-setup/#install_from_package)
-	* [Installing From Source](/post/wireshark-setup/#install_from_source)
-	* [Customize your Setup]()
-
-## Capturing
-
-* [ ] [Capture](/post/wireshark-capturing)
-  <!-- [[wireshark_capturing]] --> 
-	* [X] [Determine your Interface](/post/wireshark-capturing#dumpcap)
-	* [X] [Read from a Source](/post/wireshark-capturing#dumpcap)
-	* [X] [Filter Traffic](/post/wireshark-capturing#dumpcap)
-	* [X] [Capture Paramaters](/post/wireshark-capturing#dumpcap)
-	* [X] [Name Resolution](/post/wireshark-capturing#dumpcap)
-	* [X] [Decoding Protocols](/post/wireshark-capturing#dumpcap)
-	* [ ] [tshark vs dumpcap](/post/wireshark-capturing#tshark)
-
-## Analysis
-
-* [o] [Analyze](/post/wireshark-info#info) 
-  <!-- [[wireshark_info]] -->
-	* [ ] [Syntax]
-		* [ ] What is BPF
-		* [ ] How does Wireshark syntaxt work?
-		* [ ] Testing your filter: dftest
-	* [X] [capinfos](/post/wireshark-info#capinfos)  
-	* [ ] [captype]
-	* [ ] tshark -G
-	* [X] [rawshark](/post/wireshark-info#rawshark)
-
-### Non-technical communication
-
-## Advanced Topics
-
-- [X] [Generate](/post/wireshark-generation#generate)
-  - [X] [randpkt](/post/wireshark-generation#randpkt)
-- [ ] [Edit](/post/wireshark-editing#edit)
-  - [ ] [editcap](#editcap)
-  - [ ] [mergecap](#mergecap)
-  - [ ] [reordercap](#reordercap)
-  - [ ] [text2pcap](#text2pcap)
-- [o] [Additional Topics](/post/wireshark-bonus-topics#additional-topics)  
-  - [ ] [Export Object](/post/wireshark-export-object)
-  - [X] [Editing Hex](/post/wireshark-bonus-topics#editing-hex)
-  - [X] [Piping](/post/wireshark-bonus-topics#piping)
-- [ ] [Unusual Interfaces and Where to Find Them]  
-  - [ ] Add Gif of chrome download live capture
-  - [ ] Add Scapy gif of live capture
-- [ ] [extcap: Make your own interface]  
-  - [ ] randpkt 1
-  - [ ] randpkt 2
-  - [ ] randpkt 3
-  - [ ] randpkt 4
-  - [ ] <using randpkt gif (upload from desktop as gif/webp)>
-  - [ ] Wireshark extcap_example.py with GUI and screen recording
 
 ## Further Reading
 
