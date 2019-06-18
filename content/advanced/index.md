@@ -1,6 +1,6 @@
 ---
 title: "Packetcraft"
-chapter: true
+chapter: false
 pre: <b><i class="fas fa-hat-wizard"></i>　</b>
 weight: 80
 ---

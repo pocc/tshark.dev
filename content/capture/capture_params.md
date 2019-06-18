@@ -24,8 +24,7 @@ When should it stop?  `-a` provides several methods for stopping the capture:
 Ring buffers: `-b` are like `-a` but you can also specify interval: NUM in
 seconds.
 
-<Include ASCIINEMA>
+(Include ASCIINEMA)
 
 -B  : Size of the Kernel Buffer => Default is 2MB. (How can you verify this?)
--s <num> : limit each packet to NUM bytes to save on space.
-
+-s (num) : limit each packet to NUM bytes to save on space.
