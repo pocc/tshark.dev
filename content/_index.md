@@ -2,7 +2,7 @@
 title: "Tshark Guide"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
-desc: "Using the Wireshark CLI for Packet Analysis"
+description: "Using the Wireshark CLI for Packet Analysis"
 
 draft: false
 ---
@@ -48,14 +48,14 @@ There are many wireshark command line utilities. I plan on going over how to use
 them as part of networking troubleshooting and pcap munging.
 
 This article is focused on different packet libraries like Google's Go Packet
-library, Python's PyShark and Scapy. 
+library, Python's PyShark and Scapy.
 
 Things I care about:
 
 - Speed
 - Capabilities
 
-https://wiki.wireshark.org/Tools
+[more info](https://wiki.wireshark.org/Tools)
 
 ## Wireshark
 
@@ -63,4 +63,3 @@ https://wiki.wireshark.org/Tools
 - [Get the Sourcecode](https://www.wireshark.org/develop.html)
 - [File a Bug Report](https://wiki.wireshark.org/ReportingBugs)
 - [Contribute!](https://www.wireshark.org/docs/wsdg_html_chunked/)
-

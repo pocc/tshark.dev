@@ -1,10 +1,10 @@
 ---
-title: "Generate Pcap"
+title: "Get Pcap Info"
 author: Ross Jacobs
 chapter: false
-pre: <b><i class="fas fa-industry"></i>　</b>
-desc: "Generating pcaps for fun and profit!"
-weight: 12
+pre: <b><i class="fas fa-info-circle"></i>　</b>
+description: "Generating pcaps for fun and profit!"
+weight: 22
 
 draft: true
 ---

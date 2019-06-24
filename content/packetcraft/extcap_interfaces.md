@@ -2,7 +2,7 @@
 title: "Extcap Interfaces"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
-desc: "Wireshark Bonus Topics"
+description: "Make Wireshark your own"
 tags:
   - networking
   - wireshark
@@ -12,8 +12,6 @@ weight: 90
 
 draft: true
 ---
-
-_Make Wireshark your own_
 
 ## background
 

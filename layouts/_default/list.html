@@ -1,6 +1,18 @@
 {{ partial "header.html" . }}
 
-{{ .Content }}
+{{ partial "mermaid-map.html" . }}
+
+{{ if eq .Kind "section" }}
+	{{ .Content }}
+{{end}}
+
+{{ if or (eq .Kind "taxonomy") (eq .Kind "taxonomyTerm") }}
+<ul>
+	{{ range .Pages }}
+		<li><a href="{{.URL}}">{{.Title}}</a></li>
+	{{ end }}
+</ul>
+{{end}}
 
 <footer class=" footline" >
 	{{with .Params.LastModifierDisplayName}}
@@ -8,6 +20,5 @@
 	    </div>
 	{{end}}
 </footer>
-
 
 {{ partial "footer.html" . }}

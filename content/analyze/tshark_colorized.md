@@ -2,7 +2,7 @@
 title: "Tshark, Colorized"
 date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
-desc: "Wireshark Bonus Topics"
+description: "Wireshark Bonus Topics"
 tags:
   - networking
   - tshark
