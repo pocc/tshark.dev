@@ -2,7 +2,7 @@
 title: "Choosing an Interface"
 date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
-desc: "Like building a regex but more fun!"
+description: "Like building a regex but more fun!"
 tags:
   - setup
   - capture

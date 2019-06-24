@@ -2,7 +2,7 @@
 title: "Unusual Interfaces"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
-desc: "Wireshark Bonus Topics"
+description: "Wireshark Bonus Topics"
 tags:
   - networking
   - wireshark

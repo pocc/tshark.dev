@@ -1,15 +1,9 @@
 ---
-title: "Wireshark Bonus Topics"
-date: 2019-03-12T12:44:45Z
-author: Ross Jacobs
-desc: "Wireshark Bonus Topics"
-tags:
-  - networking
-  - wireshark
-  - draft1
+title: "Packetcraft"
+chapter: false
+pre: <b><i class="fas fa-hat-wizard"></i>　</b>
+weight: 80
 image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
-
-draft: true
 ---
 
 ## Editing Hex
@@ -21,7 +15,7 @@ funny-looking broadcast address. In hex, this is `0xffffffff` => `0xff00ff00`.
 
 ### sed
 
-`sed` gives you the ability to munge filehex. 
+`sed` gives you the ability to munge filehex.
 
 `sed -Ei 's/([^\xff])\xff{4}([^\xff])/\1\xff\x00\xff\x00\2/g' dhcp.pcap`
 
@@ -39,7 +33,7 @@ funny-looking broadcast address. In hex, this is `0xffffffff` => `0xff00ff00`.
 - `\xff{4}`: Given that this packet capture is DHCP, the client
   sends traffic to a MAC address of ffffffffffff. Thus, a
   [regex](https://regexone.com/) of `\xff{4}` will match the dest MAC as well.
-  Putting it all together, we get `[^\xff]\xff{4}[^\xff]`. 
+  Putting it all together, we get `[^\xff]\xff{4}[^\xff]`.
 - `([^\xff])` Add parentheses (capturing group) to both preceding and trailing
   byte, so they are included in the result
 - `\1`, `\2` : We cannot use lookaheand/lookbehind with sed, so use capture
@@ -73,11 +67,11 @@ with `M-x hexl-find-file` and use `C-M-x` to insert hex:
 
 ### Honorable Mentions
 
-* [hexcurse](https://github.com/arm0th/hexcurse ): curses-based hex editing utility.
-* [wxhexeditor](http://www.wxhexeditor.org/): The only cross-platform GUI hex
+- [hexcurse](https://github.com/arm0th/hexcurse ): curses-based hex editing utility.
+- [wxhexeditor](http://www.wxhexeditor.org/): The only cross-platform GUI hex
   editor with native binaries.
 
-## <a name=piping></a>Piping 
+## Piping 
 
 Piping is important to using many of these utilities. For example, it is not
 really possible to use rawshark without piping as it expects a FIFO or stream. 
@@ -94,9 +88,9 @@ really possible to use rawshark without piping as it expects a FIFO or stream.
 | **text2pcap**  | hexdump<sup>4</sup>  | -                  | -                         | pcap, pcapng   |
 | **tshark**     | raw pcap             | *pcaps             | report, raw pcap, hexdump | *pcaps         |
 
-1. __*pcaps__ 
+1. __*pcaps__
   All pcap types available on the system (use `tshark -F` to list).
-2. __report__   
+2. __report__
   Tabular or "machine-readable" data about a file.
 3. __rawpcap__  
   The raw bytes of the pcap header and packets. Can be generated

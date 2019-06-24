@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/* Tshark theme */
 /* Tags */
 @import "tags.css";
 
@@ -176,7 +177,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     background-color: #322A38;
     position: fixed;
     top: 0;
-    width: 300px;
+    width: 250px;
     bottom: 0;
     left: 0;
     font-weight: 400;
@@ -307,7 +308,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     display: block;
 }
 #sidebar ul li > a {
-    padding: 4px 0;
+    padding: 0px 0;
 }
 #sidebar ul li.visited > a .read-icon {
     color: #9c6fb6;
@@ -1010,7 +1011,6 @@ td {
     text-overflow: ellipsis;
     width: 70%;
     display: inline-block;
-    float: left;
 }
 #body #breadcrumbs span {
     padding: 0 0.1rem;

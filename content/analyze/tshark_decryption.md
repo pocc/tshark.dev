@@ -2,7 +2,7 @@
 title: "Tshark Decryption"
 date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
-desc: "Tshark Decryption for Kerberos, TLS, and 802.11"
+description: "Tshark Decryption for Kerberos, TLS, and 802.11"
 tags:
   - networking
   - tshark

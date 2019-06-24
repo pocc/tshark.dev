@@ -2,7 +2,7 @@
 title: "Tshark Export Objects"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
-desc: "Exporting files from packet captures"
+description: "Exporting files from packet captures"
 tags:
   - networking
   - tshark

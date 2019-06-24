@@ -2,7 +2,7 @@
 title: "Wireshark Editing"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
-desc: "Remember to use a spellchecker when you edit your pcaps"
+description: "Remember to use a spellchecker when you edit your pcaps"
 tags:
   - networking
   - wireshark

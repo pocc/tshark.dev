@@ -2,7 +2,7 @@
 title: "Wireshark Info"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
-desc: "Get info about a packet capture"
+description: "Get info about a packet capture"
 tags:
   - networking
   - wireshark
