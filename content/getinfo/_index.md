@@ -2,7 +2,7 @@
 title: "Get Pcap Info"
 author: Ross Jacobs
 chapter: false
-pre: <b><i class="fas fa-info-circle"></i>　</b>
+pre: X<b><i class="fas fa-info-circle"></i>　</b>
 description: "Generating pcaps for fun and profit!"
 weight: 22
 
