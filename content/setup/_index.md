@@ -9,7 +9,8 @@ weight: 1
 
 _Setup Wireshark 3.0.0 on your $System_
 _All package managers have versions 2.6.6 and prior. If you want this version,
-you can install it with `$PackageManager install wireshark`._
+you can install it with `$PackageManager install wireshark`. This package state
+remains true as of 2019-06-24._
 
 ## Install 3.0.0
 
