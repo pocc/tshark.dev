@@ -1,9 +1,8 @@
 ---
-title: "Packetcraft"
-chapter: false
-pre: <b><i class="fas fa-hat-wizard"></i>　</b>
-weight: 80
-image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
+title: "Editing Hex"
+author: Ross Jacobs
+description: "Put a hex on your hex"
+weight: 0
 ---
 
 ## Editing Hex

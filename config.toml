@@ -26,3 +26,6 @@ home = [ "HTML", "RSS", "JSON"]
 title = "Tshark Guide"
 weight = 1
 languageName = "English"
+
+PygmentsCodeFences = true
+PygmentsStyle = "monokai"
