@@ -65,12 +65,3 @@ If you are writing a software implementation of a protocol or think that your
 device may be violating one, you can use Wireshark to analyze the packets.
 You can then compare the actual bytes that you see transmitted to the RFC or
 spec on the subject.
-
-## Talking about Packet Analysis
-
-When communicating your findings to others, you should include a couple
-things to make it easier to understand the problem:
-
-- Devices/interfaces you gathered data off of. Include topologies as
-appropriate.
-- Identify the filters that are relevant (or send the pcap pre-filtered)
