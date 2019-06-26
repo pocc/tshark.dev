@@ -2,23 +2,12 @@
 title: "Tshark, Colorized"
 date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
-description: "Wireshark Bonus Topics"
-tags:
-  - networking
-  - tshark
-  - bash
-image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
-
-draft: false
+description: "With color one obtains an energy that seems to stem from witchcraft. — Henri Matisse"
 ---
-
-> _"With color one obtains an energy that seems to stem from witchcraft."  
--- Henri Matisse_
 
 Part of the allure of Wireshark is the ability to identify networking problems
 with the use of color. Relatively recently, tshark has gained this ability too
 with the `--color` flag. This article goes over how to set it up on your system.
-
 
 ![](https://dl.dropboxusercontent.com/s/pt45pphiekt4srh/packets_the_universal_interface.png)
 _Demonstration of tshark --color on Windows, Macos, Linux, and BSD._
