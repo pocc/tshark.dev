@@ -3,10 +3,6 @@ title: "Choosing an Interface"
 date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
 description: "Like building a regex but more fun!"
-tags:
-  - setup
-  - capture
-  - tshark
 weight: 20
 
 draft: false

@@ -3,7 +3,7 @@ title: "Script Packets"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
 description: "Generate packets with your favorite programming language"
-weight: 10
+weight: 20
 ---
 
 When talking about packet generation, it is important to distinguish between

@@ -2,14 +2,8 @@
 title: "Extcap Interfaces"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
-description: "Make Wireshark your own"
-tags:
-  - networking
-  - wireshark
-  - commandfu
-  - draft1
+description: "Build your own interafce"
 weight: 90
-
 draft: true
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: "Communicate Results"
-chapter: false
+description: "If a network has an outage and no one reports it, did it actually break?"
 pre: <b><i class="fas fa-envelope"></i>　</b>
-weight: 30
+weight: 80
 ---
 
 Packet captures are evidence that events are taking place on your network.
@@ -15,7 +15,7 @@ If you are sending your packet capture on for others to look at, make sure to re
 
 ### Sanitize the Packet Capture
 
-```bash
+```perl
 mbp:tshark.dev rj$ tshark -r cut_short.pcap
     1   0.000000 00:0e:58:54:10:68 → Broadcast    802.11 137 Data, SN=359, FN=0, Flags=.p....F.C
 
@@ -93,3 +93,7 @@ Any message should have these gestalt elements (at the very least):
 * How did you collect the packet capture?
 * How does the packet capture demonstrate the problem?
 * What should be done based upon that conclusion?
+
+#### Table of Contents
+
+{{% children description="true" %}}

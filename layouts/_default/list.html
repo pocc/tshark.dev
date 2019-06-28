@@ -1,6 +1,8 @@
 {{ partial "header.html" . }}
+<div class="page-description"><i>{{ .Description }}</i><br><br></div>
 
 {{ partial "mermaid-map.html" . }}
+<hr>
 
 {{ if eq .Kind "section" }}
 	{{ .Content }}

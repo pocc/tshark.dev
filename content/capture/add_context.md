@@ -1,16 +1,11 @@
 ---
-title: "Build your Command"
+title: "Add Context"
 date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
-description: "Like building a regex but more fun!"
-tags:
-  - networking
-  - tshark
-weight: 10
-
+description: "Context is worth 80 IQ points. – Alan Kay"
+weight: 50
 draft: true
 ---
-
 
 ## 5. Add context
 
