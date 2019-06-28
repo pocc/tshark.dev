@@ -2,18 +2,10 @@
 title: "Packet Analysis"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
-description: "Analyze the thing"
-tags:
-  - networking
-  - tshark
-  - analysis
-image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
-
+description: "The ultimate authority must always rest with the individual's own reason and critical analysis. – Dalai Lama"
+notes: Not sure whether to include this or not as the content is so basic (and is probably covered better by a Wireshark article).
 draft: true
 ---
-
-**Not sure whether to include this or not as the content is so basic (and is
-probably covered better by a Wireshark article).**
 
 Wireshark is like Google Maps. While you could look at the entire world, Maps
 is useful when you zoom into the streets in your town. Maps is also useful

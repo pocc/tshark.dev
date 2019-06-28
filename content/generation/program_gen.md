@@ -6,14 +6,13 @@ description: "Let somebody else build the packet generator"
 weight: 30
 ---
 
-## Programs
-
-[Ostinato](https://github.com/pstavirs/ostinato) is a
-network traffic generator with a GUI (also has a Python API)
+> "Quantity is a quality all its own" – Napoleon
 
 Sometimes you need to generate a LOT of traffic. Generally, you have to pay for nice things.
 
-* [TRex](https://trex-tgn.cisco.com/) is based on DPDK and can generate 10Gbps
+* [Ostinato](https://github.com/pstavirs/ostinato) is a
+network traffic generator with a GUI (also has a Python API)
+* [TRex](https://trex-tgn.cisco.com/) is an open-source tool based on DPDK and can generate 10Gbps
   of traffic
 * Ixia/Spirent/etc. have comprehensive paid solutions that are suitable for device
   manufacturers

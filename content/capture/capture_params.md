@@ -1,12 +1,9 @@
 ---
-title: "Capture Parameters"
+title: "Capture Parameterization"
 date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
-description: "Like building a regex but more fun!"
-tags:
-  - networking
-  - tshark
-weight: 50
+description: "Limit the capture size before starting it"
+weight: 10
 
 draft: true
 ---

@@ -2,19 +2,9 @@
 title: "Unusual Interfaces"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
-description: "Wireshark Bonus Topics"
-tags:
-  - networking
-  - wireshark
-  - commandfu
-  - draft1
-image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
+description: "WANTED: Suspect is trafficking in packets. Reward paid upon capture."
 weight: 100
-
-draft: true
 ---
-
-_WANTED: Suspect is trafficking in packets. Reward paid upon capture._
 
 There are many possible non-traditional interfaces that Wireshark can capture
 live on. Wireshark's extcaps are a means to do the same through a plugin system.
@@ -37,7 +27,7 @@ with $file.part (firefox), $file.[base64 string].partial (IE/Edge),
 $file.crdownload (Chrome), and $file.download (Safari). Once you've found it,
 you can run the following to load downloading packets in wireshark:
 
-	tail -f -n +1 <download partial> | wireshark -k -i -
+  tail -f -n +1 {download partial} | wireshark -k -i -
 
 If you would like wireshark to automatically start reading the downloading
 partial capture, I created a [bash

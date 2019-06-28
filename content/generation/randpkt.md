@@ -2,8 +2,8 @@
 title: "Randpkt"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
-description: "Fuzzy wuzzy was a malformed packet..."
-weight: 20
+description: "Test protocol dissectors or software with malformed packets."
+weight: 10
 ---
 
 {{% notice note %}}

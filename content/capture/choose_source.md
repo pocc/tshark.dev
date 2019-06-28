@@ -3,9 +3,6 @@ title: "Reading from a source"
 date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
 description: "Like building a regex but more fun!"
-tags:
-  - networking
-  - tshark
 weight: 30
 
 draft: true

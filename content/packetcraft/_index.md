@@ -1,7 +1,7 @@
 ---
-title: "Packetcraft"
+title: "WireFu"
 pre: <b><i class="fas fa-hat-wizard"></i>　</b>
-weight: 80
+weight: 90
 ---
 
 Sometimes you need something extra out of Wireshark. These topics are advanced
@@ -11,6 +11,6 @@ tips and tricks.
 This article will remain a stub during initial release.
 {{% /notice %}}
 
-## Advanced Topics
+#### Table of Contents
 
-{{% children style="h4" description="true"  %}}
+{{% children description="true" %}}
