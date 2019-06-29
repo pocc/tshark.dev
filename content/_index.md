@@ -12,8 +12,14 @@ This guide provides examples and direction on how to use tshark and pitfalls to 
 
 Wireshark documentation is sufficient to document a feature's existance, but not its usage. It's a reference, not a guide.
 
-If you have a Wireshark question, there are mayn good resources like the [Official Documentation](https://www.wireshark.org/docs/), 
+If you have a Wireshark question, there are mayn good resources like the [Official Documentation](https://www.wireshark.org/docs/),
 the [manpages](https://www.wireshark.org/docs/man-pages/), or you can  ask a question on [Wireshark Forums](ask.wireshark.org).
+
+### Philosophy
+
+* Add examples so they exist
+* Articles should help you find information as fast as possible. This means short articles.
+* If X has already been written, link to it instead of writing the same article twice.
 
 ### Table of Contents
 

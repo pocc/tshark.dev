@@ -16,7 +16,6 @@ weight: 10
 
 ### Wireshark
 
-- [Official Docs](https://www.wireshark.org/docs/man-pages/)
-- [Get the Sourcecode](https://www.wireshark.org/develop.html)
-- [File a Bug Report](https://wiki.wireshark.org/ReportingBugs)
-- [Contribute!](https://www.wireshark.org/docs/wsdg_html_chunked/)
+- [Official Documentation](https://www.wireshark.org/docs/)
+- [Ask a question](https://ask.wireshark.org)
+- [Utility manpages](https://www.wireshark.org/docs/man-pages/)
