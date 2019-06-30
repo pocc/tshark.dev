@@ -1,2 +1,7 @@
-_build/
+# Macos cruft
+.DS_Store
+
+# generated
 _gen/
+_build/
+public/

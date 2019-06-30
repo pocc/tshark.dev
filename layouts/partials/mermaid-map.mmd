@@ -1,0 +1,49 @@
+%% Basis for HTML
+graph LR
+    %% Elements
+    subgraph GET STARTED
+    SETUP(<a href=>fa:fa-fighter-jet Setup tshark </a>)
+    MAP(fa:fa-map-marked-alt About)
+    end 
+
+    subgraph GET PCAP
+    CAPTURE(fa:fa-network-wired Capture Pcap )
+    GEN(fa:fa-drafting-compass Generate Pcap )
+    DL(fa:fa-download Download Pcap )
+    end
+
+    subgraph ANALYZE PCAP
+    PCAP((fa:fa-file Pcap File ))
+    EDIT(fa:fa-edit Edit Pcap )
+    EXPORT(fa:fa-file-export Export Files )
+    INFO(fa:fa-info-circle Get Info )
+    end
+
+    subgraph ADVANCED TOPICS
+    ADV(fa:fa-hat-wizard Packetcraft )
+    COMM(fa:fa-envelope Communicate Results )
+    HELP(fa:fa-code-branch Contribute )
+    end
+
+    %% CSS
+    %% Using blues from https://htmlcolorcodes.com/
+    linkStyle default interpolate monotoneX
+	classDef others fill:#D6EAF8,stroke:#1B4F72;
+	classDef thisnode fill:#ffd27f,stroke:#1B4F72;
+	class SETUP,CAPTURE,DL,GEN,LIVE,PCAP,EDIT,EXPORT,INFO,COMM,ADV,HELP others
+	class MAP thisnode
+	style MAP stroke-width:3px; 
+    %% Relationships
+    SETUP --> CAPTURE
+    SETUP --> GEN
+    CAPTURE --> PCAP
+    DL --> PCAP
+    GEN --> PCAP
+
+    PCAP --> EDIT
+    EDIT --> PCAP
+    PCAP --> EXPORT
+    PCAP --> INFO
+    PCAP --> COMM
+    EXPORT --> COMM
+    INFO --> COMM
