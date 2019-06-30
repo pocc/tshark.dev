@@ -43,20 +43,14 @@ For these examples, using [this cloudshark file](https://www.cloudshark.org/capt
 
 * Reordering file of the same name with pipe
 
-    FIXME
     ```bash
+    # Using a pipe
     bash-5.0$ mkfifo myfifo
     bash-5.0$ reordercap out-of-order.pcap myfifo & tshark -r myfifo -w out-of-order.pcap
-    [1] 3941
-    ```
 
-* Reordering file of the same name by moving it
-
-    FIXME
-    ```bash
-    bash-5.0$ mkfifo myfifo
-    bash-5.0$ reordercap out-of-order.pcap myfifo & tshark -r myfifo -w out-of-order.pcap
-    [1] 3941
+    # Using a temp file
+    bash-5.0$ reordercap out-of-order.pcap temp
+    bash-5.0$ mv temp out-of-order.pcap
     ```
 
 ### Reordercap Resources
