@@ -9,7 +9,8 @@ metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= true
 
 [params]
-  editURL = "https://swit.sh"
+  # Combined with current relative page, shows source page on Github
+  editURL = "https://github.com/pocc/tshark.dev/blob/hugo-learn/content/"
   description = "Packet Analysis, Scripted"
   author = "Ross Jacobs"
   showVisitedLinks = false

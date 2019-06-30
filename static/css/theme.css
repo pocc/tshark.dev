@@ -537,6 +537,10 @@ div.notices.tip p:first-child:after {
     content: 'Tip';
 }
 
+.page-description {
+    text-align:center;
+}
+
 /* attachments shortcode */
 
 section.attachments {
