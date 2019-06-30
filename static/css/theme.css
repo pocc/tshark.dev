@@ -119,6 +119,12 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 #header #logo-svg path {
     fill: #fff;
 }
+
+#tsharkdev-logo {
+    width: 100%;
+    height: 100%;
+}
+
 .searchbox {
     margin-top: 1rem;
     position: relative;
