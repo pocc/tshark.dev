@@ -27,7 +27,7 @@ Multiple types of interfaces are available in wireshark:
 If no `-i` argument is found, `tshark` aliases to `tshark -i 1`.
 
 {{% notice note %}}
-<b><i class="fab fa-linux fa-lg"></i></b> <i class="fab fa-freebsd fa-lg"></i> <i class="fab fa-apple fa-lg"></i>　
+<b><i class="fab fa-linux fa-lg"></i></b> <i class="fab fa-freebsd fa-lg"></i> <i class="fab fa-apple fa-lg"></i>
 You may need to use **sudo** when capturing depending on how you installed
 dumpshark on your system.
 {{% /notice %}}
