@@ -1,7 +1,7 @@
 ---
 title: "Edit Pcap"
 description: If computers swore, they'd tell you to go to hex
-pre: X<b><i class="fas fa-edit"></i>　</b>
+pre: X<b><i class="fas fa-edit"></i> </b>
 weight: 21
 ---
 

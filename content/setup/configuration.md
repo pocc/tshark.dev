@@ -34,14 +34,14 @@ at /usr/lib/x86_64-linux-gnu/wireshark/extcap. To add them to your path, use
 ### Powershell on Windows
 
 Currently, extcap utils [need to be
-moved](https://www.wireshark.org/lists/wireshark-dev/201608/msg00161.html) from Wireshark\extcap => Wireshark
+moved](https://www.wireshark.org/lists/wireshark-dev/201608/msg00161.html) from Wireshark\\extcap => Wireshark
 to be useable. If you have not added your %Program Files% to your $PATH, you can
 do that with an Admin user:
 
 `[Environment]::SetEnvironmentVariable(`  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`"PATH", "$PATH;$ENV:ProgramFiles", "Machine")`
 
-## Color 🌈
+## Color
 
 To always enable color, add a line to your .profile or .bashrc:
 

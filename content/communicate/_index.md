@@ -1,7 +1,7 @@
 ---
 title: "Communicate Results"
 description: "If a network has an outage and no one reports it, did it actually break?"
-pre: <b><i class="fas fa-envelope"></i>　</b>
+pre: <b><i class="fas fa-envelope"></i> </b>
 weight: 80
 ---
 

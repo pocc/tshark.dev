@@ -2,7 +2,7 @@
 title: "SharkFu"
 description: Advanced tips and tricks
 author: Ross Jacobs
-pre: <b><i class="fas fa-hat-wizard"></i>　</b>
+pre: <b><i class="fas fa-hat-wizard"></i> </b>
 weight: 90
 ---
 
