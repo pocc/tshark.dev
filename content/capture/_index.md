@@ -1,7 +1,7 @@
 ---
 title: "Capture Pcap"
 description: Everything comes to us that belongs to us if we create the capacity to receive it. – Rabindranath Tagore
-pre: X<b><i class="fas fa-network-wired"></i> </b>
+pre: <b><i class="fas fa-network-wired"></i> </b>
 weight: 10
 ---
 

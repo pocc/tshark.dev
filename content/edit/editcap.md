@@ -6,15 +6,19 @@ description: "Don't forget to spellcheck your pcaps!"
 weight: 10
 ---
 
-## filtering packets
+## About
 
-### Editcap
+[[Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolseditpcap.html)] [[manpage](https://www.wireshark.org/docs/man-pages/editcap.html)] [[code](https://github.com/wireshark/wireshark/blob/master/editcap.c)]
+
+Editcap is used to edit packet captures after they have been taken.
+
+### Packet manipulation: tshark vs. editcap 
 
 Editcap allows you to filter out packets with -A, -B, packet range selection
-[packet#-packet#] and inverted selection (-r). If this is a one-off, use
-editcap. If you are scripting this, use tshark.
+[packet#-packet#] and inverted selection (-r). While tshark/editcap have the
+same functionality below, tshark is more explicit, which is better for maintainability.
 
-| Editcap filter example   | Use tshark filter instead                      |
+| editcap flags            | tshark flags                                   |
 |--------------------------|------------------------------------------------|
 | `-A 2019-01-23 19:01:23` | `-Y "frame.time >= 1548270083"`                |
 | `-B 2019-01-23 19:01:23` | `-Y "frame.time <= 1548270083"`                |
@@ -38,3 +42,12 @@ This isn't as elegant as reading from stdin, but editcap does not currently have
 this capability
 
 tshark can be used to reduce packet size.
+
+### Similar Articles
+
+| Date | Article | Author |
+| ---- | ------- | ------ |
+| 2018-07-31 | [PCAP Split and Merge](https://blog.packet-foo.com/2018/07/pcap-split-and-merge/) | Jasper |
+| 2018-02-22 | [Split a large capture into smaller files](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk43076) | Checkpoint |
+| 2011-04-11 | [Extracting Packets From Large Captures](https://packetlife.net/blog/2011/apr/11/extracting-packets-large-captures/) | Packetlife |
+| 2009-02-26 | [Editcap, 11 examples](https://www.thegeekstuff.com/2009/02/editcap-guide-11-examples-to-handle-network-packet-dumps-effectively/) | Ramesh Natarajan |

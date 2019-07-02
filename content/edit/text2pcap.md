@@ -6,28 +6,19 @@ description: "Write programs to handle text streams, because that is a universal
 weight: 40
 ---
 
-## TODO
+## About
 
-* [ ] Write about section
-* [ ] Go over options for creating text2pcap from scratch
-* [ ] Go over ALL relevant articles in similar articles
-
-## text2pcap
+[[Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstext2pcap.html)] [[manpage](https://www.wireshark.org/docs/man-pages/text2pcap.html)] [[code](https://github.com/wireshark/wireshark/blob/master/text2pcap.c)]
 
 Text2pcap is used to convert hexdumps to packet captures.
 
-### Caveats
+### Quick Tips
 
 When in doubt, use text2pcap's `-dd` option and analysis of the preamble and of every byte will be provided.
 
-### Similar Articles
-
-There are a couple articles out there that describe how to use text2pcap. It is worth mentioning that text2pcap is very picky about
-the input formatting, so you should try to format your hexdump using linuxfu to match expected input. The Huawai article below has
-a list of required formatting. Additionally, you can use -dd to get debugging information.
-
-* 2018-04-30 | [Hexdump -> pcap guide](https://support.huawei.com/enterprise/en/knowledge/EKB1001542804), Huawei
-* 2009-06-02 | [Deciphering packets challenge](https://ismellpackets.com/category/text2pcap/), Chris Christianson
+* [<i class="fab fa-stack-overflow"></i>Got a hexdump from tcpdump but want a pcap instead?](https://stackoverflow.com/questions/3900431/python-convert-tcpdump-into-text2pcap-readable-format) Use `tcpdump -w`.
+* [<i class="fab fa-stack-overflow"></i>Does your hexdump have groups of 4 hex digits instead of 2?](https://stackoverflow.com/questions/47991651/how-to-convert-hex-dump-from-4-hex-digit-groups-to-2-hex-digit-groups) This is the default for fortigate hexdumps.
+* Want to convert a stream of just hex? Use `echo $hexstring | xxd -r -p | od -Ax -tx1 > file.pcap`.
 
 ## Examples
 
@@ -112,8 +103,25 @@ Add `-o dec` to the text2pcap command and the output pcap will be the same.
 
 In this example, we'll be changing the radix with -o to see what that looks like.
 
-### Text2pcap Resources
+### Example 3: Use text2pcap to read in any data type
 
-* [manpage](https://www.wireshark.org/docs/man-pages/text2pcap.html)
-* [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstext2pcap.html)
-* [code](https://github.com/wireshark/wireshark/blob/master/text2pcap.c)
+Wireshark has a [good article](https://wiki.wireshark.org/HowToDissectAnything) on creating a user-defined DLT for an HTTP response.
+Related [<i class="fab fa-stack-overflow"></i> question](https://stackoverflow.com/questions/4502226/how-do-i-get-wireshark-to-read-header-less-pcap-files-without-a-udp-ip-ethernet/4506300#4506300).
+
+## Resources
+
+### Similar Articles
+
+There are a couple articles out there that describe how to use text2pcap. It is worth mentioning that text2pcap is very picky about
+the input formatting, so you should try to format your hexdump using linuxfu to match expected input. The Huawai article below has
+a list of required formatting.
+
+| Date | Article | Author |
+| ---- | ------- | ------ |
+|2018-04-30 | [Hexdump -> pcap guide](https://support.huawei.com/enterprise/en/knowledge/EKB1001542804) | Huawei|
+|2012-07-24 | [Create pcap from Juniper hexdump](https://kb.juniper.net/InfoCenter/index?page=content&id=KB23952&pmv=print) | Juniper|
+|2009-06-02 | [Deciphering packets challenge](https://ismellpackets.com/category/text2pcap/) | Chris Christianson|
+
+### Similar Tools
+
+* [packet dump decode](https://github.com/pstavirs/pdd): C++/Qt4 utility to decode hexdumps. Note that it was last updated 10 years ago and Qt4 is somewhat deprecated.
