@@ -6,78 +6,114 @@ description: "Write programs to handle text streams, because that is a universal
 weight: 40
 ---
 
+## TODO
+
+* [ ] Write about section
+* [ ] Go over options for creating text2pcap from scratch
+* [ ] Go over ALL relevant articles in similar articles
+
 ## text2pcap
 
-Convert a hexstring into a packet capture
+Text2pcap is used to convert hexdumps to packet captures.
 
--a
-Enables ASCII text dump identification. It allows one to identify the start of the ASCII text dump and not include it in the packet even if it looks like HEX.
+### Caveats
 
-NOTE: Do not enable it if the input file does not contain the ASCII text dump.
+When in doubt, use text2pcap's `-dd` option and analysis of the preamble and of every byte will be provided.
 
--d
-Displays debugging information during the process. Can be used multiple times to generate more debugging information.
+### Similar Articles
 
--D
-The text before the packet starts either with an I or O indicating that the packet is inbound or outbound. This is used when generating dummy headers. The indication is only stored if the output format is pcapng.
+There are a couple articles out there that describe how to use text2pcap. It is worth mentioning that text2pcap is very picky about
+the input formatting, so you should try to format your hexdump using linuxfu to match expected input. The Huawai article below has
+a list of required formatting. Additionally, you can use -dd to get debugging information.
 
--e <l3pid>
-Include a dummy Ethernet header before each packet. Specify the L3PID for the Ethernet header in hex. Use this option if your dump has Layer 3 header and payload (e.g. IP header), but no Layer 2 encapsulation. Example: -e 0x806 to specify an ARP packet.
+* 2018-04-30 | [Hexdump -> pcap guide](https://support.huawei.com/enterprise/en/knowledge/EKB1001542804), Huawei
+* 2009-06-02 | [Deciphering packets challenge](https://ismellpackets.com/category/text2pcap/), Chris Christianson
 
-For IP packets, instead of generating a fake Ethernet header you can also use -l 101 to indicate a raw IP packet to Wireshark. Note that -l 101 does not work for any non-IP Layer 3 packet (e.g. ARP), whereas generating a dummy Ethernet header with -e works for any sort of L3 packet.
+## Examples
 
--h
-Displays a help message.
+### Example 1: Create packets from scratch with text2pcap dummy headers
 
--i <proto>
-Include dummy IP headers before each packet. Specify the IP protocol for the packet in decimal. Use this option if your dump is the payload of an IP packet (i.e. has complete L4 information) but does not have an IP header with each packet. Note that an appropriate Ethernet header is automatically included with each packet as well. Example: -i 46 to specify an RSVP packet (IP protocol 46). See http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml for the complete list of assigned internet protocol numbers.
+Let's create two messages to put into two packets: `I am a 27 byte TCP payload!` and `I am a longer 34 byte TCP payload!`.
+For this to be valid text2pcap input, it needs to be converted to space-delimited hex that looks like this:
 
--l
-Specify the link-layer header type of this packet. Default is Ethernet (1). See http://www.tcpdump.org/linktypes.html for the complete list of possible encapsulations. Note that this option should be used if your dump is a complete hex dump of an encapsulated packet and you wish to specify the exact type of encapsulation. Example: -l 7 for ARCNet packets encapsulated BSD-style.
+```bash
+$ printf "I am a 27 byte TCP payload!" | xxd -g 1
+00000000: 49 20 61 6d 20 61 20 32 37 20 62 79 74 65 20 54  I am a 27 byte T
+00000010: 43 50 20 70 61 79 6c 6f 61 64 21                 CP payload!
+```
 
--m <max-packet>
-Set the maximum packet length, default is 262144. Useful for testing various packet boundaries when only an application level datastream is available. Example:
+`xxd -g 1`, `hexdump -C`, and `od -Ax -tx1 -v` produce valid this kind of input. There are two are other variables besides
+packet bytes that we can add: Packet direction and timestamp. Direction is specified at the beginning of a packet by I (input) or O (output).
+Timestamp is specified by strftime. While later on, we could specify any timestamp type (like %s for unixtime in seconds).
 
-od -Ax -tx1 -v stream | text2pcap -m1460 -T1234,1234 - stream.pcap
+```bash
+# -g adds a space every 1 byte, which text2pcap requires
+$ printf "I2019-01-01 00:00:00\n" > payload.txt
+$ printf "I am a 27 byte TCP payload!" | xxd -g 1 >> payload.txt
+$ printf "O2019-01-02 10:17:36\n" >> payload.txt
+$ printf "I am a longer 34 byte TCP payload!" | xxd -g 1 >> payload.txt
+$ cat payload.txt
+I2019-01-01 00:00:00.000000
+00000000: 49 20 61 6d 20 61 20 32 37 20 62 79 74 65 20 54  I am a 27 byte T
+00000010: 43 50 20 70 61 79 6c 6f 61 64 21                 CP payload!
+O2019-01-01 00:02:03.456789
+00000000: 49 20 61 6d 20 61 20 6c 6f 6e 67 65 72 20 33 34  I am a longer 34
+00000010: 20 62 79 74 65 20 54 43 50 20 70 61 79 6c 6f 61   byte TCP payloa
+00000020: 64 21
+```
 
-will convert from plain datastream format to a sequence of Ethernet TCP packets.
+We can then take this and add specify dummy data.
+-4 is for IP addresses, -T for TCP ports.
+%F and %T are from the [date](https://ss64.com/bash/date.html) command. %F => YYYY-MM-DD, %T => HH:MM:SS
+Note the '.' after %T. This tells text2pcap to read fractional seconds.
 
--n
-Write the file in pcapng format rather than pcap format.
+```bash
+$ text2pcap -4 10.0.0.1,9.9.9.9 -T 12345,80 -t "%F %T." payload.txt hello.pcap
+Input from: hello.txt
+Output to: hello.pcap
+Output format: pcap
+Generate dummy Ethernet header: Protocol: 0x800
+Generate dummy IP header: Protocol: 6
+Generate dummy TCP header: Source port: 12345. Dest port: 80
+Wrote packet of 66 bytes.
+Read 1 potential packet, wrote 1 packet (106 bytes).
+```
 
--N <intf-name>
-Specify a name for the interface included when writing a pcapng format file. By default no name is defined.
+We can then double check that it wrote correctly:
+While this could be a one liner, it's extended into a for loop so that each line of output is on its own line
 
--o hex|oct|dec
-Specify the radix for the offsets (hex, octal or decimal). Defaults to hex. This corresponds to the -A option for od.
+```bash
+tshark -r hello.pcap
+    1 0.000000000     10.0.0.1 → 9.9.9.9      TCP 81 12345 → 80 [ACK] Seq=1 Ack=1 Win=8192 Len=27 [TCP segment of a reassembled PDU]
+    2 123.456789000      9.9.9.9 → 10.0.0.1     TCP 88 80 → 12345 [ACK] Seq=1 Ack=28 Win=8192 Len=34 [TCP segment of a reassembled PDU]
+$ for i in $(tshark -r hello.pcap -T fields -e tcp.payload); do
+>   printf $i | xxd -r -p
+>   printf "\n"
+> done
+I am a 27 byte TCP payload!
+I am a longer 34 byte TCP payload!
+```
 
--q
-Be completely quiet during the process.
+### Example 2: Using -o with a base 10 offset
 
--s <srcport>,<destport>,<tag>
-Include dummy SCTP headers before each packet. Specify, in decimal, the source and destination SCTP ports, and verification tag, for the packet. Use this option if your dump is the SCTP payload of a packet but does not include any SCTP, IP or Ethernet headers. Note that appropriate Ethernet and IP headers are automatically also included with each packet. A CRC32C checksum will be put into the SCTP header.
+The packets of the Example 1 with base10 offset looks like this:
 
--S <srcport>,<destport>,<ppi>
-Include dummy SCTP headers before each packet. Specify, in decimal, the source and destination SCTP ports, and a verification tag of 0, for the packet, and prepend a dummy SCTP DATA chunk header with a payload protocol identifier if ppi. Use this option if your dump is the SCTP payload of a packet but does not include any SCTP, IP or Ethernet headers. Note that appropriate Ethernet and IP headers are automatically included with each packet. A CRC32C checksum will be put into the SCTP header.
+```bash
+I2019-01-01 00:00:00.000000
+00000000: 49 20 61 6d 20 61 20 32 37 20 62 79 74 65 20 54  I am a 27 byte T
+00000016: 43 50 20 70 61 79 6c 6f 61 64 21                 CP payload!
+O2019-01-01 00:02:03.456789
+00000000: 49 20 61 6d 20 61 20 6c 6f 6e 67 65 72 20 33 34  I am a longer 34
+00000016: 20 62 79 74 65 20 54 43 50 20 70 61 79 6c 6f 61   byte TCP payloa
+00000032: 64 21
+```
 
--t <timefmt>
-Treats the text before the packet as a date/time code; timefmt is a format string of the sort supported by strptime(3). Example: The time "10:15:14.5476" has the format code "%H:%M:%S."
+Add `-o dec` to the text2pcap command and the output pcap will be the same.
 
-NOTE: The subsecond component delimiter must be specified (.) but no pattern is required; the remaining number is assumed to be fractions of a second.
+In this example, we'll be changing the radix with -o to see what that looks like.
 
-NOTE: Date/time fields from the current date/time are used as the default for unspecified fields.
+### Text2pcap Resources
 
--T <srcport>,<destport>
-Include dummy TCP headers before each packet. Specify the source and destination TCP ports for the packet in decimal. Use this option if your dump is the TCP payload of a packet but does not include any TCP, IP or Ethernet headers. Note that appropriate Ethernet and IP headers are automatically also included with each packet. Sequence numbers will start at 0.
-
--u <srcport>,<destport>
-Include dummy UDP headers before each packet. Specify the source and destination UDP ports for the packet in decimal. Use this option if your dump is the UDP payload of a packet but does not include any UDP, IP or Ethernet headers. Note that appropriate Ethernet and IP headers are automatically also included with each packet. Example: -u1000,69 to make the packets look like TFTP/UDP packets.
-
--v
-Print the version and exit.
-
--4 <srcip>,<destip>
-Prepend dummy IP header with specified IPv4 dest and source address. This option should be accompanied by one of the following options: -i, -s, -S, -T, -u Use this option to apply "custom" IP addresses. Example: -4 10.0.0.1,10.0.0.2 to use 10.0.0.1 and 10.0.0.2 for all IP packets.
-
--6 <srcip>,<destip>
-Prepend dummy IP header with specified IPv6 dest and source address. This option should be accompanied by one of the following options: -i, -s, -S, -T, -u Use this option to apply "custom" IP addresses. Example: -6 fe80::202:b3ff:fe1e:8329,2001:0db8:85a3::8a2e:0370:7334 to use fe80::202:b3ff:fe1e:8329 and 2001:0db8:85a3::8a2e:0370:7334 for all IP packets.
+* [manpage](https://www.wireshark.org/docs/man-pages/text2pcap.html)
+* [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstext2pcap.html)
+* [code](https://github.com/wireshark/wireshark/blob/master/text2pcap.c)
