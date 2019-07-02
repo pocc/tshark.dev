@@ -41,13 +41,9 @@ For these examples, using [this cloudshark file](https://www.cloudshark.org/capt
         10 frames, 0 out of order
         Not writing output file because input file is already in order.
 
-* Reordering file of the same name with pipe
+* To reorder a file in place, use a temp file
 
     ```bash
-    # Using a pipe
-    bash-5.0$ mkfifo myfifo
-    bash-5.0$ reordercap out-of-order.pcap myfifo & tshark -r myfifo -w out-of-order.pcap
-
     # Using a temp file
     bash-5.0$ reordercap out-of-order.pcap temp
     bash-5.0$ mv temp out-of-order.pcap
