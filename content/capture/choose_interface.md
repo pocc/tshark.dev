@@ -12,6 +12,10 @@ draft: false
 If tshark captures on the correct interface without `-i`, you can skip this section.
 {{% /notice %}}
 
+## Similar resources
+
+* https://wiki.wireshark.org/CaptureSetup 
+
 ## tshark interfaces
 
 Multiple types of interfaces are available in wireshark:
@@ -32,22 +36,7 @@ You may need to use **sudo** when capturing depending on how you installed
 dumpshark on your system.
 {{% /notice %}}
 
-### Using interface number 
-
-`tshark -D` will show you the interfaces that are available. This is what I see
-on my Macbook. There are many pseudo-interfaces that are skipped for brevity.
-Note the last four are [extcap interfaces](link me).
-
-```bash
-bash-5.0$ tshark -D
-1. en0 (Wi-Fi)
-2. p2p0
-... 
-12. ciscodump (Cisco remote capture)
-13. randpkt (Random packet generator)
-14. sshdump (SSH remote capture)
-15. udpdump (UDP Listener remote capture)
-```
+### Using interface number
 
 {{% notice info %}}
 tshark -D and dumpshark -D each print the interfaces they are aware of.
@@ -61,7 +50,7 @@ subtracted. Interface name is less likely to change, so prefer it in scripts.
 
 ### Using interface name
 
-tshark expects the exact name of the interface. If the interface name 
+tshark expects the exact name of the interface. If the interface name
 has spaces or special characters, use 'single quotes'.
 
 #### show interface
@@ -72,10 +61,12 @@ If you run `ping 8.8.8.8 & tshark`, you should start seeing numbered packets fro
 
 If you don't, you should find out what interfaces you have
 available, as the one you are currently using is not working. `tshark -D`
-will show you a list of interfaces tshark is aware of. If in doubt, `ifconfig` on 
-\*nix and `ipconfig /all` on Windows will print all interfaces. 
+will show you a list of interfaces tshark is aware of. If in doubt, `ifconfig` on
+\*nix and `ipconfig /all` on Windows will print all interfaces.
 
-#### Finding the interface name
+If you do not see any packets captured, try using `tshark -i <interface>` with the listing of `tshark -D` from before.
+
+### Finding the interface name
 
 _These one-liners will print the exact interface name, regardless of OS._
 
@@ -107,3 +98,93 @@ the network adapter.
 
 More information can be found in the [Wireshark
 Guide](https://www.wireshark.org/docs/wsug_html_chunked/ChCapLinkLayerHeader.html).
+
+## Sample Interface Listings
+
+Taken on 2019-07-03. These are provided as examples of what interface listings look like on different platforms.
+
+### Sample Windows interfaces
+
+_Windows 10, version 1809_
+
+```
+C:\Users\rj>tshark -D
+1. \Device\NPF_{556AA61D-DAE9-4A5B-8E7E-1E92123B061E} (Ethernet)
+2. \\.\USBPcap1 (USBPcap1)
+3. ciscodump (Cisco remote capture)
+4. randpkt (Random packet generator)
+5. sshdump (SSH remote capture)
+6. udpdump (UDP Listener remote capture)
+```
+
+### Sample Macos interfaces
+
+_Macos 10.14_
+
+```
+~ $ tshark -D
+1. en0 (Wi-Fi)
+2. p2p0
+3. awdl0
+4. bridge0 (Thunderbolt Bridge)
+5. utun0
+6. en1 (Thunderbolt 1)
+7. en2 (Thunderbolt 2)
+8. lo0 (Loopback)
+9. gif0
+10. stf0
+11. XHC20
+12. ciscodump (Cisco remote capture)
+13. randpkt (Random packet generator)
+14. sshdump (SSH remote capture)
+15. udpdump (UDP Listener remote capture)
+```
+
+### Sample Linux interfaces 
+
+_Ubuntu 18.04_
+
+You may run into an issue where you only see [extcap interfaces](/capture/extcap_interfaces) without
+sudo privileges.
+
+```
+rj@vmbuntu:~$ tshark -D
+1. ciscodump (Cisco remote capture)
+2. randpkt (Random packet generator)
+3. sshdump (SSH remote capture)
+4. udpdump (UDP Listener remote capture)
+```
+
+Using sudo will fix this. Generic reminder to respect sudo privileges.
+
+```
+rj@vmbuntu:~$ sudo tshark -D
+[sudo] password for rj: 
+Running as user "root" and group "root". This could be dangerous.
+tshark: Lua: Error during loading:
+ /usr/share/wireshark/init.lua:32: dofile has been disabled due to running Wireshark as superuser. See https://wiki.wireshark.org/CaptureSetup/CapturePrivileges for help in running Wireshark as an unprivileged user.
+1. enp0s3
+2. any
+3. lo (Loopback)
+4. nflog
+5. nfqueue
+6. usbmon1
+7. ciscodump (Cisco remote capture)
+8. randpkt (Random packet generator)
+9. sshdump (SSH remote capture)
+10. udpdump (UDP Listener remote capture)
+```
+
+### Sample BSD interfaces
+
+_FreeBSD 12.0_
+
+```
+$ tshark -D
+1. em0
+2. lo0 (Loopback)
+3. usbus0
+4. usbus1
+5. randpkt (Random packet generator)
+6. udpdump (UDP Listener remote capture)
+```

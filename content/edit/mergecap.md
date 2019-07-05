@@ -3,10 +3,11 @@ title: "mergecap"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
 description: "Merge captures together"
+summary: '<i class="fas fa-external-link-square-alt"></i> [manpage](https://www.wireshark.org/docs/man-pages/mergecap.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolsmergecap.html) | [code](https://github.com/wireshark/wireshark/blob/master/mergecap.c)'
 weight: 30
 ---
 
-### Why combine captures
+## Why combine captures
 
 * You captured with a <!--TODO WRITE YOUR OWN! -->[ring buffer](https://www.cellstream.com/reference-reading/tipsandtricks/328-wireshark-ring-buffer-capture-from-the-command-line-using-t-shark) with `tshark -b files:$NUM`, and need one file
 * You have a program that accepts one file as input and you have multiple
@@ -59,15 +60,7 @@ This means that `mergecap file1.pcap ... -w merged.pcap` will have a pcap extens
 It has fewer features: Namely, it can only merge and select packets based upon timestamp.
 It will also fail if the difference between timestamps exceeds a year.
 
-### Resources
-
-#### Mergecap Official
-
-* [manpage](https://www.wireshark.org/docs/man-pages/mergecap.html)
-* [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolsmergecap.html)
-* [code](https://github.com/wireshark/wireshark/blob/master/mergecap.c)
-
-#### External Articles
+### Similar Articles
 
 * [Comprehensive Example](https://blog.packet-foo.com/2018/07/pcap-split-and-merge/)
 * [Example on Windows 10](https://www.cellstream.com/reference-reading/tipsandtricks/329-using-the-mergecap-tool-to-merge-packet-captures)

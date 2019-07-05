@@ -1,15 +1,5 @@
 {{ partial "header.html" . }}
-<h1>Packet Analysis</h1>
-<h3>You are Here <i class="fas fa-map-marked-alt"></i></h3>
+<h1>{{ .Params.Title }}</h1>
 {{ partial "mermaid-map.html" . }}
 {{ .Content }}
-
-<footer class=" footline" >
-	{{with .Params.LastModifierDisplayName}}
-	    <i class='fas fa-user'></i> <a href="mailto:{{ $.Params.LastModifierEmail }}">{{ . }}</a> {{with $.Date}} <i class='fas fa-calendar'></i> {{ .Format "02/01/2006" }}{{end}}
-	    </div>
-	{{end}}
-</footer>
-
-
 {{ partial "footer.html" . }}

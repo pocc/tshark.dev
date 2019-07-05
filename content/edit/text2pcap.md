@@ -2,17 +2,12 @@
 title: "text2pcap"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
-description: "Write programs to handle text streams, because that is a universal interface – Doug McIlroy"
+description: "Convert hexdumps to packet captures"
+summary: '<i class="fas fa-external-link-square-alt"></i> [manpage](https://www.wireshark.org/docs/man-pages/text2pcap.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstext2pcap.html) | [code](https://github.com/wireshark/wireshark/blob/master/text2pcap.c)'
 weight: 40
 ---
 
-## About
-
-[[Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstext2pcap.html)] [[manpage](https://www.wireshark.org/docs/man-pages/text2pcap.html)] [[code](https://github.com/wireshark/wireshark/blob/master/text2pcap.c)]
-
-Text2pcap is used to convert hexdumps to packet captures.
-
-### Quick Tips
+## Quick Tips
 
 When in doubt, use text2pcap's `-dd` option and analysis of the preamble and of every byte will be provided.
 
