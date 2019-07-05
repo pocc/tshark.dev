@@ -3,10 +3,11 @@ title: "reordercap"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
 description: "I am still making order out of chaos by reinvention. — John le Carre"
+summary: '<i class="fas fa-external-link-square-alt"></i> [manpage](https://www.wireshark.org/docs/man-pages/reordercap.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolsreordercap.html) | [code](https://github.com/wireshark/wireshark/blob/master/reordercap.c)'
 weight: 20
 ---
 
-### Why reorder packets by timestamp
+## Why reorder packets by timestamp
 
 * You are passing captures into utils like mergecap [which require it](/edit/mergecap#input-captures-should-be-correctly-ordered)
 * The lack of packet order is making it hard for you to analyze a pcap.

@@ -1,47 +1,33 @@
 ---
 title: Configuration
 author: Ross Jacobs
-description: "A configuration can never be perfect"
-weight: 20
+description: "A config will always approach perfection"
+summary: '<i class="fas fa-external-link-square-alt"></i> Wireshark Docs: [Config Profiles](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html) | [Customization](https://www.wireshark.org/docs/wsug_html_chunked/ChapterCustomize.html)'
+weight: 30
 ---
 
-## Utilities
+## Custom Configuration
 
-Additional work is usually necessary to make sure all utilities are on the path.
+Tshark, like Wireshark, uses a preferences file. A different preference file or keys can be specified with flags.
 
-### bash
+| Command                     | Does                                    |
+| --------------------------- | --------------------------------------- |
+| `tshark -C /path/to/config` | Uses custom configuration file          |
+| `tshark -o key:value`       | Overrides the specified preferences key |
 
-You can verify whether all are installed with the following:
+## Add Tshark Alias
+
+Aliases allow you to define default behavior or multiple sets of behavior.
+
+### Custom Config Alias
+
+If you want to launch tshark with a custom configuration once in a blue moon, you could add an alias for it:
 
 ```bash
-# Loop through wireshark utils to find the ones that the system cannot
-utils=(androiddump capinfos captype ciscodump dftest dumpcap editcap idl2wrs
-  mergecap mmdbresolve randpkt randpktdump reordercap sshdump text2pcap tshark
-  udpdump wireshark pcap-filter wireshark-filter)
-
-for util in ${utils[*]}; do
-  if [[ -z $(which $util) ]]; then
-    echo $util
-  fi
-done
+alias tshark-bluemoon='tshark -C BlueConfig -o BlueKey:BlueVal'
 ```
 
-If a util is installed but not on your $PATH, you can use `find / -name $util 2>/dev/null`
-to find out where it may be. For example, on Linux for 3.0.0, extcap tools are
-at /usr/lib/x86_64-linux-gnu/wireshark/extcap. To add them to your path, use
-`echo 'export PATH=$PATH:$folder' >> ~/.profile`.
-
-### Powershell on Windows
-
-Currently, extcap utils [need to be
-moved](https://www.wireshark.org/lists/wireshark-dev/201608/msg00161.html) from Wireshark\\extcap => Wireshark
-to be useable. If you have not added your %Program Files% to your $PATH, you can
-do that with an Admin user:
-
-`[Environment]::SetEnvironmentVariable(`  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`"PATH", "$PATH;$ENV:ProgramFiles", "Machine")`
-
-## Color
+### \-\-color
 
 To always enable color, add a line to your .profile or .bashrc:
 

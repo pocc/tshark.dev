@@ -7,4 +7,16 @@
   ga('create', 'UA-105947713-1', 'auto');
   ga('send', 'pageview');
 
+  // Copyright (c) 2017 Yihui Xie & 2018 Vincent Tam under MIT
+  // Taken from https://vincenttam.gitlab.io/post/2018-09-17-fix-hugo-table-of-contents/
+</script>
+<script>
+  (function() {
+    var toc = document.getElementById('TableOfContents');
+    if (!toc) {
+      console.log("No Table Of Contents found!")
+      return;
+    }
+      toc.innerHTML = toc.querySelector('ul').getElementsByTagName('li');
+  })();
 </script>

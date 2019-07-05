@@ -1,6 +1,11 @@
 {{ partial "header.html" . }}
-<div class="page-description"><i>{{ .Description }}</i><br></div>
-
+<div class="page-description"><i>{{ .Description }}</i></div>
+<h4>Table of Contents</h4>
+{{ .TableOfContents }}
+{{ if .Summary }}
+    <h4>Quicklinks</h4>
+    {{ .Summary }}
+{{ end }}
 {{ .Content }}
 
 <footer class=" footline" >
