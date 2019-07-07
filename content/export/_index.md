@@ -1,9 +1,12 @@
 ---
 title: "Export Files"
+description: "Export 5 file types from captures"
+date: 2019-07-04
 author: Ross Jacobs
-chapter: false
+
 pre: <b><i class="fas fa-file-export"></i> </b>
 weight: 21
+draft: false
 ---
 
 ## Export Functionality
@@ -55,7 +58,7 @@ kill -9 $tspid
 
 <i class="fab fa-firefox"></i> **firefox** can be useful instead if you want to see all of the available files. For some websites, this
 will include JSON, scripts, media, and other files. For this website, the initial html uses javascript to redirect to the final
-destination. Firefox will capture this 2nd html file and it will be called 'online'.
+destination. Firefox will capture this 2nd html file and it will be called `online`.
 
 {{% notice warning %}}
 On macOS, you may need to first kill other firefox instances with `killall firefox` to use headless firefox.

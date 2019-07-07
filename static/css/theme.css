@@ -4,6 +4,21 @@
 /* Tags */
 @import "tags.css";
 
+/* For Hugo issue https://github.com/gohugoio/hugo/issues/1778 */
+#TableOfContents>ul {
+padding: 0;
+}
+
+#TableOfContents>ul>li{
+list-style: none;
+}
+
+ul, ol {
+    margin-top: 0rem;
+    margin-bottom: 0rem; 
+}
+/* End 1778 issue fix */
+
 #top-github-link, #body #breadcrumbs {
     position: relative;
     top: 50%;
@@ -632,6 +647,22 @@ section.attachments.grey .attachments-files {
 .children h3,.children h2 {
     margin-bottom: 0px;
     margin-top: 5px;
+}
+
+.tsharkline {
+    font-family: "Consolas", menlo, monospace;
+    font-size: 92%;
+    padding: 1rem;
+    margin: 2rem 0;
+    background: #282c34;
+    white-space: inherit;
+    border: 0;
+    line-height: 1.15;
+    color: whitesmoke;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
 }
 
 code, kbd, pre, samp {

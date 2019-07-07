@@ -1,8 +1,12 @@
 ---
 title: "Communicate Results"
 description: "If a network has an outage and no one reports it, did it actually break?"
+date: 2019-07-01
+author: Ross Jacobs
+
 pre: <b><i class="fas fa-envelope"></i> </b>
 weight: 80
+draft: true
 ---
 
 Packet captures are evidence that events are taking place on your network.

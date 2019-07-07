@@ -1,9 +1,12 @@
 ---
 title: "Script Packets"
+description: "Generate packets with your favorite programming language"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
-description: "Generate packets with your favorite programming language"
+
+summary: ''
 weight: 20
+draft: false
 ---
 
 When talking about packet generation, it is important to distinguish between

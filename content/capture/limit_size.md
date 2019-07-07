@@ -1,13 +1,17 @@
 ---
-title: "Capture Parameterization"
+title: "Limit Size"
+description: "Limit the capture size before starting it"
 date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
-description: "Limit the capture size before starting it"
-weight: 10
 
+summary: 'Packetlife: [Long Captures](https://packetlife.net/blog/2011/mar/9/long-term-traffic-capture-wireshark/)'
+weight: 90
 draft: true
 ---
 
+
+
+##
 If you are taking a long continuous capture, then space will eventually become a
 concern. There a couple ways to parameterize your capture.
 

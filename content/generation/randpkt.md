@@ -1,9 +1,12 @@
 ---
 title: "Randpkt"
+description: "Test protocol dissectors or software with malformed packets."
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
-description: "Test protocol dissectors or software with malformed packets."
+
+summary: ''
 weight: 10
+draft: false
 ---
 
 {{% notice note %}}

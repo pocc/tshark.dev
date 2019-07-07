@@ -1,9 +1,12 @@
 ---
 title: "SharkFu"
 description: Advanced tips and tricks
+date: 2019-07-04
 author: Ross Jacobs
+
 pre: <b><i class="fas fa-hat-wizard"></i> </b>
 weight: 90
+draft: false
 ---
 
 {{% notice note %}}

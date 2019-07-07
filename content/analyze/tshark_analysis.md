@@ -1,9 +1,11 @@
 ---
 title: "Packet Analysis"
+description: "The ultimate authority must always rest with the individual's own reason and critical analysis. – Dalai Lama"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
-description: "The ultimate authority must always rest with the individual's own reason and critical analysis. – Dalai Lama"
-notes: Not sure whether to include this or not as the content is so basic (and is probably covered better by a Wireshark article).
+
+summary: 'Wireshark: [Statistics](https://wiki.wireshark.org/Statistics) | [Network Troubleshooting](https://wiki.wireshark.org/NetworkTroubleshooting)'
+weight: 50
 draft: true
 ---
 
@@ -57,3 +59,8 @@ If you are writing a software implementation of a protocol or think that your
 device may be violating one, you can use Wireshark to analyze the packets.
 You can then compare the actual bytes that you see transmitted to the RFC or
 spec on the subject.
+
+## Further Reading (Wireshark)
+
+* [Protocol Heirarchy Stats](https://hub.packtpub.com/statistical-tools-in-wireshark-for-packet-analysis/): Viewing packet counts for the protocols present in the capture
+* [Viewing Captured Packets](https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html): Looking at packets in Wireshark

@@ -1,10 +1,12 @@
 ---
 title: "Generate Pcap"
-author: Ross Jacobs
-chapter: false
-pre: <b><i class="fas fa-industry"></i> </b>
 description: "\"Let there be packets!\" – TCP/IP authors, probably"
+date: 2019-07-04
+author: Ross Jacobs
+
+pre: <b><i class="fas fa-industry"></i> </b>
 weight: 12
+draft: false
 ---
 
 Packet generation allows us to create artificial traffic that machines will treat as real.

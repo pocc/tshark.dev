@@ -1,8 +1,12 @@
 ---
 title: Contribute
 description: Fork me on Github!
+date: 2019-07-04
 author: Ross Jacobs
+
+summary: ''
 weight: 20
+draft: false
 ---
 
 ## tshark.dev

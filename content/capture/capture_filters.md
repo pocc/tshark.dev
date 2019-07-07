@@ -1,10 +1,11 @@
 ---
-title: "Filter Traffic"
+title: "Capture Filters"
+description: "Like building a regex but more fun!"
 date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
-description: "Like building a regex but more fun!"
-weight: 40
 
+summary: '' 
+weight: 40
 draft: true
 ---
 

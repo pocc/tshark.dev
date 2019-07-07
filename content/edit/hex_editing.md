@@ -1,8 +1,12 @@
 ---
 title: "Editing Hex"
-author: Ross Jacobs
 description: "Put a hex on your hex"
+date: 2019-07-04
+author: Ross Jacobs
+
+summary: ''
 weight: 0
+draft: false
 ---
 
 ## Editing Hex

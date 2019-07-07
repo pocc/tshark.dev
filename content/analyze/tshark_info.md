@@ -1,17 +1,13 @@
 ---
 title: "Wireshark Info"
 date: 2019-03-12T12:44:45Z
+description: "Get info from a packet capture"
 author: Ross Jacobs
-description: "Get info about a packet capture"
-tags:
-  - networking
-  - wireshark
-image: https://allabouttesting.org/wp-content/uploads/2018/06/tshark-count.jpg
 
+summary: 'Capinfos: [manpage](https://www.wireshark.org/docs/man-pages/capinfos.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolscapinfos.html) | [code](https://github.com/wireshark/wireshark/blob/master/capinfos.c)<br><i class="fas fa-external-link-square-alt"></i> Rawshark: [manpage](https://www.wireshark.org/docs/man-pages/rawshark.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolsrawshark.html) | [code](https://github.com/wireshark/wireshark/blob/master/rawshark.c)'
+weight: 99
 draft: true
 ---
-
-_Read a packet capture and print data about it._
 
 ## capinfos
 
@@ -20,6 +16,7 @@ what pieces of data you want displayed and the output format.
 <script id="asciicast-235423" src="https://asciinema.org/a/235423.js" async></script>
 
 ### General Usage
+
 To see infos a list, use `capinfos <file>`, as list is the default.
 To see infos as a table, use `capinfos -T <file>`. Note that the tabular format
 skips presentation of interface info. These tabular options can
