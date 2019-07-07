@@ -1,8 +1,12 @@
 ---
 title: "Tshark, Colorized"
+description: "With color one obtains an energy that seems to stem from witchcraft. — Henri Matisse"
 date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
-description: "With color one obtains an energy that seems to stem from witchcraft. — Henri Matisse"
+
+summary: ''
+weight: 20
+draft: false
 ---
 
 Part of the allure of Wireshark is the ability to identify networking problems

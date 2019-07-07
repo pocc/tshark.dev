@@ -1,11 +1,14 @@
 {{ partial "header.html" . }}
 <div class="page-description"><i>{{ .Description }}</i></div>
+
 <h4>Table of Contents</h4>
 {{ .TableOfContents }}
-{{ if .Summary }}
-    <h4>Quicklinks</h4>
-    {{ .Summary }}
+{{ if and (isset .Params "summary") (ne .Params.summary "") }}
+  <p><b>Quicklinks:</b> &nbsp;<i class="fas fa-external-link-square-alt"></i>{{ .Summary }}</p>
 {{ end }}
+<i class="fas fa-feather-alt"></i> {{ .Params.Author }} – <i class="far fa-calendar-check"></i> {{ .Date.Format "January 1, 2006"}}
+<hr>
+
 {{ .Content }}
 
 <footer class=" footline" >

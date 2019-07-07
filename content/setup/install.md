@@ -1,13 +1,17 @@
 ---
 title: Install
-author: Ross Jacobs
 description: "Installation is a gateway drug"
+date: 2019-07-04
+author: Ross Jacobs
+
+summary: '<i class="fas fa-external-link-square-alt"></i> Wireshark: [Installation Chapter](https://www.wireshark.org/docs/wsug_html_chunked/ChapterBuildInstall.html)'
 weight: 10
+draft: false
 ---
 
 ## Install with a Package Manager
 
-Where available, prefer your [package manager](http://clarkgrubb.com/package-managers). Note that Wireshark v3 is not currently available on many Linux package managers (this will change soon).
+Where available, prefer your [package manager](https://en.wikipedia.org/wiki/Package_manager). Note that Wireshark v3 is not currently available on many Linux package managers (this will change soon).
 
 | System  | Install Command                 | Latesst Version |
 |---------|---------------------------------|-----------------|
@@ -109,4 +113,6 @@ to be useable. If you have not added your %Program Files% to your $PATH, you can
 do that with an Admin user:
 
 `[Environment]::SetEnvironmentVariable(`  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`"PATH", "$PATH;$ENV:ProgramFiles", "Machine")`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`"PATH", "$PATH;$ENV:ProgramFiles\Wireshark", "Machine")`
+
+You will need to reopen Powershell for the $PATH to be updated.

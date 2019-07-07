@@ -1,13 +1,13 @@
 ---
-title: "Extcap Interfaces"
-date: 2019-03-12T12:44:45Z
+title: "Extcap"
+description: "Build your own interface"
+date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
-description: "Build your own interafce"
-weight: 90
-draft: true
----
 
-## background
+summary: '[Wireshark Docs](https://www.wireshark.org/docs/wsdg_html_chunked/ChCaptureExtcap.html) | [Code](https://github.com/wireshark/wireshark/tree/master/extcap) | [Example by ntop](https://www.ntop.org/pf_ring/capture-filter-extract-traffic-using-wireshark-and-pf_ring/)'
+weight: 10
+draft: false
+---
 
 The typical way to see packets live in Wireshark is to use some form of piping:
 
@@ -117,4 +117,3 @@ Wireshark provides an
 written by Robert Knall, which is worth looking at. Below is a demonstration of
 how to use this example utility.
 <script id="asciicast-nt1WaIPrYEyrO1uxmnlnBbpvX" src="https://asciinema.org/a/nt1WaIPrYEyrO1uxmnlnBbpvX.js" async></script>
-

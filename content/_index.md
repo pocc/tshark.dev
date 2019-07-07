@@ -1,8 +1,8 @@
 ---
-title: "Structured Packet Analysis"
+title: "Packet Analysis"
+description: "Using the Wireshark CLI for Packet Analysis"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
-description: "Using the Wireshark CLI for Packet Analysis"
 ---
 
 ## About this guide

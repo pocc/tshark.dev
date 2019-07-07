@@ -1,9 +1,17 @@
 ---
 title: Further Reading
 description: The web is full of resources
+date: 2019-07-04
 author: Ross Jacobs
+
+summary: ''
 weight: 10
+draft: false
 ---
+
+### Packet Analysis
+
+- [Practical Packet Analysis, 3rd ed.](https://nostarch.com/packetanalysis3): A great introduction for typical Wireshark usage.
 
 ### Network Scripting with Python
 

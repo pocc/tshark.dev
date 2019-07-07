@@ -1,10 +1,11 @@
 ---
-title: "Choosing an Interface"
-date: 2019-04-08T12:44:45Z
+title: "Interfaces"
+description: "How you get the packets"
 author: Ross Jacobs
-description: "Like building a regex but more fun!"
-weight: 20
+date: 2019-04-08T12:44:45Z
 
+summary: ''
+weight: 10
 draft: false
 ---
 
@@ -12,21 +13,18 @@ draft: false
 If tshark captures on the correct interface without `-i`, you can skip this section.
 {{% /notice %}}
 
-## Similar resources
-
-* https://wiki.wireshark.org/CaptureSetup 
-
 ## tshark interfaces
 
 Multiple types of interfaces are available in wireshark:
 
-| Command                        | Captures on                                               |
+| Command                        | Captures from                                             |
 | ------------------------------ | --------------------------------                          |
 | `tshark -i <n>`                | [nth interface]({{< relref "#using-interface-number" >}}) |
 | `tshark -i <interface name>`   | [interface]({{< relref "#using-interface-name" >}})       |
 | `tshark -i -`                  | [stdin]({{< ref "/" >}})                                  |
 | `tshark -i FIFO`               | [FIFO file]({{< ref "/" >}})                              |
 | `tshark -i <extcap interface>` | [extcap]({{< ref "/" >}})                                 |
+| `tshark -r <file>`             | File                                                      |
 
 If no `-i` argument is found, `tshark` aliases to `tshark -i 1`.
 
@@ -99,92 +97,6 @@ the network adapter.
 More information can be found in the [Wireshark
 Guide](https://www.wireshark.org/docs/wsug_html_chunked/ChCapLinkLayerHeader.html).
 
-## Sample Interface Listings
+## Further Reading
 
-Taken on 2019-07-03. These are provided as examples of what interface listings look like on different platforms.
-
-### Sample Windows interfaces
-
-_Windows 10, version 1809_
-
-```
-C:\Users\rj>tshark -D
-1. \Device\NPF_{556AA61D-DAE9-4A5B-8E7E-1E92123B061E} (Ethernet)
-2. \\.\USBPcap1 (USBPcap1)
-3. ciscodump (Cisco remote capture)
-4. randpkt (Random packet generator)
-5. sshdump (SSH remote capture)
-6. udpdump (UDP Listener remote capture)
-```
-
-### Sample Macos interfaces
-
-_Macos 10.14_
-
-```
-~ $ tshark -D
-1. en0 (Wi-Fi)
-2. p2p0
-3. awdl0
-4. bridge0 (Thunderbolt Bridge)
-5. utun0
-6. en1 (Thunderbolt 1)
-7. en2 (Thunderbolt 2)
-8. lo0 (Loopback)
-9. gif0
-10. stf0
-11. XHC20
-12. ciscodump (Cisco remote capture)
-13. randpkt (Random packet generator)
-14. sshdump (SSH remote capture)
-15. udpdump (UDP Listener remote capture)
-```
-
-### Sample Linux interfaces 
-
-_Ubuntu 18.04_
-
-You may run into an issue where you only see [extcap interfaces](/capture/extcap_interfaces) without
-sudo privileges.
-
-```
-rj@vmbuntu:~$ tshark -D
-1. ciscodump (Cisco remote capture)
-2. randpkt (Random packet generator)
-3. sshdump (SSH remote capture)
-4. udpdump (UDP Listener remote capture)
-```
-
-Using sudo will fix this. Generic reminder to respect sudo privileges.
-
-```
-rj@vmbuntu:~$ sudo tshark -D
-[sudo] password for rj: 
-Running as user "root" and group "root". This could be dangerous.
-tshark: Lua: Error during loading:
- /usr/share/wireshark/init.lua:32: dofile has been disabled due to running Wireshark as superuser. See https://wiki.wireshark.org/CaptureSetup/CapturePrivileges for help in running Wireshark as an unprivileged user.
-1. enp0s3
-2. any
-3. lo (Loopback)
-4. nflog
-5. nfqueue
-6. usbmon1
-7. ciscodump (Cisco remote capture)
-8. randpkt (Random packet generator)
-9. sshdump (SSH remote capture)
-10. udpdump (UDP Listener remote capture)
-```
-
-### Sample BSD interfaces
-
-_FreeBSD 12.0_
-
-```
-$ tshark -D
-1. em0
-2. lo0 (Loopback)
-3. usbus0
-4. usbus1
-5. randpkt (Random packet generator)
-6. udpdump (UDP Listener remote capture)
-```
+* [Capturing Wireless Traffic](https://wiki.wireshark.org/CaptureSetup/WLAN)

@@ -1,9 +1,12 @@
 ---
 title: "Use a Program"
+description: "Let somebody else build the packet generator"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
-description: "Let somebody else build the packet generator"
+
+summary: ''
 weight: 30
+draft: false
 ---
 
 > "Quantity is a quality all its own" – Napoleon
