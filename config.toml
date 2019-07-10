@@ -2,7 +2,7 @@ baseURL = "/"
 languageCode = "en-US"
 defaultContentLanguage = "en"
 
-title = "Tshark Guide"
+title = "Packet Analysis"
 theme = "hugo-theme-learn"
 themesdir = "themes"
 metaDataFormat = "yaml"

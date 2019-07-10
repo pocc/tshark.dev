@@ -4,7 +4,7 @@ description: "I am still making order out of chaos by reinvention. — John le C
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
 
-summary: '<i class="fas fa-external-link-square-alt"></i> [manpage](https://www.wireshark.org/docs/man-pages/reordercap.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolsreordercap.html) | [code](https://github.com/wireshark/wireshark/blob/master/reordercap.c)'
+summary: '[manpage](https://www.wireshark.org/docs/man-pages/reordercap.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolsreordercap.html) | [code](https://github.com/wireshark/wireshark/blob/master/reordercap.c)'
 weight: 20
 draft: false
 ---

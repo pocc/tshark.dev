@@ -4,7 +4,7 @@ description: "Packet Headwaters"
 date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
 
-summary: '<i class="fas fa-external-link-square-alt"></i> [Wireshark Docs](https://wiki.wireshark.org/CaptureSetup/Pipes)'
+summary: '[Wireshark Docs](https://wiki.wireshark.org/CaptureSetup/Pipes)'
 weight: 30
 draft: true
 ---
