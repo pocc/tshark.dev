@@ -4,7 +4,7 @@ author: Ross Jacobs
 date: 2019-03-12T12:44:45Z
 description: "Who knew Wireshark could fly!?"
 
-summary: '<i class="fas fa-external-link-square-alt"></i> Wireshark: [Lua API docs](https://www.wireshark.org/docs/wsdg_html_chunked/lua_module_Proto.html) | [Lua Examples](https://wiki.wireshark.org/Lua/Examples)'
+summary: 'Wireshark: [Lua API docs](https://www.wireshark.org/docs/wsdg_html_chunked/lua_module_Proto.html) | [Lua Examples](https://wiki.wireshark.org/Lua/Examples)'
 weight: 90
 draft: true
 ---

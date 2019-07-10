@@ -4,7 +4,7 @@ description: "Convert hexdumps to packet captures"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
 
-summary: '<i class="fas fa-external-link-square-alt"></i> [manpage](https://www.wireshark.org/docs/man-pages/text2pcap.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstext2pcap.html) | [code](https://github.com/wireshark/wireshark/blob/master/text2pcap.c)'
+summary: '[manpage](https://www.wireshark.org/docs/man-pages/text2pcap.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstext2pcap.html) | [code](https://github.com/wireshark/wireshark/blob/master/text2pcap.c)'
 weight: 40
 draft: false
 ---

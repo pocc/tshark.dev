@@ -4,7 +4,7 @@ description: "Edit packet captures after they have been taken"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
 
-summary: '<i class="fas fa-external-link-square-alt"></i> [manpage](https://www.wireshark.org/docs/man-pages/editcap.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolseditcap.html) | [code](https://github.com/wireshark/wireshark/blob/master/editcap.c)'
+summary: '[manpage](https://www.wireshark.org/docs/man-pages/editcap.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolseditcap.html) | [code](https://github.com/wireshark/wireshark/blob/master/editcap.c)'
 weight: 10
 draft: false
 ---

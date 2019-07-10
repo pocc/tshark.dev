@@ -11,7 +11,7 @@ draft: false
 
 ## tshark.dev
 
-All contributions are welcome! Repo can be found at https://github.com/pocc/tshark.dev.
+All contributions are welcome! You can find "Edit this page" markers throughout the site, or you could go directly to [the repo](https://github.com/pocc/tshark.dev).
 
 ## Wireshark
 

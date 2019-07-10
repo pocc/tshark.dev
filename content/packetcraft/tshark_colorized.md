@@ -4,7 +4,7 @@ description: "With color one obtains an energy that seems to stem from witchcraf
 date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
 
-summary: ''
+summary: '[colors in tshark!](http://blog.goodell.io/2017/06/13/tshark-colors/) | [24bit color](https://github.com/termstandard/colors)'
 weight: 20
 draft: false
 ---
@@ -20,7 +20,7 @@ _Demonstration of tshark --color on Windows, Macos, Linux, and BSD._
 
 Support for terminal colors depends on whether "truecolor" 24-bit colors are
 implemented. One way to check for it is to query the `$COLORTERM` environment
-variable. If supported, `echo $COLORTERM` will return `truecolor` or `24bit`. 
+variable. If supported, `echo $COLORTERM` will return `truecolor` or `24bit`.
 
 [This repo](https://github.com/termstandard/colors) keeps track whether your
 ${TERMINAL} supports truecolor as well as general truecolor info.
