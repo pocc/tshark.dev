@@ -50,12 +50,15 @@ wrpcap("ping.pcap",ans+unans)
 Run with `python send_ping.py`. Sending traffic with scapy is extremely easy!
 
 {{% notice note %}}
-If you do not send data with a ping, Scapy won't compute checksums and Wireshark will complain.
+If you do not send data with icmp like `"Scapy is easy!"` above, Scapy won't compute checksums and Wireshark will complain.
 {{% /notice %}}
+
+If you want to livecapture with scapy [it should be possible]](/capture/sources/downloading_file#scapy) on systems with tail.
 
 #### Scapy Resources
 
-* [Art of Packet Crafting with Scapy](https://0xbharath.github.io/art-of-packet-crafting-with-scapy/)
+* [Art of Packet Crafting with Scapy](https://0xbharath.github.io/art-of-packet-crafting-with-scapy/): Comprehensive guide on how to use scapy
+* [Scapy Official Reference](https://scapy.readthedocs.io/en/latest/)
 
 ### Ruby: PacketFu
 
@@ -90,23 +93,10 @@ Run with `sudo ruby send_ping.rb`. Sudo is required here to capture.
 ### go: gopacket
 
 [gopacket](https://github.com/google/gopacket) is the golang library to send packets onto the wire, maintained by Google.
-
-TODO: Create ping example
-
-#### Further Reading
-
-* [Packet Inject and Analysis](https://www.devdungeon.com/content/packet-capture-injection-and-analysis-gopacket) by DevDungeon
-
-### c/c++
-
-TODO: All the libraries!
-TODO: Examples
+[Gopacket analysis](https://www.devdungeon.com/content/packet-capture-injection-and-analysis-gopacket) is a great tutorial to start with.
 
 ### java: pcap4j
 
 [pcap4j](https://github.com/kaitoy/pcap4j) is the library for choice for packet crafting in Java.
-To get started, I would start with [DevDungeon article](https://www.devdungeon.com/content/packet-capturing-java-pcap4j)
-and also look at
+[Packet capturing with Java](https://www.devdungeon.com/content/packet-capturing-java-pcap4j) is a great place to start, in addition to the
 [Official examples](https://github.com/kaitoy/pcap4j/tree/v1/pcap4j-sample/src/main/java/org/pcap4j/sample).
-
-TODO: Create todo example.
