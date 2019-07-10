@@ -4,7 +4,7 @@ description: "Generate packets with your favorite programming language"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
 
-summary: ''
+summary: '[Scapy](https://scapy.net/) | [PacketFu](https://github.com/packetfu/packetfu) | [GoPacket](https://github.com/google/gopacket) | [Pcap4J](https://www.pcap4j.org/)'
 weight: 20
 draft: false
 ---
@@ -28,9 +28,8 @@ Generate traffic with netcat, ping, hping, etc and save with tshark.
 
 ```bash
 function save_ping() {
-    tshark -w ping.pcap -f "host 8.8.8.8" & tspid=$!
-    sleep 0.5 # Wait for tshark to warm up
-    ping 8.8.8.8 -c 1 && kill $tspid
+    tshark -w ping.pcap -f "host 8.8.8.8" -c 1
+    ping 8.8.8.8 -c 1
 }
 save_ping
 ```

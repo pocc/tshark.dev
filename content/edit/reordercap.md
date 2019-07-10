@@ -9,18 +9,15 @@ weight: 20
 draft: false
 ---
 
-## Why reorder packets by timestamp
+Reordercap is a simple utility that orders all packets by timestamp.
 
-* You are passing captures into utils like mergecap [which require it](/edit/mergecap#input-captures-should-be-correctly-ordered)
-* The lack of packet order is making it hard for you to analyze a pcap.
+## Caveats
 
-### Caveats
-
-#### Cannot use same input & output file
+### Cannot use same input & output file
 
 reordercap will not error with `reordercap $file $file`, but when you read the file, the packets will be in order but now malformed.
 
-#### Cannot read from a pipe
+### Cannot read from a pipe
 
 ```bash
 bash-5.0$ mkfifo myfifo
@@ -29,7 +26,7 @@ bash-5.0$ tshark -r out-of-order.pcap -w myfifo & reordercap myfifo out-of-order
 reordercap: The file "myfifo" is a pipe or FIFO; reordercap can't read pipe or FIFO files in two-pass mode.
 ```
 
-### Examples
+## Examples
 
 For these examples, using [this cloudshark file](https://www.cloudshark.org/captures/6ffcd7e10730)
 

@@ -4,7 +4,7 @@ description: "Merge captures together"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
 
-summary: '<i class="fas fa-external-link-square-alt"></i> [manpage](https://www.wireshark.org/docs/man-pages/mergecap.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolsmergecap.html) | [code](https://github.com/wireshark/wireshark/blob/master/mergecap.c)'
+summary: '[manpage](https://www.wireshark.org/docs/man-pages/mergecap.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolsmergecap.html) | [code](https://github.com/wireshark/wireshark/blob/master/mergecap.c)'
 weight: 30
 draft: false
 ---
