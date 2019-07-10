@@ -40,6 +40,12 @@ this capability
 
 tshark can be used to reduce packet size.
 
+## Fuzzing
+
+editcap has several options to fuzz, including -E, -o, and --seed. You can use them in combination to randomly change a packet capture to fuzz it with your program. This can mimic the bit-flipping that will naturally occur on lossy mediums like 802.11.
+
+< Insert example >
+
 ### Similar Articles
 
 | Date | Article | Author |

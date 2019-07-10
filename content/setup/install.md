@@ -4,7 +4,7 @@ description: "Installation is a gateway drug"
 date: 2019-07-04
 author: Ross Jacobs
 
-summary: '<i class="fas fa-external-link-square-alt"></i> Wireshark: [Installation Chapter](https://www.wireshark.org/docs/wsug_html_chunked/ChapterBuildInstall.html)'
+summary: 'Wireshark: [Installation Chapter](https://www.wireshark.org/docs/wsug_html_chunked/ChapterBuildInstall.html)'
 weight: 10
 draft: false
 ---
@@ -19,7 +19,13 @@ Where available, prefer your [package manager](https://en.wikipedia.org/wiki/Pac
 | Macos   | `brew cask install wireshark`   | 3.0.2           |
 | Windows | `choco install wireshark`       | 3.0.2           |
 
+## Install with a package
+
 To get the most up-to-date official packages, visit Wireshark's [Download Page](https://www.wireshark.org/download.html).
+
+{{% notice warning %}}
+There are multiple packages available from Wireshark's [download page](). The installation is simple, but make sure to check the components that. 
+{{% /notice %}}
 
 ## Install from Source
 
