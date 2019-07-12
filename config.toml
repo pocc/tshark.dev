@@ -8,6 +8,9 @@ themesdir = "themes"
 metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= true
 
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+
 [params]
   # Combined with current relative page, shows source page on Github
   editURL = "https://github.com/pocc/tshark.dev/blob/hugo-learn/content/"
@@ -24,9 +27,4 @@ home = [ "HTML", "RSS", "JSON"]
 
 [Languages]
 [Languages.en]
-title = "Tshark Guide"
-weight = 1
 languageName = "English"
-
-PygmentsCodeFences = true
-PygmentsStyle = "monokai"

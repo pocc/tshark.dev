@@ -66,7 +66,7 @@ If you do not see any packets captured, try using `tshark -i <interface>` with t
 
 ### Finding the interface name
 
-_These one-liners will print the exact interface name, regardless of OS._
+_These one-liners will print the exact interface name for each OS._
 
 ```sh
 # Using powershell on Windows
