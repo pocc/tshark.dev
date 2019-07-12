@@ -9,9 +9,16 @@ weight: 50
 draft: true
 ---
 
-## Adding context 
+## Adding context
 
-There are 
+There are two major ways to add context to 
+
+
+{{% notice note %}}
+It's possible 
+{{% /notice %}}
+
+ multiple ways to add context in Wireshark.
 
 ### 5A. Name resolution
 

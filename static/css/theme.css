@@ -349,7 +349,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     min-height: 100%;
 }
 #body img, #body .video-container {
-    margin: 3rem auto;
+    margin: 1rem auto;
     display: block;
     text-align: center;
 }
@@ -733,7 +733,7 @@ hr {
     background: #4d5257;
 }
 #body-inner pre {
-    white-space: pre-wrap;
+    white-space: pre;
 }
 .tabs-wrapper pre {
     margin: 1rem 0;

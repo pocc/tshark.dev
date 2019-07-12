@@ -1,5 +1,5 @@
 ---
-title: "Default Interfaces"
+title: "Sample Interfaces"
 date: 2019-04-08T12:44:45Z
 description: "Default interfaces on Windows, Macos, Linux, and FreeBSD"
 author: Ross Jacobs

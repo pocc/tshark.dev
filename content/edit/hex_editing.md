@@ -15,16 +15,33 @@ There are a couple ways to edit the hex of a packet capture.  For this scenario,
 let's say we want to change all instances of broadcast address 255.255.255.255
 in our dhcp.pcap to something else, using CLI tools. Let's choose 255.0.255.0 because it's a
 funny-looking broadcast address. In hex, this is `0xffffffff` => `0xff00ff00`.
+Visually, this looks like:
+
+### Before hexedit
+
+![](https://dl.dropboxusercontent.com/s/zpmk8vl3cer0o7x/hexedit_before.png)
+
+### After hexedit
+
+![](https://dl.dropboxusercontent.com/s/wticze3apr1l5ln/hexedit_after.png)
 
 ## Scripted Solutions
+
+Change a file in-place without looking at a hex file.
 
 ### sed
 
 `sed` gives you the ability to munge filehex.
 
-`sed -Ei 's/([^\xff])\xff{4}([^\xff])/\1\xff\x00\xff\x00\2/g' dhcp.pcap`
+```bash
+sed -Ei 's/([^\xff])\xff{4}([^\xff])/\1\xff\x00\xff\x00\2/g' dhcp.pcap
+```
 
-#### Explanation
+{{% notice warning %}}
+The Macos version of sed is based on BSD and has different syntax, to use GNU sed, install it with `brew install gnu-sed` or [all GNU utils](https://apple.stackexchange.com/questions/69223/how-to-replace-mac-os-x-utilities-with-gnu-core-utilities).
+{{% /notice %}}
+
+This looks like someone mashed a keyboard, but there is both rhyme and reason here.
 
 - `sed -i` : Change in place.
 - `sed -E` : Use extended regular expressions
@@ -32,8 +49,8 @@ funny-looking broadcast address. In hex, this is `0xffffffff` => `0xff00ff00`.
   table](http://www.asciitable.com/) would suggest. Note that a hex byte is 8
   bits and that in `\xff`, each f is 4 bits.  
 - `1st [^\xff]` : We know that the 32 bits before this regex will be the
-  client's IP address, 0.0.0.0 (0x00000000), and the last byte, 0x00, will match. 
-- `2nd [^\xff]` : We know that the 32 bits after this regex are the UDP ports 
+  client's IP address, 0.0.0.0 (0x00000000), and the last byte, 0x00, will match.
+- `2nd [^\xff]` : We know that the 32 bits after this regex are the UDP ports
   for DHCP, 67 and 68. `[^\xff]` will math the source udp port 68 (00 in 0x0068).
 - `\xff{4}`: Given that this packet capture is DHCP, the client
   sends traffic to a MAC address of ffffffffffff. Thus, a
@@ -48,9 +65,38 @@ funny-looking broadcast address. In hex, this is `0xffffffff` => `0xff00ff00`.
 
 Exactly like `sed`, except we can use negative lookaheads and lookbehinds:
 
-`perl -pi -e 's/(?<!\xff)\xff{4}(?!\xff)/\xff\x00\xff\x00/g' dhcp.pcap`
+```bash
+perl -pi -e 's/(?<!\xff)\xff{4}(?!\xff)/\xff\x00\xff\x00/g' dhcp.pcap
+```
+
+### python
+
+This can also be a one-liner with `python -c`, but is much cleaner as a script called by python.
+In this example, we read the bytes from a file, change them, and then write them
+back to the original file. The regex logic is the same as the sed example.
+Note that capture groups 1 and 2 need to be escaped 4 times: Twice for being a
+capture group and twice for being a part of a bytes object.
+
+``` python
+# replace_bytes.py
+import re
+
+f = open('dhcp.pcap', 'rb')
+pkt_bytes = f.read()
+f.close()
+
+pkt_bytes = re.sub(b'([^\xff])(\xff){4}([^\xff])',
+                   b'\\\\1\xff\x00\xff\x00\\\\2',
+                   pkt_bytes)
+
+f = open('dhcp.pcap', 'wb')
+f.write(pkt_bytes)
+f.close()
+```
 
 ## Manual Solutions
+
+Manually change the bytes in a hex file and save.
 
 ### vim & xxd
 

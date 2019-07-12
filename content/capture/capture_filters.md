@@ -10,7 +10,7 @@ draft: true
 ---
 
 There are two types of filters: Capture filters and display filters. Capture
-filters are more limited and are based on [eBPF syntax](). Capture filters are
+filters are more limited and are based on [BPF syntax](https://wiki.wireshark.org/CaptureFilters). Capture filters are
 used to decrease the size of captures by filtering out packets before they are
 added. By comparison, display filters are more versatile, and can be used to
 select for expert infos that can be determined with a multipass analysis. For
