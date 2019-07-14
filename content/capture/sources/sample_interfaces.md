@@ -9,6 +9,9 @@ weight: 99
 draft: false
 ---
 
+These sample listings are provided to give an idea of output on various systems.
+You should run the command on your system to get actual results.
+
 ## Sample Interface Listings
 
 Taken on 2019-07-03. These are provided as examples of what interface listings look like on different platforms.
@@ -94,4 +97,52 @@ $ tshark -D
 4. usbus1
 5. randpkt (Random packet generator)
 6. udpdump (UDP Listener remote capture)
+```
+
+## Sample Capture File Types
+
+(tshark 3.0.2, Macos 10.14)
+
+```bash
+$ tshark -F
+tshark -F
+tshark: option requires an argument -- F
+tshark: The available capture file types for the "-F" flag are:
+    5views - InfoVista 5View capture
+    btsnoop - Symbian OS btsnoop
+    commview - TamoSoft CommView
+    dct2000 - Catapult DCT2000 trace (.out format)
+    erf - Endace ERF capture
+    eyesdn - EyeSDN USB S0/E1 ISDN trace format
+    k12text - K12 text file
+    lanalyzer - Novell LANalyzer
+    logcat - Android Logcat Binary format
+    logcat-brief - Android Logcat Brief text format
+    logcat-long - Android Logcat Long text format
+    logcat-process - Android Logcat Process text format
+    logcat-tag - Android Logcat Tag text format
+    logcat-thread - Android Logcat Thread text format
+    logcat-threadtime - Android Logcat Threadtime text format
+    logcat-time - Android Logcat Time text format
+    modpcap - Modified tcpdump - pcap
+    netmon1 - Microsoft NetMon 1.x
+    netmon2 - Microsoft NetMon 2.x
+    nettl - HP-UX nettl trace
+    ngsniffer - Sniffer (DOS)
+    ngwsniffer_1_1 - NetXray, Sniffer (Windows) 1.1
+    ngwsniffer_2_0 - Sniffer (Windows) 2.00x
+    niobserver - Network Instruments Observer
+    nokiapcap - Nokia tcpdump - pcap
+    nsecpcap - Wireshark/tcpdump/... - nanosecond pcap
+    nstrace10 - NetScaler Trace (Version 1.0)
+    nstrace20 - NetScaler Trace (Version 2.0)
+    nstrace30 - NetScaler Trace (Version 3.0)
+    nstrace35 - NetScaler Trace (Version 3.5)
+    pcap - Wireshark/tcpdump/... - pcap
+    pcapng - Wireshark/... - pcapng
+    rf5 - Tektronix K12xx 32-bit .rf5 format
+    rh6_1pcap - RedHat 6.1 tcpdump - pcap
+    snoop - Sun snoop
+    suse6_3pcap - SuSE 6.3 tcpdump - pcap
+    visual - Visual Networks traffic capture
 ```
