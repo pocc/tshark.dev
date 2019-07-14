@@ -13,7 +13,7 @@ draft: false
 
 Editcap allows you to filter out packets with -A, -B, packet range selection
 [packet#-packet#] and inverted selection (-r). While tshark/editcap have the
-same functionality below, tshark is more explicit, which is better for maintainability.
+same functionality below, tshark is more explicit, [which is better for maintainability](https://dave.cheney.net/2019/07/09/clear-is-better-than-clever).
 
 | editcap flags            | tshark flags                                   |
 |--------------------------|------------------------------------------------|

@@ -115,3 +115,6 @@ tshark's, and all of the others can be discarded.
 	
 	[Next](/post/wireshark-generation.md)
 	
+## Honorable Mentions
+
+- [tcpcapinfo](https://tcpreplay.appneta.com/wiki/tcpcapinfo-man.html): Part of the [tcpreplay](https://tcpreplay.appneta.com/) suite, tcprewrite is useful for diagnosing broken pcap (and only pcap) files. It produces a subset of capinfos data as well as metadata for each packet. Note that this is an old utility written in 2011-12.

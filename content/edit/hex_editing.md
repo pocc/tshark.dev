@@ -5,29 +5,33 @@ date: 2019-07-04
 author: Ross Jacobs
 
 summary: '[xxd](https://linux.die.net/man/1/xxd) | [hexdump](http://man7.org/linux/man-pages/man1/hexdump.1.html)'
-weight: 0
+weight: 80
 draft: false
 ---
 
-## Editing Hex
+## Overview
 
-There are a couple ways to edit the hex of a packet capture.  For this scenario,
+There are many ways to edit the hex of a packet capture. Whether you want to script it
+or edit it by hand depends on how many occurrences need to be changed. If you are trying
+to figure out which hex to edit, you might find it with a [regex with tshark](/analyze/packet_hunting#matches).
+
+For this scenario,
 let's say we want to change all instances of broadcast address 255.255.255.255
 in our dhcp.pcap to something else, using CLI tools. Let's choose 255.0.255.0 because it's a
 funny-looking broadcast address. In hex, this is `0xffffffff` => `0xff00ff00`.
 Visually, this looks like:
 
-### Before hexedit
+### Before Hex Edit
 
 ![](https://dl.dropboxusercontent.com/s/zpmk8vl3cer0o7x/hexedit_before.png)
 
-### After hexedit
+### After Hex Edit (All Solutions)
 
 ![](https://dl.dropboxusercontent.com/s/wticze3apr1l5ln/hexedit_after.png)
 
 ## Scripted Solutions
 
-Change a file in-place without looking at a hex file.
+The solutions below in [sed](#sed), [perl](#perl), and [python](#python) change a file in-place without manually looking at a hex file.
 
 ### sed
 
@@ -38,7 +42,7 @@ sed -Ei 's/([^\xff])\xff{4}([^\xff])/\1\xff\x00\xff\x00\2/g' dhcp.pcap
 ```
 
 {{% notice warning %}}
-The Macos version of sed is based on BSD and has different syntax, to use GNU sed, install it with `brew install gnu-sed` or [all GNU utils](https://apple.stackexchange.com/questions/69223/how-to-replace-mac-os-x-utilities-with-gnu-core-utilities).
+The Macos version of sed is based on BSD and uses different flags. To get GNU sed, install it with `brew install gnu-sed` or [get all GNU utils](https://apple.stackexchange.com/questions/69223/how-to-replace-mac-os-x-utilities-with-gnu-core-utilities).
 {{% /notice %}}
 
 This looks like someone mashed a keyboard, but there is both rhyme and reason here.
@@ -71,7 +75,7 @@ perl -pi -e 's/(?<!\xff)\xff{4}(?!\xff)/\xff\x00\xff\x00/g' dhcp.pcap
 
 ### python
 
-This can also be a one-liner with `python -c`, but is much cleaner as a script called by python.
+This can also be a one-liner with `python -c`, but is much cleaner as a script called with `python replace_bytes.py`.
 In this example, we read the bytes from a file, change them, and then write them
 back to the original file. The regex logic is the same as the sed example.
 Note that capture groups 1 and 2 need to be escaped 4 times: Twice for being a
@@ -96,7 +100,7 @@ f.close()
 
 ## Manual Solutions
 
-Manually change the bytes in a hex file and save.
+Manually changing the bytes in a hex file and saving is more appropriate where there are only 1 or 2 changes that need to.
 
 ### vim & xxd
 
@@ -122,9 +126,13 @@ with `M-x hexl-find-file` and use `C-M-x` to insert hex:
 
 ### hexed.it
 
-Hexed.it is a website that enables you to edit the hex of any file for free.
+[Hexed.it](https://hexed.it) is a website that enables you to edit the hex of any file for free.
 In this example, search for 00ffffffff00, change bytes 2 and 4 at both locations,
 and then save the file.
+
+{{% notice note %}}
+regex is not available in hex search.
+{{% /notice %}}
 
 ![](https://dl.dropboxusercontent.com/s/nnkbsbvyhdzhhp1/hexed.it_sample.png)
 
