@@ -141,3 +141,7 @@ regex is not available in hex search.
 - [hexcurse](https://github.com/arm0th/hexcurse ): curses-based hex editing utility.
 - [wxhexeditor](http://www.wxhexeditor.org/): The only cross-platform GUI hex
   editor with native binaries.
+
+## Links
+
+- [pcapfix](https://f00l.de/pcapfix/): A utility to fix problems with pcap files.
