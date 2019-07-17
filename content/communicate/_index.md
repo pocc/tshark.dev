@@ -6,7 +6,7 @@ author: Ross Jacobs
 
 pre: <b><i class="fas fa-envelope"></i> </b>
 weight: 80
-draft: true
+draft: false
 ---
 
 Packet captures are evidence that events are taking place on your network.
@@ -97,7 +97,3 @@ Any message should have these gestalt elements (at the very least):
 * How did you collect the packet capture?
 * How does the packet capture demonstrate the problem?
 * What should be done based upon that conclusion?
-
-#### Table of Contents
-
-{{% children description="true" %}}

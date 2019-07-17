@@ -24,7 +24,7 @@ Where available, prefer your [package manager](https://en.wikipedia.org/wiki/Pac
 To get the most up-to-date official packages, visit Wireshark's [Download Page](https://www.wireshark.org/download.html).
 
 {{% notice warning %}}
-There are multiple packages available from Wireshark's [download page](). The installation is simple, but make sure to check the components that. 
+There are multiple packages available from Wireshark's [download page](https://www.wireshark.org/download.html). The installation is simple, but make sure to check the components that. 
 {{% /notice %}}
 
 ## Install from Source
