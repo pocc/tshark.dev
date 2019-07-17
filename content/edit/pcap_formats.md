@@ -6,7 +6,7 @@ author: Ross Jacobs
 
 summary: 'captype [manpage](https://www.wireshark.org/docs/man-pages/captype.html) | [code](https://github.com/wireshark/wireshark/blob/master/captype.c)'
 weight: 60
-draft: true
+draft: false
 ---
 
 ## Capture Formats

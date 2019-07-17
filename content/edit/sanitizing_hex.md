@@ -34,6 +34,12 @@ Scenario: You want to scrub IP and MAC addresses. While in the normal course of 
 
 It is possible to manually [edit the hex](/edit/hex_editing); however, there are a couple reasons you may want to use a program instead:
 
+* If you want to change a field's value from A->B across a file, manual hex editing quickly becomes cumbersome. This is possible with regex and sed, but
+* A program is better if you want a flag to change all instances of a field (like MAC address) to another value, consistently
+* Field boundaries are not delineated in hex. It's easy to make mistakes when editing hex manually
+* Adding/subtracting data in captures requires packet and capture headers to be updated with the correct byte length.
+  Depending on how you change your capture, this may render it unreadable or unreadable up until the place you changed it.
+
 ### TraceWrangler
 
 [TraceWrangler](https://www.tracewrangler.com/) is a utility written for Windows that can anonymize various fields. It can also

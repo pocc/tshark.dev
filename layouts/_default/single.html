@@ -1,12 +1,12 @@
 {{ partial "header.html" . }}
 <div class="page-description"><i>{{ .Description }}</i></div>
+<div class="page-description"><i class="fas fa-clock"></i> {{ .ReadingTime }} min　|　<i class="fas fa-feather-alt"></i> {{ .Params.Author }}　|　<i class="far fa-calendar-check"></i> {{ .Date.Format "January 1, 2006"}}</div>
 
 <h4>Table of Contents</h4>
 {{ .TableOfContents }}
 {{ if and (isset .Params "summary") (ne .Params.summary "") }}
   <p><i class="fas fa-external-link-square-alt"></i> <b>Quicklinks:</b> {{ .Summary }}</p>
 {{ end }}
-<i class="fas fa-feather-alt"></i> {{ .Params.Author }} – <i class="far fa-calendar-check"></i> {{ .Date.Format "January 1, 2006"}}
 <hr>
 
 {{ .Content }}
