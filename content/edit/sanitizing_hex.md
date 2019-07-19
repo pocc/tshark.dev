@@ -95,7 +95,7 @@ Tracewrangler is more fully featured while tcprewrite is faster to get and use. 
 
 ## Filtering Out Traffic
 
-Sometimes the simplest solution is best. [Filter the capture](http://localhost:1313/communicate/#filter-for-relevant-traffic) for only the traffic that the 3rd party needs to see. If this removes the sensitive data at the same time, you just hit two birds with one stone.
+Sometimes the simplest solution is best. [Filter the capture](/communicate/#filter-for-relevant-traffic) for only the traffic that the 3rd party needs to see. If this removes the sensitive data at the same time, you just hit two birds with one stone.
 
 ## Further Reading
 

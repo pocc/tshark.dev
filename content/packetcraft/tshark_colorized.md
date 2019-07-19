@@ -65,7 +65,7 @@ may be available in the latest dev version of Wireshark.</i>
 I created a hack that will allow you to use `tshark --color` while capturing on
 Windows by using both Windows and Linux tsharks.
 
-1. [Install Wireshark](/setup/wireshark-setup) # Link to the Windows section
+1. [Install Wireshark](/setup/install) # Link to the Windows section
 2. [Install WSL](http://wsl-guide.org/en/latest/installation.html)
 3. Install tshark on WSL with `sudo apt install tshark`
 4. Add this [bash function](https://gist.github.com/pocc/b2017eeb2609f80a38d8db811d1c6cb8) to your `~/.bashrc`:

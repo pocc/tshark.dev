@@ -21,7 +21,7 @@ example, if you want to see all pings that didn't get a response,
 
 ## Capture Filters
 
-To specify a capture filter, use -f <filter>. To specify a display filter,
+To specify a capture filter, use `tshark -f <filter>`. To specify a display filter,
 use -Y <filter>. If you would like to optimize display filtering over 2
 passes, you can specify the first with `-R <filter> -2 -Y <2nd filter>`.
 
