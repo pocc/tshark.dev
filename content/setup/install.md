@@ -82,7 +82,7 @@ Default interfaces on installs of macos, windows, linux, and freebsd are shown b
 ### 3. Test Live Capture
 
 Entering the `tshark` command should immediately start capturing packets on the default interface. If you do
-not see packets, check out [Choosing an Interface](/capture/choose_interface).
+not see packets, check out [Choosing an Interface](/capture/sources).
 
 ### 4. Make Sure Utilities are on $PATH
 

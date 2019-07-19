@@ -6,7 +6,7 @@ author: Ross Jacobs
 
 summary: '[Wireshark Docs](https://wiki.wireshark.org/CaptureSetup/Pipes)'
 weight: 30
-draft: true
+draft: false
 ---
 
 ## Piping with *shark

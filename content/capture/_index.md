@@ -12,15 +12,20 @@ draft: false
 Most of the captures you look at will be ones you captured yourself.
 This tshark command combines multiple elements that may be relevant to your capture (eventually all of these will be links):
 
-| Cmd    | Read From                               | [Limit Filesize](/capture/limit_size) | Change Capture                                                 | Output Format                 |
-|--------|-----------------------------------------|---------------------------------------|----------------------------------------------------------------|-------------------------------|
-| tshark | [Interface](/capture/sources/interface) | -f Capture Filter                     | [Name resolving flags](/analyze/add_context)                   | -w Capture                    |
-|        | [File](/capture/sources/file)           | -Y Display Filters                    | Comments                                                       | [-x Hexdump](/edit/text2pcap) |
-|        | [Pipe](/capture/sources/pipe)           | Disable Protocols                     | [-K Decrypt with Keytab](/analyze/tshark_decryption/#kerberos) | -T Data Formats               |
-|        |                                         | Disable Heuristics                    | -X Lua Scripting                                               | Text Report                   |
-|        |                                         | -O Protocols                          |                                                                | [Export Files](/export)       |
-|        |                                         | -a Stop Condition                     |                                                                |                               |
-|        |                                         | -b Ring Buffers                       |                                                                |                               |
+<!-- Drafts that can't be linked yet
+[Limit Filesize](/capture/limit_size)
+[Name resolving flags](/analyze/add_context) 
+-->
+
+| Cmd    | Read From                                 | Limit Filesize                                | Change Capture                                                 | Output Format                 |
+|--------|-------------------------------------------|-----------------------------------------------|----------------------------------------------------------------|-------------------------------|
+| tshark | [Interface](/capture/sources)             | -f Capture Filter                             | Name resolving flags                                           | -w Capture                    |
+|        | [File](/capture/sources/downloading_file) | -Y Display Filters                            | Comments                                                       | [-x Hexdump](/edit/text2pcap) |
+|        | [Pipe](/capture/sources/pipe)             | Disable Protocols                             | [-K Decrypt with Keytab](/analyze/tshark_decryption/#kerberos) | -T Data Formats               |
+|        |                                           | Disable Heuristics                            | -X Lua Scripting                                               | Text Report                   |
+|        |                                           | -O Protocols                                  |                                                                | [Export Files](/export)       |
+|        |                                           | -a Stop Condition                             |                                                                |                               |
+|        |                                           | -b Ring Buffers                               |                                                                |                               |
 
 ## Similar resources
 

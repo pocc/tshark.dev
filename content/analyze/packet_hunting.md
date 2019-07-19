@@ -6,13 +6,16 @@ author: Ross Jacobs
 
 summary: ''
 weight: 70
-draft: true
+draft: false
 ---
+
+{{% notice note %}}
+Draft in progress. More content will be added here.
+{{% /notice %}}
 
 ## General Display Filters
 
 Display filters allow you to use Wireshark's powerful multi-pass packet processing capabilities.
-While [capture filters](/capture/capture_filers)
 
 ## matches and contains
 
