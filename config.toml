@@ -10,6 +10,7 @@ defaultContentLanguageInSubdir= true
 
 pygmentsUseClasses = true
 pygmentsCodeFences = true
+enableRobotsTXT = true
 
 [params]
   # Combined with current relative page, shows source page on Github
