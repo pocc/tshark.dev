@@ -4,7 +4,7 @@ description: "Test protocol dissectors or software with malformed packets."
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
 
-summary: '[manpage](https://www.wireshark.org/docs/man-pages/randpkt.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolsrandpkt.html) | [code](https://github.com/wireshark/wireshark/blob/master/randpkt.c)'
+summary: '[manpage](https://www.wireshark.org/docs/man-pages/randpkt.html) | [Wireshark text doc](https://github.com/boundary/wireshark/blob/master/doc/randpkt.txt) | [code](https://github.com/wireshark/wireshark/blob/master/randpkt.c)'
 weight: 10
 draft: false
 ---
@@ -13,7 +13,7 @@ draft: false
 
 randpkt is a tool used to generate [fuzzed](https://www.owasp.org/index.php/Fuzzing) packets for a specefic protocol or randomly from a list. While randpkt has a more limited feature set than [similar tools](#further-reading), it is only has 4 flags and generates packets quickly.
 
-`randpktdump` is available as an [extcap interface](/capture/interfaces/extcap) if you want to tshark to treat this generator as if it were an interface.
+`randpktdump` is available as an [extcap interface](/capture/sources/extcap_interfaces) if you want to tshark to treat this generator as if it were an interface.
 
 ## Caveats
 

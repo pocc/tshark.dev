@@ -58,7 +58,7 @@ _Macos 10.14_
 
 _Ubuntu 18.04_
 
-You may run into an issue where you only see [extcap interfaces](/capture/extcap_interfaces) without
+You may run into an issue where you only see [extcap interfaces](/capture/sources/extcap_interfaces) without
 sudo privileges.
 
 ```
