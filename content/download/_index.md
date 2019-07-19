@@ -6,7 +6,7 @@ author: Ross Jacobs
 
 pre: <b><i class="fas fa-download"></i> </b>
 weight: 11
-draft: true
+draft: false
 ---
 
 The largest collection of packet capture collections is [hosted by Netresec](https://www.netresec.com/?page=PcapFiles)
