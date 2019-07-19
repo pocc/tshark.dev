@@ -11,6 +11,7 @@ draft: false
 
 These sample listings are provided to give an idea of output on various systems.
 You should run the command on your system to get actual results.
+`tshark -D` for interfaces, `tshark -L` for link-layer types and `tshark -F` for supported filetypes.
 
 ## Sample Interface Listings
 
@@ -22,7 +23,7 @@ It is **highly** likely that your listing will look different.
 _Windows 10, version 1809_
 
 ```
-C:\Users\rj>tshark -D
+PS C:\Users\rj> tshark -D
 1. \Device\NPF_{556AA61D-DAE9-4A5B-8E7E-1E92123B061E} (Ethernet)
 2. \\.\USBPcap1 (USBPcap1)
 3. ciscodump (Cisco remote capture)
@@ -54,7 +55,7 @@ _Macos 10.14_
 15. udpdump (UDP Listener remote capture)
 ```
 
-### Sample Linux interfaces 
+### Sample Linux interfaces
 
 _Ubuntu 18.04_
 
@@ -97,6 +98,52 @@ $ tshark -D
 4. usbus1
 5. randpkt (Random packet generator)
 6. udpdump (UDP Listener remote capture)
+```
+
+## Sample Link Layer Types
+
+### Sample Windows interfaces
+
+_Windows 10, version 1809_
+
+```
+PS C:\Users\rj> tshark -L
+Data link types of interface \Device\NPF_{1253F405-755C-43E6-8FDB-87E2D6FB8BBD} (use option -y to set):
+  NULL (BSD loopback)
+```
+
+### Sample Macos interfaces
+
+_Macos 10.14_
+
+```
+$ tshark -L
+Data link types of interface en0 when not in monitor mode (use option -y to set):
+  EN10MB (Ethernet)
+  RAW (Raw IP)
+  PPI (Per-Packet Information)
+```
+
+### Sample Linux interfaces
+
+_Ubuntu 18.04_
+
+```
+$ sudo tshark -L
+Data link types of interface enp0s3 (use option -y to set):
+  EN10MB (Ethernet)
+  DOCSIS (DOCSIS)
+```
+
+### Sample BSD interfaces
+
+_FreeBSD 12.0_
+
+```
+$ sudo tshark -L
+Data link types of interface em0 (use option -y to set):
+  EN10MB (Ethernet)
+  DOCSIS (DOCSIS)
 ```
 
 ## Sample Capture File Types
