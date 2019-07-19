@@ -1,5 +1,5 @@
 ---
-title: "Packet Analysis"
+title: "Basic Analysis"
 description: "The ultimate authority must always rest with the individual's own reason and critical analysis. – Dalai Lama"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
@@ -62,5 +62,5 @@ spec on the subject.
 
 ## Further Reading (Wireshark)
 
-* [Protocol Heirarchy Stats](https://hub.packtpub.com/statistical-tools-in-wireshark-for-packet-analysis/): Viewing packet counts for the protocols present in the capture
-* [Viewing Captured Packets](https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html): Looking at packets in Wireshark
+- [Protocol Heirarchy Stats](https://hub.packtpub.com/statistical-tools-in-wireshark-for-packet-analysis/): Viewing packet counts for the protocols present in the capture
+- [Viewing Captured Packets](https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html): Looking at packets in Wireshark

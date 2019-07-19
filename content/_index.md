@@ -5,6 +5,11 @@ date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
 ---
 
+{{% notice warning %}}
+This site is still in beta and may be broken, have missing content, or be inaccurate.
+If you found a problem, please report it as an issue on the [repo](https://github.com/pocc/tshark.dev/issues).
+{{% /notice %}}
+
 [Wireshark](https://en.wikipedia.org/wiki/Wireshark) is a tool used to visualize network issues.
 It is well documented with the [Official Documentation](https://www.wireshark.org/docs/),
 the [manpages](https://www.wireshark.org/docs/man-pages/), and the [Wireshark Forums](ask.wireshark.org), among others.

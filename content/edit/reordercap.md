@@ -48,9 +48,3 @@ For these examples, using [this cloudshark file](https://www.cloudshark.org/capt
     bash-5.0$ reordercap out-of-order.pcap temp
     bash-5.0$ mv temp out-of-order.pcap
     ```
-
-### Reordercap Resources
-
-* [manpage](https://www.wireshark.org/docs/man-pages/reordercap.html)
-* [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolsreordercap.html)
-* [code](https://github.com/wireshark/wireshark/blob/master/reordercap.c)
