@@ -13,7 +13,7 @@ pygmentsCodeFences = true
 
 [params]
   # Combined with current relative page, shows source page on Github
-  editURL = "https://github.com/pocc/tshark.dev/blob/hugo-learn/content/"
+  editURL = "https://github.com/pocc/tshark.dev/blob/master/content/"
   description = "Packet Analysis, Scripted"
   author = "Ross Jacobs"
   showVisitedLinks = false
