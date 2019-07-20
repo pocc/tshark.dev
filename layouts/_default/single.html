@@ -11,6 +11,15 @@
 
 {{ .Content }}
 
+<script src="https://utteranc.es/client.js"
+        repo="pocc/tshark.dev"
+        issue-term="pathname"
+        label="utterances"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
 <footer class=" footline" >
 	{{with .Params.LastModifierDisplayName}}
 	    <i class='fas fa-user'></i> <a href="mailto:{{ $.Params.LastModifierEmail }}">{{ . }}</a> {{with $.Date}} <i class='fas fa-calendar'></i> {{ .Format "02/01/2006" }}{{end}}

@@ -148,7 +148,11 @@ Data link types of interface em0 (use option -y to set):
 
 ## Sample Capture File Types
 
-_tshark 3.0.2, Macos 10.14, 2019_
+_tshark 3.0.2, Macos 10.14, 2019._
+
+{{% notice info %}}
+This is more dependent on your installation of Wireshark than your OS.
+{{% /notice %}}
 
 ```bash
 $ tshark -F
