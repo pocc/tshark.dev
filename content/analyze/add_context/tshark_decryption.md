@@ -1,7 +1,7 @@
 ---
-title: "Tshark Decryption"
+title: "Decrypt Data"
 description: "Tshark Decryption for Kerberos, TLS, and 802.11"
-date: 2019-04-08T12:44:45Z
+date: 2019-04-08
 author: Ross Jacobs
 
 summary: 'Wireshark Decrypt: [802.11](https://wiki.wireshark.org/HowToDecrypt802.11) | [TLS](https://wiki.wireshark.org/TLS#TLS_Decryption) | [ESP](https://wiki.wireshark.org/ESP_Preferences) | [WireGuard](https://wiki.wireshark.org/WireGuard#Key_Log_Format) | [Kerberos](https://wiki.wireshark.org/Kerberos)<br><i class="fas fa-external-link-square-alt"></i> Articles Decrypt: [SNMP](https://robert.penz.name/1215/decoding-snmpv3-encrypted-traffic-in-wireshark/)'

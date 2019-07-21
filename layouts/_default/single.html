@@ -11,6 +11,7 @@
 
 {{ .Content }}
 
+{{ if and (ne .Kind "section") (ne .Params.subsection true) }}
 <script src="https://utteranc.es/client.js"
         repo="pocc/tshark.dev"
         issue-term="pathname"
@@ -19,6 +20,7 @@
         crossorigin="anonymous"
         async>
 </script>
+{{end}}
 
 <footer class=" footline" >
 	{{with .Params.LastModifierDisplayName}}

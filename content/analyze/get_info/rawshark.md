@@ -1,45 +1,21 @@
 ---
-title: "Wireshark Info"
-date: 2019-03-12T12:44:45Z
+title: "Rawshark"
 description: "Get info from a packet capture"
+date: 2019-05-20
 author: Ross Jacobs
 
-summary: 'Capinfos: [manpage](https://www.wireshark.org/docs/man-pages/capinfos.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolscapinfos.html) | [code](https://github.com/wireshark/wireshark/blob/master/capinfos.c)<br><i class="fas fa-external-link-square-alt"></i> Rawshark: [manpage](https://www.wireshark.org/docs/man-pages/rawshark.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolsrawshark.html) | [code](https://github.com/wireshark/wireshark/blob/master/rawshark.c)'
+summary: 'rawshark: Rawshark: [manpage](https://www.wireshark.org/docs/man-pages/rawshark.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolsrawshark.html) | [code](https://github.com/wireshark/wireshark/blob/master/rawshark.c)'
 weight: 99
 draft: true
 ---
-
-## capinfos
-
-capinfos gets metadata about a packet capture. You can be very granular about
-what pieces of data you want displayed and the output format. 
-<script id="asciicast-235423" src="https://asciinema.org/a/235423.js" async></script>
-
-### General Usage
-
-To see infos a list, use `capinfos <file>`, as list is the default.
-To see infos as a table, use `capinfos -T <file>`. Note that the tabular format
-skips presentation of interface info. These tabular options can
-help with parsing in a scripting language:
-
-### Recommendations
-
-`capinfos` offers 22 options `-acdDeEFHiIkKlnosStuxyz` to print specific
-elements. My perspective is that it is better to use a scripting language to
-convert all of the infos (no options) into a reusable format.  It's fairly straightforward to
-parse `capinfos <file>` into a hashtable in your $language. For an example in
-Python, check out get_capinfos() in my [wsutils
-gist](https://gist.github.com/pocc/2c89dd92d6a64abca3db2a29a11f1404).
 
 ## rawshark
 
 rawshark is a utility that takes an input stream and parses it. It is low-level
 and provides options you would expect to see if you were working
-with the source code. 
+with the source code. This is my take on using rawshark:
 
-<div>
-<img src="https://media2.giphy.com/media/d31vYmpaCrKs9Z6w/giphy.gif" alt="Not Recommended"><i>&nbsp;&nbsp;What using rawshark feels like</i></img>
-<p></p></div>
+<img src="https://media2.giphy.com/media/d31vYmpaCrKs9Z6w/giphy.gif" alt="Not Recommended">
 
 ### Reasons not to use rawshark
 
@@ -61,7 +37,11 @@ But the reason you should avoid using it because tshark can do everything it can
 do, and better. To transition, rawshark's options `-nNrR` are the same as
 tshark's, and all of the others can be discarded.
 
-### If you must... (skip to [next section](#edit))
+### Rawshark example
+
+This example goes over how to display UDP ports from this 
+[dhcp.pcap](https://wiki.wireshark.org/SampleCaptures?action=AttachFile&do=get&target=dhcp.pcap) using rawshark.
+Included is the magical journey in getting there.
 
 1. So rawshark will not take tshark raw output...
 
@@ -112,9 +92,3 @@ tshark's, and all of the others can be discarded.
 	```
 	
 	tshark has the advantage of being able to read files too: `tshark -r dhcp.pcap`.
-	
-	[Next](/post/wireshark-generation.md)
-	
-## Honorable Mentions
-
-- [tcpcapinfo](https://tcpreplay.appneta.com/wiki/tcpcapinfo-man.html): Part of the [tcpreplay](https://tcpreplay.appneta.com/) suite, tcprewrite is useful for diagnosing broken pcap (and only pcap) files. It produces a subset of capinfos data as well as metadata for each packet. Note that this is an old utility written in 2011-12.

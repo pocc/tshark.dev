@@ -9,15 +9,6 @@
 	{{ .Content }}
 {{end}}
 
-<script src="https://utteranc.es/client.js"
-        repo="pocc/tshark.dev"
-        issue-term="pathname"
-        label="utterances"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
-
 {{ if or (eq .Kind "taxonomy") (eq .Kind "taxonomyTerm") }}
 <ul>
 	{{ range .Pages }}
