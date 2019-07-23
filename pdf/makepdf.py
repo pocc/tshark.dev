@@ -27,6 +27,7 @@ def check_env():
     if os.path.basename(this_dir) == "pdf":
         parent_dir = os.path.dirname(this_dir)
         os.chdir(parent_dir)
+    os.makedirs("pdf/_build", exist_ok=True)
     if not os.path.exists("content"):
         raise Exception("Hugo `content` folder not found in root")
     if not os.path.exists("config.toml"):
@@ -40,14 +41,13 @@ def get_value_by_key(key, filename, text):
     try:
         value = re.findall(key + regex, text)[0]
     except IndexError as e:
-        print("ERROR:", filename, "does not contain the " + key +
-              " key in toml/yaml front matter." +
-              "\n\tRegex used: `" + key + regex + "`")
-        exit(1)
+        print("WARNING:", filename, "does not contain the " + key +
+              " key in toml/yaml front matter.")
+        return input("Enter the value for site var, ", key, ": ", sep='')
     return value
 
 
-def parse_document(filetext: str) -> (dict,):
+def parse_document(filetext: str) -> (dict, str):
     """Parse a document into a frontmatter dict and remaining text as str."""
     matches = re.findall(r"^(?:---\n([\s\S]*?)\n---"
                          r"|\+\+\+\n([\s\S]*?)\n\+\+\+"
@@ -73,8 +73,9 @@ def get_proj_params() -> (str, str):
         config_text = f.read()
     title = get_value_by_key("title", "config.toml", config_text)
     author = get_value_by_key("author", "config.toml", config_text)
+    baseURL = get_value_by_key("baseURL", "config.toml", config_text)
     
-    return title, author
+    return title, author, baseURL
 
 
 def install_pandoc():
@@ -95,12 +96,13 @@ def install_pandoc():
         exit(1)
 
 
-def get_text_from_folder(folder: str, index: int) -> str:
+def get_text_from_folder(folder: str, index: int, baseURL: str) -> str:
     """ Algorithm is to create a dict of weights and text to be arranged.
     This function checks one folder at a time, recursively
     
     If 2 files at the same level have the same weight, order by title
     """
+    proj_dir = os.getcwd()
     combined_text = ""
     file_data = []
     for filename in glob.glob(folder + "/*.md"):
@@ -108,28 +110,46 @@ def get_text_from_folder(folder: str, index: int) -> str:
             filetext = f.read()
             fm, text = parse_document(filetext)
             if "weight" not in fm: 
-                raise Exception("In file", filename,
-                                "weight parameter is not set in front matter.")
+                fm["weight"] = 1000 # Artificially high so as to always rank last
+            if "description" not in fm: 
+                if "desc" in fm and fm["desc"]:
+                    fm["description"] = fm["desc"]
+                else:
+                    fm["description"] = ""
+
             if isinstance(fm["weight"], str):
                 if not fm["weight"].isdigit():
                     raise Exception("In file", filename, "weight `",
                                     fm["weight"], "` is not a number.")
                 fm["weight"] = int(fm["weight"]) 
             # Get rid of notices. TODO convert these to tex library like bclogo
-            text = re.sub(r"{{% notice[\s\S]*?/notice %}}", "", text)
-            file_datum = {
-                    "name": filename,
-                    "title": fm["title"], 
-                    "desc": fm["description"], 
-                    "weight": fm["weight"], 
-                    "text": text
-            }
+            text = re.sub(r"{{% notice[\s\S]*?\/notice %}}", "", text)
+            # Remove chapter TOCs
+            text = re.sub(r"\n#+ Table of Contents", "", text)
+            text = re.sub(r"{{% children[\s\S]*? %}}", "", text)
+            # Skip webp and svg, which pandoc doesn't handle as well
+            text = re.sub(r"!\[.*?\]\(.*?.(?:webp|svg).*?\)", "", text)
+            # Replace local links with links with baseURL 
+            text = re.sub(r"\]\(\/", "](" + baseURL + "/", text)
+            try:
+                file_datum = {
+                        "name": filename,
+                        "title": fm["title"], 
+                        "desc": fm["description"], 
+                        "weight": fm["weight"], 
+                        "text": text
+                }
+            except KeyError as e:
+                print("Error with", fm, "\n", e)
+                exit(1) 
             if os.path.basename(filename) == "_index.md":
                 # to ensure that it gets sorted to be first
                 file_datum["weight"] = 0  
             else:
-                # Decrease heading # by 1 so chapters exist
+                # Increase heading # by 1 so chapters exist, articles are ##
                 text = re.sub(r"\n##", "\n###", text)
+                # If H1, H1->H3
+                text = re.sub(r"\n# ", "\n### ", text)
                 file_datum["text"] = text
             file_data.append(file_datum)
 
@@ -146,40 +166,97 @@ def get_text_from_folder(folder: str, index: int) -> str:
     folder_data = {}
     for folder in glob.glob(folder + "/*/"):
         index_path = folder + "_index.md"
-        with open(index_path) as f:
-            index_text = f.read()
-        weight = int(get_value_by_key("weight", index_path, index_text))
-        folder_data[folder] = weight
+        if os.path.exists(index_path): # It's not worth worrying about if _index.md denoting section is not present
+            with open(index_path) as f:
+                index_text = f.read()
+            fm, _ = parse_document(index_text)
+            if "weight" in fm:
+                weight = int(fm["weight"])
+            else:
+                weight = 1000
+            folder_data[folder] = weight
 
     folders_ordered_by_weight = sorted(folder_data, key=folder_data.get)
     for folder in folders_ordered_by_weight:
         print("INFO: Reading folder", folder)
         if index > 4:
             print("WARNING: Recursing", index, "level of folders deep in", folder)
-        combined_text += get_text_from_folder(folder, index+1)
+        combined_text += get_text_from_folder(folder, index+1, baseURL)
 
     return combined_text
 
 
-def convert_to_pdf(title: str, filetext: str):
+def make_tex_template(title: str, author: str):
+    # If a logo exists on this path, add it to the latex on the title page
+    logo_text = r"\\vspace{2cm}"
+    if os.path.exists("static/images/logo.png"):
+        logo_text = r"\\includegraphics[width=0.6\\textwidth]{static/images/logo.png}"
+    tex_addtions = r"""
+% Add color to links (Via https://tex.stackexchange.com/questions/57952/changing-pdf-links-style)
+\\usepackage{{hyperref}}% http://ctan.org/pkg/hyperref
+\\hypersetup{{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=cyan
+}}
+
+\\begin{{document}}
+% Adds \\maketitle manually
+\\begin{{titlepage}}
+  \\begin{{center}}
+      \\vspace*{{1cm}}
+      
+      \\textbf{{\\Huge {}}}
+      
+      \\vspace{{4cm}}
+
+      {}
+      
+      \\vspace{{1.5cm}}
+      
+      \\textbf{{\\Large {}}}
+
+      \\today
+      
+      \\vfill
+  \\end{{center}}
+\\end{{titlepage}}
+""".format(title, logo_text, author)
+    with open("pdf/pandoc_demo.tex") as source:
+        text = source.read()
+    text = re.sub(r"\\begin{document}", tex_addtions, text)
+    with open("pdf/_build/template.tex", "w") as template:
+        template.write(text)
+
+def convert_to_pdf(title: str, sitename: str, filetext: str):
     """Convert to pdf using pandoc."""
-    print("INFO: Converting to PDF")
-    sanitized_title = ''.join(c for c in title if c.isalnum() or c in "-_. ")
-    output_name = sanitized_title.replace(" ", "-")
-    input_file = "pdf/" + output_name + ".md"
-    output_file = "pdf/" + output_name + ".tex"
-    this_dir = os.getcwd() + '/pdf/'
+    matches = re.findall(r"https?:\/\/w*\.?([^\/]*)", sitename)
+    if len(matches) > 0:
+        pdf_name = matches[0]
+    else:
+        print("WARNING: Fix your baseURL param to be the URL of your website. Using title instead.")
+        pdf_name = ''.join(c for c in title if c.isalnum() or c in "-_.")
+    input_file = "pdf/_build/" + pdf_name + ".md"
+    output_file = "pdf/_build/" + pdf_name + ".pdf"
+    this_dir = os.getcwd() + '/pdf/_build/'
+    if platform.system() != "Linux": 
+        # Supported on Macos, Windows
+        fonts = ["Palatino", "Arial", "Menlo"]
+    else: 
+        # These are supported on a typical Ubuntu installation
+        fonts = ["Ubuntu", "Arial", "DejaVu Sans Mono"]
+    print("INFO: Converting to PDF using these fonts:", ", ".join(fonts))
+
     with open(input_file, "w") as f:
         f.write(filetext)
         f.flush()
-    cmds = """pandoc -N --template={}template.tex {} \
---pdf-engine=xelatex --toc \
---variable mainfont="Palatino" \
---variable sansfont="Arial" \
---variable monofont="Menlo" \
+    cmds = """pandoc -N --template={0}template.tex {1} \
+--pdf-engine=xelatex --toc --highlight-style=tango \
+--variable mainfont={2} \
+--variable sansfont={3} \
+--variable monofont={4} \
 --variable fontsize=12pt \
---variable version=2.0 \
--o {}""".format(this_dir, input_file, output_file)
+-o {5}""".format(this_dir, input_file, *fonts, output_file)
     print("INFO: Calling pandoc with:\n", cmds, sep="")
     sp.call(cmds.split(' '))
 
@@ -187,13 +264,13 @@ def convert_to_pdf(title: str, filetext: str):
 def makepdf():
     """Generate a pdf from folders containing markdown files."""
     check_env()
-    title, author = get_proj_params()
+    title, author, baseURL = get_proj_params()
     pandoc_path = shutil.which("pandoc")
     if not pandoc_path:
         install_pandoc()
-    all_text = "# " + title + "\n\nBy " + author + \
-               get_text_from_folder("content", 0)
-    convert_to_pdf(title, all_text)
+    all_text = get_text_from_folder("content", 0, baseURL)
+    make_tex_template(title, author)
+    convert_to_pdf(title, baseURL, all_text)
 
 
 if __name__ == '__main__':
