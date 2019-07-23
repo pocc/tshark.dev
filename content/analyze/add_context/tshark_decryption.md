@@ -70,7 +70,7 @@ firefox --browser obj/nc.html
 If all is well, your local version of nc's manpage looks exactly the same
 as ss64's version.
 
-### In Summary
+### TLS 1.2 In Summary
 
 <script id="asciicast-239566" src="https://asciinema.org/a/239566.js" async></script>
 
@@ -127,7 +127,7 @@ bash-5.0$ tshark -r decrypted.pcap -Y "tcp.connection.rst"
     Seq=1 Ack=1 Win=0 Len=0
 ```
 
-### In Summary
+### WPA2 In Summary
 
 <script id="asciicast-239577" src="https://asciinema.org/a/239577.js" async></script>
 

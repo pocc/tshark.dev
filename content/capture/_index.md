@@ -17,6 +17,8 @@ This tshark command combines multiple elements that may be relevant to your capt
 [Name resolving flags](/analyze/add_context) 
 -->
 
+Also see https://wiki.wireshark.org/CaptureSetup.
+
 | Cmd    | Read From                                 | Limit Filesize                                | Change Capture                                                 | Output Format                 |
 |--------|-------------------------------------------|-----------------------------------------------|----------------------------------------------------------------|-------------------------------|
 | tshark | [Interface](/capture/sources)             | -f Capture Filter                             | Name resolving flags                                           | -w Capture                    |
@@ -26,10 +28,6 @@ This tshark command combines multiple elements that may be relevant to your capt
 |        |                                           | -O Protocols                                  |                                                                | [Export Files](/export)       |
 |        |                                           | -a Stop Condition                             |                                                                |                               |
 |        |                                           | -b Ring Buffers                               |                                                                |                               |
-
-## Similar resources
-
-* https://wiki.wireshark.org/CaptureSetup 
 
 #### Table of Contents
 

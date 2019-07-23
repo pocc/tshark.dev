@@ -42,7 +42,7 @@ tshark -r $file -Y "frame matches \"https?.*?\.ru.*?worm\""
 ```
 
 {{% notice warning %}}
-You [cannot use the null character](https://osqa-ask.wireshark.org/questions/41234/matches-regex-null-byte),`\x00` in matches because Wireshark uses null-terminated C-strings.
+You [cannot use the null character](https://osqa-ask.wireshark.org/questions/41234/matches-regex-null-byte),`\x00` when using `matches` because Wireshark uses null-terminated C-strings.
 Use `[^\x01-\xff]` instead.
 {{% /notice %}}
 

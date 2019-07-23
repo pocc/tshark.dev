@@ -15,6 +15,8 @@ site generator.
 
 ## Build it
 
+### Serve tshark.dev locally
+
 1. Download the repo
 
    ```
@@ -27,6 +29,51 @@ site generator.
 3. Start the server: `hugo server`
 
 4. Open the address in a browser (default is localhost:1313)
+
+### Generate tshark.dev PDF
+
+1. Install the latest [pandoc](https://pandoc.org/installing.html).
+   Do NOT your package manager's version as it may use deprecated command syntax.
+
+2. Install a PDF engine for pandoc to use.
+
+    On linux, this will be [XeTeX](https://en.wikipedia.org/wiki/XeTeX):
+
+    ```bash
+    $ sudo apt install texlive-xetex
+    ```
+
+    On Macos, install mactex or basictex:
+    ```bash
+    # mactex is ~1GB
+    brew cask install mactex
+    
+    # basictex is smaller and should have most features
+    brew cask install basictex
+    # Install required font not bundled with basictex
+    # tlmgr is a tex package manager that is part of basictex
+    sudo tlmgr install lm-math
+    ```
+
+    More information about installation can be found at the [LaTeX website](https://www.latex-project.org/get/).
+
+3. Combine all content into one markdown document ("all.md") by calling `python3 makepdf.py`.
+
+4. Generate the pdf
+
+    These commands are modified from pandoc's examples and sphinx-build latex output.
+    If these fonts are not available on Ubuntu, use "Ubuntu"/"Arial"/"DejaVu Sans Mono"
+
+    ```bash
+    cd tshark.dev/pdf
+    pandoc -N --template=template.tex all.md --pdf-engine=xelatex --toc \
+        --variable mainfont="Palatino" \
+        --variable sansfont="Arial" \
+        --variable monofont="Menlo" \
+        --variable fontsize=12pt \
+        --variable version=2.0 \
+        -o tshark_dev.pdf
+    ```
 
 ## Contribution Guide
 
