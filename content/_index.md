@@ -3,6 +3,9 @@ title: "Packet Analysis"
 description: "Using the Wireshark CLI for Packet Analysis"
 date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
+
+weight: 1
+draft: false
 ---
 
 [Wireshark](https://en.wikipedia.org/wiki/Wireshark) is a tool used to visualize network issues.
