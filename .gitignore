@@ -11,5 +11,5 @@ _gen/
 _build/
 public/
 pdf/*.md
-pdf/*.tex
 pdf/*.pdf
+pdf/template.tex

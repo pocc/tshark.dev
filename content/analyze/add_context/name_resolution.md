@@ -62,7 +62,7 @@ Essentially it's an IP address followed by whitespace-delimited names.
 {{% notice warning %}}
 You should take care when manually editing your hosts file.
 It is easy to make a change, forget about it, and then have a "mystery" network problem 6 months later.
-{{% notice %}}
+{{% /notice %}}
 
 #### hosts example
 

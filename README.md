@@ -57,22 +57,23 @@ site generator.
 
     More information about installation can be found at the [LaTeX website](https://www.latex-project.org/get/).
 
-3. Combine all content into one markdown document ("all.md") by calling `python3 makepdf.py`.
+3. Combine all content into one markdown document ("Packet-Analysis.md") by calling `python makepdf.py`.
+   This script should also generate the accompanying PDF.
 
-4. Generate the pdf
+4. (Optional) Generate the PDF manually
 
     These commands are modified from pandoc's examples and sphinx-build latex output.
     If these fonts are not available on Ubuntu, use "Ubuntu"/"Arial"/"DejaVu Sans Mono"
 
     ```bash
     cd tshark.dev/pdf
-    pandoc -N --template=template.tex all.md --pdf-engine=xelatex --toc \
+    pandoc -N --template=template.tex Packet-Analysis.md --pdf-engine=xelatex --toc \
         --variable mainfont="Palatino" \
         --variable sansfont="Arial" \
         --variable monofont="Menlo" \
         --variable fontsize=12pt \
         --variable version=2.0 \
-        -o tshark_dev.pdf
+        -o Packet-Analysis.pdf
     ```
 
 ## Contribution Guide
