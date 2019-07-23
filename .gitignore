@@ -1,7 +1,15 @@
 # Macos cruft
 .DS_Store
 
+# IDE
+.vscode/
+.idea/
+
 # generated
+__pycache__/
 _gen/
 _build/
 public/
+pdf/*.md
+pdf/*.tex
+pdf/*.pdf

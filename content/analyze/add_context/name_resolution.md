@@ -75,14 +75,13 @@ If we use this hosts fil:
 10.0.0.3    Dwight_Schrute  _ds
 10.0.0.4    Jim_Halpert     _jh
 10.0.0.5    Pam_Beesly      _pb
-```
 
 tshark -Y
 
 rj@vmbuntu:/tmp$ sudo tshark -Y icmp -H hosts -Nn
 Running as user "root" and group "root". This could be dangerous.
 Capturing on 'enp0s3'
-    1 0.000000000 🥖_____VIVE_LA_FRANCE______🥖 → ☕___LONG_LIVE_THE_QUEEN___☕ ICMP 98 Echo (ping) request  id=0x5633, seq=17/4352, ttl=64
+    1 0.000000000 🥖VIVE_LA_FRANCE🥖 → LONG_LIVE_THE_QUEEN ICMP 98 Echo (ping) request  id=0x5633, seq=17/4352, ttl=64
     2 0.060887024 ☕___LONG_LIVE_THE_QUEEN___☕ → 🥖_____VIVE_LA_FRANCE______🥖 ICMP 98 Echo (ping) reply    id=0x5633, seq=17/4352, ttl=63 (request in 1)
     3 1.001505971 🥖_____VIVE_LA_FRANCE______🥖 → ☕___LONG_LIVE_THE_QUEEN___☕ ICMP 98 Echo (ping) request  id=0x5633, seq=18/4608, ttl=64
     4 1.101244720 ☕___LONG_LIVE_THE_QUEEN___☕ → 🥖_____VIVE_LA_FRANCE______🥖 ICMP 98 Echo (ping) reply    id=0x5633, seq=18/4608, ttl=63 (request in 3)
@@ -90,7 +89,7 @@ Capturing on 'enp0s3'
     6 2.144879341 ☕___LONG_LIVE_THE_QUEEN___☕ → 🥖_____VIVE_LA_FRANCE______🥖 ICMP 98 Echo (ping) reply    id=0x5633, seq=19/4864, ttl=63 (request in 5)
     7 3.005431545 🥖_____VIVE_LA_FRANCE______🥖 → ☕___LONG_LIVE_THE_QUEEN___☕ ICMP 98 Echo (ping) request  id=0x5633, seq=20/5120, ttl=64
     8 3.081396194 ☕___LONG_LIVE_THE_QUEEN___☕ → 🥖_____VIVE_LA_FRANCE______🥖 ICMP 98 Echo (ping) reply    id=0x5633, seq=20/5120, ttl=63 (request in 7)
-
+```
 
 ### Name resolution
 
