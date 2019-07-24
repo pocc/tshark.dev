@@ -6,18 +6,29 @@ author: Ross Jacobs
 
 summary: 'rawshark: Rawshark: [manpage](https://www.wireshark.org/docs/man-pages/rawshark.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolsrawshark.html) | [code](https://github.com/wireshark/wireshark/blob/master/rawshark.c)'
 weight: 99
-draft: true
+draft: false
 ---
+
+{{% notice warning %}}
+rawshark is custom-built for a 3rd-party and better tools exist to extract information from captures.
+{{% /notice %}}
 
 ## rawshark
 
-rawshark is a utility that takes an input stream and parses it. It is low-level
-and provides options you would expect to see if you were working
-with the source code. This is my take on using rawshark:
+rawshark is a utility that takes an input stream and parses it.
+This article exists to document it as a component of Wireshark.
 
-<img src="https://media2.giphy.com/media/d31vYmpaCrKs9Z6w/giphy.gif" alt="Not Recommended">
+rawshark is low-level and provides options you would expect to see if you were working
+with the source code. I asked the maintainers [what its purpose was](https://ask.wireshark.org/question/8041/what-is-the-purpose-of-rawshark/)
+and one responded
+
+> Probably only @gerald-combs could say for sure what the original use case was though.
 
 ### Reasons not to use rawshark
+
+What figuring out the syntax for rawshark feels like:
+
+<img src="https://media2.giphy.com/media/d31vYmpaCrKs9Z6w/giphy.gif" alt="Not Recommended">
 
 - You MUST specify the [tcpdump link-layer header
   type](https://www.tcpdump.org/linktypes.html) or protocol name before any
@@ -31,7 +42,7 @@ with the source code. This is my take on using rawshark:
 - If piping to text-processing tools like awk, needless text cruft is added
   pertaining to the c-style struct of the packets. 
 
-### You should use tshark instead
+### Use tshark instead
 
 But the reason you should avoid using it because tshark can do everything it can
 do, and better. To transition, rawshark's options `-nNrR` are the same as
@@ -39,7 +50,7 @@ tshark's, and all of the others can be discarded.
 
 ### Rawshark example
 
-This example goes over how to display UDP ports from this 
+This example goes over how to display UDP ports from this
 [dhcp.pcap](https://wiki.wireshark.org/SampleCaptures?action=AttachFile&do=get&target=dhcp.pcap) using rawshark.
 Included is the magical journey in getting there.
 
@@ -80,7 +91,7 @@ Included is the magical journey in getting there.
 	```
 
 4. `tshark` is more useful with less work though, even if we pass in as a stream
-	(the supposed purpose of `rawshark`:
+	(the supposed purpose of `rawshark`):
 	
 	```bash
 	$ cat dhcp.pcap | tshark -r -
