@@ -110,7 +110,7 @@ def get_text_from_folder(folder: str, index: int, baseURL: str) -> str:
             filetext = f.read()
             fm, text = parse_document(filetext)
             if "weight" not in fm: 
-                fm["weight"] = 1000 # Artificially high so as to always rank last
+                fm["weight"] = 1000000 # Artificially high so as to always rank last (All pages should have a weight)
             if "description" not in fm: 
                 if "desc" in fm and fm["desc"]:
                     fm["description"] = fm["desc"]
@@ -122,8 +122,8 @@ def get_text_from_folder(folder: str, index: int, baseURL: str) -> str:
                     raise Exception("In file", filename, "weight `",
                                     fm["weight"], "` is not a number.")
                 fm["weight"] = int(fm["weight"]) 
-            # Get rid of notices. TODO convert these to tex library like bclogo
-            text = re.sub(r"{{% notice[\s\S]*?\/notice %}}", "", text)
+            # Convert to quoted block with bolded notice. If there are \n\n in notice block, then part of it will come out of block
+            text = re.sub(r"{{% notice ([\S]+?) %}}\n([\s\S]+?)\n{{% +\/notice +%}}", "> __\\1__: \\2", text)
             # Remove chapter TOCs
             text = re.sub(r"\n#+ Table of Contents", "", text)
             text = re.sub(r"{{% children[\s\S]*? %}}", "", text)
