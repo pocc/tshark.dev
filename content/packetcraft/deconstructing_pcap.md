@@ -39,9 +39,9 @@ These diagrams have a 128-bit/16 byte length to match typcial hexdump output.
 
   0   1   2   3   4   5   6   7   8   9   A   B   C   D   E   F
 ┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━   ╔═══════╗
-     Destination MAC            Source MAC        Type  ║  ARP  ║
+     Destination MAC            Source MAC        Type  ║  4 -> ║
 ╔═══════════════════════╦═══════════════════════╦═══════╩- - - -╣
-║  ARP Control fields          Sender MAC          Sender IP    ║
+║ <- ARP Control fields        Sender MAC          Sender IP    ║
 ╠ - - - - - - - - - - - ╬ - - - - - - -╦════════╩═══════════════╝
 ║      Target MAC           Target IP  ║     PADDING            ╻
 ╚═══════════════════════╩══════════════╝        ┏━━━━━━━━━━━━━━━┫
