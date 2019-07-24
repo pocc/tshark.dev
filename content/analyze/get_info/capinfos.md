@@ -6,7 +6,7 @@ author: Ross Jacobs
 
 summary: 'Capinfos: [manpage](https://www.wireshark.org/docs/man-pages/capinfos.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolscapinfos.html) | [code](https://github.com/wireshark/wireshark/blob/master/capinfos.c)'
 weight: 99
-draft: true
+draft: false
 ---
 
 ## capinfos

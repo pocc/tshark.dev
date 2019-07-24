@@ -5,6 +5,10 @@
 .vscode/
 .idea/
 
+# Packages
+node_modules/
+package-lock.json
+
 # generated
 __pycache__/
 _gen/
