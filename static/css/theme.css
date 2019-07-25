@@ -5,6 +5,30 @@
 @import "tags.css";
 
 /* For Hugo issue https://github.com/gohugoio/hugo/issues/1778 */
+@font-face {
+    font-family: 'Source Code Pro';
+    font-display: auto;
+    src: url('../fonts/SourceCodePro-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-display: auto; /* font used for most text */
+    src: url('../fonts/OpenSans-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-display: auto;
+    src: local('../fonts/Roboto-Regular.woff2'), url('https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Font Awesome 5 Free';
+    font-display: auto;
+    src: url('../webfonts/fa-solid-900.woff2') format('woff2');
+}               
+
 #TableOfContents>ul {
 padding: 0;
 }

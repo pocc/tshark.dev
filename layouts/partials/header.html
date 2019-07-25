@@ -9,8 +9,6 @@
     <title>Tshark | {{ .Title }}</title>
 
     {{ $assetBusting := not .Site.Params.disableAssetsBusting }}
-    <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Source+Code+Pro&display=swap" rel="stylesheet">
     <!-- Hugo Learn Theme -->
     <link href="{{"css/nucleus.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
     <link href="{{"css/fontawesome-all.min.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
