@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a4908e43-12a2-4a57-926d-43b639fed0a4/deploy-status)](https://app.netlify.com/sites/pedantic-lumiere-bf6286/deploys)
 
-This repo exists for managing guide content.
+tshark.dev exists to tecah you about packet analysis.
 
 <a href="https://tshark.dev"><img src="https://dl.dropboxusercontent.com/s/nbu25m8ro80iukx/tshark_dev.png" alt="tshark.dev screenshot" style="margin-left: 6%;margin-right: 6%;"/></a>
 
@@ -11,7 +11,7 @@ working with packets and hopefully give back something
 to the networking community in the process.
 
 This website is built using [hugo](https://gohugo.io/), an open-source static
-site generator.
+site generator. Most of the HTML/CSS/JS, shortcodes, and partials come from the [Learn Theme](https://learn.netlify.com/en/).
 
 ## Build it
 

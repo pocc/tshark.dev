@@ -3,7 +3,6 @@ languageCode = "en-US"
 defaultContentLanguage = "en"
 
 title = "Packet Analysis"
-theme = "hugo-theme-learn"
 themesdir = "themes"
 metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= true
