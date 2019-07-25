@@ -1,5 +1,5 @@
 ---
-title: "Communicate Results"
+title: "Share Results"
 description: "If a network has an outage and no one reports it, did it actually break?"
 date: 2019-07-01
 author: Ross Jacobs

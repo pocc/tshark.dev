@@ -514,7 +514,7 @@
                     </defs>
                 </g>
                 <g class="edgePath" style="opacity: 1;">
-                    <path class="path" d="M794.234375,303.75C807.2239583333334,303.75,820.2135416666666,303.75,833.203125,303.75C841.5364583333334,303.75,849.8697916666666,303.75,858.203125,303.75C866.5364583333334,303.75,874.8697916666666,303.75,883.203125,303.75C902.7825872747748,303.75,922.3620495495496,275,941.9415118243244,246.25" marker-end="url(#arrowhead112)" style="fill:none"></path>
+                    <path class="path" d="M794.234375,303.75C807.2239583333334,303.75,820.2135416666666,303.75,833.203125,303.75C841.5364583333334,303.75,849.8697916666666,303.75,858.203125,303.75C866.5364583333334,303.75,874.8697916666666,303.75,883.203125,303.75C902.7825872747748,303.75,922.3620495495496,275,941.9415118243244,221.25" marker-end="url(#arrowhead112)" style="fill:none"></path>
                     <defs>
                         <marker id="arrowhead112" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto">
                             <path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path>
@@ -620,13 +620,13 @@
                         </g>
                     </g>
                 </g>
-                {{ $isComm := eq .Params.title "Communicate Results" }}
-                <g class={{ if eq .Params.title "Communicate Results" }}"node highlight"{{ else }}"node others"{{end}} id="COMM" transform="translate(977.6953125,211.25)" style="opacity: 1;">
-                    <rect rx="5" ry="5" x="-69.4921875" y="-35" width="138.984375" height="70" {{ if $isComm }}style="stroke-width:3px;"{{end}}></rect>
+                {{ $isComm := eq .Params.title "Share Results" }}
+                <g class={{ if eq .Params.title "Share Results" }}"node highlight"{{ else }}"node others"{{end}} id="COMM" transform="translate(977.6953125,211.25)" style="opacity: 1;">
+                    <rect rx="5" ry="5" x="-69.4921875" y="-35" width="138.984375" height="45" {{ if $isComm }}style="stroke-width:3px;"{{end}}></rect>
                     <g class="label" transform="translate(0,0)">
                         <g transform="translate(-59.4921875,-25)">
                             <foreignObject width="118.984375" height="50">
-                                <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: wrap;">{{ if not $isComm }}<a href="/communicate/">{{end}}<i class="fa fa-envelope"></i> Communicate<br>Results{{ if not $isComm }}</a>{{end}}</div>
+                                <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: wrap;">{{ if not $isComm }}<a href="/share/">{{end}}<i class="fa fa-envelope"></i> Share Results{{ if not $isComm }}</a>{{end}}</div>
                             </foreignObject>
                         </g>
                     </g>
