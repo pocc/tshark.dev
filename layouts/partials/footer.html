@@ -67,6 +67,15 @@
     <script src="{{"js/modernizr.custom-3.6.0.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
     <script src="{{"js/learn.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
     <script src="{{"js/hugo-learn.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
+    <script>
+    (function hideMermaidMap() { // Hide Mermaid Map for Android Chrome (see github.com/pocc/tshark.dev/issues/7)
+      if (navigator.userAgent.includes("Android") && navigator.userAgent.includes("Chrome")) {
+        [].forEach.call(document.querySelectorAll('.mermaid-map'), function (el) {
+          el.style.display = 'none';
+        });
+      }
+    })()
+    </script>    
     {{ partial "custom-footer.html" . }}
   </body>
 </html>
