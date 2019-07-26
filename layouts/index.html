@@ -1,7 +1,7 @@
 {{ partial "header.html" . }}
 <h1>{{ .Params.Title }}</h1>
-<h2>You are here <i class="fas fa-map-marked"></i></h2>
-You will find this map on all section pages.
+<h2 class="mermaid-map">You are here <i class="fas fa-map-marked"></i></h2>
+<p class="mermaid-map">You will find this map on all section pages.</p>
 {{ partial "mermaid-map.html" . }}
 {{ .Content }}
 {{ partial "footer.html" . }}

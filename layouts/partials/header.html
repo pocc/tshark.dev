@@ -24,7 +24,6 @@
     {{end}}
 
     <script src="{{"js/jquery-3.4.1.min.js"| relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}"></script>
-
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
           display:none !important;
@@ -42,7 +41,6 @@
         <section id="body">
         <div id="overlay"></div>
         <div class="padding highlightable">
-              {{if not .IsHome}}
               <div>
                 <div id="top-bar">
                 {{ if and (or .IsPage .IsSection) .Site.Params.editURL }}
@@ -81,7 +79,6 @@
                 {{ end }}
               </div>
             </div>
-            {{ end }}
         <div id="head-tags">
         {{ partial "tags.html" . }}
         </div>
