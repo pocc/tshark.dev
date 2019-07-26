@@ -29,3 +29,17 @@ HUGO_VERSION = "0.55.6"
 
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+  for = "/webfonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
