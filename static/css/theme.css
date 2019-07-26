@@ -25,7 +25,7 @@
 
 @font-face {
     font-family: 'Font Awesome 5 Free';
-    font-display: block; /* It looks bad when swap is used because a square block is rendered first */
+    font-display: swap; /* It looks bad when swap is used because a square block is rendered first */
     src: url('../webfonts/fa-solid-900.woff2') format('woff2');
 }               
 
