@@ -1,6 +1,10 @@
 # Packet Analysis with Tshark
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a4908e43-12a2-4a57-926d-43b639fed0a4/deploy-status)](https://app.netlify.com/sites/pedantic-lumiere-bf6286/deploys)
+<img src="/github/lighthouse/lighthouse_performance.svg" alt="Lighthouse Performance Badge">
+<img src="/github/lighthouse/lighthouse_best-practices.svg" alt="Lighthouse Best Practices Badge">
+<img src="/github/lighthouse/lighthouse_accessibility.svg" alt="Lighthouse Accessibility Badge">
+<img src="/github/lighthouse/lighthouse_seo.svg" alt="Lighthouse SEO Badge">
 
 tshark.dev exists to tecah you about packet analysis.
 
