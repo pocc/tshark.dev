@@ -18,8 +18,7 @@ This is a living, breathing guide. If you’d like to contribute, [fork me on Gi
 
 {{% notice info %}}
 This site is still in beta and may be broken, have draft content, or be inaccurate.
-If you find a problem, please report it as an issue on the [repo](https://github.com/pocc/tshark.dev/issues)
-or leave a comment at the bottom of the offending page.
+If you find a problem, leave a comment at the bottom of the offending page.
 {{% /notice %}}
 
 ## Table of Contents
