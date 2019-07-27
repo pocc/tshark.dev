@@ -22,7 +22,7 @@ import yaml
 
 
 def check_env():
-    """Make sure we have the right files available."""
+    """Make sure we are in the right directory and that pandoc is available."""
     this_dir = os.getcwd()
     if os.path.basename(this_dir) != "utils" and "utils" in os.listdir():
         os.chdir("utils")
@@ -33,6 +33,11 @@ def check_env():
         raise Exception("Hugo `content` folder not found in root")
     if not os.path.exists("../config.toml"):
         raise Exception("Hugo `config.toml` file not found in root")
+    
+    pandoc_path = shutil.which("pandoc")
+    if not pandoc_path:
+        install_pandoc()
+
     os.makedirs("_build", exist_ok=True)
 
 
@@ -267,9 +272,6 @@ def makepdf():
     """Generate a pdf from folders containing markdown files."""
     check_env()
     title, author, baseURL = get_proj_params()
-    pandoc_path = shutil.which("pandoc")
-    if not pandoc_path:
-        install_pandoc()
     all_text = get_text_from_folder("../content", 0, baseURL)
     make_tex_template(title, author)
     convert_to_pdf(title, baseURL, all_text)
