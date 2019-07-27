@@ -5,7 +5,7 @@ date: 2019-07-06
 author: Ross Jacobs
 
 summary: 'captype [manpage](https://www.wireshark.org/docs/man-pages/captype.html) | [code](https://github.com/wireshark/wireshark/blob/master/captype.c)'
-weight: 80
+weight: 30
 draft: true
 ---
 
