@@ -13,7 +13,5 @@ package-lock.json
 __pycache__/
 _gen/
 _build/
+resources/
 public/
-pdf/*.md
-pdf/*.pdf
-pdf/template.tex
