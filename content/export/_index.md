@@ -50,10 +50,9 @@ If you are not able to extract the files on a slow connection, increase the slee
 This is used later on to verify the extracted file.
 
 ```bash
-tshark -Q -w $pcap_file & tspid=$!
-sleep 1 # Wait for tshark to warm up
+# -Q quietly -a wait 5 sec
+tshark -Q -a duration:5 -w $pcap_file & tspid=$!
 curl $website > $html_file
-kill -9 $tspid
 ```
 
 <i class="fab fa-firefox"></i> **firefox** can be useful instead if you want to see all of the available files. For some websites, this
@@ -65,11 +64,9 @@ On macOS, you may need to first kill other firefox instances with `killall firef
 {{% /notice %}}
 
 ```bash
-tshark -Q -w $pcap_file & tspid=$!
-sleep 1 # Wait for tshark to warm up
+tshark -Q -a duration:5 -w $pcap_file
 firefox --headless $website & ffpid=$!
-sleep 2 # Wait for firefox to warm up
-kill -9 $ffpid $tspid
+sleep 5 && kill -9 $ffpid
 ```
 
 ### Extract HTML file
