@@ -1,6 +1,6 @@
 ---
 title: "Capture Pcap"
-description: Everything comes to us that belongs to us if we create the capacity to receive it. – Rabindranath Tagore
+description: "\"Everything comes to us that belongs to us if we create the capacity to receive it.\" – Rabindranath Tagore"
 date: 2019-06-07
 author: Ross Jacobs
 

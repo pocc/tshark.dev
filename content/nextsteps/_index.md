@@ -1,6 +1,6 @@
 ---
 title: Next Steps
-description: In conclusion
+description: When one door closes, another opens, unless there is only one door
 date: 2019-07-04
 author: Ross Jacobs
 

@@ -1,6 +1,6 @@
 ---
 title: "SharkFu"
-description: Advanced tips and tricks
+description: "\"Science is magic that works.\" – Kurt Vonnegut"
 date: 2019-07-04
 author: Ross Jacobs
 
