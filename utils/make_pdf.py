@@ -24,14 +24,16 @@ import yaml
 def check_env():
     """Make sure we have the right files available."""
     this_dir = os.getcwd()
-    if os.path.basename(this_dir) == "pdf":
-        parent_dir = os.path.dirname(this_dir)
-        os.chdir(parent_dir)
-    os.makedirs("pdf/_build", exist_ok=True)
-    if not os.path.exists("content"):
+    if os.path.basename(this_dir) != "utils" and "utils" in os.listdir():
+        os.chdir("utils")
+        this_dir = os.getcwd()
+    if os.path.basename(this_dir) != "utils":
+        raise Exception("Make sure this script is run from project root or /utils")
+    if not os.path.exists("../content"):
         raise Exception("Hugo `content` folder not found in root")
-    if not os.path.exists("config.toml"):
+    if not os.path.exists("../config.toml"):
         raise Exception("Hugo `config.toml` file not found in root")
+    os.makedirs("_build", exist_ok=True)
 
 
 def get_value_by_key(key, filename, text):
@@ -69,7 +71,7 @@ def parse_document(filetext: str) -> (dict, str):
 
 def get_proj_params() -> (str, str):
     """Get hugo project params from config.toml."""
-    with open("config.toml") as f:
+    with open("../config.toml") as f:
         config_text = f.read()
     title = get_value_by_key("title", "config.toml", config_text)
     author = get_value_by_key("author", "config.toml", config_text)
@@ -189,7 +191,7 @@ def get_text_from_folder(folder: str, index: int, baseURL: str) -> str:
 def make_tex_template(title: str, author: str):
     # If a logo exists on this path, add it to the latex on the title page
     logo_text = r"\\vspace{2cm}"
-    if os.path.exists("static/images/logo.png"):
+    if os.path.exists("../static/images/logo.png"):
         logo_text = r"\\includegraphics[width=0.6\\textwidth]{static/images/logo.png}"
     tex_addtions = r"""
 % Add color to links (Via https://tex.stackexchange.com/questions/57952/changing-pdf-links-style)
@@ -222,10 +224,10 @@ def make_tex_template(title: str, author: str):
   \\end{{center}}
 \\end{{titlepage}}
 """.format(title, logo_text, author)
-    with open("pdf/pandoc_demo.tex") as source:
+    with open("pandoc_demo.tex") as source:
         text = source.read()
     text = re.sub(r"\\begin{document}", tex_addtions, text)
-    with open("pdf/_build/template.tex", "w") as template:
+    with open("_build/template.tex", "w") as template:
         template.write(text)
 
 def convert_to_pdf(title: str, sitename: str, filetext: str):
@@ -236,9 +238,9 @@ def convert_to_pdf(title: str, sitename: str, filetext: str):
     else:
         print("WARNING: Fix your baseURL param to be the URL of your website. Using title instead.")
         pdf_name = ''.join(c for c in title if c.isalnum() or c in "-_.")
-    input_file = "pdf/_build/" + pdf_name + ".md"
-    output_file = "pdf/_build/" + pdf_name + ".pdf"
-    this_dir = os.getcwd() + '/pdf/_build/'
+    input_file = "_build/" + pdf_name + ".md"
+    output_file = "_build/" + pdf_name + ".pdf"
+    this_dir = os.getcwd() + '/_build/'
     if platform.system() != "Linux": 
         # Supported on Macos, Windows
         fonts = ["Palatino", "Arial", "Menlo"]
@@ -268,7 +270,7 @@ def makepdf():
     pandoc_path = shutil.which("pandoc")
     if not pandoc_path:
         install_pandoc()
-    all_text = get_text_from_folder("content", 0, baseURL)
+    all_text = get_text_from_folder("../content", 0, baseURL)
     make_tex_template(title, author)
     convert_to_pdf(title, baseURL, all_text)
 
