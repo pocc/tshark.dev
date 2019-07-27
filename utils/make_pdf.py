@@ -28,7 +28,7 @@ def check_env():
         os.chdir("utils")
         this_dir = os.getcwd()
     if os.path.basename(this_dir) != "utils":
-        raise Exception("Make sure this script is run from project root or /utils")
+        raise Exception("Make sure this script is run from project root or utils subfolder")
     if not os.path.exists("../content"):
         raise Exception("Hugo `content` folder not found in root")
     if not os.path.exists("../config.toml"):

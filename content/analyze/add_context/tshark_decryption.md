@@ -24,7 +24,7 @@ to generate a keytab file. To use this keytab file for decryption:
 It is possible to decrypt the data on the client side if SSL logging is
 enabled. Chrome and firefox will check whether the $SSLKEYLOGFILE
 environmental variable exists, and if it does, will send keys to the file.
-Using tshark and firefox, we will be able to extract the html file. 
+Using tshark and firefox, we will be able to extract the html file.
 
 ### 1. Add the SSLKEYLOGFILE environment variable
 
@@ -35,16 +35,21 @@ source ~/.bashrc
 
 ### 2. Capture traffic going to a website
 
-Let's use
-https://ss64.com as it uses TLSv1.2 and is [designed to be
+Let's use [ss64.com](https://ss64.com) as it uses TLSv1.2 and is [designed to be
 lightweight](https://ss64.com/docs/site.html). They have an article on netcat, which seems apropos to use: `https://ss64.com/bash/nc.html`.
+In this example, we will be capturing for 10 seconds with `tshark` while saving the HTML with `firefox`.
+
+We are using firefox because captures containing its usage have predictable file names. `curl` and `wget` by comparison have captures that contain
+a multitude of files like "object1234" and "object2345" when exported as files from tshark.
 
 ```bash
 cd /tmp
 url='https://ss64.com/bash/nc.html'
-tshark -Q -w /tmp/myfile.pcapng & tpid=$!
+# -a to wait 10 sec, -Q for suppress output
+tshark -Q -a duration:5 -w /tmp/myfile.pcapng &
+# Wait 5 seconds for firefox to access content and then kill
 firefox --headless --private $url & ffpid=$!
-sleep 10 && kill -9 $tpid $ffpid
+sleep 5 && kill -9 $ffpid
 ```
 
 ### 3. Export http objects to `obj/`
@@ -52,7 +57,7 @@ sleep 10 && kill -9 $tpid $ffpid
 ```bash
 mkdir -p /tmp/obj
 # Equivalent to Wireshark > File > Export Objects > HTTP
-tshark --export-objects http,/tmp/obj -r /tmp/myfile.pcapng \
+tshark -Q --export-objects http,/tmp/obj -r /tmp/myfile.pcapng \
   -o tls.keylog_file:$SSLKEYLOGFILE
 ```
 
@@ -67,8 +72,9 @@ ln -s obj/main.css main.css
 firefox --browser obj/nc.html
 ```
 
-If all is well, your local version of nc's manpage looks exactly the same
-as ss64's version.
+If all is well, your local version of nc's manpage looks like this:
+
+<img src="https://dl.dropboxusercontent.com/s/kitibo0u8x42s0m/exported_file_nc_html.cmp.png" alt="Exported file in firefox" width=50%>
 
 ### TLS 1.2 In Summary
 
@@ -86,6 +92,9 @@ certificate message spans multiple records. In my testing, some javascript
 files (and other small files) get decrypted, but no html or css files.
 
 ## WPA2 Decryption
+
+This section is possible due to the amazing content at [mrncciew.com](https://mrncciew.com), by Rasika Nayanajith.
+If you want to get better with 802.11, start your journey here.
 
 ### 1. Get your capture
 
