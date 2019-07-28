@@ -46,3 +46,8 @@ HUGO_ENABLEGITINFO = "true"
   for = "/fonts/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
+
+[[redirects]]	
+  from = "/home"	
+  to = "/"	
+  status = 301

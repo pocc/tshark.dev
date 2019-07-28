@@ -229,7 +229,7 @@ def make_tex_template(title: str, author: str):
   \\end{{center}}
 \\end{{titlepage}}
 """.format(title, logo_text, author)
-    with open("pandoc_demo.tex") as source:
+    with open("files/pandoc_demo.tex") as source:
         text = source.read()
     text = re.sub(r"\\begin{document}", tex_addtions, text)
     with open("_build/template.tex", "w") as template:
