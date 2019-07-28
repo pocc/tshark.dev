@@ -732,7 +732,7 @@
                         </g>
                     </g>
                 </g>
-                {{ $isHome := and ($.IsNode) (eq $.Section "") }}
+                {{ $isHome := or (and ($.IsNode) (eq $.Section "")) (eq .Params.title "Home") }} <!-- / or /home -->
                 <g class={{ if $isHome }}"node highlight"{{ else }}"node others"{{end}} id="HOME" transform="translate(112.1640625,135)" style="opacity: 1;">
                     <rect rx="5" ry="5" x="-47.1640625" y="-50.5" width="94.328125" height="45" {{ if $isHome }}style="stroke-width:3px;"{{end}}></rect>
                     <g class="label" transform="translate(0,0)">

@@ -4,3 +4,12 @@
 {{ partial "mermaid-map.html" . }}
 {{ .Content }}
 {{ partial "footer.html" . }}
+<!-- Kludge to highlight /home when in / -->
+<script>
+   [].forEach.call(document.querySelectorAll('li') , function (el) {
+    if (el.title === "Home") {
+            el.classList.add("active");
+            console.log(el);
+       }
+    });
+</script>
