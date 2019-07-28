@@ -15,7 +15,7 @@ for f in all_files:
 used_icons = [icon.split(' ')[1] for icon in all_fa]
 print('\n'.join(used_icons))
 
-with open("../static/css/fontawesome-all.min.css") as fa_css:
+with open("files/fontawesome-all.min.css") as fa_css:
     css = fa_css.read()
 
 matches = re.findall("(^[\s\S]*?fff}\.)([\s\S]+?)(sr-only[\s\S]*?$)", css)
@@ -31,6 +31,5 @@ for icon_text in icons:
             used_icon_strings += [icon_text]
 
 custom_fa_min = start + ''.join(used_icon_strings) + end
-print(custom_fa_min)
 with open("../static/css/fontawesome-custom.min.css", "w") as used_css:
     used_css.write(custom_fa_min)
