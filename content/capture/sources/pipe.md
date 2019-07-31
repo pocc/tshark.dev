@@ -5,7 +5,7 @@ date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
 
 summary: '[Wireshark Docs](https://wiki.wireshark.org/CaptureSetup/Pipes)'
-weight: 30
+weight: 10
 draft: false
 ---
 

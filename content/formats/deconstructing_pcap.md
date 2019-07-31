@@ -4,7 +4,7 @@ description: How the packets are encoded
 date: 2019-07-06
 author: Ross Jacobs
 
-summary: 'captype [manpage](https://www.wireshark.org/docs/man-pages/captype.html) | [code](https://github.com/wireshark/wireshark/blob/master/captype.c)'
+summary: ''
 weight: 30
 draft: true
 ---

@@ -5,7 +5,7 @@ date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
 
 summary: '[Wireshark Docs](https://www.wireshark.org/docs/wsdg_html_chunked/ChCaptureExtcap.html) | [Code](https://github.com/wireshark/wireshark/tree/master/extcap) | [Example by ntop](https://www.ntop.org/pf_ring/capture-filter-extract-traffic-using-wireshark-and-pf_ring/)'
-weight: 10
+weight: 40
 draft: false
 ---
 

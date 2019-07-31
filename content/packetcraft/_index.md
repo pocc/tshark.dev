@@ -1,6 +1,6 @@
 ---
 title: "SharkFu"
-description: "\"Science is magic that works.\" – Kurt Vonnegut"
+description: Who knew sharks could fly?
 date: 2019-07-04
 author: Ross Jacobs
 
@@ -9,9 +9,8 @@ weight: 90
 draft: false
 ---
 
-{{% notice note %}}
-This article will mostly remain a stub during initial release.
-{{% /notice %}}
+Sometimes you need to build your own tools or use a custom solution to accomplish your goal.
+In those cases, using an API can help. This section also contains tips and tricks that may not fit elsewhere.
 
 #### Table of Contents
 
