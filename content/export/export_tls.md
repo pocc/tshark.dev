@@ -72,6 +72,6 @@ If all is well, your local version of nc's manpage looks like this:
 
 <img src="https://dl.dropboxusercontent.com/s/kitibo0u8x42s0m/exported_file_nc_html.cmp.png" alt="Exported file in firefox" width=50%>
 
-### Example Asciicast
+### Asciicast of This Example
 
 <script id="asciicast-239566" src="https://asciinema.org/a/239566.js" async></script>

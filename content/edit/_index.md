@@ -10,7 +10,8 @@ draft: false
 ---
 
 There are various utilities that can be used to edit packet captures.
-The four that come with wireshark are editcap, mergecap, reordercap, and text2pcap.
+Which utility you use depends on what you are trying to do.
+This section covers Wireshark utilities that edit as well as a couple from other suites.
 
 #### Table of Contents
 

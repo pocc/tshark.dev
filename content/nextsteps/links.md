@@ -1,6 +1,6 @@
 ---
 title: Further Reading
-description: The web is full of resources
+description: The web is a big place
 date: 2019-07-04
 author: Ross Jacobs
 
@@ -9,11 +9,13 @@ weight: 10
 draft: false
 ---
 
-### Packet Analysis
+This is an incomplete list of resources. If you know of a relevant resource that has helped you, feel free to [add](https://github.com/pocc/tshark.dev/blob/master/content/nextsteps/_index.md) to this list.
+
+## Packet Analysis
 
 - [Practical Packet Analysis, 3rd ed.](https://nostarch.com/packetanalysis3): A great introduction for typical Wireshark usage.
 
-### Network Scripting with Python
+## Network Scripting with Python
 
 - [Python for Network Engineers](https://www.youtube.com/watch?v=s6SIVc7C5U0):
   David Bombal is a CCIE who has good lectures on using Python (costs $$$)
@@ -22,7 +24,7 @@ draft: false
 - [Python Guide](https://docs.python-guide.org/): For when you want to turn your
   script into a project.
 
-### Wireshark
+## Wireshark
 
 - [Official Documentation](https://www.wireshark.org/docs/)
 - [Ask a question](https://ask.wireshark.org)
