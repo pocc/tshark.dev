@@ -1,17 +1,17 @@
 ---
-title: "Deconstructing Pcap"
-description: How the packets are encoded
+title: "Deconstructing a Capture"
+description: Which bytes mean what
 date: 2019-07-06
 author: Ross Jacobs
 
 summary: ''
-weight: 30
+weight: 60
 draft: true
 ---
 
 {{% notice note %}}
 You may be familiar with RFC-like protocol diagrams with 32-bit/4 byte lengths.
-These diagrams have a 128-bit/16 byte length to match typcial hexdump output.
+The diagrams below have a 128-bit/16 byte length to match typcial hexdump output.
 {{% /notice %}}
 
 <!-- ━┃┏┓┗┛┣┫┳┻╋ ╚╝╔╗║═╠╣╩╦╬ -->
