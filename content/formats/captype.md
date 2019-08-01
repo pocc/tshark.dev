@@ -1,6 +1,6 @@
 ---
 title: "captype"
-description: How the packets are encoded
+description: Get the capture's file type
 date: 2019-07-06
 author: Ross Jacobs
 

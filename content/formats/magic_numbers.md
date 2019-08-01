@@ -5,7 +5,7 @@ date: 2019-07-06
 author: Ross Jacobs
 
 summary: ''
-weight: 30
+weight: 70
 draft: true
 ---
 
@@ -30,18 +30,18 @@ If you see a problem with these file encodings, please [file an issue](https://g
 | Wireshark/... - pcapng                  | 4      | 0a0d 0d0a                                    | `\n\r\r\n`                                         | pcapng;ntar         |
 | modpcap                                 | 4      | 34cd b2a1                                    | `4\xcd\xb2\xa1`                                    | (same as pcap)      |
 | EyeSDN USB S0/E1 ISDN trace format      | 6      | 4579 6553 444e                               | `EyeSDN`                                           | trc                 |
-| Sniffer (DOS)                           | 17     | 5452 534e 4946 4620 6461 7461 2020 2020      | `TRSNIFF data    `                                 | cap;enc;trc;fdc;syc |
+| Sniffer (DOS)                           | 16     | 5452 534e 4946 4620 6461 7461 2020 2020      | `TRSNIFF data    `                                 | cap;enc;trc;fdc;syc |
 | InfoVista 5View capture                 | 4      | aaaa aaaa                                    | `ªªªª`                                             | 5vw                 |
 | Snoop (RFC 1761)                        | 8      | 736e 6f6f 7000 0000                          | `snoop\x00\x00\x00`                                | snoop               |
 | Catapult DCT2000 trace (.out format)    | 18     | 5365 7373 696f 6e20 5472 616e 7363 7269 7074 | `Session Transcript`                               | out                 |
 | Aethra .aps file                        | 5      | 5630 3230 38                                 | `V0208`                                            | aps                 |
-| HP-UX nettl trace                       | 12     | 0000 0001 0000 0000 0007 D000                | `\x00\x00\x00\x01\x00\x00\x00\x00\x00\x07\xD0\x00` | trc0;trc1           |
+| HP-UX nettl trace [1](https://github.com/wireshark/wireshark/blob/master/wiretap/nettl.c) | 12     | 0000 0001 0000 0000 0007 D000                | `\x00\x00\x00\x01\x00\x00\x00\x00\x00\x07\xD0\x00` | trc0;trc1           |
 | Colasoft Capsa                          | 4      | 6370 7365                                    | `cpse`                                             | cscpkt              |
 | Tektronix K12xx 32-bit .rf5 format      | 8      | 0000 0200 1205 0010                          | `\x00\x00\x02\x00\x12\x05\x00\x10`                 | rf5                 |
 | Symbian OS btsnoop                      | 8      | 6274 736e 6f6f 7000                          | `btsnoop\x00`                                      | log                 |
-| Network Instruments Observer            |        |                                              |                                                    | bfr                 |
-| Novell LANalyzer                        |        |                                              |                                                    | tr1                 |
-| Savvius *Peek                           |        |                                              |                                                    | pkt;tpc;apc;wpz     |
+| Network Instruments Observer [1](https://github.com/wireshark/wireshark/blob/master/wiretap/network_instruments.c) | 25 | 4f62 7365 7276 6572 506b 7442 7566 6665 7256 6572 7369 6f6e 3d | `ObserverPktBufferVersion=` | bfr                 |
+| Novell LANalyzer [1](https://github.com/wireshark/wireshark/blob/master/wiretap/lanalyzer.c) | 30 | 0110 4c00 0105 5472 6163 6520 4469 7370 6c61 7920 5472 6163 6520 4669 6c65 | `\x01\x10L\x00\x01\x05Trace Display Trace File`                                                 | tr1                 |
+| Savvius *Peek [1](https://github.com/wireshark/wireshark/blob/20800366ddbbb2945491120afe7265796c26bf11/wiretap/peektagged.c)       |        |                                              |                                                    | pkt;tpc;apc;wpz     |
 | Micropross mplog                        |        |                                              |                                                    | mplog               |
 | TamoSoft CommView                       |        |                                              |                                                    | ncf                 |
 | Network Monitor, Surveyor, NetScaler    |        |                                              |                                                    | cap                 |
