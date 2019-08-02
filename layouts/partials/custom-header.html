@@ -3,8 +3,8 @@
     /* Custom css */
 </style>
 Generate chart with bash:
-all_files=($(find . -type f))
-file_types=$(for i in ${all_files[@]}; do captype "$i" | awk -F ': ' '{ if ($2 != "unknown") print $2}'; done);
+all_files=("$(find . -type f)")
+file_types=$(for i in ${all_files[*]}; do captype "$i" | awk -F ': ' '{ if ($2 != "unknown") print $2}'; done);
 echo "$files" | sort | uniq -c | sort -r | gawk '{print "\133\047"$2"\047\054\040"$1"\135\054" }'
 -->
 {{ if eq .Title "Capture Formats" }} <!-- only load this javascript for the file that uses a pie graph. _index uses a screenshot of it. -->
