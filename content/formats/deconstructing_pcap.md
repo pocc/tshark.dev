@@ -176,6 +176,7 @@ To fix it, use existing tools:
     bash$ tshark -r $capture -w $capture
 
 tshark will read the file and fix any packet lengths that are incorrect.
+For seriously damaged captures, [pcapfix](http://f00l.de/pcapfix/) will try to salvage it by looking for packets byte-by-byte.
 
 ## Further Reading
 
