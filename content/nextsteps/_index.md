@@ -15,4 +15,4 @@ We hope you have enjoyed using this guide. Other adventures await.
 
 #### Table of Contents
 
-{{% children description="true" depth="9" %}}
+{{% children description="true" depth="4" %}}

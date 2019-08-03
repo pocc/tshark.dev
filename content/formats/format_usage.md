@@ -1,5 +1,5 @@
 ---
-title: "Capture Formats"
+title: "Format Usage"
 description: Background on how capture formats are used
 date: 2019-07-30
 author: Ross Jacobs
@@ -110,3 +110,5 @@ INFO: Saving 100 packet capture
   suse6_3pcap
   visual
 ```
+
+To take a look at what the headers of these filetypes look like check out [Sample Capture Headers](/formats/sample_headers/).
