@@ -1,16 +1,16 @@
 ---
-title: "Deconstructing a Capture"
+title: "Pcap Deconstruction"
 description: Which bytes mean what
 date: 2019-07-06
 author: Ross Jacobs
 
 summary: ''
-weight: 60
+weight: 35
 draft: false
 ---
 
 {{% notice note %}}
-You may be familiar with RFC-like protocol diagrams with 32-bit/4 byte lengths.
+You may be familiar with protocol diagrams with 32-bit/4 byte widths like RFC793's [TCP header](https://tools.ietf.org/html/rfc793#section-3.1).
 The diagrams below have a 128-bit/16 byte width to match typcial hexdump output.
 {{% /notice %}}
 

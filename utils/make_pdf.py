@@ -197,7 +197,7 @@ def make_tex_template(title: str, author: str):
     # If a logo exists on this path, add it to the latex on the title page
     logo_text = r"\\vspace{2cm}"
     if os.path.exists("../static/images/logo.png"):
-        logo_text = r"\\includegraphics[width=0.6\\textwidth]{static/images/logo.png}"
+        logo_text = r"\\includegraphics[width=0.6\\textwidth]{../static/images/logo.png}"
     tex_addtions = r"""
 % Add color to links (Via https://tex.stackexchange.com/questions/57952/changing-pdf-links-style)
 \\usepackage{{hyperref}}% http://ctan.org/pkg/hyperref

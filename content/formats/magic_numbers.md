@@ -1,7 +1,7 @@
 ---
 title: "Magic Numbers"
 description: The first 4-16 bytes of a capture
-date: 2019-07-06
+date: 2019-08-01
 author: Ross Jacobs
 
 summary: ''
@@ -9,11 +9,16 @@ weight: 70
 draft: false
 ---
 
+The magic number is the first 4 or more bytes in a file that allow an operating system to identify it.
+On *nix systems, magic numbers are preferred whereas on Windows, the file extension is used instead.
+On *nix systems, this can lead to the curiosity of having a file with data of one type but an extension of another.
+For packet captures, it is [easy to fix](/formats/captype/#when-your-pcap-extension-filetype) this.
+
 {{% notice info %}}
 This is a work in progress. Only about half of capture file formats that I've collected data on are shown.
 {{% /notice %}}
 
-## Magic Numbers
+## Magic Numbers Table
 
 The magic numbers in the hex shown here is in _network order_ (i.e. [big-endian](https://en.wikipedia.org/wiki/Endianness)).
 Big-endian is the default for xxd, which is used extensively here to gather values. If there are little-endian values here, please file a bug.

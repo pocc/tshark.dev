@@ -1,5 +1,5 @@
 ---
-title: "Pcap Formats"
+title: "Capture Formats"
 description: Why have one format when you could have 15?
 date: 2019-07-04
 author: Ross Jacobs
@@ -30,7 +30,8 @@ bash$ tshark -f ipx -a duration:1 -F pcap -w - 2>/dev/null | xxd -u
 00000010: 0000 0400 0100 0000
 ```
 
-The first 24 bytes should look like the logo up left ([magic numbers](/formats/magic_numbers) may differ on your system).
+The first 24 bytes should look like the logo up left ([capture headers](/formats/sample_capture_headers) may differ on your system).
+Of those, the first 4 bytes, `D4C3 B2A1`, are the [magic bytes](/formats/magic_bytes) that identify the capture as a `pcap` file.
 
 <a href="/formats/capture_formats"><img src="https://dl.dropboxusercontent.com/s/txvh306zp3nppuj/logo_pcap_header.png" alt="Derivation of the Tshark Logo" style="text-align:left;margin:0px;margin-left:40px;"></a>
 

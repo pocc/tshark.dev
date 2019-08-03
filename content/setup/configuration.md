@@ -4,7 +4,7 @@ description: "A config will always approach perfection"
 date: 2019-07-04
 author: Ross Jacobs
 
-summary: '<i class="fas fa-external-link-square-alt"></i> Wireshark Docs: [Config Profiles](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html) | [Customization](https://www.wireshark.org/docs/wsug_html_chunked/ChapterCustomize.html)'
+summary: 'Wireshark [Config Profiles](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html) | [Customization](https://www.wireshark.org/docs/wsug_html_chunked/ChapterCustomize.html)'
 weight: 30
 draft: false
 ---

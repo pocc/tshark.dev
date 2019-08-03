@@ -6,7 +6,7 @@ author: Ross Jacobs
 
 summary: 'Wireshark: [Statistics](https://wiki.wireshark.org/Statistics) | [Network Troubleshooting](https://wiki.wireshark.org/NetworkTroubleshooting)'
 weight: 70
-draft: true
+draft: false
 ---
 
 Wireshark is like Google Maps. While you could look at the entire world, Maps
@@ -30,14 +30,16 @@ association](https://mrncciew.com/2014/10/27/cwap-802-11-probe-requestresponse/)
 
 ## What to look for
 
-If a tree falls in the forest and nobody heard it, did it actually fall? The
-same can be said of a Packet Analysis: If you do not communicate your
-findings, then it's as if you didn't find anything. There are a couple types
-of problems that you can identify with Wireshark:
+{{% notice tip %}}
+When in doubt, consult relevant [RFCs](https://tools.ietf.org/rfc/index), protocol documentation, and product manuals.
+{{% /notice %}}
+
+While analysis will depend on your domain experience, there are general classes of problems that you can identify with Wireshark.
+They are detailed below.
 
 ### 1. Traffic that should be in a capture is not
 
-Traffic in this category is the most common type of problem
+Traffic in this category is the most common type of problem.
 
 - Any stateful protocol that does not receive a response
 - Apple's Rapid DHCP, which may skip Discover+Offer of DHCP
@@ -45,7 +47,11 @@ Traffic in this category is the most common type of problem
 
 ### 2. Traffic that is in the capture that should not be
 
+Examples:
+
 - Duplicate IP address with different MAC addresses
+- Traffic on the wrong subnet
+- DHCP requests in an environment with static IP addresses
 
 ### 3. Traffic is delayed or out of order
 
@@ -59,6 +65,12 @@ If you are writing a software implementation of a protocol or think that your
 device may be violating one, you can use Wireshark to analyze the packets.
 You can then compare the actual bytes that you see transmitted to the RFC or
 spec on the subject.
+
+### 5+ Many others
+
+<!-- Add content -->
+
+Feel free to make a [pull request](https://github.com/pocc/tshark.dev/pulls) if there's something I'm missing.
 
 ## Further Reading (Wireshark)
 

@@ -25,14 +25,16 @@ _Here we see the details and bytes of the selected packet._
 
 Part of the power of Wireshark is that it makes Network Analysis easy by making it visual. You can search for
 traffic you are looking for and then peruse it once you find it.
-Wireshark is well documented with the [Official Documentation](https://www.wireshark.org/docs/),
-the [manpages](https://www.wireshark.org/docs/man-pages/), and the [Wireshark Forums](https://ask.wireshark.org), among others.
+Wireshark is well documented with the [Official Documentation](https://www.wireshark.org/docs/)
+and the [Wireshark Forums](https://ask.wireshark.org), among others.
 
 In addition to a GUI version, Wireshark comes with many command-line utilities like tshark.
 
 ### What is tshark?
 
-tshark (Terminal SHARK) is the command line tool that has most, but not all, of the features of Wireshark.
+tshark (Terminal SHARK) is the command line tool (CLI) that has most, but not all, of the features of Wireshark.
+What features tshark lacks is often found in other CLI tools that are bundled with Wireshark.
+All are documented online with [manpages](https://www.wireshark.org/docs/man-pages/).
 
 <a href="/setup/install"><img src="https://dl.dropboxusercontent.com/s/xu2ufkngsrgrfrm/tshark_example.png" alt="Tshark Example" style="width:61%"></a>
 

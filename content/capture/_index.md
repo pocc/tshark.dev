@@ -13,10 +13,6 @@ When trying to find the root of a network problem, it helps to look at the packe
 In order to look at these packets, you must first capture them. This section covers setting up many types of interfaces
 and how to limit the capture size.
 
-<a href="/capture/sources"><img src="https://dl.dropboxusercontent.com/s/je9czwd3xgw5qat/port_mirror_topology.png" alt="Diagram of a Network Tap" style="width:61%;"></a>
-
-This is a diagram of a port mirror, but could also be of a network tap. Logically, any capture is a copy of traffic being sent.
-
 <!-- This looks bad because it's incomplete. Do not include yet.
 This tshark command combines multiple elements that may be relevant to your capture (eventually all of these will be links):
 
@@ -39,4 +35,4 @@ Also see https://wiki.wireshark.org/CaptureSetup.
 
 #### Table of Contents
 
-{{% children description="true" depth="9" %}}
+{{% children description="true" depth="4" %}}

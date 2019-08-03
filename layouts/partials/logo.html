@@ -37,13 +37,13 @@ transform="matrix(0.35698156,0,0,0.35708933,0,0.00895604)">
   y="240"
   x="11"
   id="text2"
-  style="font-size:44px;font-family: 'Source Code Pro', monospace;font-weight:1000;text-anchor:left;fill:#fff;stroke-width:1px">D4C3 B2A1 0200 0400 0000 0000 0000 0000</text>
+  style="font-size:44px;font-family: 'Source Code Pro', monospace;font-weight:1000;text-anchor:left;fill:#fff;stroke-width:1px">{{if eq .Title "Pcapng Format"}}0A0D 0D0A C800 0000 4D3C 2B1A 0100 0000{{else}}D4C3 B2A1 0200 0400 0000 0000 0000 0000{{end}}</text>
 <text
   y="290"
   x="11"
   id="text3"
-  style="font-size:44px;font-family: 'Source Code Pro', monospace;font-weight:1000;text-anchor:left;fill:#fff;stroke-width:1px">FFFF 0000 0100 0000 {{if eq .Section "formats"}}{{upper .Title}}
-  {{else if eq .Title "Contribute"}}FORK MEON GITH UB!!
+  style="font-size:44px;font-family: 'Source Code Pro', monospace;font-weight:1000;text-anchor:left;fill:#fff;stroke-width:1px">{{if eq .Title "Pcapng Format"}}FFFF FFFF FFFF FFFF{{else}}FFFF 0000 0100 0000{{end}} {{if eq .Section "formats"}}{{upper .Title}}
+  {{else if eq .Title "Contribute"}}FORK MEON GITH UB!
   {{else}}PCAP FILE HEAD RHEX{{end}}</text>
 </g>
 </svg>

@@ -11,10 +11,11 @@ draft: false
 
 ## Wireshark Setup
 
-To begin, make sure that you have Wireshark installed and configured.
+Installation and configuration are important first steps for any program.
+If you have already set up Wireshark, you can skip this section.
 
 <a href="/setup/install"><img src="https://uwnthesis.files.wordpress.com/2013/06/wireshark-install-7.jpg" alt="Network Tap Diagram" style="width:61%;"></a>
 
-### Table of Contents
+## Table of Contents
 
 {{% children description="true" depth="4" %}}
