@@ -5,13 +5,13 @@ date: 2019-07-20
 author: Ross Jacobs
 
 subsection: true
-weight: 90
+weight: 50
 draft: false
 ---
 
 Get information and meta-data from your capture.
 
-{{% children description="true" depth="9" %}}
+{{% children description="true" depth="4" %}}
 
 * [ ] Add page for statistics and reports from tshark -G
 

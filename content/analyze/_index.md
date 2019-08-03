@@ -9,6 +9,16 @@ weight: 70
 draft: false
 ---
 
-#### Table of Contents
+## About
 
-{{% children description="true" depth="9" %}}
+Analysis is the conduit between having data and communicating the result.
+The Wireshark suite offers multiple tools that provide this conduit.
+This section covers how to use tshark and friends to serve this purpose.
+
+{{% notice tip %}}
+When in doubt, consult relevant [RFCs](https://tools.ietf.org/rfc/index), protocol documentation, and product manuals.
+{{% /notice %}}
+
+## Table of Contents
+
+{{% children description="true" depth="4" %}}
