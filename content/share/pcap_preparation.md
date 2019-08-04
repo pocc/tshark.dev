@@ -23,9 +23,11 @@ tshark: The file "cut_short.pcap" appears to have been cut short in the middle o
 To fix this, you can use any wireshark tool to read and then write the packets.
 Using editcap is the shortest here and allows you to replace to the same file.
 
-* `editcap cut_short.pcap cut_short.pcap`
+```bash
+editcap cut_short.pcap cut_short.pcap
+```
 
-You can also make sure that the packet capture is correctly ordered with reordercap:
+You can also make sure that the packet capture is correctly ordered with [reordercap](/edit/reordercap):
 
 ```bash
 reordercap coolStory.pcap temp.pcap
