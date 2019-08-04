@@ -9,6 +9,10 @@ weight: 50
 draft: false
 ---
 
+{{% notice tip %}}
+When linking to an online resource in an email, it is best to verify that it works before sending.
+{{% /notice %}}
+
 ## Hosting it
 
 Use a service like dropbox or google drive to host your file(s).

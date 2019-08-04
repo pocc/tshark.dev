@@ -16,6 +16,21 @@ with the `--color` flag. This article goes over how to set it up on your system.
 ![](https://dl.dropboxusercontent.com/s/pt45pphiekt4srh/packets_the_universal_interface.png)
 _Demonstration of tshark --color on Windows, Macos, Linux, and BSD._
 
+## Aliasing Tshark for Color
+
+You can alias tshark for your terminal session with this:
+
+```bash
+alias tshark='tshark --color'`
+```
+
+Add this line to your .bashrc to have it permanently:
+
+```bash
+echo -e "alias tshark='tshark --color'" >> ~/.bashrc
+source ~/.bashrc
+```
+
 ## Using a compatible terminal
 
 Support for terminal colors depends on whether "truecolor" 24-bit colors are
@@ -24,8 +39,6 @@ variable. If supported, `echo $COLORTERM` will return `truecolor` or `24bit`.
 
 [This repo](https://github.com/termstandard/colors) keeps track whether your
 ${TERMINAL} supports truecolor as well as general truecolor info.
-
-`alias tshark='tshark --color'`
 
 I have tested truecolor and `tshark --color` compatability across multiple terminals.  
 These are my recommendations:
@@ -37,20 +50,15 @@ These are my recommendations:
 | Linux    | [gnome-terminal](http://manpages.ubuntu.com/manpages/cosmic/man1/gnome-terminal.1.html), Any terminal using `libvte`  |
 | BSD      | [gnome-terminal](http://manpages.ubuntu.com/manpages/cosmic/man1/gnome-terminal.1.html),  Any terminal using `libvte` |
 
-
 [1]: Note that you can call Powershell from Mobaxterm or WSL, but given that
 Powershell does not support truecolor, you are limited to using bash
-pseudo-terminals on Windows to get truecolor. 
+pseudo-terminals on Windows to get truecolor.
 
 ## Windows Considerations
 
-_As with most things terminal, using on Windows is harder_
+_As with most things terminal, Windows complicates things_
 
 ### The problem
-
-<i>NOTE: I filed a [bug for tshark on
-Windows](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15659), and a fix
-may be available in the latest dev version of Wireshark.</i>
 
 - The Windows version of tshark will print 16 colors, instead of 24bit
   "truecolor". 
