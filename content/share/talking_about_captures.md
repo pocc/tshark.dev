@@ -56,7 +56,7 @@ appropriate.
 ### Analysis
 
 You are the domain expert here! And if you are not, triple-check that the way you talk about protocols and the problem state is accurate.
-Provide the analysis you gathered in the [analysis](/analysis) section.
+Provide the analysis you gathered in the [analysis](/analyze) section.
 
 For capture-based evidence:
 

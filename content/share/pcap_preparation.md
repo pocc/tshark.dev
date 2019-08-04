@@ -34,7 +34,7 @@ reordercap coolStory.pcap temp.pcap
 mv temp.pcap coolStory.pcap
 ```
 
-### Filter only for relevant traffic
+## Filter only for relevant traffic
 
 You should know what the relevant traffic is here.
 A couple example filters are provided below for various issues:
