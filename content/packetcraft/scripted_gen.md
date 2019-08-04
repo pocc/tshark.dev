@@ -24,7 +24,7 @@ Interpreted languagess like Python and Ruby can be convenient because packet gen
 ### Bash: various
 
 If an easy shell solution exists, KISS.
-Generate traffic with netcat, ping, hping, etc and save with tshark.
+Generate traffic with netcat, ping, hping, etc. and save with tshark.
 
 ```bash
 function save_ping() {

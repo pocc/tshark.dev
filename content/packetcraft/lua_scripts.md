@@ -6,10 +6,23 @@ description: Scripting with Wireshark's Lua API
 
 summary: 'Wireshark: [Lua API docs](https://www.wireshark.org/docs/wsdg_html_chunked/lua_module_Proto.html) | [Lua Examples](https://wiki.wireshark.org/Lua/Examples)'
 weight: 90
-draft: true
+draft: false
 ---
 
 Lua scripting allows you to dynamically access info that might not be available in Wireshark normally! Examples will be added at some point. <!-- TODO -->
+
+To use a lua script with tshark, use option `-X lua_script:<path/to/script>`.  
+Obligatory Hello World example, capturing one packet:
+
+```sh
+bash$ echo 'print("Hello World!")' > temp.lua
+bash$ tshark -X lua_script:temp.lua -c 1
+Hello World!
+Capturing on 'Wi-Fi: en0'
+    1   0.000000 178.33.111.155 → mbp.attlocal.net TLSv1.2 839 Application Data
+5 packets dropped from Wi-Fi: en0
+1 packet captured
+```
 
 ## Metaprogramming
 
@@ -20,30 +33,31 @@ There are two libraries I came across that are more metaprogramming that lua dis
 
 ## Lua Dissectors
 
-### Maturity Metrics
+I've compiled a list of the most popular lua dissectors on github.
+
+Have a dissector you want added to this list? Has a dissector been merged into Wireshark? Make a [pull request](https://github.com/pocc/tshark.dev/pulls).
+
+### Repo Metrics
 
 A ✔ is given for each of the following (in order of importance):
 
-* **D**: Has documentation in the form a README. Ideally, this includes separate installation and usage sections.
-* **T**: One or more of: Test code / CICD / Examples folder
-* **I**: Has issues open or closed
-* **R**: Has github release or version. Lacking one may mean that the project is not yet stable.
-* **C**: Has multiple contributors (>1)
+* **D**: Has <u>**D**</u>ocumentation in the form a README. Ideally, this includes separate installation and usage sections.
+* **T**: One or more of: <u>**T**</u>est code / CICD / Examples folder
+* **I**: Has <u>**I**</u>ssues opened or closed by a different user
+* **R**: Has github <u>**R**</u>elease or version. Lacking one may mean that the project is not yet stable.
+* **C**: Has multiple <u>**C**</u>ontributors (>1)
 
-### Other Notes
-
-License: Has GPL2-compatible license (✗ = no license). Any derivative works of Wireshark MUST use a GPL2-compatible license.
 Star/Fork count in 2019 Aug [★] and can be converted to an in-browser javascript github API query.
 Repos below are on github and have at least 5 stars. None of these repos have been tested.
 
-## Github Dissector List
+Note: Any derivative works of Wireshark [MUST use a GPL2-compatible license](https://wiki.wireshark.org/Lua#Beware_the_GPL).
 
-Have a dissector you want added to this list? Has a dissector been merged into Wireshark? Did I get something wrong? Make a [pull request](https://github.com/pocc/tshark.dev/pulls).
+### Github Dissector List
 
 | Name                                                                               | Protocol                                                        | D | T | I | R | C | License  | Last Updated | ★   | Forks | Lang       |
 |------------------------------------------------------------------------------------|-----------------------------------------------------------------|---|---|---|---|---|----------|--------------|-----|-------|------------|
 | [protobuf_dissector](https://github.com/128technology/protobuf_dissector)          | [protobuf](https://developers.google.com/protocol-buffers/)     | ✔ |   | ✔ |   |   | MIT      | 2015-09      |92    | 43    | Lua        |
-| [h264extractor](https://github.com/volvet/h264extractor)                           | [H.264](https://tools.ietf.org/html/rfc6184), [opus](https://en.wikipedia.org/wiki/Opus_(audio_format)) | ✔ |   | ✔ |   | ✔ | ✗     | 2016-06 | 66    | 32    | Lua        |
+| [h264extractor](https://github.com/volvet/h264extractor)                           | [H.264](https://tools.ietf.org/html/rfc6184), [opus](https://en.wikipedia.org/wiki/Opus_(audio_format)) | ✔ |   | ✔ |   | ✔ | GPL2     | 2016-06 | 66    | 32    | Lua        |
 | [SAP-Dissection-plug-in-for-Wireshark](https://github.com/SecureAuthCorp/SAP-Dissection-plug-in-for-Wireshark) | SAP Various                         | ✔ | ✔ | ✔ | ✔ | ✔ | GPL2     | 2019-05 |51    | 21    | C          |
 | [suriwire](https://github.com/regit/suriwire)                                                         | [Suricata Alert](https://suricata-ids.org/)  | ✔ |   | ✔ | ✔ | ✔ | GPL3     | 2018-06 |49    | 6     | Lua        |
 | [lightning-dissector](https://github.com/nayutaco/lightning-dissector)     | [Lightning Network](https://github.com/lightningnetwork/lightning-rfc) (crypto) | ✔ |   | ✔ |   | ✔ | MIT      | 2019-05 |41    | 6     | Lua        |
