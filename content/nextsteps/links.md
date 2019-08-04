@@ -24,6 +24,10 @@ This is an incomplete list of resources. If you know of a relevant resource that
 - [Python Guide](https://docs.python-guide.org/): For when you want to turn your
   script into a project.
 
+## Similar Tools
+
+- [ksniff](https://github.com/eldadru/ksniff): Take packet captures between kubernetes pods.
+
 ## Wireshark
 
 - [Official Documentation](https://www.wireshark.org/docs/)
