@@ -15,7 +15,7 @@ The difference between pcap and pcapng is much like the difference between Pytho
 
 ### Background
 
-The internet is a testament to our ability to put aside our differences and agree to standards like Ethernet and TCP/IP. In that spirit of cooperation and interoperability, most network vendors have their own [proprietary capture formats](https://imgs.xkcd.com/comics/standards.png).
+The internet is a testament to our ability to put aside our differences and agree to standards like Ethernet and TCP/IP. In that spirit of cooperation and interoperability, most network vendors have their own [proprietary capture formats](https://xkcd.com/927/).
 
 ### Format Prevalence Today
 
