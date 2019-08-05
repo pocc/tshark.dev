@@ -93,6 +93,30 @@ In this example, use `http.response`, and escape the periods.
     F	Status Code Description	http.response.code.desc	FT_STRING	http		0x0	HTTP Response Status Code Description
     F	Response Phrase	http.response.phrase	FT_STRING	http		0x0	HTTP Response Reason Phrase
 
+## 2-pass analysis with -R, -Y, and -2
+
+If you would like to optimize display filtering over 2
+passes, you can specify the first and second with `-R <filter> -2 -Y <2nd filter>`.
+
+There are few circumstances where this relevant, but I can make a contrived
+example: Let's say that you want the 5th arp frame in a capture. You could
+do this with two passes or by calling tshark twice. Using two passes is faster:
+
+```
+bash-5.0$ time tshark -r large.pcapng -R "arp" -2 -Y "frame.number == 5"
+    5   5.872787 18:68:cb:ad:97:60 → Broadcast    ARP 60 Who has 192.168.1.64? Tell 192.168.1.141
+
+real  0m2.945s
+user  0m2.702s
+sys   0m0.447s
+bash-5.0$ time tshark -r large.pcapng -Y "arp" -w - | tshark -r - -Y "frame.number == 5"
+    5   5.836911 18:68:cb:ad:97:60 → Broadcast    ARP 60 Who has 192.168.1.64? Tell 192.168.1.141
+
+real  0m4.660s
+user  0m4.633s
+sys   0m0.781s
+```
+
 ## Filter with Regex: matches and contains
 
 Sometimes you want to search packet data and a display filter won't cut it.

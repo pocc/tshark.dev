@@ -122,7 +122,7 @@ We can then use the power of MS Paint to follow the BPF code as it loads and ski
 |-------|--------------|
 | <b style="color:#FC2A1C;">0,&nbsp;1,&nbsp;8</b> | Ethertype is 0800 => IP |
 | <b style="color:#689B3C;">9,&nbsp;10</b> | Protocol is 0x6 => TCP |
-| <b style="color:#103FFB;">11,&nbsp;12</b> | If the [Fragment Offset](https://www.trueneutral.eu/2015/wireshark-frags-1.html) was nonzero, higher protocols would be undissectable series of data bytes. tshark can dissect higher protocols.|
+| <b style="color:#103FFB;">11,&nbsp;12</b> | If the [Fragment Offset](https://www.trueneutral.eu/2015/wireshark-frags-1.html) was nonzero, higher protocols would be undissectable series of data bytes. The fragment offset is 0, so tshark can dissect higher protocols.|
 | <b style="color:#FD9226;">13</b> | Check how long the IPv4 header should be. 5 increments of 4 bytes = 20 bytes. Start of IP header is at 14, so add 20 to get TCP start at 34.|
 |<b style="color:#C4BB27;">14,&nbsp;15</b> | Check whether the source port is 0x1bb. It's not, so check the dest port.|
 |<b style="color:#7A2177;">16,&nbsp;17</b> | Dest port is 0x1bb, so return a match.|
