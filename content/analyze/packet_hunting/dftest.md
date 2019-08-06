@@ -98,3 +98,7 @@ Clearly, this is the intended behavior.
 {{% notice tip %}}
 When in doubt, prefer the form `!a==b` to `a!=b`.
 {{% /notice %}}
+
+## Further Reading
+
+* [Troubleshooting Capture Filters](/capture/dumpcap#example-dumpcap-d)
