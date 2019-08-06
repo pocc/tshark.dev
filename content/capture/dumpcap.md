@@ -21,6 +21,22 @@ are taken from a single machine (i.e. n=1).
 
 For normal traffic loads, the choice of using tshark vs dumpcap should be whether you need to use tshark flags.
 
+## Finding The Generated Temporary File
+
+Wireshark and dumpcap will generate a temporary file if you do not specify an output file. This is how it is able to do 2-pass analysis: It has access to a file that it can operate on. tshark will generate this file too, but won't tell you where it is.
+
+{{% notice tip %}}
+Specifying the save file with `-w $file` is faster than creating and searching for a temp file.
+{{% /notice %}}
+
+### How to find it in Wireshark
+
+<img src="https://dl.dropboxusercontent.com/s/fb65vq02zmh9lyc/wireshark_temp_file.webp" alt="Finding the temp file Wireshark creates">
+
+### How to find it in dumpcap
+
+<img src="https://dl.dropboxusercontent.com/s/glu9t7c8ukgo19d/dumpcap_temp_file.png" alt="Finding the temp file dumpcap creates">
+
 ## Example: dumpcap -d
 
 _print generated BPF code for capture filter._

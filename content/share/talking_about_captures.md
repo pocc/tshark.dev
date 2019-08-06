@@ -4,7 +4,7 @@ description: "Communication is Key"
 date: 2019-08-03
 author: Ross Jacobs
 
-summary: ''
+summary: '[Expert Information](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvExpert.html)'
 weight: 70
 draft: false
 ---
@@ -53,6 +53,10 @@ appropriate.
 If your description of the problem is lacking, you may want to gather more data.
 
 ### Analysis
+
+<a href="https://www.wireshark.org/docs/wsug_html_chunked/ChAdvExpert.html"><img src="https://dl.dropboxusercontent.com/s/1lmpu4e3uu9yplm/wireshark_expert_item.cmp.png" alt="Wireshark makes it easy to be an expert"></a>
+
+<p style="text-align:center"><i>Wireshark makes it easy to be an expert.</i></p>
 
 As the "domain expert" here, you need to explain what the data means. And if you aren't, triple-check that the way you talk about protocols and the problem state is accurate. Data is important when discussing a problem, but needs context to give it value for the reader.
 

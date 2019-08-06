@@ -9,7 +9,7 @@ weight: 90
 draft: false
 ---
 
-Using the available file headers on your system from [Capture Formats](/formats/capture_formats/#determining-file-headers), we can determine what hex each capture type has in its header.
+Using the available file headers on your system from [Capture Formats](/formats/format_usage/#determining-file-headers), we can determine what hex each capture type has in its header.
 We do this by filtering out all packets and sending to xxd. If a capture type also has a footer, that too will be included here.
 
 ## Sample Capture Hex
@@ -204,3 +204,88 @@ bash$ for i in ${formats[@]}; \
 000000a0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 000000b0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 ```
+
+## Python: Parse Header/Packet/Footer for any capture
+
+This script will print the header, packet headers, packets, and the footer for any format.
+
+```python
+import subprocess as sp
+import re
+import os
+
+def create_pcap():
+    if not os.path.exists("temp.pcapng"):
+        sp.call(["tshark", "-w", "temp.pcapng", "-c", "3"])
+    return "temp.pcapng"
+
+def get_hexdump(filename):
+    output = sp.check_output(["xxd", "-ps", filename], text=True)
+    return re.sub(r"\s", "", output)
+
+def get_pcap_header_footer(filename):
+    """Get a combination of header/footer from the file."""
+    capture_type_text = sp.check_output(["captype", filename], text=True)
+    capture_type = re.findall(r"[^:]*: (.*)", capture_type_text)[0]
+    sp.call(["tshark", "-r", filename, "-F", capture_type, "-Y", "ipx", "-w", "temp.file"])
+    header = get_hexdump("temp.file")
+    print(header)
+    os.remove("temp.file")
+    return header
+
+def get_packets(filename):
+    packet_text = sp.check_output(["tshark", "-r", filename, "-x"], text=True)
+    packets = packet_text.split("\n\n")  # tshark outputs new packets on a newline
+    packets = list(filter(None, packets))
+    for i, _ in enumerate(packets):
+        # Delete the bytes that are not part of the packet
+        packets[i] = re.sub(r"(?:^|\n)\d*  |   .*| ", "", packets[i])
+
+    return packets
+
+def run():
+    message = ""
+    filename = create_pcap()
+    hexdump = get_hexdump(filename)
+    pcap_header_footer = get_pcap_header_footer(filename)
+    packets = get_packets(filename)
+    if 
+      pkt0 = re.search(packets[0], hexdump)
+    message += "Packet 0:\n" + packets[0] + "\n\n"
+    hexdump_remainder = hexdump[pkt0.end():]
+    for i, packet in enumerate(packets):
+        packet_match = re.search(packet, hexdump_remainder)
+        packet_header = hexdump_remainder[:packet_match.start()]
+        message += "Packet Header " + str(1) + ":\n" + packet_header + '\n\n'
+        message += "Packet " + str(1) + ":\n" + packet + '\n\n'
+        hexdump_remainder = hexdump_remainder[packet_match.end():]
+    header_search = re.search(hexdump_remainder, pcap_header_footer)
+    header = hexdump[:header_search.start()]
+    message += "Header+packet0 header:\n" + header + "\n\n" + "Footer:\n", hexdump_remainder
+    print(message)
+
+if __name__ == '__main__':
+    run()
+```
+
+Example output for a 3 packet pcapng file:
+
+<div class="highlight"><pre class="chroma"><code class="language-bash hljs" data-lang="bash" style="overflow-x: auto;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;">Header+packet0 header:
+0a0d0d0ac80000004d3c2b1a01000000ffffffffffffffff02003700496e74656c28522920436f726528544d292069372d34373730485120435055204020322e323047487a20287769746820535345342e32290003002e004d6163204f5320582031302e31342e352c206275696c6420313846313332202844617277696e2031382e362e302900000400320044756d70636170202857697265736861726b2920332e302e33202876332e302e332d302d6736313330623932623065633629000000000000c80000000100000068000000010000000000080002000300656e30000300050057692d466900000009000100060000000c002e004d6163204f5320582031302e31342e352c206275696c6420313846313332202844617277696e2031382e362e302900000000000068000000060000007c000000000000006a8f0500a02afb175a0000005a000000
+
+Packet <span class="m">0</span>:
+6c96cfd87fe7cc65adda397008004500004c1ad8400031066dc98c52721ac0a801f601bbd53da3d069e9ca0efbcd8018001fe2b400000101080a08d51bb33ea6da3117030300130ac92e61a016dad04ffdd0a697e7b3d9644647
+
+Packet Header <span class="m">1</span>:
+00007c0000000600000064000000000000006a8f0500f42afb174200000042000000
+
+Packet <span class="m">1</span>:
+cc65adda39706c96cfd87fe708004500003400004000400679b9c0a801f68c52721ad53d01bbca0efbcda3d06a01801007fff31900000101080a3ea7acc208d51bb3
+
+Packet Header <span class="m">2</span>:
+0000640000000600000080000000000000006a8f0500ac2cfb175e0000005e000000
+
+Packet <span class="m">2</span>:
+cc65adda39706c96cfd87fe7080045000050000040004006799dc0a801f68c52721ad53d01bbca0efbcda3d06a0180180800013f00000101080a3ea7acc208d51bb317030300172525d27b6d058c1236bccb185f56ffc1634643ae8c252e
+
+Footer: 000080000000050000006c000000000000006a8f05003dbafd1701001c00436f756e746572732070726f76696465642062792064756d70636170020008006a8f050056e4f917030008006a8f05000abafd17040008000300000000000000050008000300000000000000000000006c000000</code><span class="copy-to-clipboard" title="Copy to clipboard"></span></pre></div>
