@@ -5,7 +5,7 @@ date: 2019-08-03
 author: Ross Jacobs
 
 summary: '[manpage](https://www.wireshark.org/docs/man-pages/tshark.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) | [code](https://github.com/wireshark/wireshark/blob/master/tshark.c)'
-weight: 95
+weight: 5
 draft: false
 ---
 

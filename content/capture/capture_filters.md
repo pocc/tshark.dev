@@ -1,10 +1,10 @@
 ---
 title: "Capture Filters"
-description: "Drop uninteresting traffic before you save it"
+description: "Drop uninteresting traffic like a hot potato"
 date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
 
-summary: 'Wireshark [Wiki](https://wiki.wireshark.org/CaptureFilters) [User Guide](https://www.wireshark.org/docs/wsug_html_chunked/ChCapCaptureFilterSection.html) [pcap-filter manpage](https://www.tcpdump.org/manpages/pcap-filter.7.html)' 
+summary: 'Wireshark [Wiki](https://wiki.wireshark.org/CaptureFilters) | [User Guide](https://www.wireshark.org/docs/wsug_html_chunked/ChCapCaptureFilterSection.html) | [pcap-filter manpage](https://www.tcpdump.org/manpages/pcap-filter.7.html)' 
 weight: 40
 draft: false
 ---
@@ -15,9 +15,11 @@ Capture filters are used to decrease the size of captures by filtering out packe
 
 To specify a capture filter, use `tshark -f "{filter}"`. For example, to capture pings or tcp traffic on port 80, use `icmp or tcp port 80`.
 
-<img src="https://dl.dropboxusercontent.com/s/fkki87x7rkuazr0/tshark_capture_filter.cmp.png" alt="Example Capture Filter">
+<img src="https://dl.dropboxusercontent.com/s/fkki87x7rkuazr0/tshark_capture_filter.cmp.png" alt="Example Capture Filter" style="width:90%;">
 
-If you want to see how your capture filter is parsed at a low-level, use [dumpcap -d -f "{filter}"](/capture/).
+To see how your capture filter is parsed, use [dumpcap](/capture/dumpcap). Below is how `ip` is parsed.
+
+<a href="/capture/dumpcap/#example-dumpcap-d"><img src="https://dl.dropboxusercontent.com/s/hgdf29eq9kd9uvl/dumpcap_d_example.cmp.png" alt="Dumpcap adventure" style="width:40%"></a>
 
 ## Capture vs Display Filters
 

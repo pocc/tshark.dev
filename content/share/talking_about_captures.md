@@ -1,5 +1,5 @@
 ---
-title: "Writing the Email"
+title: "Composing the Writeup"
 description: "Communication is Key"
 date: 2019-08-03
 author: Ross Jacobs
@@ -16,16 +16,16 @@ This page covers how to communicate the technical parts.
 
 <u>___When in doubt, use fewer words.___</u>
 
-It is possible to have a pagelong paragraph of an email. Nobody will read this.
+It is possible to have a page-long paragraph of an email. Nobody will read this.
 
 It's better to break it up into small sections that each have a purpose.
 Make it easy for the recipient to skim and find the information relevant to them.
-Generally speaking, you'll want to have at least four sections:
+Generally speaking, you'll want to have at least four sections that answer these questions:
 
 * Problem Statement: What's wrong in a sentence or two?
 * Problem State: What work did you do / Are there any new developments related to the problem?
 * Analysis: What are the effects of this new problem state?
-* Action Items: What do people in the thread need to do next?
+* Action Items: What needs to be done and by who?
 
 ## Possible Sections
 
@@ -35,28 +35,26 @@ This is one possible ordering. Your needs likely differ.
 
 {{% notice tip %}}
 It may be tempting to add more than one issue to an email. This is a mistake.
-The response you get will get will ALWAYS be about the 2nd minor issue.
+You will get a response that reciprocates your lack of clarity.
 {{% /notice %}}
 
 Introduce the problem in one sentence. By making it immediately clear what your email is about, you make it easier for your recipient to care.
-If you would have a problem statement that is more than two sentences, add it to a section immediately next called "Background" or "Description".
+If your problem statement has more than two sentences, follow it with a section called "Background" or "Description" and move the extra content there.
 
 ### Problem State
 
-If this email introduces the issue, you may want to have a section before this one called "Background" or "Description".
-If it's continuing the thread, then explain any updates you may have.
-
-When communicating work that you've done with others, you should share any relevant details
-that may help the person reading your message. For example:
+When communicating work that you've done with others, share details
+that are key to the person understanding your message. For example:
 
 * Devices/interfaces you gathered data off of. Include topologies as
 appropriate.
 * If you are not pre-filtering the packet capture, include the relevant filters.
 
+If your description of the problem is lacking, you may want to gather more data.
+
 ### Analysis
 
-You are the domain expert here! And if you are not, triple-check that the way you talk about protocols and the problem state is accurate.
-Provide the analysis you gathered in the [analysis](/analyze) section.
+As the "domain expert" here, you need to explain what the data means. And if you aren't, triple-check that the way you talk about protocols and the problem state is accurate. Data is important when discussing a problem, but needs context to give it value for the reader.
 
 For capture-based evidence:
 
@@ -76,7 +74,7 @@ Something like this would suffice:
 
 ## Further Reading
 
-_While these posts focus on asking questions, they are quite relevant in thinking about technical issues correctly._
+_While the following articles focus on asking questions, they are quite relevant in thinking about technical issues correctly._
 
 * 2014-05-21, Eric Steven Raymond, [How To Ask Questions The Smart Way](http://www.catb.org/~esr/faqs/smart-questions.html)
 * 2013-06-16, Stack Overflow, [How to Ask a Stackoverflow Question](https://stackoverflow.com/help/how-to-ask)
