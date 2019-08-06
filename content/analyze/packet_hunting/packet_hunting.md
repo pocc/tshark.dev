@@ -117,6 +117,19 @@ user  0m4.633s
 sys   0m0.781s
 ```
 
+## Realtime analysis
+
+One of the biggest differences between tshark and Wireshark is that you can change the 
+Termshark is the way to analyze a capture in the terminal. You can change filters just like Wireshark's GUI to see what's happening.
+
+<a href="termshark.io">
+<picture>
+  <source srcset="https://dl.dropboxusercontent.com/s/9tf7jxnbxle8p4c/termshark_demo.webp" type="image/webp">
+  <source srcset="https://termshark.io/images/termshark.gif" type="image/gif"> 
+  <img src="https://termshark.io/images/termshark.gif" alt="Termshark: A UI for tshark">
+</picture>
+</a>
+
 ## Filter with Regex: matches and contains
 
 Sometimes you want to search packet data and a display filter won't cut it.

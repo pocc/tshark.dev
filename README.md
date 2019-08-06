@@ -94,3 +94,11 @@ then please feel free to submit a pull request.
 - It'll automatically go live in seconds!
 
 A list of contributors is available [here](https://github.com/pocc/tshark.dev/graphs/contributors).
+
+## Guide Philosophy
+
+- If you can't understand an article, that's a bug
+- Bad style and tone are high-priority issues
+- Prefer linking to articles than writing new ones
+- Link to manpages/Wireshark docs wherever relevant
+- Further reading links should provide something that the article above it does not
