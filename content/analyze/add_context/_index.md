@@ -10,6 +10,7 @@ draft: false
 ---
 
 All of these methods of adding context will only do so for the current session.
+This is *technically* not true for pcapng files, but this is going to stay here until I get a fixing PR.
 The file is not changed and others will need to readd the context
 with all files and commands that you used to see what you see.
 
