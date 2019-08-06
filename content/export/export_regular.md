@@ -51,7 +51,7 @@ This is used later on to verify the extracted file.
 
 ```bash
 # -Q quietly -a wait 5 sec
-tshark -Q -a duration:5 -w $pcap_file & tspid=$!
+tshark -Q -a duration:5 -w $pcap_file &
 curl $website > $html_file
 ```
 
