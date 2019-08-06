@@ -129,4 +129,5 @@ We can then use the power of MS Paint to follow the BPF code as it loads and ski
 
 ## Further Reading
 
+* [Troubleshooting Display Filters](/analyze/packet_hunting/dftest)
 * 2015-01, Jasper Bongertz, [Determining Network Ethertype](https://blog.packet-foo.com/2015/01/determining-network-protocols/)
