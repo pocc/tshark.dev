@@ -1,0 +1,4 @@
+# ethers examples from Wireshark Config Docs
+ff-ff-ff-ff-ff-ff    Broadcast
+c0-00-ff-ff-ff-ff    TR_broadcast
+00.2b.08.93.4b.a1    Freds_machine

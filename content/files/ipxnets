@@ -1,0 +1,11 @@
+# https://tshark.dev/files/ipxnets, for https://tshark.dev/files/vlan.cap
+# Use with as part of https://tshark.dev/analyze/add_context/name_resolution
+# Use for any purpose as long as you keep this header. Ross Jacobs, 2019-08-07
+00.05.05.00  Winternet_Is_Coming
+00.05.06.00  Nothing2CHere
+00.05.0a.00  Go-Go-Gadget-Internet
+00.05.20.00  AccessDenied
+00.05.68.00  VladimirComPutin
+00.05.6c.00  LANofMilkandHoney
+00.05.70.00  GetOffMyLAN
+00.05.70.00  Drop-it-Like-its-a-Hotspot

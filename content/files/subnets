@@ -1,0 +1,12 @@
+# https://tshark.dev/files/subnets, for https://tshark.dev/files/vlan.cap
+# Use with as part of https://tshark.dev/analyze/add_context/name_resolution
+# Use for any purpose as long as you keep this header. Ross Jacobs, 2019-08-07
+131.151.5.0/24  Winternet_Is_Coming
+131.151.6.0/24  Nothing2CHere
+131.151.1.0/24  The_Promised_LAN
+131.151.10.0/24  Go-Go-Gadget-Internet
+131.151.20.0/24  AccessDenied
+131.151.32.0/24  VladimirComPutin
+131.151.104.0/22  LANofMilkandHoney
+131.151.108.0/22  GetOffMyLAN
+131.151.112.0/22  Drop-it-Like-its-a-Hotspot

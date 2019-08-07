@@ -4,7 +4,7 @@ description: "Drop uninteresting traffic like a hot potato"
 date: 2019-04-08T12:44:45Z
 author: Ross Jacobs
 
-summary: 'Wireshark [Wiki](https://wiki.wireshark.org/CaptureFilters) | [User Guide](https://www.wireshark.org/docs/wsug_html_chunked/ChCapCaptureFilterSection.html) | [pcap-filter manpage](https://www.tcpdump.org/manpages/pcap-filter.7.html)' 
+summary: 'Wireshark [Wiki](https://wiki.wireshark.org/CaptureFilters) | [User Guide](https://www.wireshark.org/docs/wsug_html_chunked/ChCapCaptureFilterSection.html) | [pcap-filter manpage](https://www.tcpdump.org/manpages/pcap-filter.7.html)'
 weight: 40
 draft: false
 ---
@@ -34,5 +34,6 @@ You cannot use them on an existing file or when reading from stdin for this reas
 
 ## Further Reading
 
+* [Packetlife Cheatsheet](https://packetlife.net/blog/2008/oct/18/cheat-sheets-tcpdump-and-wireshark/)
 * [Display/Capture Filters for 50.X.X.152](https://ask.wireshark.org/question/5647/how-to-filter-for-partial-ip-such-as-50xxxxxx152/)
 * [Perhaps a top 15 Wireshark Capture Filter List](https://www.cellstream.com/reference-reading/tipsandtricks/379-top-10-wireshark-filters-2)

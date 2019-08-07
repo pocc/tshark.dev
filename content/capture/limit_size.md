@@ -132,6 +132,25 @@ tshark -r ipv6_udp.pcapng -T fields -e frame.len -e frame.cap_len
 
 Sure enough, we see the expected values. Note that if a snaplen is not used in a capture, `frame.len` will equal `frame.cap_len`. [Packet](https://dl.dropboxusercontent.com/s/8d2dfcbgxtozlq9/ipv6_udp_snaplen.pcapng) used in example.
 
+## Running Out of Memory
+
+There are a couple of dumpcap (not tshark) flags that can be used to limit resource usage.
+
+* <u>**-N NUM**</u>: Max number of packets buffered within dumpcap
+* <u>**-C NUM**</u>: Max number of bytes used for buffering packets within dumpcap
+* <u>**-t**</u>: use a separate thread per interface
+
+For both tshark, dumpcap, and tcpdump, you can limit DNS lookups that are automatically performed to add context to text output.
+
+* <u>**-n**</u>: Disable all name resolutions
+
+## Running Out of Time
+
+<a href="https://xkcd.com/716/"><img src="https://dl.dropboxusercontent.com/s/q2m2y80cf3pdtp5/time_for_tshark.jpg" alt="Time for tshark"></a>
+
+Tshark can limit the capture's size before it started. `--time-travel` will start working whenever it will have been implemented.
+In the meantime, start your capture with the correct flags.
+
 ## Further Reading
 
 * Packetlife, [Long Captures](https://packetlife.net/blog/2011/mar/9/long-term-traffic-capture-wireshark/)
