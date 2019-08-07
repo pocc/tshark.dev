@@ -166,6 +166,12 @@ tshark -r $file -Y "eth.addr[0:3] == 00:16:e3"
 tshark -r $file -Y "eth.addr matches \"^[^\x01-\xff]\x16\xe3\""
 ```
 
+<!--
+## Display Filter Macros
+
+If you have a long and complicated 
+-->
+
 ## Further Reading
 
 _This will be a long list as this is the meat of what Wireshark does._
