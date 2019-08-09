@@ -99,7 +99,7 @@ These files are from the Wireshark Repo or my system.
 
 #### For Use with VLAN Example
 
-Example In [Name Resolutions](/analyze/add_context/name_resolutions).
+Example In [Name Resolutions](/analyze/add_context/name_resolution).
 
 * [ipxnets](/files/ipxnets): Based on [vlan.cap](/files/vlan.cap)
 * [subnets](/files/subnets): Based on [vlan.cap](/files/vlan.cap)
@@ -193,7 +193,7 @@ tshark -r temp -o ip.check_checksum:true -V -c 1 | grep checksum
 ```
 
 `-o` is most used for specifying a series of required cryptographic settings like [WEP](https://stackoverflow.com/questions/34172493/not-able-to-set-tshark-preferences-from-command-line) or [ESP](https://wiki.wireshark.org/TShark_ESP_Preferences).
-In this guide, `-o` is used for [WPA2](http://localhost:1313/analyze/add_context/tshark_decryption/#wpa2-decryption) and [TLS1.2](/Users/rj/code/tshark.dev/content/export/export_tls.md) decryption.
+In this guide, `-o` is used for [WPA2](/analyze/add_context/tshark_decryption/#wpa2-decryption) and [TLS1.2](/export/export_tls.md) decryption.
 
 ### -H ${hosts}
 
