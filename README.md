@@ -8,7 +8,7 @@
 
 tshark.dev exists to tecah you about packet analysis.
 
-<a href="https://tshark.dev"><img src="https://dl.dropboxusercontent.com/s/nbu25m8ro80iukx/tshark_dev.png" alt="tshark.dev screenshot" style="margin-left: 6%;margin-right: 6%;"/></a>
+<a href="https://tshark.dev"><img src="https://dl.dropboxusercontent.com/s/nrz5y62f4d70p00/tshark_logo.cmp.png" alt="tshark.dev screenshot" style="margin-left: 6%;margin-right: 6%;"/></a>
 
 The main aim for the site is to provide example usage of
 working with packets and hopefully give back something

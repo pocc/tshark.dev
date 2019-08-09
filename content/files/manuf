@@ -1,4 +1,4 @@
-# https://tshark.dev/files/ipxnets, for https://tshark.dev/files/vlan.cap
+# https://tshark.dev/files/manuf, for https://tshark.dev/files/vlan.cap
 # Use as part of exercise at https://tshark.dev/analyze/add_context/name_resolution/#example-using-all-resolution-types
 # Based on Wireshark's Manuf file: https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob_plain;f=manuf;hb=HEAD
 
