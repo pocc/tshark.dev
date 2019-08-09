@@ -73,7 +73,7 @@ tshark -all -of -the -other -flags \
 
 These settings control DNS and Wireshark. You can see what yours are with `tshark -G currentprefs | grep -E "^#?nameres.*(dns|hosts|name_resolve)"`.
 
-These are my settings:
+These are the settings :
 
 ```sh
 # Same as -Nd. Use capture file's dns queries for name resolution

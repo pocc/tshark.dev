@@ -69,7 +69,7 @@ Processing:
 Output:
   <a href="/formats">-w &lt;outfile|-</a>&gt;           write packets to a pcapng-format file named "outfile"
                            (or '-' for stdout)
-  <a href="/packetcraft/config_files/#tshark-config-flags">-C &lt;config profile&gt;</a>      start with specified configuration profile
+  <a href="/packetcraft/profiles/#tshark-config-flags">-C &lt;config profile&gt;</a>      start with specified configuration profile
   <a href="/formats">-F &lt;output file type&gt;</a>    set the output file type, default is pcapng
                            an <a href="/capture/sources/sample_interfaces/#sample-capture-file-types">empty "-F" option</a> will list the file types
   -V                       add output of packet tree        (Packet Details)
@@ -125,7 +125,7 @@ Output:
 Miscellaneous:
   <a href="/capture/tshark">-h</a>                       display this help and exit
   -v                       display version info and exit
-  <a href="/packetcraft/config_files/#tshark-config-flags">-o &lt;name&gt;:&lt;value&gt;</a> ...    override preference setting
+  <a href="/packetcraft/profiles/#tshark-config-flags">-o &lt;name&gt;:&lt;value&gt;</a> ...    override preference setting
   <a href="/analyze/add_context/tshark_decryption/#kerberos">-K &lt;keytab&gt;</a>              keytab file to use for kerberos decryption
   -G [report]              dump one of several available reports and exit
                            default report="fields"</pre>
