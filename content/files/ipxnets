@@ -1,5 +1,5 @@
 # https://tshark.dev/files/ipxnets, for https://tshark.dev/files/vlan.cap
-# Use with as part of https://tshark.dev/analyze/add_context/name_resolution
+# Use as part of exercise https://tshark.dev/analyze/add_context/name_resolution/#example-using-all-resolution-types
 # Use for any purpose as long as you keep this header. Ross Jacobs, 2019-08-07
 00.05.05.00  Winternet_Is_Coming
 00.05.06.00  Nothing2CHere

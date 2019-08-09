@@ -1,5 +1,5 @@
 # https://tshark.dev/files/vlans, for https://tshark.dev/files/vlan.cap
-# Use with as part of https://tshark.dev/analyze/add_context/name_resolution
+# Use as part of exercise https://tshark.dev/analyze/add_context/name_resolution/#example-using-all-resolution-types
 # Use for any purpose as long as you keep this header. Ross Jacobs, 2019-08-07
 5  Winternet_Is_Coming
 6  Nothing2CHere

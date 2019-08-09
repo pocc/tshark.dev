@@ -1,4 +1,17 @@
-# ethers examples from Wireshark Config Docs
-ff-ff-ff-ff-ff-ff    Broadcast
-c0-00-ff-ff-ff-ff    TR_broadcast
-00.2b.08.93.4b.a1    Freds_machine
+# https://tshark.dev/files/ipxnets, for https://tshark.dev/files/vlan.cap
+# Use as part of exercise https://tshark.dev/analyze/add_context/name_resolution/#example-using-all-resolution-types
+# Use for any purpose as long as you keep this header. Ross Jacobs, 2019-08-07
+00:04:ac:c6:54:69  Ant.Man
+00:10:4b:ad:90:9b  Black.Widow
+00:20:18:61:cb:d3  Captain.America
+00:20:18:62:73:a1  Captain.Marvel
+00:40:05:40:ef:24  Falcon
+00:60:08:9f:b1:f3  Hawkeye
+00:60:97:90:10:20  Hulk
+00:50:3e:b4:e4:66  Iron.Man
+00:90:27:17:7b:4a  Nebula
+00:e0:f9:cc:18:00  Rocket.Raccoon
+08:00:07:84:12:de  Spider.Man
+09:00:07:ff:ff:ff  Thor
+
+ff:ff:ff:ff:ff:ff  Thanos

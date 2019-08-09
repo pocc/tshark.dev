@@ -1,0 +1,30 @@
+# https://tshark.dev/files/ipxnets, for https://tshark.dev/files/vlan.cap
+# Use as part of exercise at https://tshark.dev/analyze/add_context/name_resolution/#example-using-all-resolution-types
+# Based on Wireshark's Manuf file: https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob_plain;f=manuf;hb=HEAD
+
+# OUIs
+00:04:aC    IbmPcmci    IBM # PCMCIA Ethernet adapter.
+00:05:02    ApplePci    Apple (PCI bus Macs)
+00:10:4B    3com3c90    3Com    # 3C905-TX PCI
+00:10:5A    3comFast    3Com    # Fast Etherlink XL in a Gateway 2000
+00:10:83    Hp-UxE90    HP-UX E 9000/889
+00:20:18    CisTechn    Cis Technology Inc.
+00:40:05    AniCommu    Ani Communications Inc.
+00:50:04    3com3c90    3com    # 3C90X
+00:50:3E    Cisco       Cisco Systems, Inc
+00:60:08    3com        3Com    # 3Com PCI form factor 3C905 TX board
+00:60:97    3Com
+00:60:B0    HewlettP    Hewlett Packard
+00:90:27    Intel       Intel Corporation
+00:A0:24    3Com
+00:A0:C9    IntelPro    Intel (PRO100B and PRO100+) # [used on Cisco PIX firewall among others]
+00:E0:F9    Cisco       Cisco Systems, Inc
+08:00:07    Apple   Apple, Inc.
+08:00:09    HewlettP    Hewlett Packard
+08:00:5A    Ibm IBM Corp
+
+# Protocols (any OUI that matches mask 0000 0001 for first byte)
+01:00:0c    CDP/VTP
+01:80:c2    STP/LLDP
+09:00:07    Apple Multicast
+ff:ff:ff    Broadcast
