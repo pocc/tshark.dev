@@ -2,6 +2,19 @@
 <style type="text/css">
     /* Custom css */
 </style>
+-->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143435644-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-143435644-1');
+</script>
+
+<!--
 Generate chart with bash:
 all_files=("$(find . -type f)")
 file_types=$(for i in ${all_files[*]}; do captype "$i" | awk -F ': ' '{ if ($2 != "unknown") print $2}'; done);
