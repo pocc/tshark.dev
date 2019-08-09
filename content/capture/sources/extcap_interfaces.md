@@ -12,17 +12,16 @@ draft: false
 The typical way to see packets live in Wireshark is to use some form of piping:
 
 ```bash
-packet-source | wireshark -k -i - 
+packet-source | wireshark -k -i -
 
 # -OR-
 
 mkfifo myfifo
-packet-source > myfifo & 
-wireshark -k -i myfifo 
+packet-source > myfifo &
+wireshark -k -i myfifo
 ```
 
-By comparison, the [extcap
-interface](https://www.wireshark.org/docs/man-pages/extcap.html) gives you the
+By comparison, the [extcap interface](https://www.wireshark.org/docs/man-pages/extcap.html) gives you the
 ability to present your source of packets as an interface that you can capture
 on in *shark. Run `tshark -D` and note that you can capture to any interface
 listed (including ones you create).
@@ -66,13 +65,10 @@ extcap {version=0.1.0}{help=file:///usr/local/share/wireshark/randpktdump.html}
 interface {value=randpkt}{display=Random packet generator}
 ```
 
-### 1. `randpkt`
-
-### 2. `tshark -i randpkt`
-
-### 3. `randpktdump`
-
-### 4. randpkt + Wireshark GUI
+1. `randpkt`
+1. `tshark -i randpkt`
+1. `randpktdump`
+1. `randpkt` + Wireshark GUI
 
 If `randpkt` is an option when you use `tshark -D`, then you can use it as an
 extcap interface like so: 
@@ -117,3 +113,49 @@ Wireshark provides an
 written by Robert Knall, which is worth looking at. Below is a demonstration of
 how to use this example utility.
 <script id="asciicast-nt1WaIPrYEyrO1uxmnlnBbpvX" src="https://asciinema.org/a/nt1WaIPrYEyrO1uxmnlnBbpvX.js" async></script>
+
+## Extcap preferences
+
+You can specify these in tshark inline with `-o $key:$value` or change them manually in the [preferences file](/packetcraft/config_files).
+You can get a list of you current extcap interfaces like so:
+
+```bash
+bash$ tshark -G currentprefs | grep "[_#]extcap"
+#extcap.gui_save_on_start: TRUE
+#extcap.ciscodump.remotehost: 
+#extcap.ciscodump.remoteport: 22
+#extcap.ciscodump.remoteusername: rj
+#extcap.ciscodump.sshkey: 
+#extcap.ciscodump.remoteinterface: 
+#extcap.ciscodump.remotefilter: deny tcp any eq 22 host fe80::25a3:e7a0:5ec4:50d7, deny tcp any eq 22 host 10.0.2.15, permit ip any any
+#extcap.ciscodump.remotecount: 
+#extcap.ciscodump.debug: false
+#extcap.ciscodump.debugfile: 
+#extcap.randpkt.maxbytes: 5000
+#extcap.randpkt.count: 1000
+#extcap.randpkt.randomtype: false
+#extcap.randpkt.allrandom: false
+#extcap.randpkt.type: 
+#extcap.randpkt.debug: false
+#extcap.randpkt.debugfile: 
+#extcap.sshdump.remotehost: 
+#extcap.sshdump.remoteport: 22
+#extcap.sshdump.remoteusername: rj
+#extcap.sshdump.sshkey: 
+#extcap.sshdump.remoteinterface: eth0
+#extcap.sshdump.remotecapturecommand: 
+#extcap.sshdump.remotesudo: 
+#extcap.sshdump.remotenoprom: 
+#extcap.sshdump.remotefilter: not ((host fe80::25a3:e7a0:5ec4:50d7 or host 10.0.2.15) and port 22)
+#extcap.sshdump.remotecount: 0
+#extcap.sshdump.debug: false
+#extcap.sshdump.debugfile: 
+#extcap.udpdump.port: 5555
+#extcap.udpdump.payload: data
+#extcap.udpdump.debug: false
+#extcap.udpdump.debugfile: 
+```
+
+## Further Reading
+
+- 2017-04-04, ntop, [Creating the ntopdump extcap](https://www.ntop.org/pf_ring/capture-filter-extract-traffic-using-wireshark-and-pf_ring/)

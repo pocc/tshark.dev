@@ -32,13 +32,13 @@ In addition to a GUI version, Wireshark comes with many command-line utilities l
 
 ### What is tshark?
 
-tshark (Terminal SHARK) is the command line tool (CLI) that has most, but not all, of the features of Wireshark.
+tshark (<u>**T**</u>erminal wire<u>**SHARK**</u>) is the command line tool (CLI) that has most, but not all, of the features of Wireshark.
 What features tshark lacks is often found in other CLI tools that are bundled with Wireshark.
 All are documented online with [manpages](https://www.wireshark.org/docs/man-pages/).
 
 <a href="/setup/install"><img src="https://dl.dropboxusercontent.com/s/xu2ufkngsrgrfrm/tshark_example.png" alt="Tshark Example" style="width:61%"></a>
 
-Most existing documentation on Wireshark focuses on the GUI. This guide focuses exclusively on tshark and friends, but links to Wireshark articles when appropriate.
+Most existing documentation on Wireshark focuses on the GUI. Wireshark's CLI is just as good for most tasks and far better for scripting. This guide focuses exclusively on tshark and friends but links to Wireshark articles when appropriate.
 
 ## Table of Contents
 
