@@ -85,17 +85,21 @@ Anything with [name] in it can have alphanumeric characters (`\w`).
 
 These files are from the Wireshark Repo or my system.
 
+* [ethers](https://raw.githubusercontent.com/wireshark/wireshark/master/wka)
 * [cfilters](https://raw.githubusercontent.com/wireshark/wireshark/master/cfilters)
 * [colorfilters](https://raw.githubusercontent.com/wireshark/wireshark/master/colorfilters)
 * [dfilters](https://raw.githubusercontent.com/wireshark/wireshark/master/dfilters)
 * [dfilter_macros](https://raw.githubusercontent.com/wireshark/wireshark/master/dfilter_macros)
-* [disabled_protos](https://dl.dropboxusercontent.com/s/d97lgjqnzs5q9de/disabled_protos): Contains some gaming protocols that I'll never look at
-* [ethers](https://dl.dropboxusercontent.com/s/sy07uj010bzl342/ethers)
-* [hosts](https://dl.dropboxusercontent.com/s/3ghd7fwufzj07be/hosts): Hosts file from an install of Ubuntu 18.04
 * [manuf](https://raw.githubusercontent.com/wireshark/wireshark/master/manuf)
+* [services](https://raw.githubusercontent.com/wireshark/wireshark/master/services)
+
+#### My system files
+
+* [hosts](https://dl.dropboxusercontent.com/s/3ghd7fwufzj07be/hosts): Hosts file from an install of Ubuntu 18.04
 * [preferences](https://dl.dropboxusercontent.com/s/7h4uqs97951y6an/preferences): Preferences file from Macos
 * [recent](https://dl.dropboxusercontent.com/s/hwrieakon3ho0gr/recent): Recent GUI settings from Macos
-* [services](https://raw.githubusercontent.com/wireshark/wireshark/master/services)
+* [disabled_protos](https://dl.dropboxusercontent.com/s/d97lgjqnzs5q9de/disabled_protos): Contains some gaming protocols that I'll never look at
+* [ethers](https://dl.dropboxusercontent.com/s/sy07uj010bzl342/ethers): List of 3 MAC addresses and names
 
 #### For Use with VLAN Example
 
@@ -197,7 +201,7 @@ In this guide, `-o` is used for [WPA2](/analyze/add_context/tshark_decryption/#w
 
 ### -H ${hosts}
 
-Specify a hosts file by name. Let's say that burritos and tacos found their way into our hosts file:
+Specify a hosts file by name. Let's say that burritos and tacos found their way into our hosts file. I don't know how, but it was delicious.
 
 ```hosts
 127.0.0.1       localhost
@@ -205,11 +209,11 @@ Specify a hosts file by name. Let's say that burritos and tacos found their way 
 8.8.8.8         🌯🌯🌯🌯
 ```
 
-And we have a capture with 4 pings and responses to 8.8.8.8. Using -H, we can imagine an argument over whether burritos or tacos are better:
+And we have a capture with 4 pings and responses to 8.8.8.8. Using -H and -Nn we can see these entries.
 
 <img src="https://dl.dropboxusercontent.com/s/pxvll6beaqy7sqx/emoji_hosts_-H.png" alt="Fun with Emoji and Hosts file" style="width:70%">
 
-Or just appreciate that tashrk can handle emojis.
+<u>**[David Attenborough's voice]**</u> _We are about to experience one of the great phenomena of the natural world. Observe the taco and burrito emojis battle for dominance in their native habitat._
 
 ## Further Reading
 

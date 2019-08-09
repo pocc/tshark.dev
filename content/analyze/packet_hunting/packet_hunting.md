@@ -102,7 +102,7 @@ There are few circumstances where this relevant, but I can make a contrived
 example: Let's say that you want the 5th arp frame in a capture. You could
 do this with two passes or by calling tshark twice. Using two passes is faster:
 
-```
+```sh
 bash-5.0$ time tshark -r large.pcapng -R "arp" -2 -Y "frame.number == 5"
     5   5.872787 18:68:cb:ad:97:60 → Broadcast    ARP 60 Who has 192.168.1.64? Tell 192.168.1.141
 
@@ -117,9 +117,9 @@ user  0m4.633s
 sys   0m0.781s
 ```
 
-## Realtime analysis
+## Realtime Analysis
 
-One of the biggest differences between tshark and Wireshark is that you can change the 
+One of the biggest differences between tshark and Wireshark is that you can change the
 Termshark is the way to analyze a capture in the terminal. You can change filters just like Wireshark's GUI to see what's happening.
 
 <a href="https://termshark.io"><img src="https://termshark.io/images/termshark.gif" alt="Termshark: A UI for tshark"></a>
@@ -138,7 +138,7 @@ You cannot use matches and contains with fields that have a number type like `in
 You're looking for an HTTP GET that contains a request for a URL that
 starts with 'http' or 'https', has the Russian '.ru' domain, and contains the word 'worm' in the query string.
 Luckily, Wireshark gives you `matches` which uses PCRE [regex syntax](https://www.regular-expressions.info/).
-A simple one that satisfies this is `https?.*?\.ru.*?worm`. If this seems like greek, you can explore it on [regex101](https://regex101.com/r/xKuEVZ/2). 
+A simple one that satisfies this is `https?.*?\.ru.*?worm`. If this seems like greek, you can explore it on [regex101](https://regex101.com/r/xKuEVZ/2).
 
 Given that this is GET, it's better to just search the 'http' protocol: `http matches "https?.*?\.ru.*?worm"`
 Note that the regex is double quoted. With tshark, `-Y "display filter"` also needs to be double-quoted.

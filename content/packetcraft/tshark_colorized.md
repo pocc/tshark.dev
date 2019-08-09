@@ -13,8 +13,8 @@ Part of the allure of Wireshark is the ability to identify networking problems
 with the use of color. Relatively recently, tshark has gained this ability too
 with the `--color` flag. This article goes over how to set it up on your system.
 
-![](https://dl.dropboxusercontent.com/s/pt45pphiekt4srh/packets_the_universal_interface.png)
-_Demonstration of tshark --color on Windows, Macos, Linux, and BSD._
+<img src="https://dl.dropboxusercontent.com/s/pt45pphiekt4srh/packets_the_universal_interface.png" alt="Color on all 4 Operating Systems" style="width:61%;">
+<div style="text-align:center;">_Demonstration of tshark \-\-color on Windows, Macos, Linux, and BSD._</div>
 
 ## Aliasing Tshark for Color
 
@@ -38,9 +38,9 @@ implemented. One way to check for it is to query the `$COLORTERM` environment
 variable. If supported, `echo $COLORTERM` will return `truecolor` or `24bit`.
 
 [This repo](https://github.com/termstandard/colors) keeps track whether your
-${TERMINAL} supports truecolor as well as general truecolor info.
+${TERMINAL} supports 24bit-color as well as general 24bit-color info.
 
-I have tested truecolor and `tshark --color` compatability across multiple terminals.  
+I have tested 24bit-color and `tshark --color` compatibility across multiple terminals.  
 These are my recommendations:
 
 | Platform | Recommendations                                                                                                       |
@@ -51,12 +51,12 @@ These are my recommendations:
 | BSD      | [gnome-terminal](http://manpages.ubuntu.com/manpages/cosmic/man1/gnome-terminal.1.html),  Any terminal using `libvte` |
 
 [1]: Note that you can call Powershell from Mobaxterm or WSL, but given that
-Powershell does not support truecolor, you are limited to using bash
-pseudo-terminals on Windows to get truecolor.
+Powershell does not support 24bit-color, you are limited to using bash
+pseudo-terminals on Windows to get 24bit-color.
 
 ## Windows Considerations
 
-_As with most things terminal, Windows complicates things_
+_As with most things terminal, Windows complicates things._
 
 ### The problem
 
@@ -80,6 +80,4 @@ Windows by using both Windows and Linux tsharks.
 5. `source ~/.bashrc`
 6. Test by live capturing with the `tshark` command with no options:
 
-<img
-src="https://dl.dropboxusercontent.com/s/lofz8vta3nsyb8o/tshark_on_windows.png"
-style="width:100%"></img>
+<img src="https://dl.dropboxusercontent.com/s/lofz8vta3nsyb8o/tshark_on_windows.png" alt="Color on Windows" style="width:80%"></img>

@@ -11,7 +11,7 @@ draft: false
 
 {{% notice note %}}
 You may be familiar with protocol diagrams with 32-bit/4 byte widths like RFC793's [TCP header](https://tools.ietf.org/html/rfc793#section-3.1).
-The diagrams below have a 128-bit/16 byte width to match typcial hexdump output.
+The diagrams below have a 128-bit/16 byte width to match typical hexdump output.
 {{% /notice %}}
 
 <!-- ━┃┏┓┗┛┣┫┳┻╋ ╚╝╔╗║═╠╣╩╦╬ -->
@@ -143,7 +143,7 @@ This example parses this two-packet ARP capture:
         00000090: 18a6ac01 00000000 000018a6 ac8d0100
         000000a0: 00100001 00000000 00002043 4b414141
 
-6. We've reachead the end of the file, and there are no more bytes to parse.
+6. We've reached the end of the file, and there are no more bytes to parse.
 
 ### Discussion: Cut short in the middle of a packet
 
@@ -152,10 +152,11 @@ tshark would mark this capture as "damaged".
 If you've even seen tshark complain that "the capture file appears to have been cut short in the middle of a packet",
 this is what it's talking about.
 
-It's easy to generate a file like this by dropping the last byte of a capture:
+It's easy to generate a pcap and its damaged twin by dropping the last byte of a capture:
 
-    bash$ sudo tshark -c 1 -w - | tee orig.pcap | head --bytes=-1 > damaged.pcap
+    bash$ tshark -c 1 -w - | tee orig.pcap | head --bytes=-1 > damaged.pcap
 
+In this example, we create an `orig.pcap` that has the original data, and a `damaged.pcap` that lacks one byte.
 If we diff the files, we can see that the damaged pcap is indeed missing the last byte.
 
     bash$ diff <(xxd orig.pcap) <(xxd damaged.pcap)
@@ -171,12 +172,13 @@ And when reading the damaged.pcap, we will get the expected error:
 
     tshark: The file "damaged.pcap" appears to have been cut short in the middle of a packet.
 
-To fix it, use existing tools:
+Both of these will equivalently fix in place:
 
     bash$ tshark -r $capture -w $capture
+    bash$ editcap $capture $capture
 
-tshark will read the file and fix any packet lengths that are incorrect.
-For seriously damaged captures, [pcapfix](http://f00l.de/pcapfix/) will try to salvage it by looking for packets byte-by-byte.
+tshark and editcap will read the file and fix any packet lengths that are incorrect.
+For seriously damaged pcaps, [pcapfix](http://f00l.de/pcapfix/) will try to salvage it by looking for packets byte-by-byte.
 
 ## Further Reading
 

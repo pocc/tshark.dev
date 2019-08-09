@@ -12,7 +12,7 @@ draft: false
 ## capinfos
 
 capinfos gets metadata about a packet capture. You can be very granular about
-what pieces of data you want displayed and the output format. 
+what pieces of data you want displayed and the output format.
 <script id="asciicast-235423" src="https://asciinema.org/a/235423.js" async></script>
 
 ### General Usage
@@ -27,7 +27,7 @@ help with parsing in a scripting language:
 `capinfos` offers 22 options `-acdDeEFHiIkKlnosStuxyz` to print specific
 elements. My perspective is that it is better to use a scripting language to
 convert all of the infos (no options) into a reusable format.  It's fairly straightforward to
-parse `capinfos <file>` into a hashtable in your $language.
+parse `capinfos <file>` into a hash table in your $language.
 
 Feel free to use parsers I have in 2 languages:
 

@@ -17,7 +17,7 @@ You should use this tool if you are confused why a display filter is filtering f
 ## Example: != Behavior
 
 `ip.addr != 10.0.0.1` will not filter out all packets from/to 10.0.0.1.
-Without further context, this seems conterintuitive.
+Without further context, this seems counter-intuitive.
 To expand on this, these two statements are not the same:
 
 * `ip.addr != 10.0.0.1` (A!=B)

@@ -60,7 +60,7 @@ tshark -r $infile -w $outfile \
        -o "uat:80211_keys:\"wpa-pwd\",\"${psk}:${ssid}\""
 ```
 
-We can now send the result to a colleage who will not need to know the SSID/PSK.
+We can now send the result to a colleague who will not need to know the SSID/PSK.
 
 ### 3. Analyze
 

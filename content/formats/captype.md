@@ -47,7 +47,7 @@ $ captype example.pcap
 example.pcap: pcapng
 ```
 
-To automatically fix this problem, you can use this one-liner. If the filetype is different from the extension, the file is moved to the correct extension. 
+To automatically fix this problem, you can use this one-liner. If the filetype is different from the extension, the file is moved to the correct extension.
 
 ```bash
 # If captype doesn't know which filetype a file is, it will classify it as "unknown"
@@ -55,7 +55,7 @@ To automatically fix this problem, you can use this one-liner. If the filetype i
 mv -n $file "$(captype $file | awk -F ': ' '{ if ($2 != "unknown") print "'${file%.*}.'"$2}')"
 ```
 
-## Futher Reading
+## Further Reading
 
 * Wikipedia: [List of file signatures](https://en.wikipedia.org/wiki/List_of_file_signatures): How to know from the first few bytes "file magic" of a file what its type is.
 * 2016-01, Algis Salys, [Pcap and Pcapng](http://www.algissalys.com/network-security/pcap-vs-pcapng-file-information-and-conversion): pcap, pcapng, and converting between the two

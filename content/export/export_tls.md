@@ -32,7 +32,7 @@ source ~/.bashrc
 ### 2. Capture traffic going to a website
 
 Let's use [ss64.com](https://ss64.com) as it uses TLSv1.2 and is [designed to be
-lightweight](https://ss64.com/docs/site.html). They have an article on netcat, which seems apropos to use: `https://ss64.com/bash/nc.html`.
+lightweight](https://ss64.com/docs/site.html). They have an article on netcat (nc), which seems apropos to use: `https://ss64.com/bash/nc.html`.
 In this example, we will be capturing for 10 seconds with `tshark` while saving the HTML with `firefox`.
 
 We are using firefox because captures containing its usage have predictable file names. `curl` and `wget` by comparison have captures that contain

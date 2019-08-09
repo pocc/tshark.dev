@@ -57,7 +57,7 @@ Examples:
 
 Software implementations of protocols like DHCP have timers. If the response
 for a Discover or Request takes too long, the software implementation may
-assume it failed and move onto getting an IP addresns with APIPA.
+assume it failed and move onto getting an IP address with APIPA.
 
 ### 4. Traffic violates protocol expectations
 
@@ -74,5 +74,5 @@ Feel free to make a [pull request](https://github.com/pocc/tshark.dev/pulls) if 
 
 ## Further Reading (Wireshark)
 
-- [Protocol Heirarchy Stats](https://hub.packtpub.com/statistical-tools-in-wireshark-for-packet-analysis/): Viewing packet counts for the protocols present in the capture
+- [Protocol Hierarchy Stats](https://hub.packtpub.com/statistical-tools-in-wireshark-for-packet-analysis/): Viewing packet counts for the protocols present in the capture
 - [Viewing Captured Packets](https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html): Looking at packets in Wireshark

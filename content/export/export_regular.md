@@ -60,7 +60,7 @@ will include JSON, scripts, media, and other files. For this website, the initia
 destination. Firefox will capture this 2nd html file and it will be called `online`.
 
 {{% notice warning %}}
-On macOS, you may need to first kill other firefox instances with `killall firefox` to use headless firefox.
+On Macos, you may need to first kill other firefox instances with `killall firefox` to use headless firefox.
 {{% /notice %}}
 
 ```bash

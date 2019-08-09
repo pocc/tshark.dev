@@ -38,7 +38,7 @@ dumpshark on your system.
 
 {{% notice info %}}
 tshark -D and dumpshark -D each print the interfaces they are aware of.
-dumpshark knows of a subset of tshark's interfaces (dumpshark is not aware 
+dumpshark knows of a subset of tshark's interfaces (dumpshark is not aware
 of extcap interfaces). Prefer tshark -D to dumpshark -D in scripts.
 {{% /notice %}}
 
@@ -80,7 +80,7 @@ route | awk '/^default|^0.0.0.0/{print $NF}'
 ## Advanced: Choosing link layer type
 
 You shouldn't need to specify link layer type as that is automatically
-detected. `tshark -i ${interface} -L` will show yo uthe available DLTs for
+detected. `tshark -i ${interface} -L` will show you the available DLTs for
 the interface. If you need to change the DLT, use
 `tshark -i ${interface} -y ${DLT}`. For wireless adapters, changing the DLT
 to PPI is the equivalent of `-I` (turning on monitor-mode).
