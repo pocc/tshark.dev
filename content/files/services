@@ -1,0 +1,9 @@
+# https://tshark.dev/files/services, for https://tshark.dev/files/vlan.cap
+# Use as part of exercise https://tshark.dev/analyze/add_context/name_resolution/#example-using-all-resolution-types
+# Use for any purpose as long as you keep this header. Ross Jacobs, 2019-08-07
+netbios-ns udp/137
+netbios-dgm udp/138
+rip-router udp/520
+health-trap tcp/1162
+d-cinema-rrp tcp/1173
+x11 tcp/6000

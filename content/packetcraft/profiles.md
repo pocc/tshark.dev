@@ -69,7 +69,7 @@ Each of these files consist of lines of data delimited with newlines, like a hos
 | ethers          | Ethernet name resolution                       |  R  | [MAC address, :-. delmiter]  "Description" | `ff-ff-ff-ff-ff-ff  Broadcast` |
 | manuf           | OUI name resolution                            |  R  | [OUI, :-. delmiter] "Manufacturer" | `00:00:01    Xerox` |
 | hosts           | IPv4/IPv6 name resolution                      |  R  | [IPv4/IPv6 address] [name] | `192.168.0.1  homeserver` |
-| services        | Network services                               |  R  | [name] | `mydns  5045/udp` |
+| services        | Network services                               |  R  | [name] [port number/name] | `mydns  5045/udp` |
 | subnets         | IPv4 subnet name resolution                    |  R  | [IPv4 network adress]/[CIDR] [subnet name] | `192.168.0.0/24  ws_test_network` |
 | ipxnets         | IPX name resolution                            |  R  | [IPX network number] [host name] | `C0.A8.2C.00  HR` |
 | vlans           | VLAN ID name resolution                        |  R  | [VLAN ID] [VLAN name] | `123  Server-LAN` |
@@ -193,7 +193,7 @@ tshark -r temp -o ip.check_checksum:true -V -c 1 | grep checksum
 ```
 
 `-o` is most used for specifying a series of required cryptographic settings like [WEP](https://stackoverflow.com/questions/34172493/not-able-to-set-tshark-preferences-from-command-line) or [ESP](https://wiki.wireshark.org/TShark_ESP_Preferences).
-In this guide, `-o` is used for [WPA2](/analyze/add_context/tshark_decryption/#wpa2-decryption) and [TLS1.2](/export/export_tls.md) decryption.
+In this guide, `-o` is used for [WPA2](/analyze/add_context/tshark_decryption/#wpa2-decryption) and [TLS1.2](/export/export_tls) decryption.
 
 ### -H ${hosts}
 
