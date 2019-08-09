@@ -11,7 +11,7 @@ draft: false
 
 ## About
 
-randpkt is a tool used to generate [fuzzed](https://www.owasp.org/index.php/Fuzzing) packets for a specefic protocol or randomly from a list. While randpkt has a more limited feature set than [similar tools](#further-reading), it is only has 4 flags and generates packets quickly.
+randpkt is a tool used to generate [fuzzed](https://www.owasp.org/index.php/Fuzzing) packets for a specific protocol or randomly from a list. While randpkt has a more limited feature set than [similar tools](#further-reading), it is only has 4 flags and generates packets quickly.
 
 `randpktdump` is available as an [extcap interface](/capture/sources/extcap_interfaces) if you want to tshark to treat this generator as if it were an interface.
 

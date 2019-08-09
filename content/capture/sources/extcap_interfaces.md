@@ -55,9 +55,9 @@ the extcap ones.
 
 ## The four randpkts
 
-Sometimes using extcap utilities from the CLI can be unintuitive. 
-Taking randpktdump as an example, let's figure out how to use it. 
-`randpktdump --help` provides usage information. 
+Sometimes using extcap utilities from the CLI can be unintuitive.
+Taking randpktdump as an example, let's figure out how to use it.
+`randpktdump --help` provides usage information.
 
 ```bash
 randpktdump --extcap-interfaces
@@ -71,14 +71,13 @@ interface {value=randpkt}{display=Random packet generator}
 1. `randpkt` + Wireshark GUI
 
 If `randpkt` is an option when you use `tshark -D`, then you can use it as an
-extcap interface like so: 
+extcap interface like so:
 
     tshark -i randpkt -w extcap_example.pcap
 
 __Or__, click on the "Random packet generator: randpkt" option when you first open
 Wireshark. In both cases, you will get a 1000-packet pcap for a random protocol
 with a 5000-byte limit (randpkt defaults).
-
 
 For point of comparison, `randpktdump` has the same functionality as the
 Wireshark-builtin `randpkt` command, except with the advantage of leveraging an
@@ -96,7 +95,7 @@ randpktdump --extcap-interface=randpkt --maxbytes=1000 --count=10 --type=dns \
 The major impetus for extcap is to make YOUR nontraditional packet source
 easier to work with. Note that many Wireshark core developers work for
 Device Manufacturers or ISPs where automating captures from nontraditional
-interfaces is important. 
+interfaces is important.
 
 Documentation on
 [extcap](https://www.wireshark.org/docs/wsdg_html_chunked/ChCaptureExtcap.html),
@@ -104,7 +103,7 @@ utilities is a good resource for interface creation. If you want to build your
 own, these options are required for the capture to function:
 
 - --capture
-- --extcap-capture-filter 
+- --extcap-capture-filter
 - --fifo
 
 If you are trying to figure out where to start with your extcap project,

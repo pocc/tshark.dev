@@ -19,7 +19,7 @@ _Each example will send a ping, the packet crafting equivalent of "Hello World!"
 
 ## Crafting libraries
 
-Interpreted languagess like Python and Ruby can be convenient because packet generation can be interactive.
+Interpreted languages like Python and Ruby can be convenient because packet generation can be interactive.
 
 ### Bash: various
 
@@ -52,7 +52,7 @@ Run with `python send_ping.py`. Sending traffic with scapy is extremely easy!
 If you do not send data with icmp like `"Scapy is easy!"` above, Scapy won't compute checksums and Wireshark will complain.
 {{% /notice %}}
 
-If you want to livecapture with scapy [it should be possible]](/capture/sources/downloading_file#scapy) on systems with tail.
+If you want to live-capture with scapy [it should be possible]](/capture/sources/downloading_file#scapy) on systems with tail.
 
 #### Scapy Resources
 

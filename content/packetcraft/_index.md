@@ -14,6 +14,8 @@ draft: false
 Sometimes you need to build your own tools or use a custom solution to accomplish your goal.
 In those cases, using an API can help. This section also contains tips and tricks that may not fit elsewhere.
 
+Counter-intuitive elements of tshark will go here.
+
 #### Table of Contents
 
 {{% children description="true" depth="4" %}}

@@ -30,7 +30,7 @@ and the [Wireshark Forums](https://ask.wireshark.org), among others.
 
 In addition to a GUI version, Wireshark comes with many command-line utilities like tshark.
 
-### What is tshark?
+### What is Tshark?
 
 tshark (<u>**T**</u>erminal wire<u>**SHARK**</u>) is the command line tool (CLI) that has most, but not all, of the features of Wireshark.
 What features tshark lacks is often found in other CLI tools that are bundled with Wireshark.

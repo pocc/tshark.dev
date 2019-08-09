@@ -38,9 +38,9 @@ What figuring out the syntax for rawshark feels like:
 - You MUST send in an input stream because it cannot parse files
 - You MUST send in raw packets without the header. rawshark only knows how to
   remove a pcap-type header before processing and errors out on any other
-  capture file. 
+  capture file.
 - If piping to text-processing tools like awk, needless text cruft is added
-  pertaining to the c-style struct of the packets. 
+  pertaining to the c-style struct of the packets.
 
 ### Use tshark instead
 

@@ -53,3 +53,31 @@ Once you've decided what filter you want to use, edit your pcap.
 ```bash
 tshark -r coolStory.pcap -Y "$filter" -w coolStory.pcap
 ```
+
+## Hosting it
+
+{{% notice tip %}}
+When linking to an online resource in an email, it is best to verify that it works before sending.
+{{% /notice %}}
+
+Use a service like dropbox or google drive to host your file(s).
+If the packet capture has sensitive information, [edit it out](/edit/sanitizing_hex) as feasible.
+
+You will also need to share the file with the target audience.
+If there are specific recipients in mind, you should specify
+their email addresses/access. For corporate infrastructure,
+this may be built in to only share with colleagues at the same company.
+Regardless, the least access is the best access.
+
+### Package it
+
+If there are multiple files, you may want to create an archive of them.
+If your file is too large, you may want to compress it.
+
+On unix systems, tar/gzip are used:
+
+```bash
+tar -cfz coolStory.pcap coolStory.tgz
+```
+
+On Windows systems, zip/7z are generally used instead.

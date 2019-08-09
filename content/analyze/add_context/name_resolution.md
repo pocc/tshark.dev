@@ -35,7 +35,7 @@ Here, `ethers`, `vlans`, `services`, `hosts` are loaded by *shark from the globa
 
 With tshark, you can specify preferences manually with `-o key:value` as shown in "Other Notes" or by adding these to the preferences file directly. To change `preferences`, `ethers`, `vlans`, `services`, `hosts`, and others, check out [Editing Config Files](/packetcraft/profiles).
 
-## On Editing the System's Hosts file
+## On Editing the System's Hosts File
 
 It is best practices not to manually edit your system's hosts file unless you keep immaculate documentation and can read your colleagues' minds.
 It is easy to make a change, forget about it, and then have a "mystery" network problem 6 months later.
@@ -44,9 +44,9 @@ It is easy to make a change, forget about it, and then have a "mystery" network 
 
 ## Example: Using All Resolution Types
 
-Thanks to Wireshark's [Sample Captures](https://wiki.wireshark.org/SampleCaptures), we have a [file](/files/vlan.cap) from last millenium with VLANs, IPX, IPv4, TCP, X11, STP, and RIP. _Clearly_, the best party going on in late 1999 was in a network.
+Thanks to Wireshark's [Sample Captures](https://wiki.wireshark.org/SampleCaptures), we have a [file](/files/vlan.cap) from last millennium with VLANs, IPX, AppleTalk, IPv4, TCP, X11, STP, and RIP. _Clearly_, the best party going on in late 1999 was in a network.
 
-Given the variety of protocols here, we can use 7 config files to resolve ([Download Tarfile](/files/vlan_profile.tgz)):
+Given the variety of protocols here, we can use 7 config files to resolve:
 
 * `manuf` resolves OUIs
 * `ethers` resolves mac addresses to hostnames
@@ -56,12 +56,13 @@ Given the variety of protocols here, we can use 7 config files to resolve ([Down
 * `services` resolves tcp ports to services
 * `hosts` resolves ipv4 addresses to names
 
-Move this profile into your personal profile folder (You can check what this is with `tshark -G folders`, and add /profiles).
+You can ([download](/files/vlan_profile.tgz)) this profile into your personal profile folder and untar or run this two liner that does the same thing.
 
 ```bash
-personal_profiles_dir="$(tshark -G folders | grep "nal c" | awk -F':\t*' '{print $2"/profiles"}')"
-cd $personal_profiles_dir
-wget https://tshark.dev/files/vlan_profile.tgz
+# Get your personal profile directory with grep and awk
+personal_dir="$(tshark -G folders | grep "nal c" | awk -F':\t*' '{print $2"/profiles"}')"
+# Untar and save VLAN profile to your personal profile directory
+curl https://tshark.dev/files/vlan_profile.tgz | tar xvz -C $personal_dir
 ```
 
 ## Config File Preferences

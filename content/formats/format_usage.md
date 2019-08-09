@@ -11,7 +11,7 @@ draft: false
 
 ## Capture Formats
 
-The difference between pcap and pcapng is much like the difference between Python 2 and Python 3: The latter is the future, but a lot of existing infrastrucutre is built upon the former.
+The difference between pcap and pcapng is much like the difference between Python 2 and Python 3: The latter is the future, but a lot of existing infrastructure is built upon the former.
 
 ### Background
 
@@ -34,7 +34,7 @@ _This pie chart is based on 6,734 captures from [PacketLife](http://packetlife.n
 | [reordercap](/edit/reordercap)                                                                               | same as input                                  | -       |
 
 <sup id="utils1">1</sup> Specify a format with `$cmd -F <fmt>` and use `$cmd -F`
-to see formats available to tshark and friends. 
+to see formats available to tshark and friends.
 
 <sup id="utils2">2</sup> pcapng only available with text2pcap when using the `-n` option
 

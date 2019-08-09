@@ -9,6 +9,11 @@ weight: 90
 draft: false
 ---
 
+{{%notice warning%}}
+Before writing this, I was not of aware of Wireshark's `View -> "Reload as File Format/Capture"`, which does this better.
+tshark does not have the ability to show capture file components.
+{{%/warning%}}
+
 Using the available file headers on your system from [Capture Formats](/formats/format_usage/#determining-file-headers), we can determine what hex each capture type has in its header.
 We do this by filtering out all packets and sending to xxd. If a capture type also has a footer, that too will be included here.
 
@@ -205,68 +210,13 @@ bash$ for i in ${formats[@]}; \
 000000b0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 ```
 
-## Python: Parse Header/Packet/Footer for any capture
+## Python: Parse $Formats Parts for Any Capture
 
 This script will print the header, packet headers, packets, and the footer for any format.
 
-```python
-import subprocess as sp
-import re
-import os
-
-def create_pcap():
-    if not os.path.exists("temp.pcapng"):
-        sp.call(["tshark", "-w", "temp.pcapng", "-c", "3"])
-    return "temp.pcapng"
-
-def get_hexdump(filename):
-    output = sp.check_output(["xxd", "-ps", filename], text=True)
-    return re.sub(r"\s", "", output)
-
-def get_pcap_header_footer(filename):
-    """Get a combination of header/footer from the file."""
-    capture_type_text = sp.check_output(["captype", filename], text=True)
-    capture_type = re.findall(r"[^:]*: (.*)", capture_type_text)[0]
-    sp.call(["tshark", "-r", filename, "-F", capture_type, "-Y", "ipx", "-w", "temp.file"])
-    header = get_hexdump("temp.file")
-    print(header)
-    os.remove("temp.file")
-    return header
-
-def get_packets(filename):
-    packet_text = sp.check_output(["tshark", "-r", filename, "-x"], text=True)
-    packets = packet_text.split("\n\n")  # tshark outputs new packets on a newline
-    packets = list(filter(None, packets))
-    for i, _ in enumerate(packets):
-        # Delete the bytes that are not part of the packet
-        packets[i] = re.sub(r"(?:^|\n)\d*  |   .*| ", "", packets[i])
-
-    return packets
-
-def run():
-    message = ""
-    filename = create_pcap()
-    hexdump = get_hexdump(filename)
-    pcap_header_footer = get_pcap_header_footer(filename)
-    packets = get_packets(filename)
-    if 
-      pkt0 = re.search(packets[0], hexdump)
-    message += "Packet 0:\n" + packets[0] + "\n\n"
-    hexdump_remainder = hexdump[pkt0.end():]
-    for i, packet in enumerate(packets):
-        packet_match = re.search(packet, hexdump_remainder)
-        packet_header = hexdump_remainder[:packet_match.start()]
-        message += "Packet Header " + str(1) + ":\n" + packet_header + '\n\n'
-        message += "Packet " + str(1) + ":\n" + packet + '\n\n'
-        hexdump_remainder = hexdump_remainder[packet_match.end():]
-    header_search = re.search(hexdump_remainder, pcap_header_footer)
-    header = hexdump[:header_search.start()]
-    message += "Header+packet0 header:\n" + header + "\n\n" + "Footer:\n", hexdump_remainder
-    print(message)
-
-if __name__ == '__main__':
-    run()
-```
+{{%expand "Pcap Component Parser" %}}
+<script src="https://gist.github.com/pocc/68a12b6cfaebe0155abf65fd65d5ccdb.js"></script>
+{{%/expand%}}
 
 Example output for a 3 packet pcapng file:
 

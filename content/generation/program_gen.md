@@ -9,7 +9,7 @@ weight: 30
 draft: false
 ---
 
-> "Quantity is a quality all its own" – Napoleon
+> "Quantity is a quality all its own" – Misattributed to Napoleon
 
 Sometimes you need to generate a LOT of traffic. Generally, you have to pay for nice things.
 

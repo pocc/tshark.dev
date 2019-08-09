@@ -82,7 +82,7 @@ If you see a problem with these file encodings, please [file an issue](https://g
 |                 | Network Monitor, Surveyor, NetScaler    |                                              |                                                    | cap                 | |
 |                 | Cinco NetXRay, Sniffer (Windows)        |                                              |                                                    | cap;caz             | |
 |                 | XML files (including Gammu DCT3 traces) |                                              |                                                    | xml                 | |
-| mplog           | macOS PacketLogger                      |                                              |                                                    | pklg                |  |
+| mplog           | Macos PacketLogger                      |                                              |                                                    | pklg                |  |
 | dsna            | Daintree SNA                            |                                              |                                                    | dcf                 | |
 | ipfix           | IPFIX File Format                       |                                              |                                                    | pfx;ipfix           | |
 |                 | MPEG2 transport stream                  |                                              |                                                    | mp2t;ts;mpg         | |

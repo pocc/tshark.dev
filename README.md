@@ -102,3 +102,7 @@ A list of contributors is available [here](https://github.com/pocc/tshark.dev/gr
 - Prefer linking to articles than writing new ones
 - Link to manpages/Wireshark docs wherever relevant
 - Further reading links should provide something that the article above it does not
+
+## Eastereggs
+
+There are 2 easter eggs hidden in this website.
