@@ -126,7 +126,7 @@ To add a profile, all you need to do is add a folder in a profiles folder for ts
 mkdir -p /home/rj/.config/wireshark/profiles/NewProfile
 ```
 
-Once you add files to it, if you specify `tshark -C NewProfile`, those files will override the defaults. 
+Once you add files to it like the ones above, if you specify `tshark -C NewProfile`, those files will override the defaults.
 
 ## Editing Your Profile
 

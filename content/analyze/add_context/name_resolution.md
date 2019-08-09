@@ -31,7 +31,7 @@ Using `-n` will not change the resulting pcap file, but will decrease tcpdump/ts
 
 Here, `ethers`, `vlans`, `services`, `hosts` are loaded by *shark from the global/personal config directory (See [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html#ChAppFilesConfigurationSection)).
 
-With tshark, you can specify preferences manually with `-o key:value` as shown in "Other Notes" or by adding these to the preferences file directly. To change `preferences`, `ethers`, `vlans`, `services`, `hosts`, and others, check out [Editing Config Files](/packetcraft/config_files).
+With tshark, you can specify preferences manually with `-o key:value` as shown in "Other Notes" or by adding these to the preferences file directly. To change `preferences`, `ethers`, `vlans`, `services`, `hosts`, and others, check out [Editing Config Files](/packetcraft/profiles).
 
 ## On Editing the System's Hosts file
 
@@ -46,13 +46,12 @@ Thanks to Wireshark's [Sample Captures](https://wiki.wireshark.org/SampleCapture
 
 Given the variety of protocols here, we can use 7 config files to resolve ([Download Tarfile](/files/tshark_dev_profile.tgz)):
 
-* OUIs
-* mac addresses
-* vlans
-* ipv4 subnets
-* ipx network
-* ports
-* dns
+* `manuf` resolves OUIs
+* `ethers` resolves mac addresses to hostnames
+* `vlans` resolves vlan ids to vlan names
+* `subnets` resolves ipv4 subnets to names
+* `ipxnets` resolves ipx networks to names
+* `services`
 
 # XXX Fit these in somehow
 

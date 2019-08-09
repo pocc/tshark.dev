@@ -1,9 +1,18 @@
-127.0.0.1   localhost
-127.0.1.1   hovercraft
+# https://tshark.dev/files/ipxnets, for https://tshark.dev/files/vlan.cap
+# Use as part of exercise https://tshark.dev/analyze/add_context/name_resolution/#example-using-all-resolution-types
+# Use for any purpose as long as you keep this header. Ross Jacobs, 2019-08-07
+# Avengers used here as names for levity
+131.151.10.254 Ant.Man
+131.151.104.96 Black.Widow
+131.151.107.254 Captain.America
+131.151.111.254 Captain.Marvel
+131.151.115.254 Falcon
+131.151.20.254 Hawkeye
+131.151.32.21 Hulk
+131.151.32.254 Iron.Man
+131.151.32.79 Nebula
+131.151.5.254 Rocket.Raccoon
+131.151.5.55 Spider.Man
+131.151.6.254 Thor
 
-# The following lines are desirable for IPv6 capable hosts
-::1     ip6-localhost ip6-loopback
-fe00::0 ip6-localnet
-ff00::0 ip6-mcastprefix
-ff02::1 ip6-allnodes
-ff02::2 ip6-allrouters
+255.255.255.255 Thanos
