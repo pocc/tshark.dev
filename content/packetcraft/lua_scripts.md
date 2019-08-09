@@ -26,7 +26,7 @@ Capturing on 'Wi-Fi: en0'
 
 ## Metaprogramming
 
-There are two libraries I came across that are more metaprogramming that lua dissectiors:
+There are two libraries I came across that are more metaprogramming that lua dissectors:
 
 * [kaitai-to-wireshark](https://github.com/joushx/kaitai-to-wireshark): Convert a [Kaitai struct](https://github.com/kaitai-io/kaitai_struct) binary file description to a Lua Plugin. Only some elements are supported.
 * [pyreshark](https://github.com/ashdnazg/pyreshark): Use Python instead of Lua to communicate with Wireshark. Limited to Python 2.6/ 2.7.

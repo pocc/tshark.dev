@@ -1,5 +1,5 @@
 ---
-title: "Name Resoultion"
+title: "Name Resolution"
 description: "Resolve to Analyze"
 date: 2019-07-19
 author: Ross Jacobs
@@ -9,89 +9,82 @@ weight: 50
 draft: false
 ---
 
-{{% notice note %}}
-Draft in progress. More content will be added here.
-{{% /notice %}}
-
 Name resolution allows you to see more information about various PDU fields.
-Wireshark is intelligent and uses ARP and DNS lookups in the capture to clarify details.
+Wireshark is intelligent and uses ARP and DNS lookups in the capture to add context when they are available.
 
 {{% notice info %}}
 The `-n` option of both tcpdump and tshark disable lookups to add info to text output.
-Using `-n` will not change the resulting pcap file.
+Using `-n` will not change the resulting pcap file, but will decrease tcpdump/tshark resource usage.
 {{% /notice %}}
 
-## MAC
+## Using Tshark Flags
 
--N  m => mac
+| Flag          | Resolves        | Data Source                         | Other Notes |
+|---------------|-----------------|-------------------------------------|-------------|
+| `-Nm`         | mac             | `ethers`                            |             |
+| `-Nv`         | vlan            | `vlans`                             |             |
+| `-Nt`         | port            | `services`                          |             |
+| `-Nn`         | dns             | system `hosts`                      | To use only Wireshark's hosts file, use `-o nameres.hosts_file_handling:TRUE` |
+| `-NN`         | dns             | Use external resolvers              | ≈ `-o 'nameres.dns_pkt_addr_resolution:TRUE'`                                 |
+| `-Nd`         | dns             | Use capture file's<br>DNS responses | ≈ `-o 'nameres.use_external_name_resolver:TRUE'`                              |
+| `-H $file`    | dns             | `$file` you specify                 | ≈ `-Wn`; Adds DNS info from a file for this session; Requires -Nn             |
 
-## VLAN
+Here, `ethers`, `vlans`, `services`, `hosts` are loaded by *shark from the global/personal config directory (See [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html#ChAppFilesConfigurationSection)).
 
-## Port
+With tshark, you can specify preferences manually with `-o key:value` as shown in "Other Notes" or by adding these to the preferences file directly. To change `preferences`, `ethers`, `vlans`, `services`, `hosts`, and others, check out [Editing Config Files](/packetcraft/config_files).
 
--N  t => port
+## On Editing the System's Hosts file
 
-## DNS
+It is best practices not to manually edit your system's hosts file unless you keep immaculate documentation and can read your colleagues' minds.
+It is easy to make a change, forget about it, and then have a "mystery" network problem 6 months later.
 
-  N => dns
+<a href="https://www.reddit.com/r/sysadmin/comments/6qhih0/its_always_dns/"><img src="https://i.imgur.com/WmRbmf5.png" alt="It was DNS" style="width:61%;"></a>
 
--Wn implies this.
+## Example: Using All Resolution Types
 
--Wn saves info to a file
--H Use hosts file as source, implies -Wn.
+Thanks to Wireshark's [Sample Captures](https://wiki.wireshark.org/SampleCaptures), we have a [file](/files/vlan.cap) from last millenium with VLANs, IPX, IPv4, TCP, X11, STP, and RIP. _Clearly_, the best party going on in late 1999 was in a network.
 
-### Using a hosts file
+Given the variety of protocols here, we can use 7 config files to resolve ([Download Tarfile](/files/tshark_dev_profile.tgz)):
 
-You can use any file formatted like a [hosts file](http://man7.org/linux/man-pages/man5/hosts.5.html), which looks like this:
+* OUIs
+* mac addresses
+* vlans
+* ipv4 subnets
+* ipx network
+* ports
+* dns
+
+# XXX Fit these in somehow
+
+## Config File Preferences
+
+TRUE or FALSE (case-insensitive)
+
+```bash
+tshark -all -of -the -other -flags \
+    -o nameres.mac_name:TRUE \
+    -o nameres.transport_name: TRUE \
+    -o nameres.network_name: TRUE \
+    -o nameres.vlan_name: TRUE \
+    -o nameres.ss7_pc_name: TRUE
+```
+
+### DNS settings
+
+These settings control DNS and Wireshark. You can see what yours are with `tshark -G currentprefs | grep -E "^#?nameres.*(dns|hosts|name_resolve)"`.
+
+These are my settings:
 
 ```sh
-# IPv4
-# IP            Name1               Name2  ...
-127.0.0.1       localhost
-192.168.1.10    foo.mydomain.org    foo
-8.8.8.8         dns.google.com      gdns
-
-# IPv6
-::1             localhost
-ff02::1         ip6-allnodes
-ff02::2         ip6-allrouters
+# Same as -Nd. Use capture file's dns queries for name resolution
+nameres.dns_pkt_addr_resolution: TRUE
+# Same as -NN. Manually lookup all names with an external resolver
+nameres.use_external_name_resolver: TRUE
+# Max DNS requests/sec (must be positive integer). Requires above to be true
+nameres.name_resolve_concurrency: 500
+# Use the config-file-folder hosts and not system or others
+nameres.hosts_file_handling: TRUE
 ```
-
-Essentially it's an IP address followed by whitespace-delimited names.
-
-{{% notice warning %}}
-You should take care when manually editing your hosts file.
-It is easy to make a change, forget about it, and then have a "mystery" network problem 6 months later.
-{{% /notice %}}
-
-#### hosts example
-
-Let's say that you manage IT for a small business and you want to see
-__who__ sent what traffic instead of IP address.
-If we use this hosts fil:
-
-```hosts
-10.0.0.2    Michael_Scott   _ms
-10.0.0.3    Dwight_Schrute  _ds
-10.0.0.4    Jim_Halpert     _jh
-10.0.0.5    Pam_Beesly      _pb
-
-tshark -Y
-
-rj@vmbuntu:/tmp$ sudo tshark -Y icmp -H hosts -Nn
-Running as user "root" and group "root". This could be dangerous.
-Capturing on 'enp0s3'
-    1 0.000000000 🥖VIVE_LA_FRANCE🥖 → LONG_LIVE_THE_QUEEN ICMP 98 Echo (ping) request  id=0x5633, seq=17/4352, ttl=64
-    2 0.060887024 ☕___LONG_LIVE_THE_QUEEN___☕ → 🥖_____VIVE_LA_FRANCE______🥖 ICMP 98 Echo (ping) reply    id=0x5633, seq=17/4352, ttl=63 (request in 1)
-    3 1.001505971 🥖_____VIVE_LA_FRANCE______🥖 → ☕___LONG_LIVE_THE_QUEEN___☕ ICMP 98 Echo (ping) request  id=0x5633, seq=18/4608, ttl=64
-    4 1.101244720 ☕___LONG_LIVE_THE_QUEEN___☕ → 🥖_____VIVE_LA_FRANCE______🥖 ICMP 98 Echo (ping) reply    id=0x5633, seq=18/4608, ttl=63 (request in 3)
-    5 2.003151857 🥖_____VIVE_LA_FRANCE______🥖 → ☕___LONG_LIVE_THE_QUEEN___☕ ICMP 98 Echo (ping) request  id=0x5633, seq=19/4864, ttl=64
-    6 2.144879341 ☕___LONG_LIVE_THE_QUEEN___☕ → 🥖_____VIVE_LA_FRANCE______🥖 ICMP 98 Echo (ping) reply    id=0x5633, seq=19/4864, ttl=63 (request in 5)
-    7 3.005431545 🥖_____VIVE_LA_FRANCE______🥖 → ☕___LONG_LIVE_THE_QUEEN___☕ ICMP 98 Echo (ping) request  id=0x5633, seq=20/5120, ttl=64
-    8 3.081396194 ☕___LONG_LIVE_THE_QUEEN___☕ → 🥖_____VIVE_LA_FRANCE______🥖 ICMP 98 Echo (ping) reply    id=0x5633, seq=20/5120, ttl=63 (request in 7)
-```
-
-### Name resolution
 
 ## Further Reading
 
