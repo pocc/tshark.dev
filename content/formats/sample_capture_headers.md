@@ -12,7 +12,7 @@ draft: false
 {{%notice warning%}}
 Before writing this, I was not of aware of Wireshark's `View -> "Reload as File Format/Capture"`, which does this better.
 tshark does not have the ability to show capture file components.
-{{%/warning%}}
+{{%/notice%}}
 
 Using the available file headers on your system from [Capture Formats](/formats/format_usage/#determining-file-headers), we can determine what hex each capture type has in its header.
 We do this by filtering out all packets and sending to xxd. If a capture type also has a footer, that too will be included here.
