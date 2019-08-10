@@ -6,11 +6,10 @@
 <img src="/.github/lighthouse/lighthouse_accessibility.svg" alt="Lighthouse Accessibility Badge">
 <img src="/.github/lighthouse/lighthouse_seo.svg" alt="Lighthouse SEO Badge">
 
-<a href="https://www.patreon.com/bePatron?u=23107486"><img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patron!" width="20%"></a>
 
-tshark.dev exists to teach you about packet analysis.
+<a href="https://tshark.dev"><img src="https://dl.dropboxusercontent.com/s/nrz5y62f4d70p00/tshark_logo.cmp.png" alt="tshark.dev screenshot"/></a>
 
-<a href="https://tshark.dev"><img src="https://dl.dropboxusercontent.com/s/nrz5y62f4d70p00/tshark_logo.cmp.png" alt="tshark.dev screenshot" style="margin-left: 6%;margin-right: 6%;"/></a>
+[tshark.dev](https://tshark.dev) exists to teach you about packet analysis.
 
 The main aim for the site is to provide example usage of
 working with packets and hopefully give back something
@@ -36,7 +35,9 @@ site generator. Most of the HTML/CSS/JS, shortcodes, and partials come from the 
 
 4. Open the address in a browser (default is localhost:1313)
 
-## Contribution Guide
+## Contributing
+
+<a href="https://www.patreon.com/bePatron?u=23107486"><img class="patreon" src="https://dl.dropboxusercontent.com/s/olcfumplfco2sov/patreon_button.png" alt="Become a Patron!"></a>
 
 Contributions to the site are greatly appreciated, if you see a typo or
 something that isn't quite right and want to help improve the site for everyone
