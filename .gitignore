@@ -15,3 +15,5 @@ _gen/
 _build/
 resources/
 public/
+*pdf*
+*tex*
