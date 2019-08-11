@@ -17,7 +17,7 @@ environmental variable exists, and if it does, will send keys to the file.
 Using tshark and firefox, we will be able to extract the html file.
 
 {{% notice info %}}
-It is not [currently possible](/analyze/add_context/tshark_decryption/#tls-1-3-decryption) to decrypt with TLS 1.3 with Wireshark.
+It is not [currently possible](/packetcraft/add_context/tshark_decryption/#tls-1-3-decryption) to decrypt with TLS 1.3 with Wireshark.
 {{% /notice %}}
 
 ### Example: TLSv2 and ss64.com

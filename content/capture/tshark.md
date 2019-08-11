@@ -51,12 +51,12 @@ Processing:
                            (requires -2)
   <a href="/analyze/packet_hunting/packet_hunting">-Y &lt;display filter&gt;</a>      packet displaY filter in Wireshark display filter
                            syntax
-  <a href="/analyze/add_context/name_resolution">-n</a>                       disable all name resolutions (def: all enabled)
-  <a href="/analyze/add_context/name_resolution">-N &lt;name resolve flags&gt;</a>  enable specific name resolution(s): "mnNtdv"
+  <a href="/packetcraft/add_context/name_resolution">-n</a>                       disable all name resolutions (def: all enabled)
+  <a href="/packetcraft/add_context/name_resolution">-N &lt;name resolve flags&gt;</a>  enable specific name resolution(s): "mnNtdv"
   -d &lt;layer_type&gt;==&lt;selector&gt;,&lt;decode_as_protocol&gt; ...
                            "Decode As", see the man page for details
                            Example: tcp.port==8888,http
-  <a href="/analyze/add_context/name_resolution">-H &lt;hosts file&gt;</a>          read a list of entries from a hosts file, which will
+  <a href="/packetcraft/add_context/name_resolution">-H &lt;hosts file&gt;</a>          read a list of entries from a hosts file, which will
                            then be written to a capture file. (Implies -W n)
   --enable-protocol &lt;proto_name&gt;
                            enable dissection of proto_name
@@ -102,7 +102,7 @@ Output:
   -q                       be more quiet on stdout (e.g. when using statistics)
   -Q                       only log true errors to stderr (quieter than -q)
   -g                       enable group read access on the output file(s)
-  <a href="/analyze/add_context/name_resolution">-W n</a>                     Save extra information in the file, if supported.
+  <a href="/packetcraft/add_context/name_resolution">-W n</a>                     Save extra information in the file, if supported.
                            n = write network address resolution information
   <a href="/packetcraft/lua_scripts">-X &lt;key&gt;:&lt;value&gt;</a>         eXtension options, see the man page for details
   -U tap_name              PDUs export mode, see the man page for details
@@ -126,6 +126,6 @@ Miscellaneous:
   <a href="/capture/tshark">-h</a>                       display this help and exit
   -v                       display version info and exit
   <a href="/packetcraft/profiles/#tshark-config-flags">-o &lt;name&gt;:&lt;value&gt;</a> ...    override preference setting
-  <a href="/analyze/add_context/tshark_decryption/#kerberos">-K &lt;keytab&gt;</a>              keytab file to use for kerberos decryption
+  <a href="/packetcraft/add_context/tshark_decryption/#kerberos">-K &lt;keytab&gt;</a>              keytab file to use for kerberos decryption
   -G [report]              dump one of several available reports and exit
                            default report="fields"</pre>
