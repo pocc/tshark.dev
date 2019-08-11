@@ -28,6 +28,8 @@ _Support this website to get a link to a pdf that stays current with new content
 
 ## Wireshark
 
-- [Get the Source Code](https://www.wireshark.org/develop.html)
-- [File a Bug Report](https://wiki.wireshark.org/ReportingBugs)
-- [Developer Guide](https://www.wireshark.org/docs/wsdg_html_chunked/)
+These are a few ways that you can contribute back to Wireshark:
+
+* [Get the Source Code](https://www.wireshark.org/develop.html)
+* [File a Bug Report](https://wiki.wireshark.org/ReportingBugs)
+* [Developer Guide](https://www.wireshark.org/docs/wsdg_html_chunked/)

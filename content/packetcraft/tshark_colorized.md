@@ -80,4 +80,4 @@ Windows by using both Windows and Linux tsharks.
 5. `source ~/.bashrc`
 6. Test by live capturing with the `tshark` command with no options:
 
-<img src="https://dl.dropboxusercontent.com/s/lofz8vta3nsyb8o/tshark_on_windows.png" alt="Color on Windows" style="width:80%"></img>
+<img src="https://dl.dropboxusercontent.com/s/lofz8vta3nsyb8o/tshark_on_windows.png" alt="Color on Windows" style="width:61%"></img>

@@ -20,7 +20,7 @@ This is a living, breathing guide. [Contributions](/nextsteps/contributions) and
 
 ### How Is This Different from Wireshark Docs?
 
-Most Wireshark documentation focuses on the GUI. In its many forms, it spans 2 Wireshark guides, 2 Wireshark forums, a wiki, manpages, developer email chains, etc. That is not to say the existing documentation is not good. You will probably find what you are looking for eventually.
+Most Wireshark documentation focuses on the GUI. In its many forms, it spans 2 Wireshark guides, 2 Wireshark forums, a wiki, man pages, developer email chains, etc. That is not to say the existing documentation is not good. You will probably find what you are looking for eventually.
 
 Being outside of the Wireshark project allows this website to cover topics that are external to it.
 Depending on the article, this can vary from scripting with bash or example usage of another program. Tshark.dev and Wireshark docs are related but differ in their scopes.

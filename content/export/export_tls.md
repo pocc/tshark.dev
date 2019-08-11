@@ -70,7 +70,7 @@ firefox --browser obj/nc.html
 
 If all is well, your local version of nc's manpage looks like this:
 
-<img src="https://dl.dropboxusercontent.com/s/kitibo0u8x42s0m/exported_file_nc_html.cmp.png" alt="Exported file in firefox" width=50%>
+<img src="https://dl.dropboxusercontent.com/s/kitibo0u8x42s0m/exported_file_nc_html.cmp.png" alt="Exported file in firefox" width=61%>
 
 ### Asciicast of This Example
 
