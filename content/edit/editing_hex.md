@@ -134,7 +134,7 @@ and then save the file.
 regex is not available in hex search.
 {{% /notice %}}
 
-<img src="https://dl.dropboxusercontent.com/s/nnkbsbvyhdzhhp1/hexed.it_sample.png" alt="Using hexed.it" style="width:61%">
+<img src="https://dl.dropboxusercontent.com/s/nnkbsbvyhdzhhp1/hexed.it_sample.png" alt="Using hexed.it" style="width:80%">
 
 ### Honorable Mentions
 
