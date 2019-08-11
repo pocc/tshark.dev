@@ -8,21 +8,22 @@ weight: 1
 draft: false
 ---
 
-## TShark.dev
+## Tshark.dev
 
-This guide provides an outline for packet analysis using tshark. tshark is the command-line part of [Wireshark](/setup/what_is_wireshark), which helps you troubleshoot networks. If you do not have Wireshark installed and configured, [<i class="fas fa-map-marked"></i>  Start Here](/setup).
+tshark.dev provides a unified and intuitive UI docs for working with packet captures on the CLI. The focus is on doing everything in the CLI because that is an interface your scripts and programs can use. Bash features prominently here, with some examples also in python and ruby. Programs such as 
+[Termshark](https://termshark.io) and [PyShark](https://kiminewt.github.io/pyshark/) do novel things by leveraging tshark. You can too by using this guide!
+
+For the uninitiated, tshark is the [CLI component of Wireshark](/setup/what_is_wireshark) and both help you troubleshoot network problems. If you do not have Wireshark installed and configured, [<i class="fas fa-map-marked"></i>  Start Here](/setup).
 Use the minimap or sidebar to find what you need.
 
-This is a living, breathing guide. If you’d like to contribute, [fork me on GitHub](https://github.com/pocc/tshark.dev).
+This is a living, breathing guide. [Contributions](/nextsteps/contributions) and suggestions are welcome!
 
-If you want to bring up an issue about a page, there are a couple ways:
+### How Is This Different from Wireshark Docs?
 
-* Every page will have an edit button, which you can click on to edit the same page in github.
-* Every page has a github-linked comments section
-* You can create issues with email by emailing tshark_dev[АТ]fire.fundersclub.com
-* Email me directly at rj[АТ]tshark.dev
+Most Wireshark documentation focuses on the GUI. In its many forms, it spans 2 Wireshark guides, 2 Wireshark forums, a wiki, manpages, developer email chains, etc. That is not to say the existing documentation is not good. You will probably find what you are looking for eventually.
 
-This guide focuses exclusively on tshark and the CLI but links to Wireshark articles when appropriate.
+Being outside of the Wireshark project allows this website to cover topics that are external to it.
+Depending on the article, this can vary from scripting with bash or example usage of another program. Tshark.dev and Wireshark docs are related but differ in their scopes.
 
 ## Table of Contents
 
