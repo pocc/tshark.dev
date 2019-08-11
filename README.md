@@ -6,8 +6,9 @@
 <img src="/.github/lighthouse/lighthouse_accessibility.svg" alt="Lighthouse Accessibility Badge">
 <img src="/.github/lighthouse/lighthouse_seo.svg" alt="Lighthouse SEO Badge">
 
-
+<br><br>
 <a href="https://tshark.dev"><img src="https://dl.dropboxusercontent.com/s/nrz5y62f4d70p00/tshark_logo.cmp.png" alt="tshark.dev screenshot"/></a>
+<br><br>
 
 [tshark.dev](https://tshark.dev) exists to teach you about packet analysis.
 
@@ -38,6 +39,17 @@ site generator. Most of the HTML/CSS/JS, shortcodes, and partials come from the 
 ## Contributing
 
 <a href="https://www.patreon.com/bePatron?u=23107486"><img class="patreon" src="https://dl.dropboxusercontent.com/s/olcfumplfco2sov/patreon_button.png" alt="Become a Patron!"></a>
+
+### Raising an Issue
+
+Apart from manually adding an issue, there are multiple ways to raise an issue for this website:
+
+- <u>**Edit this page**</u>: Every page has a link in the upper right corner that can click on to see the page in github. You can then make a pull request once you are satisfied with your changes.
+- <u>**Comment**</u>: At the bottom of every article, there is a comments section that is tied to github issues.
+- <u>**Email**</u>: If you do not want to use github, you can interact with the contributors by emailing tshark_dev[АТ]fire.fundersclub.com. This will make a github issue that functions like an email chain. As this is public, do not put any PII or sensitive information in it.
+- <u>**Contact**</u>: If you do not want your issue to be public, you can contact me directly at rj[АТ]tshark.dev
+
+### Submitting a Pull Request
 
 Contributions to the site are greatly appreciated, if you see a typo or
 something that isn't quite right and want to help improve the site for everyone
