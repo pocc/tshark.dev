@@ -16,7 +16,7 @@ tshark.dev provides a unified and intuitive UI docs for working with packet capt
 For the uninitiated, tshark is the [CLI component of Wireshark](/setup/what_is_wireshark), and both help you troubleshoot network problems. If you do not have Wireshark installed and configured, [<i class="fas fa-map-marked"></i>  Start Here](/setup).
 Use the minimap or sidebar to find what you need.
 
-This is a living, breathing guide. [Contributions](/nextsteps/contributions) and suggestions are welcome!
+This is a living, breathing guide. [Contributions](/nextsteps/contributing) and suggestions are welcome!
 
 ### How Is This Different from Wireshark Docs?
 
