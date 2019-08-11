@@ -23,11 +23,11 @@ Visually, this looks like:
 
 ### Before Hex Edit
 
-![](https://dl.dropboxusercontent.com/s/zpmk8vl3cer0o7x/hexedit_before.png)
+<img src="https://dl.dropboxusercontent.com/s/zpmk8vl3cer0o7x/hexedit_before.png" alt="Before hex edit" style="width:61%">
 
 ### After Hex Edit (All Solutions)
 
-![](https://dl.dropboxusercontent.com/s/wticze3apr1l5ln/hexedit_after.png)
+<img src="https://dl.dropboxusercontent.com/s/wticze3apr1l5ln/hexedit_after.png" alt="After hex edit" style="width:61%">
 
 ## Scripted Solutions
 
@@ -134,7 +134,7 @@ and then save the file.
 regex is not available in hex search.
 {{% /notice %}}
 
-![](https://dl.dropboxusercontent.com/s/nnkbsbvyhdzhhp1/hexed.it_sample.png)
+<img src="https://dl.dropboxusercontent.com/s/nnkbsbvyhdzhhp1/hexed.it_sample.png" alt="Using hexed.it" style="width:61%">
 
 ### Honorable Mentions
 

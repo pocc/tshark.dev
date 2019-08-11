@@ -1063,16 +1063,16 @@ td {
 }
 @media only all and (max-width: 59.938em) {
     #sidebar {
-        width: 230px;
+        width: 240px;
     }
     #body {
-        margin-left: 230px;
+        margin-left: 240px;
     }
 }
 @media only all and (max-width: 47.938em) {
     #sidebar {
-        width: 230px;
-        left: -230px;
+        width: 240px;
+        left: -240px;
     }
     #body {
         margin-left: 0;
@@ -1085,7 +1085,7 @@ td {
         left: 0;
     }
     .sidebar-hidden #body {
-        margin-left: 230px;
+        margin-left: 240px;
         overflow: hidden;
     }
     .sidebar-hidden #overlay {
