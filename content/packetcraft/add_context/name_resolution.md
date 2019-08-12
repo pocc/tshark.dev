@@ -44,16 +44,23 @@ It is easy to make a change, forget about it, and then have a "mystery" network 
 
 ## Example: Using All Resolution Types
 
+{{% notice note %}}
+You cannot override the default names for well-known mac addresses (wka). For example, `ff:ff:ff:ff:ff:ff` will be "Broadcast" and `01:00:0c:cc:cc:cd` will be PVST+ regardless of your settings.
+A full list is available at Wireshark's [wka file](https://raw.githubusercontent.com/wireshark/wireshark/master/wka).
+{{% /notice %}}
+
 Thanks to Wireshark's [Sample Captures](https://wiki.wireshark.org/SampleCaptures), we have a [file](/files/vlan.cap) from last millennium with VLANs, IPX, AppleTalk, IPv4, TCP, X11, STP, and RIP. _Clearly_, the best party going on in late 1999 was in a network.
 
-Given the variety of protocols here, we can use 7 config files to resolve:
+{{% notice note %}}
+`manuf`, `ethers`, `vlans`, `ipxnets`, and `services` files don't seem to resolve anything. I'll probably file a bug if this isn't just me.
+{{% /notice %}}
 
-* `manuf` resolves OUIs
-* `ethers` resolves mac addresses to hostnames
-* `vlans` resolves vlan ids to vlan names
-* `subnets` resolves ipv4 subnets to names
-* `ipxnets` resolves ipx networks to names
-* `services` resolves tcp ports to services
+~~* `manuf` resolves OUIs~~  
+~~* `ethers` resolves mac addresses to hostnames~~  
+~~* `vlans` resolves vlan ids to vlan names~~  
+* `subnets` resolves ipv4 subnets to names  
+~~* `ipxnets` resolves ipx networks to names~~  
+~~* `services` resolves tcp ports to services~~  
 * `hosts` resolves ipv4 addresses to names
 
 You can ([download](/files/vlan_profile.tgz)) this profile into your personal profile folder and untar or run this two liner that does the same thing.
@@ -65,35 +72,70 @@ personal_dir="$(tshark -G folders | grep "nal c" | awk -F':\t*' '{print $2"/prof
 curl https://tshark.dev/files/vlan_profile.tgz | tar xvz -C $personal_dir
 ```
 
-## Config File Preferences
+To demonstrate the hosts and subnets file, we are going to use tshark's columnar %uns (unresolved net source addr), %und (resolved net dest addr), %rns (resolved net source addr), and %rnd (resolved net source addr).
+To see all of the available column fields to tshark for columnar output, check the output of `tshark -G column-formats`.
 
-TRUE or FALSE (case-insensitive)
+In this example, we are looking at all unique IP conversations and not using name resolution or our profile.
 
 ```bash
-tshark -all -of -the -other -flags \
-    -o nameres.mac_name:TRUE \
-    -o nameres.transport_name: TRUE \
-    -o nameres.network_name: TRUE \
-    -o nameres.vlan_name: TRUE \
-    -o nameres.ss7_pc_name: TRUE
+# Read the file, filter out IPX, and output unique conversations between IP addresses.
+bash$ tshark -r /tmp/vlan.cap -o 'gui.column.format:"Source Net Addr","%uns","Dest Net Addr", "%und"' -Y "ip" | sort | uniq
+131.151.10.254 → 255.255.255.255
+131.151.104.96 → 131.151.107.255
+131.151.107.254 → 255.255.255.255
+131.151.111.254 → 255.255.255.255
+131.151.115.254 → 255.255.255.255
+131.151.1.254 → 255.255.255.255
+131.151.20.254 → 255.255.255.255
+131.151.32.129 → 131.151.32.21
+131.151.32.129 → 131.151.6.171
+131.151.32.21 → 131.151.32.129
+131.151.32.254 → 255.255.255.255
+131.151.32.71 → 131.151.32.255
+131.151.32.79 → 131.151.32.255
+131.151.5.254 → 255.255.255.255
+131.151.5.55 → 131.151.5.255
+131.151.6.171 → 131.151.32.129
+131.151.6.254 → 255.255.255.255
 ```
 
-### DNS settings
+In this example, we are looking at conversations between resolved network addresses. Information from both the `hosts` file and `subnets` file is used.
+I've aliased the broadcast address 255.255.255.255 to "AVENGERS_ASSEMBLE!!!" as it might be something they would _broadcast_.
 
-These settings control DNS and Wireshark. You can see what yours are with `tshark -G currentprefs | grep -E "^#?nameres.*(dns|hosts|name_resolve)"`.
-
-These are the settings :
-
-```sh
-# Same as -Nd. Use capture file's dns queries for name resolution
-nameres.dns_pkt_addr_resolution: TRUE
-# Same as -NN. Manually lookup all names with an external resolver
-nameres.use_external_name_resolver: TRUE
-# Max DNS requests/sec (must be positive integer). Requires above to be true
-nameres.name_resolve_concurrency: 500
-# Use the config-file-folder hosts and not system or others
-nameres.hosts_file_handling: TRUE
+```bash
+# Read the file, filter out IPX, and output unique conversations between resolved IP addresses and subnets using data from a profile.
+bash$ tshark -r /tmp/vlan.cap -C vlan_profile -o 'gui.column.format:"Source Net Addr","%rns","Dest Net Addr", "%rnd"' -Y "ip" | sort | uniq
+     Ant.Man → AVENGERS_ASSEMBLE!!!
+ Black.Widow → LAN_OF_MILK_AND_HONEY.3.255
+Captain.America → AVENGERS_ASSEMBLE!!!
+Captain.Marvel → AVENGERS_ASSEMBLE!!!
+Doctor.Strange → Rocket.Raccoon
+      Falcon → AVENGERS_ASSEMBLE!!!
+       Groot → AVENGERS_ASSEMBLE!!!
+     Hawkeye → AVENGERS_ASSEMBLE!!!
+        Hulk → Rocket.Raccoon
+    Iron.Man → AVENGERS_ASSEMBLE!!!
+      Nebula → VLADIMIR_COMPUTIN.255
+   Nick.Fury → AVENGERS_ASSEMBLE!!!
+ Quicksilver → AVENGERS_ASSEMBLE!!!
+Rocket.Raccoon → Doctor.Strange
+Rocket.Raccoon → Hulk        
+        Thor → Black.Panther
+        Wasp → VLADIMIR_COMPUTIN.255
 ```
+
+There are a couple things to note here. First, I made sure to add this capture's IP addresses (with names) to the profile's hosts file. There are no unresolved addresses.
+Secondly, there is a "VLADIMIR_COMPUTIN.255" and "LAN_OF_MILK_AND_HONEY.3.255". These are both subnet names from the `subnets` file. I did not put any IPs ending in `.255` into the hosts file, so
+tshark defaults to the subnet name for these addresses.
+
+```hosts
+# Relevant subnet file entries
+...
+131.151.32.0/24     VLADIMIR_COMPUTIN
+131.151.104.0/22    LAN_OF_MILK_AND_HONEY
+```
+
+The reason that the LAN_OF_MILK_AND_HONEY ends in 3.255 is because that is the unresolved component (and broadcast address) of a /22.
 
 ## Further Reading
 

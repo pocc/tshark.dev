@@ -9,6 +9,10 @@ weight: 21
 draft: false
 ---
 
+{{%notice info%}}
+You must have [tshark 2.4.0](https://github.com/wireshark/wireshark/commit/20c57cb298e4f3b7ac66a22fb7477e4cf424a11b) or higher to use the `--export-files` flag.
+{{%/notice%}}
+
 ## About
 
 It is possible to decrypt the data on the client side if SSL logging is
