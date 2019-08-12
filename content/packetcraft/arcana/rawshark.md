@@ -1,6 +1,6 @@
 ---
 title: "Rawshark"
-description: "Get info from a packet capture"
+description: "Waste time faster with someone else's bespoke solution!"
 date: 2019-05-20
 author: Ross Jacobs
 
@@ -9,16 +9,15 @@ weight: 99
 draft: false
 ---
 
+This article exists *ONLY* to document it as a command-line component of Wireshark.
+
 {{% notice warning %}}
 rawshark is custom-built for a 3rd-party and better tools exist to extract information from captures.
 {{% /notice %}}
 
 ## rawshark
 
-rawshark is a utility that takes an input stream and parses it.
-This article exists to document it as a component of Wireshark.
-
-rawshark is low-level and provides options you would expect to see if you were working
+rawshark is a utility that takes an input stream and parses it. It is low-level and provides options you would expect to see if you were working
 with the source code. I asked the maintainers [what its purpose was](https://ask.wireshark.org/question/8041/what-is-the-purpose-of-rawshark/)
 and one responded
 

@@ -5,7 +5,7 @@ date: 2019-08-06
 description: Locations and formats of the files Wireshark uses
 
 summary: 'Wireshark [Configuration Files](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html) | [Preferences](https://www.wireshark.org/docs/wsug_html_chunked/ChCustPreferencesSection.html)'
-weight: 99
+weight: 10
 draft: false
 ---
 

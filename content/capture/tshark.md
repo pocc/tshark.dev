@@ -69,7 +69,7 @@ Processing:
 Output:
   <a href="/formats">-w &lt;outfile|-</a>&gt;           write packets to a pcapng-format file named "outfile"
                            (or '-' for stdout)
-  <a href="/packetcraft/profiles/#tshark-config-flags">-C &lt;config profile&gt;</a>      start with specified configuration profile
+  <a href="/packetcraft/arcana/profiles/#tshark-config-flags">-C &lt;config profile&gt;</a>      start with specified configuration profile
   <a href="/formats">-F &lt;output file type&gt;</a>    set the output file type, default is pcapng
                            an <a href="/capture/sources/sample_interfaces/#sample-capture-file-types">empty "-F" option</a> will list the file types
   -V                       add output of packet tree        (Packet Details)
@@ -104,7 +104,7 @@ Output:
   -g                       enable group read access on the output file(s)
   <a href="/packetcraft/add_context/name_resolution">-W n</a>                     Save extra information in the file, if supported.
                            n = write network address resolution information
-  <a href="/packetcraft/lua_scripts">-X &lt;key&gt;:&lt;value&gt;</a>         eXtension options, see the man page for details
+  <a href="/packetcraft/scripting/lua_scripts">-X &lt;key&gt;:&lt;value&gt;</a>         eXtension options, see the man page for details
   -U tap_name              PDUs export mode, see the man page for details
   -z &lt;statistics&gt;          various statistics, see the man page for details
   --capture-comment &lt;comment&gt;
@@ -112,7 +112,7 @@ Output:
                            output file (only for pcapng)
   <a href="/export">--export-objects &lt;protocol&gt;,&lt;destdir&gt;</a> save exported objects for a protocol to
                            a directory named "destdir"
-  <a href="/packetcraft/tshark_colorized">--color</a>                  color output text similarly to the Wireshark GUI,
+  <a href="/packetcraft/add_context/tshark_colorized">--color</a>                  color output text similarly to the Wireshark GUI,
                            requires a terminal with 24-bit color support
                            Also supplies color attributes to pdml and psml formats
                            (Note that attributes are nonstandard)
@@ -125,7 +125,7 @@ Output:
 Miscellaneous:
   <a href="/capture/tshark">-h</a>                       display this help and exit
   -v                       display version info and exit
-  <a href="/packetcraft/profiles/#tshark-config-flags">-o &lt;name&gt;:&lt;value&gt;</a> ...    override preference setting
+  <a href="/packetcraft/arcana/profiles/#tshark-config-flags">-o &lt;name&gt;:&lt;value&gt;</a> ...    override preference setting
   <a href="/packetcraft/add_context/tshark_decryption/#kerberos">-K &lt;keytab&gt;</a>              keytab file to use for kerberos decryption
   -G [report]              dump one of several available reports and exit
                            default report="fields"</pre>

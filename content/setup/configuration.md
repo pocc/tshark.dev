@@ -38,4 +38,4 @@ To always enable color, add a line to your .profile or .bashrc:
 echo "alias tshark='tshark --color'" >> ~/.profile
 ```
 
-For more information, check out [Tshark Colorized](/packetcraft/tshark_colorized).
+For more information, check out [Tshark Colorized](/packetcraft/add_context/tshark_colorized).
