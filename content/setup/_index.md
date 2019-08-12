@@ -11,8 +11,11 @@ draft: false
 
 ## Wireshark Setup
 
-Installation and configuration are important first steps for any program.
+{{%notice tip%}}
 If you have already set up Wireshark, you can skip this section.
+{{%/notice%}}
+
+Installation and configuration are important first steps for any program.
 
 <a href="/setup/install"><img src="https://uwnthesis.files.wordpress.com/2013/06/wireshark-install-7.jpg" alt="Network Tap Diagram" style="width:61%;"></a>
 

@@ -5,7 +5,7 @@ date: 2019-07-04
 author: Ross Jacobs
 
 summary: '[xxd](https://linux.die.net/man/1/xxd) | [hexdump](http://man7.org/linux/man-pages/man1/hexdump.1.html)'
-weight: 80
+weight: 10
 draft: false
 ---
 

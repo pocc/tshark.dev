@@ -1,5 +1,5 @@
 ---
-title: "Sample Headers"
+title: "Capture Headers"
 description: Bytes in each capture format that are not packets
 date: 2019-08-01
 author: Ross Jacobs
@@ -9,6 +9,8 @@ weight: 90
 draft: false
 ---
 
+## Sample Capture Hex
+
 {{%notice warning%}}
 Before writing this, I was not of aware of Wireshark's `View -> "Reload as File Format/Capture"`, which does this better.
 tshark does not have the ability to show capture file components.
@@ -16,8 +18,6 @@ tshark does not have the ability to show capture file components.
 
 Using the available file headers on your system from [Capture Formats](/formats/format_usage/#determining-file-headers), we can determine what hex each capture type has in its header.
 We do this by filtering out all packets and sending to xxd. If a capture type also has a footer, that too will be included here.
-
-## Sample Capture Hex
 
 ```bash
 bash$ formats=(5views commview erf k12text lanalyzer modpcap netmon1 netmon2 \
@@ -239,3 +239,7 @@ Packet <span class="m">2</span>:
 cc65adda39706c96cfd87fe7080045000050000040004006799dc0a801f68c52721ad53d01bbca0efbcda3d06a0180180800013f00000101080a3ea7acc208d51bb317030300172525d27b6d058c1236bccb185f56ffc1634643ae8c252e
 
 Footer: 000080000000050000006c000000000000006a8f05003dbafd1701001c00436f756e746572732070726f76696465642062792064756d70636170020008006a8f050056e4f917030008006a8f05000abafd17040008000300000000000000050008000300000000000000000000006c000000</code><span class="copy-to-clipboard" title="Copy to clipboard"></span></pre></div>
+
+## Further Reading
+
+* Noah Davids, [How can I capture the packet headers but not the data?](http://noahdavids.org/self_published/Tracing_packets_without_collecting_data.html): Finding snaplen numbers for capturing IPv4 and IPv6 headers.

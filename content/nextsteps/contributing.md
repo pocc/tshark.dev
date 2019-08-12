@@ -4,7 +4,7 @@ description: Fork me on Github!
 date: 2019-07-04
 author: Ross Jacobs
 
-summary: ''
+summary: '[tshark.dev](https://github.com/pocc/tshark.dev/#contributing) | [wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/)'
 weight: 20
 draft: false
 ---

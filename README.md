@@ -40,6 +40,8 @@ site generator. Most of the HTML/CSS/JS, shortcodes, and partials come from the 
 
 <a href="https://www.patreon.com/bePatron?u=23107486"><img class="patreon" src="https://dl.dropboxusercontent.com/s/olcfumplfco2sov/patreon_button.png" alt="Become a Patron!"></a>
 
+Support me if you like good documentation!
+
 ### Raising an Issue
 
 Apart from manually adding an issue, there are multiple ways to raise an issue for this website:

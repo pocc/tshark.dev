@@ -9,22 +9,22 @@ weight: 5
 draft: false
 ---
 
-### What is Wireshark?
+## What is Wireshark?
 
 [Wireshark](https://en.wikipedia.org/wiki/Wireshark) is a tool used to visualize network issues.
 
 <a href="/setup/install"><img src="https://dl.dropboxusercontent.com/s/lh17bbhgeumqo2j/wireshark_example.png" alt="Parts of Wireshark" style="width:61%"></a>
 
-_Here we see the details and bytes of the selected packet._
+<p style="text-align:center"><i>Here we see the details and bytes of the selected packet.</i></p>
 
 Part of the power of Wireshark is that it makes Network Analysis easy by making it visual. You can search for
-traffic you are looking for and then peruse it once you find it.
+packets with display filters and then use the packet details pane to look at the relevant info.
 Wireshark is well documented with the [Official Documentation](https://www.wireshark.org/docs/)
 and the [Wireshark Forums](https://ask.wireshark.org), among others.
 
 In addition to a GUI version, Wireshark comes with many command-line utilities like tshark.
 
-### What is Tshark?
+## What is Tshark?
 
 tshark (<u>**T**</u>erminal wire<u>**SHARK**</u>) is the command line tool (CLI) that has most, but not all, of the features of Wireshark.
 What features tshark lacks is often found in other CLI tools that are bundled with Wireshark.
@@ -32,4 +32,4 @@ All are documented online with [manpages](https://www.wireshark.org/docs/man-pag
 
 <a href="/setup/install"><img src="https://dl.dropboxusercontent.com/s/xu2ufkngsrgrfrm/tshark_example.png" alt="Tshark Example" style="width:61%"></a>
 
-Most existing documentation on Wireshark focuses on the GUI. Wireshark's CLI is just as good for most tasks and far better for scripting.
+Most existing documentation on Wireshark focuses on the GUI. Wireshark's CLI is just as good for most tasks and far better for scripting. This guide's focus is tshark for these reasons.
