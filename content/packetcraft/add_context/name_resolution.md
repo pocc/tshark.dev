@@ -33,7 +33,7 @@ The highlighted "data sources" listed here are files in the [profiles folder](/p
 
 Here, `ethers`, `vlans`, `services`, `hosts` are loaded by *shark from the global/personal config directory (See [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html#ChAppFilesConfigurationSection)).
 
-With tshark, you can specify preferences manually with `-o key:value` as shown in "Other Notes" or by adding these to the preferences file directly. To change `preferences`, `ethers`, `vlans`, `services`, `hosts`, and others, check out [Editing Config Files](/packetcraft/profiles).
+With tshark, you can specify preferences manually with `-o key:value` as shown in "Other Notes" or by adding these to the preferences file directly. To change `preferences`, `ethers`, `vlans`, `services`, `hosts`, and others, check out [Editing Config Files](/packetcraft/arcana/profiles).
 
 ## On Editing the System's Hosts File
 

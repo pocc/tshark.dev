@@ -115,7 +115,7 @@ how to use this example utility.
 
 ## Extcap preferences
 
-You can specify these in tshark inline with `-o $key:$value` or change them manually in the [preferences file](/packetcraft/profiles).
+You can specify these in tshark inline with `-o $key:$value` or change them manually in the [preferences file](/packetcraft/arcana/profiles).
 You can get a list of you current extcap interfaces like so:
 
 ```bash

@@ -14,6 +14,8 @@ Which utility you use depends on what you are trying to do.
 Wireshark has useful utilities for this purpose, but good tools also exist in other software suites.
 This section covers editing, adding, removing, and converting data in packet captures.
 
+<a href="/edit/editing_hex"><img src="https://media.giphy.com/media/4UzW8S83pWoKs/giphy.gif" alt="Scrolling Hexdump" style="width:61%"></a>
+
 #### Table of Contents
 
 {{% children description="true" depth="4" %}}
