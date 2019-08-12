@@ -127,5 +127,5 @@ Miscellaneous:
   -v                       display version info and exit
   <a href="/packetcraft/arcana/profiles/#tshark-config-flags">-o &lt;name&gt;:&lt;value&gt;</a> ...    override preference setting
   <a href="/packetcraft/add_context/tshark_decryption/#kerberos">-K &lt;keytab&gt;</a>              keytab file to use for kerberos decryption
-  -G [report]              dump one of several available reports and exit
+  <a href="/packetcraft/arcana/profiles">-G [report]</a>              dump one of several available reports and exit
                            default report="fields"</pre>

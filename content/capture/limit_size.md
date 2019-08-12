@@ -17,7 +17,7 @@ Saving space is as simple as learning your `-abcs`!
 You should use these options only after optimizing your [capture filter](/capture/capture_filters) to drop unimportant packets.
 {{% /notice %}}
 
-When capturing, \*shark will save packets to a file. If you specify a file to save to with `-w`, then it will be that one. Otherwise, a temporary file is created and [located somewhere](#finding-the-generated-temporary-file).
+When capturing, \*shark will save packets to a file. If you specify a file to save to with `-w`, then it will be that one. Otherwise, a temporary file is created and [located somewhere](/capture/dumpcap/#finding-the-generated-temporary-file).
 
 If you are taking a long continuous capture, then space will eventually become a
 concern for this capture file. There are four ways to limit the size of your capture.
@@ -33,8 +33,21 @@ For `-a` and `-b`, the colon is required as part of the condition. Multiple `-a`
 
 ### Example: Using a Ringbuffer and Autostop Condition
 
-Go big or go home! In this example, we're using all of the `-a` and `-b` options that don't intrefere with each other.
-Parsing this long statement, this capture will stop after 100s OR after 10 files are created with a `-b` option OR after the total capture size is > 10MB OR after capturing 10000 packets. This capture rotates after 100s, overwrites 1st after writing to 1000th file, 1024KB, or after writing 20 packets.
+Go big or go home! In this example, we're using all of the `-a` and `-b` options that don't interfere with each other.
+
+<u>[-a] This capture will stop after one of</u>
+
+* 100s
+* after 10 files are created with a `-b` option
+* after the total capture size is > 10MB
+* after capturing 10000 packets
+
+<u>[-b] This capture rotates</u>
+
+* after 100s
+* overwrites 1st after writing to 1000th file
+* the file reaches 1024KB in size
+* after writing 20 packets.
 
 In this example, I used a speedtest website to generate a bunch of fake traffic.
 
@@ -82,7 +95,7 @@ file_00004_20190806045019.pcap	file_00009_20190806045026.pcap
 file_00005_20190806045019.pcap	file_00010_20190806045027.pcap
 ```
 
-The last file should have completely filled up to max 20 packets, triggering capture stop.
+The last file should have completely filled up to the max of 20 packets, triggering capture stop.
 And we see exactly that.
 
 ```bash
@@ -104,10 +117,10 @@ Snaplen of 62B -> `-s 62`. To verify that we're chopping at the right length, le
 Our final command would look something like this:
 
 ```bash
-bash$  tshark -f 'ip6 and udp' -s 62 -c 1 -w ipv6_udp.pcapng -x -T fields \
-              -e udp.port -e udp.length -e udp.checksum
+bash$  tshark -f 'ip6 and udp' -s 62 -c 1 -w ipv6_udp.pcapng -T fields \
+              -e udp.srcport -e udp.dstport -e udp.length -e udp.checksum
 Capturing on 'Wi-Fi: en0'
-47579,10001	156	0x0000e5cb
+47579   10001	156 0x0000e5cb
 1 packet captured
 ```
 
@@ -130,17 +143,15 @@ tshark -r ipv6_udp.pcapng -T fields -e frame.len -e frame.cap_len
 210	62
 ```
 
-Sure enough, we see the expected values. Note that if a snaplen is not used in a capture, `frame.len` will equal `frame.cap_len`. [Packet](https://dl.dropboxusercontent.com/s/8d2dfcbgxtozlq9/ipv6_udp_snaplen.pcapng) used in example.
+Sure enough, we see the expected values. [Packet](https://dl.dropboxusercontent.com/s/8d2dfcbgxtozlq9/ipv6_udp_snaplen.pcapng) used in example.
 
-## Running Out of Memory
+{{% notice note%}}
+If a snaplen is not used in a capture, `frame.len` will equal `frame.cap_len`.
+{{% /notice %}}
 
-There are a couple of dumpcap (not tshark) flags that can be used to limit resource usage.
+## Running Out of Bandwidth
 
-* <u>**-N NUM**</u>: Max number of packets buffered within dumpcap
-* <u>**-C NUM**</u>: Max number of bytes used for buffering packets within dumpcap
-* <u>**-t**</u>: use a separate thread per interface
-
-For both tshark, dumpcap, and tcpdump, you can limit DNS lookups that are automatically performed to add context to text output.
+For both tshark, dumpcap, and tcpdump, you can limit the external DNS lookups that are automatically performed to add context to text output.
 
 * <u>**-n**</u>: Disable all name resolutions
 
@@ -148,11 +159,10 @@ For both tshark, dumpcap, and tcpdump, you can limit DNS lookups that are automa
 
 <a href="https://xkcd.com/716/"><img src="https://dl.dropboxusercontent.com/s/q2m2y80cf3pdtp5/time_for_tshark.jpg" alt="Time for tshark"></a>
 
-Tshark can limit the capture's size before it started. `--time-travel` will start working whenever it will have been implemented.
+Tshark can limit the capture's size before it started! `--time-travel` will start working whenever it will have been implemented.
 In the meantime, start your capture with the correct flags.
 
 ## Further Reading
 
 * Packetlife, [Long Captures](https://packetlife.net/blog/2011/mar/9/long-term-traffic-capture-wireshark/)
 * GE, [How to use Wireshark for long duration captures](https://digitalsupport.ge.com/communities/en_US/Article/How-to-use-Wireshark-for-long-duration-captures)
-* Noah Davids, [How can I capture the packet headers but not the data?](http://noahdavids.org/self_published/Tracing_packets_without_collecting_data.html): Finding snaplen numbers for capturing IPv4 and IPv6 headers.

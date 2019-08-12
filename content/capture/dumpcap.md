@@ -12,14 +12,21 @@ draft: false
 ## About
 
 Dumpcap is the part of the wireshark suite that captures packets.
-Unlike Wireshark and tshark, dumpcap cannot see non-physical interfaces like extcap interfaces.
-All of the flags that dumpcap has, tshark also has as tshark has a superset of features of dumpcap.
-Not only that, but tshark calls dumpcap for capture functionality.
+Unlike Wireshark and tshark, dumpcap cannot see non-physical interfaces like [extcap interfaces](/capture/sources/extcap_interfaces).
+tshark has most of the same flags that dumpcap has because tshark calls dumpcap for much of its capture functionality.
 
 Under high loads, there is [some evidence](https://www.networkcomputing.com/networking/wireshark-packet-capture-tshark-vs-dumpcap) that tshark drops more packets than dumpcap; however, these results
 are taken from a single machine (i.e. n=1).
 
-For normal traffic loads, the choice of using tshark vs dumpcap should be whether you need to use tshark flags.
+For normal traffic loads, the choice of using tshark vs dumpcap should depend on which flags you want to use.
+
+## Flags Unique to Dumpcap
+
+There are a couple of dumpcap (not tshark) flags that can be used to limit resource usage.
+
+* <u>**-N NUM**</u>: Max number of packets buffered within dumpcap
+* <u>**-C NUM**</u>: Max number of bytes used for buffering packets within dumpcap
+* <u>**-t**</u>: use a separate thread per interface
 
 ## Finding The Generated Temporary File
 
@@ -39,5 +46,5 @@ Specifying the save file with `-w $file` is faster than creating and searching f
 
 ## Further Reading
 
-* Generate [BPF code]() with `dumpcap -d`
-* 
+* [Generate BPF code](/packetcraft/arcana/bpf_instructions) with `dumpcap -d`
+* [How to use Dumpcap to capture a rolling packet trace](https://support.microfocus.com/kb/doc.php?id=7015122)

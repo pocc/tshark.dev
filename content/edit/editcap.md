@@ -5,7 +5,7 @@ date: 2019-03-12T12:44:45Z
 author: Ross Jacobs
 
 summary: '[manpage](https://www.wireshark.org/docs/man-pages/editcap.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolseditcap.html) | [code](https://github.com/wireshark/wireshark/blob/master/editcap.c)'
-weight: 10
+weight: 30
 draft: false
 ---
 
@@ -43,8 +43,6 @@ tshark can be used to reduce packet size.
 ## Fuzzing
 
 editcap has several options to fuzz, including -E, -o, and --seed. You can use them in combination to randomly change a packet capture to fuzz it with your program. This can mimic the bit-flipping that will naturally occur on lossy mediums like 802.11.
-
-< Insert example >
 
 ### Similar Articles
 

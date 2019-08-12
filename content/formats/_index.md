@@ -11,7 +11,7 @@ draft: false
 
 <a href="/formats/format_usage"><img src="https://dl.dropboxusercontent.com/s/qcu8n0pyewnzk3r/google_pie_chart.png" alt="Capture Format Comparison" style="width:61%"></a>
 
-{{% notice info %}}
+{{% notice tip %}}
 If you are happy with your capture's/stream's file type, you can safely skip this section.
 {{% /notice %}}
 
