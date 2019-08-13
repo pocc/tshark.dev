@@ -45,9 +45,9 @@ Input file:
   <a href="/capture/sources">-r &lt;infile|-&gt;</a>            set the filename to read from (or '-' for stdin)
 
 Processing:
-  -2                       perform a two-pass analysis
+  <a href="/analyze/packet_hunting/packet_hunting/#2-pass-analysis-with-r-y-and-2">-2</a>                       perform a two-pass analysis
   -M &lt;packet count&gt;        perform session auto reset
-  -R &lt;read filter&gt;         packet Read filter in Wireshark display filter syntax
+   <a href="/analyze/packet_hunting/packet_hunting/#2-pass-analysis-with-r-y-and-2">-R &lt;read filter&gt;</a>         packet Read filter in Wireshark display filter syntax
                            (requires -2)
   <a href="/analyze/packet_hunting/packet_hunting">-Y &lt;display filter&gt;</a>      packet displaY filter in Wireshark display filter
                            syntax
