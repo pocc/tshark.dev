@@ -9,7 +9,7 @@ weight: 21
 draft: false
 ---
 
-{{%notice info%}}
+{{%notice note%}}
 You must have [tshark 2.4.0](https://github.com/wireshark/wireshark/commit/20c57cb298e4f3b7ac66a22fb7477e4cf424a11b) or higher to use the `--export-files` flag.
 {{%/notice%}}
 
@@ -20,8 +20,8 @@ enabled. Chrome and firefox will check whether the $SSLKEYLOGFILE
 environmental variable exists, and if it does, will send keys to the file.
 Using tshark and firefox, we will be able to extract the html file.
 
-{{% notice info %}}
-It is not [currently possible](/packetcraft/add_context/tshark_decryption/#tls-1-3-decryption) to decrypt with TLS 1.3 with Wireshark.
+{{% notice note %}}
+It is not [currently possible](/packetcraft/add_context/tshark_decryption/#tls-1-3-decryption) to decrypt with TLS 1.3 with Wireshark, but will be possible soon.
 {{% /notice %}}
 
 ### Example: TLSv2 and ss64.com
@@ -76,6 +76,18 @@ If all is well, your local version of nc's manpage looks like this:
 
 <img src="https://dl.dropboxusercontent.com/s/kitibo0u8x42s0m/exported_file_nc_html.cmp.png" alt="Exported file in firefox" width=61%>
 
+### 5. Cleaning up
+
+For security reasons, it is best if you unset the $SSLKEYLOGFILE variable when done.
+
+```sh
+unset $SSLKEYLOGFILE
+```
+
 ### Asciicast of This Example
 
 <script id="asciicast-239566" src="https://asciinema.org/a/239566.js" async></script>
+
+## Further Reading
+
+* 2013-08-07, Steven Iveson, [Using Wireshark to Decode SSL/TLS Packets](https://packetpushers.net/using-wireshark-to-decode-ssltls-packets/)

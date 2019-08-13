@@ -11,7 +11,8 @@ draft: false
 
 ## Why combine captures
 
-* You captured with a <!--TODO WRITE YOUR OWN! -->[ring buffer](https://www.cellstream.com/reference-reading/tipsandtricks/328-wireshark-ring-buffer-capture-from-the-command-line-using-t-shark) with `tshark -b files:$NUM`, and need one file
+* You captured with a [ring buffer](https://www.cellstream.com/reference-reading/tipsandtricks/328-wireshark-ring-buffer-capture-from-the-command-line-using-t-shark) with `tshark -b files:$NUM`, and need one file
+* You split the file up with `editcap -c/-i`
 * You have a program that accepts one file as input and you have multiple
 * You want to aggregate all instances of a problem found in multiple captures, remove non-relevant traffic, and then send it to a colleague.
 

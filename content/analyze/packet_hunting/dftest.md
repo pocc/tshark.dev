@@ -1,6 +1,6 @@
 ---
 title: "dftest"
-description: "Analyze the Analyzer"
+description: "Deconstruct Display Filters"
 date: 2019-08-03
 author: Ross Jacobs
 
@@ -11,7 +11,7 @@ draft: false
 
 ## About
 
-dftest (Display Filter TEST) is a tool to show how a display filter should be interpreted.
+dftest (<u>**D**</u>isplay <u>**F**</u>ilter <u>**TEST**</u>) is a tool to show how a display filter should be interpreted.
 You should use this tool if you are confused why a display filter is filtering for or out the wrong traffic.
 
 ## Example: != Behavior
@@ -80,7 +80,7 @@ diff <(dftest 'ip.addr != 10.0.0.1') <(dftest '!ip.addr == 10.0.0.1') | grep -E 
 > 00004 RETURN
 ```
 
-reg#0 will be tested for ip.src and ip.dst as there are two ip.addr values in every packet.
+`reg#0` will be tested for ip.src and ip.dst as there are two ip.addr values in every packet.
 Using "any" to connote "or", and with A=`ip.addr`, B=`10.0.0.1`,
 
 A!=B ==> `!ip.src == 10.0.0.1 or !ip.dst == 10.0.0.1`  
@@ -101,4 +101,5 @@ When in doubt, prefer the form `!a==b` to `a!=b`.
 
 ## Further Reading
 
-* [Troubleshooting Capture Filters](/capture/dumpcap#example-dumpcap-d)
+* [Display Filters](/analyze/packet_hunting/packet_hunting)
+* [Troubleshooting Capture Filters](/packetcraft/arcana/bpf_instructions)

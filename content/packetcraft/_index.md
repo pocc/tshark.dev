@@ -16,6 +16,8 @@ In those cases, using an API can help. This section also contains tips and trick
 
 Counter-intuitive elements of tshark will go here.
 
+<a href="/packetcraft/scripting"><img src="https://media.giphy.com/media/l41lN3o4fk4ZgrSDK/giphy.gif" alt="Pulling a Bunny out of a Hat" style="width:20%;"></a>
+
 #### Table of Contents
 
 {{% children description="true" depth="4" %}}

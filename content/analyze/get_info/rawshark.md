@@ -9,6 +9,8 @@ weight: 99
 draft: false
 ---
 
+<!-- NOTE: This article is in get_info to pad it while tshark -G and -z get written. Once done, move it to /packetcraft/arcana/ -->
+
 This article exists *ONLY* to document it as a command-line component of Wireshark.
 
 {{% notice warning %}}
