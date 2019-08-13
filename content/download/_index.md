@@ -22,6 +22,6 @@ Whatever your reason, there are many repositories of public packet captures.
 The largest collection of packet capture collections is [hosted by Netresec](https://www.netresec.com/?page=PcapFiles).
 Of these, Wireshark's [Sample Captures](https://wiki.wireshark.org/SampleCaptures) is the most complete.
 
-## Table of Contents
-
-{{% children description="true" depth="4" %}}
+{{%notice tip%}}
+As part of this website, you can [search 6000+ captures](/download/search) by protocol or description.
+{{%/notice%}}
