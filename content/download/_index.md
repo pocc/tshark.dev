@@ -9,7 +9,7 @@ weight: 11
 draft: false
 ---
 
-#### About
+## Capture Sources
 
 Sometimes it can be beneficial to use someone else's captures instead of your own.
 Here are a couple reasons why this might make sense:
@@ -22,6 +22,6 @@ Whatever your reason, there are many repositories of public packet captures.
 The largest collection of packet capture collections is [hosted by Netresec](https://www.netresec.com/?page=PcapFiles).
 Of these, Wireshark's [Sample Captures](https://wiki.wireshark.org/SampleCaptures) is the most complete.
 
-<a href="https://wiki.wireshark.org/SampleCaptures"><img src="https://dl.dropboxusercontent.com/s/gby5xgx9g7m6ob5/ws_sample_captures_page.png" alt="Wireshark Sample Captures" style="width:61%;"></a>
+## Table of Contents
 
-<!-- \< This will contain a searchable pcap database \> -->
+{{% children description="true" depth="4" %}}
