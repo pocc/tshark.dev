@@ -35,9 +35,8 @@
       {{ end }}
     </style>
     {{ if eq .Title "Search Pcaps" }}
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-    <style>
+      <style>
         input, label, select {
           display: inline;
         }
@@ -45,6 +44,14 @@
           float: none;
         }
       </style>
+      <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+      <script>
+      $(document).ready(function() {
+        $('#pcap-search').DataTable( {
+          responsive: true
+        } );
+      } );
+      </script>
     {{ end }}
     {{ partial "custom-header.html" . }}
   </head>
