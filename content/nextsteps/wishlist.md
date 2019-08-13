@@ -4,7 +4,7 @@ description: Wouldn't it be nice if X article were written?
 date: 2019-08-12
 author: Ross Jacobs
 
-summary: '[tshark.dev](https://github.com/pocc/tshark.dev/#contributing) | [wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/)'
+summary: '[tshark.dev](https://github.com/pocc/tshark.dev/issues)'
 weight: 30
 draft: false
 ---
@@ -15,6 +15,8 @@ If you feel brave, take one of the items and turn it into an issue with label "w
 {{%notice note%}}
 If a heading has a slash at the end, that means it's a folder; otherwise it's a file.
 {{%/notice%}}
+
+## Write New Content
 
 ### /capture/
 
@@ -59,12 +61,6 @@ If a heading has a slash at the end, that means it's a folder; otherwise it's a 
     * [ ] Document -j/-J
     * [ ] Document -e &lt;field&gt; vs. display filters
 
-### /packetcraft/
-
-#### /packetcraft/add_context/
-
-* [ ] Document editcap and decryption: --inject-secrets &lt;secrets type&gt;,&lt;file&gt; --discard-all-secrets
-
 ### /edit/
 
 #### /edit/no_dup
@@ -90,7 +86,14 @@ If a heading has a slash at the end, that means it's a folder; otherwise it's a 
 * [ ] tshark -g
 * [ ] tshark -U &lt;tap name&gt;
 
-## Add content
+### /packetcraft/
+
+#### /packetcraft/add_context/
+
+* [ ] Document editcap and decryption: --inject-secrets &lt;secrets type&gt;,&lt;file&gt; --discard-all-secrets
+* [ ] Document Decoding as with `-d <layer>:port/name`. Should be in same article as --enable-protocol/--disable-protocol
+
+## Add to Existing Content
 
 ### /capture/
 

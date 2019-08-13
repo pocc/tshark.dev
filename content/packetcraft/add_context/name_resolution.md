@@ -52,7 +52,7 @@ A full list is available at Wireshark's [wka file](https://raw.githubusercontent
 Thanks to Wireshark's [Sample Captures](https://wiki.wireshark.org/SampleCaptures), we have a [file](/files/vlan.cap) from last millennium with VLANs, IPX, AppleTalk, IPv4, TCP, X11, STP, and RIP. _Clearly_, the best party going on in late 1999 was in a network.
 
 {{% notice note %}}
-`manuf`, `ethers`, `vlans`, `ipxnets`, and `services` files don't seem to resolve anything. I'll probably file a bug if this isn't just me.
+`manuf`, `ethers`, `vlans`, `ipxnets`, and `services` files don't seem to resolve anything. It looks like this might be fixed in v3.1.0 (develop), but requires more testing.
 {{% /notice %}}
 
 ~~* `manuf` resolves OUIs~~  
