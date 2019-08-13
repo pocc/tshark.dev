@@ -18,9 +18,7 @@ If a heading has a slash at the end, that means it's a folder; otherwise it's a 
 
 ## Write New Content
 
-### /capture/
-
-#### /capture/802.11
+### /capture/802.11
 
 * [ ] Document -p -I (monitor/promiscuous mode) usage
 
@@ -28,9 +26,7 @@ If a heading has a slash at the end, that means it's a folder; otherwise it's a 
 
 * [ ] Document Timestamps (--time-stamp-type, --list-time-stamp-types, -t (all opts), -u (all opts))
 
-### /analyze/
-
-#### /analyze/get_info/
+### /analyze/get_info/
 
 * [ ] Document tshark -G, --elastic-mapping-filter
   * [ ] -G column-formats        dump column format codes and exit
@@ -48,7 +44,7 @@ If a heading has a slash at the end, that means it's a folder; otherwise it's a 
   * [ ] -G folders               dump about:folders
 * [ ] Document tshark -z (it's a long list, run tshark -z ? to see all)
 
-#### /analyze/text_output/
+### /analyze/text_output/
 
 * [ ] Document -V/-O
 * [ ] Document -P (print even when writing), -q, -Q
@@ -61,23 +57,26 @@ If a heading has a slash at the end, that means it's a folder; otherwise it's a 
     * [ ] Document -j/-J
     * [ ] Document -e &lt;field&gt; vs. display filters
 
-### /edit/
-
-#### /edit/no_dup
+### /edit/no_dup
 
 * [ ] Removing duplicate packets: -d, -D, -w, -I --skip-radiotap-header
 
-#### /edit/splitting_and_merging
+### /edit/splitting_and_merging
 
 * [ ] -i &lt;seconds per file&gt;, -c &lt;packets per file&gt; (perhaps merge with mergecap for a "splitting and merging")
 
-#### /edit/edit_metadata
+### /edit/edit_metadata
 
 * [ ] editcap -T &lt;encapsulation type&gt;
 * [ ] editcap time adjustments (-S, -t)
 * [ ] Document --capture-comment
 
-### Haven't worked with (i.e. research is needed)
+### /packetcraft/add_context/
+
+* [ ] Document editcap and decryption: --inject-secrets &lt;secrets type&gt;,&lt;file&gt; --discard-all-secrets
+* [ ] Document Decoding as with `-d <layer>:port/name`. Should be in same article as --enable-protocol/--disable-protocol
+
+### Need research to figure out where these go
 
 * [ ] Document --enable-heuristic/--disable-heuristic
 * [ ] tshark -B &lt;buffer size&gt;
@@ -86,31 +85,20 @@ If a heading has a slash at the end, that means it's a folder; otherwise it's a 
 * [ ] tshark -g
 * [ ] tshark -U &lt;tap name&gt;
 
-### /packetcraft/
-
-#### /packetcraft/add_context/
-
-* [ ] Document editcap and decryption: --inject-secrets &lt;secrets type&gt;,&lt;file&gt; --discard-all-secrets
-* [ ] Document Decoding as with `-d <layer>:port/name`. Should be in same article as --enable-protocol/--disable-protocol
-
 ## Add to Existing Content
 
-### /capture/
-
-#### /captures/capture_filters
+### [/captures/capture_filters](/captures/capture_filters)
 
 * Add demonstration of decrease in file size along with a scenario where there is traffic you care about
 
-#### /capture/sources/pipe
+### [/capture/sources/pipe](/capture/sources/pipe)
 
 * [ ] Document tshark -l (goes with Pipe info)
 
-### /edit/
-
-#### /edit/editcap
+### [/edit/editcap](/edit/editcap)
 
 * [ ] editcap fuzzing example (-E, --seed, -o)
 
-#### /edit/editing_hex
+### [/edit/editing_hex](/edit/editing_hex)
 
 * [ ] Removing content with -s &lt;snaplen&gt;, -L, -C

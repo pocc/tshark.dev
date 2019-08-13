@@ -19,8 +19,7 @@ When you send packets to a file or [pipe](/capture/sources/pipe), you
 are also sending the packet and file headers. Normally, you will not need
 to care about the file format of your packets. This section exists for when it does matter.
 
-You can see just the file
-header for any capture type if you capture no packets and send to xxd.
+If you capture no packets and send to `xxd`, you can see just the file header for any capture type.
 An easy way to capture no packets is to filter by unused [ipx](https://en.wikipedia.org/wiki/Internetwork_Packet_Exchange) in your capture filter.
 In this example, we use `-F pcap` for the [pcap](/formats/pcap_format) file type.
 

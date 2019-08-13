@@ -11,7 +11,7 @@ draft: false
 
 ## Pcapng
 
-Pcapng is an evolution from the pcap format, created to address some of its deficiencies. Namely, the lack of extensibility and inability to store additional information. Any file that uses comments MUST be a pcapng file because this is one of the features pcapng format enables.
+Pcapng is an evolution from the pcap format, created to address some of its deficiencies. Namely, the lack of extensibility and inability to store additional information. Any file that uses comments, multiple interfaces, or saves name resolutions MUST be a pcapng file. These are some of the features that the pcapng format enables.
 
 For deconstructing pcapng structure, I would consult Sam's Browne's [wonderful article](https://samsclass.info/seminars/wireshark/pcapng.htm) on the subject.
 

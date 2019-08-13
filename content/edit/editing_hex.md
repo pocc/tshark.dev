@@ -113,6 +113,11 @@ byte lines. `xxd -r` converts ASCII hex back to the hex literals of your file.
 
 <script id="asciicast-234965" src="https://asciinema.org/a/234965.js" async></script>
 
+{{%notice note%}}
+Starting vim with `vim -b` obviates the problem caused by saving with vim and the need to reopen and close the file with tshark.
+This asciicast needs to be fixed.
+{{%/notice%}}
+
 ### emacs
 
 The joke goes that

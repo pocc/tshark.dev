@@ -14,6 +14,8 @@ If you think that a packet capture says something, you will want to filter
 it for relevant traffic and send it off.
 This section covers writing your analysis and sending it to relevant parties.
 
+<a href="/share/pcap_preparation"><img src="https://media.giphy.com/media/13HBDT4QSTpveU/giphy.gif" alt="How Some People Write Emails"></a>
+
 #### Table of Contents
 
 {{% children description="true" depth="4" %}}

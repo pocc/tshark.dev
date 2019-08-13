@@ -9,21 +9,14 @@ weight: 70
 draft: false
 ---
 
-Wireshark is like Google Maps. While you could look at the entire world, Maps
-is useful when you zoom into the streets in your town. Maps is also useful
-because you can read the words on the screen and understand that roads take
-you from point A to point B.
+If you open Wireshark and start capturing, you will see __ALL__ of the traffic
+your machine sees. Looking for packets without a filter is like trying to find your friend's place by driving around with a picture of his house. If you
+know what you're looking for (like a street address), then
+Wireshark can help you find traffic faster. When you start your capture journey, you should know what you are looking for, generally speaking.
 
-If you open Wireshark and start capturing, you will __ALL__ of the traffic
-your machine sees. This is like looking at the most zoomed out version of
-Google Maps: The lack of context makes the information less useful. If you
-know what you're looking for (like directions to a street address), then
-Wireshark can help you. Filter traffic with protocol names and values to arrive at your destination!
-
-To summarize:
-
-- You need to know what you are looking for
-- You need understand the relevant protocols. If you are analyzing an
+You also need to understand the operations of relevant protocols.
+If you don't understand how protocols work, you won't understand why they break.
+If you are analyzing an
 [Monitor-Mode](https://wiki.wireshark.org/CaptureSetup/WLAN) pcap, make sure
 you understand [802.11
 association](https://mrncciew.com/2014/10/27/cwap-802-11-probe-requestresponse/).

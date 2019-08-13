@@ -14,13 +14,14 @@ enableRobotsTXT = true
 [params]
   # Combined with current relative page, shows source page on Github
   editURL = "https://github.com/pocc/tshark.dev/blob/master/content/"
-  description = "Packet Analysis, Scripted"
+  description = "Capture Lifecycle"
   author = "Ross Jacobs"
   showVisitedLinks = false
   disableBreadcrumb = false
   disableNextPrev = true
   themeVariant = "blue"
   disableInlineCopyToClipBoard = "true"
+  version = "v0.1"
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
