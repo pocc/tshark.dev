@@ -83,3 +83,6 @@ _While the following articles focus on asking questions, they are quite relevant
 * 2014-05-21, Eric Steven Raymond, [How To Ask Questions The Smart Way](http://www.catb.org/~esr/faqs/smart-questions.html)
 * 2013-06-16, Stack Overflow, [How to Ask a Stackoverflow Question](https://stackoverflow.com/help/how-to-ask)
 * 2010-08-29, Jon Skeet, [Writing the Perfect Question](https://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
+
+**Email Style**
+* 2019-06-26, Lazarus Lazaridis, [Composing better emails](https://iridakos.com/how-to/2019/06/26/composing-better-emails.html)
