@@ -45,3 +45,38 @@ echo "$files" | sort | uniq -c | sort -r | gawk '{print "\133\047"$2"\047\054\04
       }
 </script>
 {{end}}
+{{ if eq .Title "Search Pcaps" }}
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  #body .padding {
+    padding: 0rem 0rem;
+    margin: 0;
+    padding-right: 40px;
+  }
+  @media only all and (max-width: 59.938em) {
+  #body .padding {
+    position: static;
+    padding: 0px 0rem;
+    }
+  }
+  input,
+  label,
+  select {
+    display: inline-block; 
+  }
+</style>
+<link href=https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css rel=stylesheet>
+<script src=https://code.jquery.com/jquery-3.3.1.js></script>
+<script src=https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js></script>
+<script>$(document).ready(function(){
+  var mytable = $('#pcap-search').DataTable(
+    {
+      responsive: true,
+      "ajax": "/data/min_captures.json",
+    });
+    document.getElementById("pcap-search_filter").innerHTML = '<label><input type="search" class="" placeholder="Search.." aria-controls="pcap-search"></label>'
+  });
+</script>
+{{ end }}

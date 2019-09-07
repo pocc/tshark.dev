@@ -568,18 +568,6 @@ fieldset {
   padding: 0.938rem;
   margin: 0 0 1.7rem 0; }
 
-input,
-label,
-select {
-  display: block; }
-
-label {
-  margin-bottom: 0.425rem; }
-  label.required:after {
-    content: "*"; }
-  label abbr {
-    display: none; }
-
 textarea, input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"], select[multiple=multiple] {
   -webkit-transition: border-color;
   -moz-transition: border-color;
