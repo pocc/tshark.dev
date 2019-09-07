@@ -19,7 +19,7 @@ tshark has the ability to reassemble files provided a packet capture. These list
 [HTTP](https://wiki.wireshark.org/Hyper_Text_Transfer_Protocol?action=show&redirect=HTTP), [SMB](https://wiki.wireshark.org/SMB), [IMF](https://wiki.wireshark.org/IMF), [DICOM](https://wiki.wireshark.org/Protocols/dicom?action=show&redirect=DICOM), and [TFTP](https://wiki.wireshark.org/TFTP) for latest Wireshark.
 This section covers how to extract files from HTTP in both encypted and unencypted captures.
 
-<a href="/export/export_regular"><img src="http://www.progressivelifecare.com/wp-content/uploads/2018/02/39a47cb58121f07a8ed6893e8ac68c8e-small.jpg" alt="Export Container" style="width:61%;"></a>
+<a href="/export/export_regular"><img src="https://www.dl.dropboxusercontent.com/s/s15d6djdxk5myv3/cover_image_export.jpg" alt="Export Container" style="width:61%;"></a>
 
 #### Table of Contents
 

@@ -71,12 +71,10 @@ echo "$files" | sort | uniq -c | sort -r | gawk '{print "\133\047"$2"\047\054\04
 <script src=https://code.jquery.com/jquery-3.3.1.js></script>
 <script src=https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js></script>
 <script>$(document).ready(function(){
-  var mytable = $('#pcap-search').DataTable(
+  $('#pcap-search').DataTable(
     {
-      responsive: true,
       "ajax": "/data/min_captures.json",
     });
-    document.getElementById("pcap-search_filter").innerHTML = '<label><input type="search" class="" placeholder="Search.." aria-controls="pcap-search"></label>'
   });
 </script>
 {{ end }}
