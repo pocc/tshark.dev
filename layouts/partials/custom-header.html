@@ -73,8 +73,26 @@ echo "$files" | sort | uniq -c | sort -r | gawk '{print "\133\047"$2"\047\054\04
 <script>$(document).ready(function(){
   $('#pcap-search').DataTable(
     {
-      "ajax": "/data/min_captures.json",
+      responsive: true,
+      ajax: "/data/min_captures.json",
+      "columnDefs": [
+      { "width": "15%", "targets": 0 },
+      { "width": "8%", "targets": 3 },
+      { "width": "10%", "targets": 4 },
+      { "width": "8%", "targets": 5 },
+      { "width": "8%", "targets": 6 },
+    ],
     });
   });
 </script>
+<style>
+table{
+  margin: 0 auto;
+  width: 100%;
+  clear: both;
+  border-collapse: collapse;
+  table-layout: fixed;
+  word-wrap:break-word;
+}
+</style>
 {{ end }}
