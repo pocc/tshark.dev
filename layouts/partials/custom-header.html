@@ -46,6 +46,7 @@ echo "$files" | sort | uniq -c | sort -r | gawk '{print "\133\047"$2"\047\054\04
 </script>
 {{end}}
 {{ if eq .Title "Search Pcaps" }}
+<link href=https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css rel=stylesheet>
 <style>
   * {
     box-sizing: border-box;
@@ -66,12 +67,81 @@ echo "$files" | sort | uniq -c | sort -r | gawk '{print "\133\047"$2"\047\054\04
   select {
     display: inline-block; 
   }
+  table{ /* Via https://datatables.net/forums/discussion/30530/set-fixed-column-width */
+    margin: 0 auto;
+    width: 100%;
+    clear: both;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-wrap:break-word;
+  }
+  #pcap-search-qualifiers {
+    width: 20%;
+  }
 </style>
-<link href=https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css rel=stylesheet>
 <script src=https://code.jquery.com/jquery-3.3.1.js></script>
 <script src=https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js></script>
-<script>$(document).ready(function(){
-  $('#pcap-search').DataTable(
+<script>
+
+$.fn.dataTable.ext.search.push( // Via https://datatables.net/examples/plug-ins/range_filtering.html
+  function(settings, data, dataIndex) {
+    function convert_to_bytes(size_str) {
+      size_number = parseInt(size_str)
+      if (size_str === NaN) {return 0;}
+      if (size_str.includes("KB")) {
+        return 1024*size_number;
+      } if (size_str.includes("MB")) {
+        return 1048576*size_number;
+      } if (size_str.includes("GB")) {
+        return 1073741824*size_number;
+      } 
+      return size_number;
+    }
+
+    var query_str = $('#pcap-search-qualifiers').val();
+    var query_vals = /(size|length|packets|ifaces)\s*(==|>=|<=|!=|>|<)\s*(\d+(?:\s*[KMG]?B)?)/g;
+    var parsed_vals = [...query_str.matchAll(query_vals)];
+    // It's fine if the user has entered an invalid string or none at all
+    if (parsed_vals.length === 0) {return true;}
+    // Four parts of array should be full match, name, comparator, value
+    result = true
+    parsed_vals.forEach(function(parsed_match) {
+      operand = parsed_match[2]
+      if (parsed_match[1]=="size") {
+        left = convert_to_bytes(data[3])
+        right = convert_to_bytes(parsed_match[3])
+      } else {
+        right = parseInt(parsed_match[3])
+        if (parsed_match[1]=="length") {
+          left = parseInt(data[4])
+        } else if (parsed_match[1]=="packets") {
+          left = parseInt(data[5])
+        } else if (parsed_match[1]=="ifaces") {
+          left = parseInt(data[6])
+        }
+      }
+      if (operand === "==") {
+        result = result && left == right;
+      } else if (operand === ">=") {
+        result = result && left >= right;
+      } else if (operand === "<=") {
+        result = result && left <= right;
+      } else if (operand === "!=") {
+        result = result && left != right;
+      } else if (operand === ">") {
+        result = result && left > right;
+      } else if (operand === "<") {
+        result = result && left < right;
+      } else {
+        result = false;
+      }
+    });
+    return result;
+  }
+);
+
+$(document).ready(function(){
+  var table = $('#pcap-search').DataTable(
     {
       responsive: true,
       ajax: "/data/min_captures.json",
@@ -79,20 +149,19 @@ echo "$files" | sort | uniq -c | sort -r | gawk '{print "\133\047"$2"\047\054\04
       { "width": "15%", "targets": 0 },
       { "width": "8%", "targets": 3 },
       { "width": "10%", "targets": 4 },
-      { "width": "8%", "targets": 5 },
+      { "width": "9%", "targets": 5 },
       { "width": "8%", "targets": 6 },
     ],
-    });
   });
+  // Makes it so search box is the same width as the pcap search table
+  qualifiers_input = '<input type="text" id="pcap-search-qualifiers" name="pcap-search-qualifiers" placeholder="Enter qualifiers...">'
+  $("#pcap-search_length").append(qualifiers_input)
+  var table_width = $('#pcap-search').width()
+  $("#pcap-search_filter > label").css("width", (table_width - 8).toString() + "px")
+  $("#pcap-search-qualifiers").css({"width":parseInt(table_width/2).toString() + "px","margin-left":parseInt(table_width/3-150).toString() + "px"})
+  $('#pcap-search-qualifiers').keyup(function() {
+      table.draw();
+  });
+});
 </script>
-<style>
-table{
-  margin: 0 auto;
-  width: 100%;
-  clear: both;
-  border-collapse: collapse;
-  table-layout: fixed;
-  word-wrap:break-word;
-}
-</style>
 {{ end }}

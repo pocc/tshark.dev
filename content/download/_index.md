@@ -31,8 +31,24 @@ Well now you can with [Search Pcaps](/download/search_pcaps). Search over 6000 p
 
 * All fields are searchable
 * Space is AND
-* Use [brackets] around a protocol
-* double quotes can be used to search for long strings
+* Double quotes can be used to search for strings with spaces
+* To ensure that you search for captures containing a protocol (and not featuring it in the description), use brackets like [igmp]
+
+#### Examples
+
+`igmp "AirPcap trace"`: Find all captures that reference the igmp protocol and "AirPcap trace" in the description.
+`wlan llc [radiotap]`: All captures that have reference wlan and llc, and contain the radiotap protocol.
+
+### Qualifier Syntax
+
+* A column in `["size", "length", "packets", "ifaces"]`
+* An operator in `["==", "!=", ">=", "<=", ">", "<"]`
+* A numeric value. KB/MB/GB are understod when comparing size
+
+#### Examples
+
+`size > 100KB`: All captures that are larger than 100KB  
+`length > 60`: All captures longer than 60 seconds
 
 ### Sources
 
