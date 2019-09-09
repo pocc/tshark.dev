@@ -32,12 +32,12 @@ Well now you can with [Search Pcaps](/download/search_pcaps). Search over 6000 p
 * All fields are searchable
 * Space is AND
 * Double quotes can be used to search for strings with spaces
-* To ensure that you search for captures containing a protocol (and not featuring it in the description), use brackets like [igmp]
+* To ensure that you search for captures containing a protocol (and not in the description), use brackets like [igmp]
 
 #### Examples
 
 `igmp "AirPcap trace"`: Find all captures that reference the igmp protocol and "AirPcap trace" in the description.
-`wlan llc [radiotap]`: All captures that have reference wlan and llc, and contain the radiotap protocol.
+`wlan llc [radiotap]`: All captures that reference wlan and llc in description or protocols, and contain the radiotap protocol.
 
 ### Qualifier Syntax
 
@@ -47,7 +47,7 @@ Well now you can with [Search Pcaps](/download/search_pcaps). Search over 6000 p
 
 #### Examples
 
-`size > 100KB`: All captures that are larger than 100KB  
+`size >= 100KB`: All captures that are 100KB or larger  
 `length > 60`: All captures longer than 60 seconds
 
 ### Sources

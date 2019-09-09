@@ -65,7 +65,10 @@ echo "$files" | sort | uniq -c | sort -r | gawk '{print "\133\047"$2"\047\054\04
   input,
   label,
   select {
-    display: inline-block; 
+    display: inline-block;
+    font-weight:normal;
+    margin-bottom: 0rem;
+    text-align: left;
   }
   table{ /* Via https://datatables.net/forums/discussion/30530/set-fixed-column-width */
     margin: 0 auto;
@@ -140,6 +143,12 @@ $.fn.dataTable.ext.search.push( // Via https://datatables.net/examples/plug-ins/
   }
 );
 
+function resize_searchboxes() {
+  var table_width = $('#pcap-search').width()
+  $("#pcap-search_filter > label").css({"width": parseInt(table_width/2.1).toString() + "px"})
+  $("#pcap-search-qualifiers").css({"width":parseInt(table_width/2.1).toString() + "px"})
+}
+
 $(document).ready(function(){
   var table = $('#pcap-search').DataTable(
     {
@@ -154,11 +163,13 @@ $(document).ready(function(){
     ],
   });
   // Makes it so search box is the same width as the pcap search table
-  qualifiers_input = '<input type="text" id="pcap-search-qualifiers" name="pcap-search-qualifiers" placeholder="Enter qualifiers...">'
-  $("#pcap-search_length").append(qualifiers_input)
-  var table_width = $('#pcap-search').width()
-  $("#pcap-search_filter > label").css("width", (table_width - 8).toString() + "px")
-  $("#pcap-search-qualifiers").css({"width":parseInt(table_width/2).toString() + "px","margin-left":parseInt(table_width/3-150).toString() + "px"})
+  qualifiers_input = '&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="text" id="pcap-search-qualifiers" name="pcap-search-qualifiers" placeholder="Inequality like `size > 100KB`"></label>'
+  help_link = '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Use one or both search boxes&nbsp;&nbsp;&nbsp;[<a href="/download/#search-syntax">Search Syntax</a>]'
+  $("#pcap-search_length").append(help_link)
+  $("#pcap-search_filter").append(qualifiers_input)
+  // Resize initially
+  resize_searchboxes()
+  $("#pcap-search_filter > label > input[type=search]").attr("placeholder","Search term like `igmp \"AirPcap trace\"`")
   $('#pcap-search-qualifiers').keyup(function() {
       table.draw();
   });

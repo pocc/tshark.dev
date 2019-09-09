@@ -9,6 +9,4 @@ weight: 11
 draft: false
 ---
 
-[Syntax Help](/download/#search-syntax)
-
 {{< jsontable >}}
