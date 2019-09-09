@@ -27,9 +27,11 @@ Of these, Wireshark's [Sample Captures](https://wiki.wireshark.org/SampleCapture
 Wouldn't it be nice if you could search existing packet captures for a protocol?  
 Well now you can with [Search Pcaps](/download/search_pcaps). Search over 6000 pcaps to find the right one!
 
+<a href="/download/search_pcaps"><img src="https://dl.dropboxusercontent.com/s/436v02uq6gnnf4b/pcapsearch_screenshot.png" alt="Searching Packet Capturesl" /></a>
+
 ### Search Syntax
 
-* All fields are searchable
+* All columns are searchable (including description)
 * Space is AND
 * Double quotes can be used to search for strings with spaces
 * To ensure that you search for captures containing a protocol (and not in the description), use brackets like [igmp]
@@ -39,7 +41,7 @@ Well now you can with [Search Pcaps](/download/search_pcaps). Search over 6000 p
 `igmp "AirPcap trace"`: Find all captures that reference the igmp protocol and "AirPcap trace" in the description.
 `wlan llc [radiotap]`: All captures that reference wlan and llc in description or protocols, and contain the radiotap protocol.
 
-### Qualifier Syntax
+### Inequality Search Syntax
 
 * A column in `["size", "length", "packets", "ifaces"]`
 * An operator in `["==", "!=", ">=", "<=", ">", "<"]`

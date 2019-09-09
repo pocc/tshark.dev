@@ -145,8 +145,8 @@ $.fn.dataTable.ext.search.push( // Via https://datatables.net/examples/plug-ins/
 
 function resize_searchboxes() {
   var table_width = $('#pcap-search').width()
-  $("#pcap-search_filter > label").css({"width": parseInt(table_width/2.1).toString() + "px"})
-  $("#pcap-search-qualifiers").css({"width":parseInt(table_width/2.1).toString() + "px"})
+  $("#pcap-search_filter > label").css({"width": parseInt(table_width/2-20).toString() + "px"})
+  $("#pcap-search-qualifiers").css({"width":parseInt(table_width/2-20).toString() + "px"})
 }
 
 $(document).ready(function(){
