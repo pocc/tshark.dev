@@ -19,11 +19,26 @@ to generate a keytab file. To use this keytab file for decryption:
 
 `tshark -r /path/to/file -K /path/to/keytab`
 
-## TLS 1.2 Decryption
+## TLS
 
-FIXME
+TLS decryption, for the most part, is setting the $SSLKEYLOGFILE to the destination file of your choice and hoping that your application reads this environmental variable.
 
-## TLS 1.3 Decryption
+To my knowledge, these applications support it:
+* Chrome (and Chromium-based like Opera, Brave, Vivaldi, etc.)
+* Firefox
+* Curl (and any [libcurl-based appliaction](https://ec.haxx.se/tls-sslkeylogfile.html))
+
+Unsupported:
+* [Edge/IE](http://blog.ucomsgeek.com/2016/06/decrypting-https-web-traffic-without.html), but this will likely change for Edge though as it will [soon be Chromium-based](https://support.microsoft.com/en-us/help/4501095/download-microsoft-edge-based-on-chromium).
+* Safari
+
+*If your application supports the $SSLKEYLOGFILE variable, please [create an issue](https://github.com/pocc/tshark.dev/issues).*
+
+### TLS 1.2 Decryption
+
+TLS 1.2 decryption has been with Wireshark since October 2017 with v2.4.2. Multiple articles exist that [document this feature](https://www.comparitech.com/net-admin/decrypt-ssl-with-wireshark/). This guide features a larger article on [Exporting files with TLS](/export/export_tls).
+
+### TLS 1.3 Decryption
 
 TLS 1.3 is the next iteration after industry standard 1.2, with 1.3 adopted
 by [most browsers](https://caniuse.com/#feat=tls1-3) at this point. TLS
