@@ -177,7 +177,7 @@ For when you don't want to edit the defaults, tshark allow you to use a differen
 ### -C ${profile}
 
 Use a different profile folder. Note that you can have many different folders, each with their own config files.
-For my [available profiles](/packetcraft/profiles/#listing-profiles), I can use the Bluetooth profile with `tshark -C Bluetooth`.
+For my [available profiles](/packetcraft/arcana/profiles/#listing-profiles), I can use the Bluetooth profile with `tshark -C Bluetooth`.
 
 ### -o ${key:value}
 

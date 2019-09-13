@@ -9,7 +9,7 @@ weight: 90
 draft: false
 ---
 
-This is an incomplete list of resources. If you know of a relevant resource that has helped you, feel free to [add](https://github.com/pocc/tshark.dev/blob/master/content/nextsteps/links/_index.md) to this list.
+This is an incomplete list of resources. If you know of a relevant resource that has helped you, feel free to [add](https://github.com/pocc/tshark.dev/blob/master/content/nextsteps/links.md) to this list.
 
 ## Packet Analysis
 

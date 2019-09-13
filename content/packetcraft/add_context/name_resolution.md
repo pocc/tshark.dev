@@ -19,7 +19,7 @@ Using `-n` will not change the resulting pcap file, but will decrease tcpdump/ts
 
 ## Using Tshark Flags
 
-The highlighted "data sources" listed here are files in the [profiles folder](/packetcraft/profiles).
+The highlighted "data sources" listed here are files in the [profiles folder](/packetcraft/arcana/profiles).
 
 | Flag          | Resolves        | Data Source                         | Other Notes |
 |---------------|-----------------|-------------------------------------|-------------|

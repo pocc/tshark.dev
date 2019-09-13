@@ -53,7 +53,7 @@ If a heading has a slash at the end, that means it's a folder; otherwise it's a 
     * [ ] Document tshark -T json/jsonraw/--no-duplicate-keys
     * [ ] Document tshark -T pdml/psml
     * [ ] Document tshark -T ek/tabs
-    * [ ] (better) Document -x (and interoperability with other options), -T text, which is the same
+    * [ ] \(better\) Document -x (and interoperability with other options), -T text, which is the same
     * [ ] Document -j/-J
     * [ ] Document -e &lt;field&gt; vs. display filters
 
@@ -87,7 +87,7 @@ If a heading has a slash at the end, that means it's a folder; otherwise it's a 
 
 ## Add to Existing Content
 
-### [/captures/capture_filters](/captures/capture_filters)
+### [/capture/capture_filters](/capture/capture_filters)
 
 * Add demonstration of decrease in file size along with a scenario where there is traffic you care about
 
