@@ -20,6 +20,13 @@ all_files=("$(find . -type f)")
 file_types=$(for i in ${all_files[*]}; do captype "$i" | awk -F ': ' '{ if ($2 != "unknown") print $2}'; done);
 echo "$files" | sort | uniq -c | sort -r | gawk '{print "\133\047"$2"\047\054\040"$1"\135\054" }'
 -->
+<!-- custom CSS stylings -->
+<style>
+  img {
+    max-width: 600px;
+  }
+</style>
+
 {{ if eq .Title "Format Usage" }} <!-- only load this javascript for the file that uses a pie graph. _index uses a screenshot of it. -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
