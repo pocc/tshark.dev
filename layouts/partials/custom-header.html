@@ -45,7 +45,7 @@ echo "$files" | sort | uniq -c | sort -r | gawk '{print "\133\047"$2"\047\054\04
       }
 </script>
 {{end}}
-{{ if eq .Title "Search Pcaps" }}
+{{ if eq .Title "Pcap Table" }}
 <link href=https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css rel=stylesheet>
 <style>
   * {
@@ -164,7 +164,7 @@ $(document).ready(function(){
   });
   // Makes it so search box is the same width as the pcap search table
   qualifiers_input = '&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="text" id="pcap-search-qualifiers" name="pcap-search-qualifiers" placeholder="Inequality like `size > 100KB`"></label>'
-  help_link = '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Use one or both search boxes&nbsp;&nbsp;&nbsp;[<a href="/download/#search-syntax">Search Syntax</a>]'
+  help_link = '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Use one or both search boxes&nbsp;&nbsp;&nbsp;[<a href="/search/#search-syntax">Search Syntax</a>]'
   $("#pcap-search_length").append(help_link)
   $("#pcap-search_filter").append(qualifiers_input)
   // Resize initially

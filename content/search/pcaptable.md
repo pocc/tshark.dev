@@ -1,5 +1,5 @@
 ---
-title: "Search Pcaps"
+title: "Pcap Table"
 description: "Search for your favorite protocols!"
 date: 2019-09-04
 author: Ross Jacobs

@@ -710,13 +710,13 @@
                         </g>
                     </g>
                 </g>
-                {{ $isDownload := eq .Params.title "Search Online Pcaps" }}
+                {{ $isDownload := eq .Params.title "Search Pcaps" }}
                 <g class={{ if $isDownload }}"node highlight"{{ else }}"node others"{{end}} id="DL" transform="translate(354.0703125,221.25)" style="opacity: 1;">
                     <rect rx="5" ry="5" x="-74.7421875" y="-22.5" width="149.484375" height="45" {{ if $isDownload }}style="stroke-width:3px;"{{end}}></rect>
                     <g class="label" transform="translate(0,0)">
                         <g transform="translate(-64.7421875,-12.5)">
                             <foreignObject width="131.484375" height="25">
-                                <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">{{ if not $isDownload }}<a href="/download/">{{end}}<i class="fa fa-download"></i> Download Pcap{{ if not $isDownload }}</a>{{end}}</div>
+                                <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">{{ if not $isDownload }}<a href="/search/">{{end}}<i class="fa fa-search"></i> Search Pcaps{{ if not $isDownload }}</a>{{end}}</div>
                             </foreignObject>
                         </g>
                     </g>

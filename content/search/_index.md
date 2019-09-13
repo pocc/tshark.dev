@@ -1,5 +1,5 @@
 ---
-title: "Search Online Pcaps"
+title: "Search Pcaps"
 description: "\"There's nothing that cannot be found through some search engine or on the Internet somewhere.\" – Eric Schmidt"
 date: 2019-07-01
 author: Ross Jacobs
@@ -25,9 +25,9 @@ Of these, Wireshark's [Sample Captures](https://wiki.wireshark.org/SampleCapture
 ## Searching Captures
 
 Wouldn't it be nice if you could search existing packet captures for a protocol?  
-Well now you can with [Search Pcaps](/download/search_pcaps). Search over 6000 pcaps to find the right one!
+Well now you can with [Search Pcaps](/search/pcaptable). Search over 6000 pcaps to find the right one!
 
-<a href="/download/search_pcaps"><img src="https://dl.dropboxusercontent.com/s/436v02uq6gnnf4b/pcapsearch_screenshot.png" alt="Searching Packet Capturesl" /></a>
+<a href="/search/pcaptable"><img src="https://dl.dropboxusercontent.com/s/436v02uq6gnnf4b/pcapsearch_screenshot.png" alt="Searching Packet Capturesl" /></a>
 
 ### Search Syntax
 
