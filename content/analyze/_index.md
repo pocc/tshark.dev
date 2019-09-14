@@ -19,8 +19,6 @@ This section covers how to use tshark and friends to serve this purpose.
 When in doubt, consult relevant [RFCs](https://tools.ietf.org/rfc/index), protocol documentation, and product manuals.
 {{% /notice %}}
 
-<a href="/analyze/packet_hunting/tshark_analysis/"><img src="https://www.steptwo.com.au/wp-content/uploads/kmc_fixingsearch-W.jpg" alt="Search for Traffic" style="width:61%;"></a>
-
 ## Table of Contents
 
 {{% children description="true" depth="4" %}}
