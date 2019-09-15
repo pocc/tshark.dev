@@ -5,11 +5,15 @@ date: 2019-08-03
 author: Ross Jacobs
 
 summary: '[manpage](https://www.wireshark.org/docs/man-pages/tshark.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) | [code](https://github.com/wireshark/wireshark/blob/master/tshark.c)'
-weight: 5
+weight: 30
 draft: false
 ---
 
-Tshark is the namesake of this website. This is tshark's help page, with links to relevant pages.
+Tshark is the namesake of this website. Like Wireshark, tshark uses [dumpcap](/capture/dumpcap) as its capturing engine.
+
+{{%notice tip%}}
+Below is tshark's help page, with links to relevant pages. Use it as another map if you are trying to better understand an option.
+{{%/notice%}}
 
 <pre class="language-text" data-lang="sh">bash$ tshark --help
 TShark (<a href="https://www.wireshark.org">Wireshark</a>) 3.0.3 (v3.0.3-0-g6130b92b0ec6)

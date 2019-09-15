@@ -5,7 +5,7 @@ date: 2019-8-03
 author: Ross Jacobs
 
 summary: '[manpage](https://www.wireshark.org/docs/man-pages/dumpcap.html) | [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/AppToolsdumpcap.html) | [code](https://github.com/wireshark/wireshark/blob/master/dumpcap.c)'
-weight: 97
+weight: 20
 draft: false
 ---
 

@@ -5,11 +5,9 @@ date: 2019-06-07
 author: Ross Jacobs
 
 pre: <b><i class="fas fa-network-wired"></i> </b>
-weight: 10
+weight: 35
 draft: false
 ---
-
-<img src="https://media.giphy.com/media/9g2MtMzYF30WY/giphy.gif" alt="Packets">
 
 When trying to find the root of a network problem, it helps to look at the packets that might be a symptom.
 In order to look at these packets, you must first capture them. This section covers setting up many types of interfaces

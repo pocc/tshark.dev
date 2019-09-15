@@ -27,10 +27,6 @@ and one responded
 
 ### Reasons not to use rawshark
 
-What figuring out the syntax for rawshark feels like:
-
-<img src="https://media2.giphy.com/media/d31vYmpaCrKs9Z6w/giphy.gif" alt="Not Recommended">
-
 - You MUST specify the [tcpdump link-layer header
   type](https://www.tcpdump.org/linktypes.html) or protocol name before any
   others (and sometimes it isn't clear [which

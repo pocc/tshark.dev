@@ -47,7 +47,21 @@ HUGO_ENABLEGITINFO = "true"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
 
+# Required for expected behavior
 [[redirects]]	
   from = "/home"	
   to = "/"	
+  status = 301
+# A couple pages that have 10+ 404s after page movement (so redirect)
+[[redirects]]	
+  from = "/download/search"
+  to = "/search/pcaptable"
+  status = 301
+[[redirects]]	
+  from = "/packetcraft/tshark_colorized/"
+  to = "/packetcraft/add_context/tshark_colorized/"
+  status = 301
+[[redirects]]	
+  from = "/analyze/add_context/name_resolution/"
+  to = "/packetcraft/add_context/name_resolution/"
   status = 301
