@@ -29,3 +29,7 @@ home = [ "HTML", "RSS", "JSON"]
 [Languages]
 [Languages.en]
 languageName = "English"
+
+# In order to get raw HTML (https://discourse.gohugo.io/t/raw-html-getting-omitted-in-0-60-0/22032)
+[markup.goldmark.renderer]
+unsafe = true

@@ -3,14 +3,3 @@
     console.log("running some javascript");
 </script>
 -->
-<script>
-  (function androidMermaidMapWarning() { // Hide Mermaid Map for Android Chrome (see github.com/pocc/tshark.dev/issues/7)
-    if (navigator.userAgent.includes("Android") && navigator.userAgent.includes("Chrome")) {
-      var newEl = document.createElement('div');
-      newEl.innerHTML = '<div class="notices warning"><p>You are using Android/Chrome, which <i>can</i> break diagram button text and links. Android/Firefox and every other Android browser work fine.<br><br>If the diagram is broken for you, please post these to the <a href="https://github.com/pocc/tshark.dev/issues/7">Android SVG Issue</a><br>&nbsp;• Phone model<br>&nbsp;• Android Version<br>&nbsp;• Chrome Version</p></div>';
-      [].forEach.call(document.querySelectorAll('.page-description'), function (el) {
-          el.parentNode.insertBefore(newEl, el.nextSibling);
-      });
-    }
-  })()
-</script>
