@@ -15,7 +15,7 @@ Where available, prefer your [package manager](https://en.wikipedia.org/wiki/Pac
 
 | System  | Install Command                 | Latest Version |
 |---------|---------------------------------|-----------------|
-| Linux   | `$PkgManager install wireshark` | 2.6.8 and below |
+| Linux   | `$PkgManager install tshark` | 2.6.8 and below |
 | Macos   | `brew cask install wireshark`   | 3.0.2           |
 | Windows | `choco install wireshark`       | 3.0.2           |
 
