@@ -13,10 +13,10 @@ draft: false
 
 Where available, prefer your [package manager](https://en.wikipedia.org/wiki/Package_manager). Note that Wireshark v3 is not currently available on many Linux package managers (this will change soon).
 
-| System  | Install Command                 | Latest Version |
+| System  | Install Command                 | Latest Version  |
 |---------|---------------------------------|-----------------|
 | Linux   | `$PkgManager install wireshark` | 2.6.8 and below |
-| Macos   | `brew cask install wireshark`   | 3.0.2           |
+| Macos   | `brew install --cask wireshark` | 3.0.2           |
 | Windows | `choco install wireshark`       | 3.0.2           |
 
 ## Install with a package
