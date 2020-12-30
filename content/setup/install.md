@@ -9,7 +9,7 @@ weight: 10
 draft: false
 ---
 
-## Install with a Package Manager
+## Install Wireshark with a Package Manager
 
 Where available, prefer your [package manager](https://en.wikipedia.org/wiki/Package_manager). Note that Wireshark v3 is not currently available on many Linux package managers (this will change soon).
 
@@ -18,6 +18,34 @@ Where available, prefer your [package manager](https://en.wikipedia.org/wiki/Pac
 | Linux   | `$PkgManager install wireshark` | 2.6.8 and below |
 | Macos   | `brew install --cask wireshark` | 3.0.2           |
 | Windows | `choco install wireshark`       | 3.0.2           |
+
+### Installing tshark Only
+
+**Note**: If you have not used tshark before, you should install the `wireshark`
+package as above before limiting yourself to the CLI.
+
+If you want to install just tshark and no Qt/GUI components, this is possible on
+various linux distributions. The package is called `tshark` or `wireshark-cli`
+depending on the platform.
+
+Install the package `tshark`:
+
+* Alpine >= 3.9
+* Debian >= 9
+* FreeBSD >= 11
+* OpenMandriva >= 3.0
+* PCLinuxOS
+* Ubuntu >= 14.04
+
+Install the package `wireshark-cli`.
+* Arch Linux
+* CentOS >= 8
+* Fedora >= 30
+* RedHat
+
+For up-to-date package information, check the package registry for
+[tshark](https://pkgs.org/search/?q=tshark) and
+[wireshark-cli](https://pkgs.org/search/?q=wireshark-cli) 
 
 ## Install with a package
 
