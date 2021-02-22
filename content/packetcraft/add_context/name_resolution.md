@@ -27,8 +27,8 @@ The highlighted "data sources" listed here are files in the [profiles folder](/p
 | `-Nv`         | vlan            | `vlans`                             |             |
 | `-Nt`         | port            | `services`                          |             |
 | `-Nn`         | dns             | system `hosts`                      | To use only Wireshark's hosts file, use `-o nameres.hosts_file_handling:TRUE` |
-| `-NN`         | dns             | Use external resolvers              | ≈ `-o 'nameres.dns_pkt_addr_resolution:TRUE'`                                 |
-| `-Nd`         | dns             | Use capture file's<br>DNS responses | ≈ `-o 'nameres.use_external_name_resolver:TRUE'`                              |
+| `-NN`         | dns             | Use external resolvers              | ≈ `-o 'nameres.use_external_name_resolver:TRUE'`                              |
+| `-Nd`         | dns             | Use capture file's<br>DNS responses | ≈ `-o 'nameres.dns_pkt_addr_resolution:TRUE'`                                 |
 | `-H $file`    | dns             | `$file` you specify                 | ≈ `-Wn`; Adds DNS info from a file for this session; Requires -Nn             |
 
 Here, `ethers`, `vlans`, `services`, `hosts` are loaded by *shark from the global/personal config directory (See [Wireshark Docs](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html#ChAppFilesConfigurationSection)).
