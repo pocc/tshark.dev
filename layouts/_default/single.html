@@ -1,4 +1,6 @@
 {{ partial "header.html" . }}
+{{ partial "mermaid-map.html" .FirstSection }}
+<hr>
 <div class="page-description"><i>{{ .Description }}</i></div>
 <div class="page-description"><i class="fas fa-clock"></i> {{ .ReadingTime }} min　|　<i class="fas fa-feather-alt"></i> {{ .Params.Author }}　|　<i class="far fa-calendar-check"></i> {{ .Date.Format "January 1, 2006"}}</div>
 

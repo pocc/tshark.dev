@@ -15,5 +15,6 @@ _gen/
 _build/
 resources/
 public/
+.hugo_build.lock
 *pdf*
 *tex*
