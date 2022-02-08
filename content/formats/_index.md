@@ -9,7 +9,7 @@ weight: 50
 draft: false
 ---
 
-<a href="/formats/format_usage"><img src="https://dl.dropboxusercontent.com/s/qcu8n0pyewnzk3r/google_pie_chart.png" alt="Capture Format Comparison" style="width:61%"></a>
+<a href="/formats/format_usage"><img src="/images/google_pie_chart.png" alt="Capture Format Comparison" style="width:61%"></a>
 
 {{% notice tip %}}
 If you are happy with your capture's/stream's file type, you can safely skip this section.
@@ -32,7 +32,7 @@ bash$ tshark -f ipx -a duration:1 -F pcap -w - 2>/dev/null | xxd -u
 The first 24 bytes should look like the logo up left ([capture headers](/formats/sample_capture_headers) may differ on your system).
 Of those, the first 4 bytes, `D4C3 B2A1`, are the [magic bytes](/formats/magic_numbers) that identify the capture as a `pcap` file.
 
-<a href="/formats/format_usage"><img src="https://dl.dropboxusercontent.com/s/txvh306zp3nppuj/logo_pcap_header.png" alt="Derivation of the Tshark Logo" style="text-align:left;margin:0px;margin-left:40px;"></a>
+<a href="/formats/format_usage"><img src="/images/logo_pcap_header.png" alt="Derivation of the Tshark Logo" style="text-align:left;margin:0px;margin-left:40px;"></a>
 
 Packet-Foo has a [good article](https://blog.packet-foo.com/2015/08/frame-bytes-vs-frame-file-headers/) on the difference between file header and file bytes that goes into more depth.
 

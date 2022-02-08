@@ -54,7 +54,7 @@ If your description of the problem is lacking, you may want to gather more data.
 
 ### Analysis
 
-<a href="https://www.wireshark.org/docs/wsug_html_chunked/ChAdvExpert.html"><img src="https://dl.dropboxusercontent.com/s/1lmpu4e3uu9yplm/wireshark_expert_item.cmp.png" alt="Wireshark makes it easy to be an expert"></a>
+<a href="https://www.wireshark.org/docs/wsug_html_chunked/ChAdvExpert.html"><img src="/images/wireshark_expert_item.cmp.png" alt="Wireshark makes it easy to be an expert"></a>
 
 <p style="text-align:center"><i>Wireshark makes it easy to be an expert.</i></p>
 

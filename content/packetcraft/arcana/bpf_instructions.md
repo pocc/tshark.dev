@@ -90,7 +90,7 @@ Putting this in a table:
 Visualizing this with a flowchart, it may be more apparent what is happening. Given that IPv4 has a variable-length header, figuring out
 how long it is takes a couple extra steps (11-13).
 
-<img src="https://dl.dropboxusercontent.com/s/hoz5mm42zj8faff/bpf_tcp_443.svg" alt="Diagram of BPF instructions" style="width:90%">
+<img src="/images/bpf_tcp_443.svg" alt="Diagram of BPF instructions" style="width:90%">
 
 {{% notice note %}}
 IPv6 steps 4-7 and IPv4 steps 14-17 are combined here as they are identical.
@@ -114,7 +114,7 @@ Based on the data found in this packet, the order of processing should be 0 -> 1
 
 We can then use the power of MS Paint to follow the BPF code as it loads and skips to various bytes.
 
-<img src="https://dl.dropboxusercontent.com/s/7imisw5o4zb74mc/dumpcap_bpf_instructions.png" alt="Manually navigating BPF hex" style="width:90%">
+<img src="/images/dumpcap_bpf_instructions.png" alt="Manually navigating BPF hex" style="width:90%">
 
 | Steps |  Explanation |
 |-------|--------------|

@@ -14,7 +14,7 @@ draft: false
 Wouldn't it be nice if you could search existing packet captures for a protocol?  
 Well now you can with [Search Pcaps](/search/pcaptable). Search over 6000 pcaps to find the right one!
 
-<a href="/search/pcaptable"><img src="https://dl.dropboxusercontent.com/s/436v02uq6gnnf4b/pcapsearch_screenshot.png" alt="Searching Packet Capturesl" /></a>
+<a href="/search/pcaptable"><img src="/images/pcapsearch_screenshot.png" alt="Searching Packet Capturesl" /></a>
 
 ### Search Syntax
 

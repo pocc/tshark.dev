@@ -38,11 +38,11 @@ Specifying the save file with `-w $file` is faster than creating and searching f
 
 ### How to find it in Wireshark
 
-<img src="https://dl.dropboxusercontent.com/s/fb65vq02zmh9lyc/wireshark_temp_file.webp" alt="Finding the temp file Wireshark creates">
+<img src="/images/wireshark_temp_file.webp" alt="Finding the temp file Wireshark creates">
 
 ### How to find it in dumpcap
 
-<img src="https://dl.dropboxusercontent.com/s/glu9t7c8ukgo19d/dumpcap_temp_file.png" alt="Finding the temp file dumpcap creates">
+<img src="/images/dumpcap_temp_file.png" alt="Finding the temp file dumpcap creates">
 
 ## Further Reading
 

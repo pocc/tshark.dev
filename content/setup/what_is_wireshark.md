@@ -18,7 +18,7 @@ packets with display filters and then use the packet details pane to look at the
 Wireshark is well documented with the [Official Documentation](https://www.wireshark.org/docs/)
 and the [Wireshark Forums](https://ask.wireshark.org), among others.
 
-<a href="/setup/install"><img src="https://dl.dropboxusercontent.com/s/lh17bbhgeumqo2j/wireshark_example.png" style="width:61%" alt="Parts of Wireshark"></a>
+<a href="/setup/install"><img src="/images/wireshark_example_welcome.png" style="width:61%" alt="Parts of Wireshark"></a>
 
 <p style="text-align:center"><i>Here we see the details and bytes of the selected packet.</i></p>
 
@@ -32,4 +32,4 @@ All are documented online with [manpages](https://www.wireshark.org/docs/man-pag
 
 Most existing documentation on Wireshark focuses on the GUI. Wireshark's CLI is just as good for most tasks and far better for scripting. This guide's focus is tshark for these reasons.
 
-<a href="/setup/install"><img src="https://dl.dropboxusercontent.com/s/xu2ufkngsrgrfrm/tshark_example.png" style="width:61%" alt="Tshark Example"></a>
+<a href="/setup/install"><img src="/images/tshark_example_welcome.png" style="width:61%" alt="Tshark Example"></a>

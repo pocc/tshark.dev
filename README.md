@@ -7,7 +7,7 @@
 <img src="/.github/lighthouse/lighthouse_seo.svg" alt="Lighthouse SEO Badge">
 
 <br><br>
-<a href="https://tshark.dev"><img src="https://dl.dropboxusercontent.com/s/nrz5y62f4d70p00/tshark_logo.cmp.png" alt="tshark.dev screenshot"/></a>
+<a href="https://tshark.dev"><img src="/images/tshark_logo.cmp.png" alt="tshark.dev screenshot"/></a>
 <br><br>
 
 [tshark.dev](https://tshark.dev) exists to teach you about packet analysis.
@@ -38,7 +38,7 @@ site generator. Most of the HTML/CSS/JS, shortcodes, and partials come from the 
 
 ## Contributing
 
-<a href="https://www.patreon.com/bePatron?u=23107486"><img class="patreon" src="https://dl.dropboxusercontent.com/s/olcfumplfco2sov/patreon_button.png" alt="Become a Patron!"></a>
+<a href="https://www.patreon.com/bePatron?u=23107486"><img class="patreon" src="/images/patreon_button.png" alt="Become a Patron!"></a>
 
 Support me if you like good documentation!
 

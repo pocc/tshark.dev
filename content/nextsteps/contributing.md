@@ -30,7 +30,7 @@ There are many equivalent ways of doing this, depending on your communication st
 * <u>**Email**</u>: If you do not want to use github, you can interact with the contributors by emailing tshark_dev[АТ]fire.fundersclub.com. This will make a github issue that functions like an email chain from your perspective.
 * <u>**Contact**</u>: If you do not want your issue to be public, you can contact me directly at rj[АТ]tshark.dev
 
-<a href="https://www.patreon.com/bePatron?u=23107486"><img class="patreon" src="https://dl.dropboxusercontent.com/s/olcfumplfco2sov/patreon_button.png" alt="Become a Patron!"></a>
+<a href="https://www.patreon.com/bePatron?u=23107486"><img class="patreon" src="/images/patreon_button.png" alt="Become a Patron!"></a>
 
 _Support this website to get a link to a pdf that stays current with new content._
 

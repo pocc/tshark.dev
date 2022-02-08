@@ -157,7 +157,7 @@ For both tshark, dumpcap, and tcpdump, you can limit the external DNS lookups th
 
 ## Running Out of Time
 
-<a href="https://xkcd.com/716/"><img src="https://dl.dropboxusercontent.com/s/q2m2y80cf3pdtp5/time_for_tshark.jpg" alt="Time for tshark"></a>
+<a href="https://xkcd.com/716/"><img src="/images/time_for_tshark.jpg" alt="Time for tshark"></a>
 
 Tshark can limit the capture's size before it started! `--time-travel` will start working whenever it will have been implemented.
 In the meantime, start your capture with the correct flags.

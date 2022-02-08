@@ -211,7 +211,7 @@ Specify a hosts file by name. Let's say that burritos and tacos found their way 
 
 And we have a capture with 4 pings and responses to 8.8.8.8. Using -H and -Nn we can see these entries.
 
-<img src="https://dl.dropboxusercontent.com/s/pxvll6beaqy7sqx/emoji_hosts_-H.png" alt="Fun with Emoji and Hosts file" style="width:70%">
+<img src="/images/emoji_hosts_-H.png" alt="Fun with Emoji and Hosts file" style="width:70%">
 
 <u>**[David Attenborough's voice]**</u> _We are about to experience one of the great phenomena of the natural world. Observe the taco and burrito emojis battle for dominance in their native habitat._
 

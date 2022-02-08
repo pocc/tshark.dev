@@ -24,7 +24,7 @@ enableRobotsTXT = true
   version = "v0.1"
 
 [outputs]
-home = [ "HTML", "RSS", "JSON"]
+home = ["HTML", "RSS", "JSON"]
 
 [Languages]
 [Languages.en]

@@ -11,7 +11,7 @@ draft: false
 
 We hope you have enjoyed using this guide. Other adventures await.
 
-<a href="/nextsteps/links"><img src="https://dl.dropboxusercontent.com/s/f8kgka7x33ui7pp/thank_you_mario.png" alt="OUR PRINCESS IS IN ANOTHER CASTLE"></a>
+<a href="/nextsteps/links"><img src="/images/thank_you_mario.png" alt="OUR PRINCESS IS IN ANOTHER CASTLE"></a>
 
 #### Table of Contents
 
