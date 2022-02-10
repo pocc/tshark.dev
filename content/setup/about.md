@@ -9,6 +9,16 @@ weight: 5
 draft: false
 ---
 
+## What is tshark.dev?
+
+The focus here is on doing everything in the CLI because that is an interface your scripts and programs can use. Bash features prominently here, with some examples also in python and ruby. Programs such as
+[Termshark](https://termshark.io) and [PyShark](https://kiminewt.github.io/pyshark/) do novel things by leveraging tshark. You can too by using this guide!
+
+For the uninitiated, tshark is the CLI component of Wireshark (see below), and both help you troubleshoot network problems. If you do not have Wireshark installed and configured, [<i class="fas fa-map-marked"></i>  Start Here](/setup).
+Use the minimap or sidebar to find what you need.
+
+This is a living, breathing guide. [Contributions](/nextsteps/contributing) and suggestions are welcome!
+
 ## What is Wireshark?
 
 [Wireshark](https://en.wikipedia.org/wiki/Wireshark) is a tool used to visualize network issues (see below).
@@ -33,3 +43,10 @@ All are documented online with [manpages](https://www.wireshark.org/docs/man-pag
 Most existing documentation on Wireshark focuses on the GUI. Wireshark's CLI is just as good for most tasks and far better for scripting. This guide's focus is tshark for these reasons.
 
 <a href="/setup/install"><img src="/images/tshark_example_welcome.png" style="width:61%" alt="Tshark Example"></a>
+
+## How Is This Different from Wireshark Docs?
+
+Most Wireshark documentation focuses on the GUI. In its many forms, it spans two Wireshark guides, multiple forums, a wiki, man pages, developer email chains, etc. That is not to say the existing documentation is not good. You will find what you are looking for eventually.
+
+Being outside of the Wireshark project allows this website to cover topics that are external to it.
+Depending on the article, this can vary from scripting with bash or example usage of other programs. Tshark.dev and Wireshark docs are related but differ in their scopes.
