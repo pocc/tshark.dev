@@ -14,7 +14,7 @@ with the use of color. Relatively recently, tshark has gained this ability too
 with the `--color` flag. This article goes over how to set it up on your system.
 
 <img src="https://dl.dropboxusercontent.com/s/pt45pphiekt4srh/packets_the_universal_interface.png" alt="Color on all 4 Operating Systems" style="width:61%;">
-<div style="text-align:center;">_Demonstration of tshark \-\-color on Windows, Macos, Linux, and BSD._</div>
+<div style="text-align:center;">Demonstration of tshark --color on Windows, Macos, Linux, and BSD.</div>
 
 ## Aliasing Tshark for Color
 
