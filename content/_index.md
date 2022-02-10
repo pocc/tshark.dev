@@ -10,7 +10,7 @@ draft: false
 
 <hr>
 <p style="text-align:center;">tshark.dev is your complete guide to working with packet captures on the command-line.</p>
-<p style="text-align:center;">Everyone processes information differently, so there are three styles of sitemap on this page.</p>
+<p style="text-align:center;">Everyone processes information differently, so there are three styles of sitemap on this page</p>
 
 ## Sitemap in tshark \-\-help
 
