@@ -95,11 +95,11 @@ These files are from the Wireshark Repo or my system.
 
 #### My system files
 
-* [hosts](/images/hosts): Hosts file from an install of Ubuntu 18.04
-* [preferences](/images/preferences): Preferences file from Macos
-* [recent](/images/recent): Recent GUI settings from Macos
-* [disabled_protos](/images/disabled_protos): Contains some gaming protocols that I'll never look at
-* [ethers](/images/ethers): List of 3 MAC addresses and names
+* [hosts](/files/hosts): Hosts file from an install of Ubuntu 18.04
+* [preferences](/files/preferences): Preferences file from Macos
+* [recent](/files/recent): Recent GUI settings from Macos
+* [disabled_protos](/files/disabled_protos): Contains some gaming protocols that I'll never look at
+* [ethers](/files/ethers): List of 3 MAC addresses and names
 
 #### For Use with VLAN Example
 
@@ -212,8 +212,6 @@ Specify a hosts file by name. Let's say that burritos and tacos found their way 
 And we have a capture with 4 pings and responses to 8.8.8.8. Using -H and -Nn we can see these entries.
 
 <img src="/images/emoji_hosts_-H.png" alt="Fun with Emoji and Hosts file" style="width:70%">
-
-<u>**[David Attenborough's voice]**</u> _We are about to experience one of the great phenomena of the natural world. Observe the taco and burrito emojis battle for dominance in their native habitat._
 
 ## Further Reading
 

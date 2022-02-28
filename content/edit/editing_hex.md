@@ -23,11 +23,11 @@ Visually, this looks like:
 
 ### Before Hex Edit
 
-<img src="/images/hexedit_before.png" alt="Before hex edit" style="width:61%">
+<img src="/images/hexedit_before.cmp.png" alt="Before hex edit" style="width:61%">
 
 ### After Hex Edit (All Solutions)
 
-<img src="/images/hexedit_after.png" alt="After hex edit" style="width:61%">
+<img src="/images/hexedit_after.cmp.png" alt="After hex edit" style="width:61%">
 
 ## Scripted Solutions
 
@@ -139,7 +139,7 @@ and then save the file.
 regex is not available in hex search.
 {{% /notice %}}
 
-<img src="/images/hexed.it_sample.png" alt="Using hexed.it" style="width:80%">
+<img src="/images/hexed.it_sample.cmp.png" alt="Using hexed.it" style="width:80%">
 
 ### Honorable Mentions
 

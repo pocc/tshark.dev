@@ -1,0 +1,12 @@
+# vlans file to be used with capture at https://is.gd/vlancap
+# Made for https://tshark.dev/packetcraft/config_files, Ross Jacobs, 2019-08-07
+# Use for any purpose as long as you keep this header. 
+5  Winternet_Is_Coming
+6  Nothing2CHere
+7  The_Promised_LAN
+10  Go-Go-Gadget-Internet
+20  AccessDenied
+32  VladimirComPutin
+104  LANofMilkandHoney
+108  GetOffMyLAN
+112  Drop-it-Like-its-a-Hotspot
