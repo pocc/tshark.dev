@@ -12,7 +12,7 @@ draft: false
 ## About
 
 Dumpcap is the part of the wireshark suite that captures packets.
-Unlike Wireshark and tshark, dumpcap cannot see non-physical interfaces like [extcap interfaces](/capture/sources/extcap_interfaces).
+Unlike Wireshark and tshark, dumpcap cannot see non-physical interfaces like [extcap interfaces](/capture/sources/extcap_interfaces/).
 tshark has most of the same flags that dumpcap has because tshark calls dumpcap for much of its capture functionality.
 
 Under high loads, there is [some evidence](https://www.networkcomputing.com/networking/wireshark-packet-capture-tshark-vs-dumpcap) that tshark drops more packets than dumpcap; however, these results
@@ -46,5 +46,5 @@ Specifying the save file with `-w $file` is faster than creating and searching f
 
 ## Further Reading
 
-* [Generate BPF code](/packetcraft/arcana/bpf_instructions) with `dumpcap -d`
+* [Generate BPF code](/packetcraft/arcana/bpf_instructions/) with `dumpcap -d`
 * [How to use Dumpcap to capture a rolling packet trace](https://support.microfocus.com/kb/doc.php?id=7015122)

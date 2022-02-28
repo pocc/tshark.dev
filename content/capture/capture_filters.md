@@ -15,23 +15,23 @@ Capture filters are used to decrease the size of captures by filtering out packe
 
 To specify a capture filter, use `tshark -f "${filter}"`. For example, to capture pings or tcp traffic on port 80, use `icmp or tcp port 80`.
 
-<img src="https://dl.dropboxusercontent.com/s/fkki87x7rkuazr0/tshark_capture_filter.cmp.png" alt="Example Capture Filter" style="width:90%;">
+<img src="/images/tshark_capture_filter.cmp.png" alt="Example Capture Filter" style="width:90%;">
 
-To see how your capture filter is parsed, use [dumpcap](/capture/dumpcap). Below is how `ip` is parsed.
+To see how your capture filter is parsed, use [dumpcap](/capture/dumpcap/). Below is how `ip` is parsed.
 
-<a href="/capture/dumpcap/#example-dumpcap-d"><img src="https://dl.dropboxusercontent.com/s/hgdf29eq9kd9uvl/dumpcap_d_example.cmp.png" alt="Dumpcap adventure" style="width:40%"></a>
+<a href="/capture/dumpcap/#example-dumpcap-d"><img src="/images/dumpcap_d_example.cmp.png" alt="Dumpcap adventure" style="width:40%"></a>
 
-If this intrigues you, [capture filter deconstruction](/packetcraft/arcana/bpf_instructions) awaits.
+If this intrigues you, [capture filter deconstruction](/packetcraft/arcana/bpf_instructions/) awaits.
 
 ## Capture vs Display Filters
 
-Wireshark uses two types of filters: Capture Filters and [Display Filters](/analyze/packet_hunting/packet_hunting). By comparison, display filters are more versatile, and can be used to
+Wireshark uses two types of filters: Capture Filters and [Display Filters](/analyze/packet_hunting/packet_hunting/). By comparison, display filters are more versatile, and can be used to
 select for expert infos that can be determined with a multipass analysis. For
 example, if you want to see all pings that didn't get a response,
 `tshark -r file.pcap -Y "icmp.resp_not_found"` will do the job.
 Capture filters cannot be this intelligent because their keep/drop decision is based on a single pass.
 
-Capture filters operate on raw packet bytes with no [capture format](/formats) bytes getting in the way.
+Capture filters operate on raw packet bytes with no [capture format](/formats/) bytes getting in the way.
 You cannot use them on an existing file or when reading from stdin for this reason.
 
 ## Further Reading

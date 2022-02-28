@@ -14,7 +14,7 @@ Saving space is as simple as learning your `-abcs`!
 ## Running Out of Space
 
 {{% notice tip %}}
-You should use these options only after optimizing your [capture filter](/capture/capture_filters) to drop unimportant packets.
+You should use these options only after optimizing your [capture filter](/capture/capture_filters/) to drop unimportant packets.
 {{% /notice %}}
 
 When capturing, \*shark will save packets to a file. If you specify a file to save to with `-w`, then it will be that one. Otherwise, a temporary file is created and [located somewhere](/capture/dumpcap/#finding-the-generated-temporary-file).
@@ -143,7 +143,7 @@ tshark -r ipv6_udp.pcapng -T fields -e frame.len -e frame.cap_len
 210	62
 ```
 
-Sure enough, we see the expected values. [Packet](https://dl.dropboxusercontent.com/s/8d2dfcbgxtozlq9/ipv6_udp_snaplen.pcapng) used in example.
+Sure enough, we see the expected values. [Packet](/pcaps/ipv6_udp_snaplen.pcapng) used in example.
 
 {{% notice note%}}
 If a snaplen is not used in a capture, `frame.len` will equal `frame.cap_len`.

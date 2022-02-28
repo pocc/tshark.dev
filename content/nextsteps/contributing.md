@@ -13,7 +13,7 @@ draft: false
 
 ### Writing Content
 
-If you want to help write content, I created a long [wishlist](/nextsteps/wishlist) of things I would like better documented or at all.
+If you want to help write content, I created a long [wishlist](/nextsteps/wishlist/) of things I would like better documented or at all.
 
 ### Issues
 

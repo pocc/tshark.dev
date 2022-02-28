@@ -19,7 +19,7 @@ The internet is a testament to our ability to put aside our differences and agre
 
 ### Format Prevalence Today
 
-The majority of captures that you will deal with today are `pcap` or `pcapng`. With the prevalence of linux, libpcap, tcpdump, and Wireshark in network devices, most vendors now support the pcap-type natively or produce a hexdump that [can be converted](/edit/text2pcap).
+The majority of captures that you will deal with today are `pcap` or `pcapng`. With the prevalence of linux, libpcap, tcpdump, and Wireshark in network devices, most vendors now support the pcap-type natively or produce a hexdump that [can be converted](/edit/text2pcap/).
 
 <div id="piechart" style="width: 900px; height: 500px;"></div>
 
@@ -29,10 +29,10 @@ _This pie chart is based on 6,734 captures from [PacketLife](http://packetlife.n
 
 | Utilities                                                                                                    | Output formats                                 | Default |
 | ----------------------------------                                                                           | ---------------------------------------------  | ------- |
-| [tshark](/capture/tshark), [dumpcap](/capture/dumpcap), [editcap](/edit/editcap), [mergecap](/edit/mergecap) | `$cmd -F`<a href="#utils1"><sup>1</sup></a>    | pcapng  |
-| [text2pcap](/edit/text2pcap)                                                                                 | pcap, pcapng (use `-n`)                        | pcap    |
+| [tshark](/capture/tshark/), [dumpcap](/capture/dumpcap/), [editcap](/edit/editcap/), [mergecap](/edit/mergecap/) | `$cmd -F`<a href="#utils1"><sup>1</sup></a>    | pcapng  |
+| [text2pcap](/edit/text2pcap/)                                                                                 | pcap, pcapng (use `-n`)                        | pcap    |
 | [randpkt](/generation/randpkt/)                                                                              | pcap                                           | pcap    |
-| [reordercap](/edit/reordercap)                                                                               | same as input                                  | -       |
+| [reordercap](/edit/reordercap/)                                                                               | same as input                                  | -       |
 
 <sup id="utils1">1</sup> Specify a format with `$cmd -F <fmt>` and use `$cmd -F`
 to see formats available to tshark and friends.

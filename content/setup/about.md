@@ -14,10 +14,10 @@ draft: false
 tshark.dev is your complete guide to working with packet captures on the command-line. The focus here is on doing everything in the CLI because that is an interface your scripts and programs can use. Bash features prominently here, with some examples also in python and ruby. Programs such as
 [Termshark](https://termshark.io) and [PyShark](https://kiminewt.github.io/pyshark/) do novel things by leveraging tshark. You can too by using this guide!
 
-For the uninitiated, tshark is the CLI component of Wireshark (see below), and both help you troubleshoot network problems. If you do not have Wireshark installed and configured, [<i class="fas fa-map-marked"></i>  Start Here](/setup).
+For the uninitiated, tshark is the CLI component of Wireshark (see below), and both help you troubleshoot network problems. If you do not have Wireshark installed and configured, [<i class="fas fa-map-marked"></i>  Start Here](/setup/).
 Use the minimap or sidebar to find what you need.
 
-This is a living, breathing guide. [Contributions](/nextsteps/contributing) and suggestions are welcome!
+This is a living, breathing guide. [Contributions](/nextsteps/contributing/) and suggestions are welcome!
 
 ## What is Wireshark?
 

@@ -87,18 +87,18 @@ If a heading has a slash at the end, that means it's a folder; otherwise it's a 
 
 ## Add to Existing Content
 
-### [/capture/capture_filters](/capture/capture_filters)
+### [/capture/capture_filters](/capture/capture_filters/)
 
 * Add demonstration of decrease in file size along with a scenario where there is traffic you care about
 
-### [/capture/sources/pipe](/capture/sources/pipe)
+### [/capture/sources/pipe](/capture/sources/pipe/)
 
 * [ ] Document tshark -l (goes with Pipe info)
 
-### [/edit/editcap](/edit/editcap)
+### [/edit/editcap](/edit/editcap/)
 
 * [ ] editcap fuzzing example (-E, --seed, -o)
 
-### [/edit/editing_hex](/edit/editing_hex)
+### [/edit/editing_hex](/edit/editing_hex/)
 
 * [ ] Removing content with -s &lt;snaplen&gt;, -L, -C

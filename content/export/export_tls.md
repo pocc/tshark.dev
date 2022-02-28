@@ -4,7 +4,7 @@ description: "Export files from a capture encrypted with TLS 1.2/1.3"
 date: 2019-07-04
 author: Ross Jacobs
 
-summary: '[Wireshark Equivalent](https://redflagsecurity.net/2019/03/10/decrypting-tls-wireshark/)'
+summary: '[Wireshark Equivalent](https://web.archive.org/web/20210304185226/https://redflagsecurity.net/2019/03/10/decrypting-tls-wireshark/)'
 weight: 21
 draft: false
 ---

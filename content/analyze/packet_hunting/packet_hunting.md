@@ -20,7 +20,7 @@ To use a display filter with tshark, use the `-Y 'display filter'`. Single quote
 [bash expansions](https://unix.stackexchange.com/questions/4956/how-to-properly-escape-exclamation-points-in-bash) and
 problems with spaces.
 
-If you create a filter and want to see how it is evaluated, [dftest](/analyze/packet_hunting/dftest) is bundled with Wireshark.
+If you create a filter and want to see how it is evaluated, [dftest](/analyze/packet_hunting/dftest/) is bundled with Wireshark.
 
 ### Layers 2-4
 

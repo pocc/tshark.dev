@@ -27,7 +27,7 @@ Using editcap is the shortest here and allows you to replace to the same file.
 editcap cut_short.pcap cut_short.pcap
 ```
 
-You can also make sure that the packet capture is correctly ordered with [reordercap](/edit/reordercap):
+You can also make sure that the packet capture is correctly ordered with [reordercap](/edit/reordercap/):
 
 ```bash
 reordercap coolStory.pcap temp.pcap
@@ -61,7 +61,7 @@ When linking to an online resource in an email, it is best to verify that it wor
 {{% /notice %}}
 
 Use a service like dropbox or google drive to host your file(s).
-If the packet capture has sensitive information, [edit it out](/edit/sanitizing_hex) as feasible.
+If the packet capture has sensitive information, [edit it out](/edit/sanitizing_hex/) as feasible.
 
 You will also need to share the file with the target audience.
 If there are specific recipients in mind, you should specify

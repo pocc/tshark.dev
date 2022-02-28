@@ -109,7 +109,7 @@ bash$ tshark -r existing.pcapng -Y "tcp" -c 1 -x
 0030  20 0c d3 b4 00 00
 ```
 
-This packet is available for [download](https://dl.dropboxusercontent.com/s/dgpt2qqrgt87ob7/https_packet.pcapng) if you want to play around with it.
+This packet is available for [download]($1/)/s/dgpt2qqrgt87ob7/https_packet.pcapng) if you want to play around with it.
 Based on the data found in this packet, the order of processing should be 0 -> 1 -> 8 -> 9 -> 10 -> 11 -> 13 -> 14 -> 15 -> 16 -> 17 -> 18. Port 433 is 0x1bb in hex.
 
 We can then use the power of MS Paint to follow the BPF code as it loads and skips to various bytes.
@@ -127,7 +127,7 @@ We can then use the power of MS Paint to follow the BPF code as it loads and ski
 
 ## Further Reading
 
-If you liked parsing capture filters, imagine how much fun deconstructing [display filters](/analyze/packet_hunting/dftest) could be!
+If you liked parsing capture filters, imagine how much fun deconstructing [display filters](/analyze/packet_hunting/dftest/) could be!
 
 * LWN.net, [BPF and bounded loops](https://lwn.net/Articles/773605/)
 * Julia Evans, [Notes on BPF and eBPF](https://jvns.ca/blog/2017/06/28/notes-on-bpf---ebpf/)

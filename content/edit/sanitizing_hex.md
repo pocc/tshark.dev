@@ -32,7 +32,7 @@ when it can "uniquely identify an individual". For example, if you own website t
 
 Scenario: You want to scrub IP and MAC addresses. While in the normal course of scrubbing, you would probably want to sanitize more fields, we're keeping it simple for this comparison.
 
-It is possible to manually [edit the hex](/edit/editing_hex); however, there are a couple reasons you may want to use a program instead:
+It is possible to manually [edit the hex](/edit/editing_hex/); however, there are a couple reasons you may want to use a program instead:
 
 * If you want to change a field's value from A->B across a file, manual hex editing quickly becomes cumbersome. This is possible with regex and sed, but
 * A program is better if you want a flag to change all instances of a field (like MAC address) to another value, consistently
@@ -100,5 +100,5 @@ Sometimes the simplest solution is best. [Filter the capture](/share/pcap_prepar
 ## Further Reading
 
 * 2018-03, cPacket Networks, [What Impact will GDPR have on your organization?](https://www.cpacket.com/blog/gdpr/)
-* 2014-03, Dan Shanahan, [Trace File Sanitization Pt. 1 – TraceWrangler](http://www.thevisiblenetwork.com/2014/03/22/trace-file-sanitization-pt-1-tracewrangler/)
+* 2014-03, Dan Shanahan, [Trace File Sanitization Pt. 1 – TraceWrangler](http://web.archive.org/web/20210122214927/http://www.thevisiblenetwork.com/2014/03/22/trace-file-sanitization-pt-1-tracewrangler/)
 * 2010-12, Chris Sanders, [Sanitizing Pcap Files with tcprewrite](https://chrissanders.org/2010/12/sanitizing-pcap-files-for-public-distrubution/)

@@ -58,4 +58,3 @@ mv -n $file "$(captype $file | awk -F ': ' '{ if ($2 != "unknown") print "'${fil
 ## Further Reading
 
 * Wikipedia: [List of file signatures](https://en.wikipedia.org/wiki/List_of_file_signatures): How to know from the first few bytes "file magic" of a file what its type is.
-* 2016-01, Algis Salys, [Pcap and Pcapng](http://www.algissalys.com/network-security/pcap-vs-pcapng-file-information-and-conversion): pcap, pcapng, and converting between the two

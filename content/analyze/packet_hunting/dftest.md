@@ -101,5 +101,5 @@ When in doubt, prefer the form `!a==b` to `a!=b`.
 
 ## Further Reading
 
-* [Display Filters](/analyze/packet_hunting/packet_hunting)
-* [Troubleshooting Capture Filters](/packetcraft/arcana/bpf_instructions)
+* [Display Filters](/analyze/packet_hunting/packet_hunting/)
+* [Troubleshooting Capture Filters](/packetcraft/arcana/bpf_instructions/)

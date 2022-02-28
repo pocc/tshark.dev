@@ -11,7 +11,7 @@ _You can help by doing items here._
 
 ## Capturing
 
-- [ ] [Capture](/post/wireshark-capturing)
+- [ ] [Capture](/post/wireshark-capturing/)
   <!-- [[wireshark_capturing]] -->
 - [X] [Determine your Interface](/post/wireshark-capturing#dumpcap)
 - [X] [Read from a Source](/post/wireshark-capturing#dumpcap)
@@ -44,7 +44,7 @@ _You can help by doing items here._
 - [ ] [reordercap](#reordercap)
 - [ ] [text2pcap](#text2pcap)
 - [o] [Additional Topics](/post/wireshark-bonus-topics#additional-topics)  
-- [ ] [Export Object](/post/wireshark-export-object)
+- [ ] [Export Object](/post/wireshark-export-object/)
 - [X] [Editing Hex](/post/wireshark-bonus-topics#editing-hex)
 - [X] [Piping](/post/wireshark-bonus-topics#piping)
 - [ ] [Unusual Interfaces and Where to Find Them]  

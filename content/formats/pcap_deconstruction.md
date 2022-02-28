@@ -182,8 +182,7 @@ For seriously damaged pcaps, [pcapfix](http://f00l.de/pcapfix/) will try to salv
 
 ## Further Reading
 
-This chapter also contains a brief article on the [pcap format](/formats/pcap_format).
+This chapter also contains a brief article on the [pcap format](/formats/pcap_format/).
 
 * 2017-09, Richie Slocum, [PCAP Format](https://github.com/hokiespurs/velodyne-copter/wiki/PCAP-format): Tables of various PDU headers and byte offsets
 * 2015-09, Elvidence (AU company), [Understanding time stamps in pcap files](https://www.elvidence.com.au/understanding-time-stamps-in-packet-capture-data-pcap-files/)
-* 2012-10, Hani, [Pcap File Format](http://www.kroosec.com/2012/10/a-look-at-pcap-file-format.html): Discussion and dissection of the bytes in a pcap

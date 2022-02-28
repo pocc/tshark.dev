@@ -22,9 +22,9 @@ See https://www.wireshark.org for more information.
 Usage: tshark [options] ...
 
 Capture interface:
-  <a href="/capture/sources">-i &lt;interface&gt;</a>           name or idx of interface (def: first non-loopback)
-  <a href="/capture/capture_filters">-f &lt;capture filter&gt;</a>      packet filter in libpcap filter syntax
-  <a href="/capture/limit_size">-s &lt;snaplen&gt;</a>             packet snapshot length (def: appropriate maximum)
+  <a href="/capture/sources/">-i &lt;interface&gt;</a>           name or idx of interface (def: first non-loopback)
+  <a href="/capture/capture_filters/">-f &lt;capture filter&gt;</a>      packet filter in libpcap filter syntax
+  <a href="/capture/limit_size/">-s &lt;snaplen&gt;</a>             packet snapshot length (def: appropriate maximum)
   -p                       don't capture in promiscuous mode
   -I                       capture in monitor mode, if available
   -B &lt;buffer size&gt;         size of kernel buffer (def: 2MB)
@@ -35,31 +35,31 @@ Capture interface:
   --list-time-stamp-types  print list of timestamp types for iface and exit
 
 Capture stop conditions:
-  <a href="/capture/limit_size">-c &lt;packet count&gt;</a>        stop after n packets (def: infinite)
-  <a href="/capture/limit_size">-a &lt;autostop cond.&gt;</a> ...  duration:NUM - stop after NUM seconds
+  <a href="/capture/limit_size/">-c &lt;packet count&gt;</a>        stop after n packets (def: infinite)
+  <a href="/capture/limit_size/">-a &lt;autostop cond.&gt;</a> ...  duration:NUM - stop after NUM seconds
                            filesize:NUM - stop this file after NUM KB
                               files:NUM - stop after NUM files
 Capture output:
-  <a href="/capture/limit_size">-b &lt;ringbuffer opt.&gt;</a> ... duration:NUM - switch to next file after NUM secs
+  <a href="/capture/limit_size/">-b &lt;ringbuffer opt.&gt;</a> ... duration:NUM - switch to next file after NUM secs
                            interval:NUM - create time intervals of NUM secs
                            filesize:NUM - switch to next file after NUM KB
                               files:NUM - ringbuffer: replace after NUM files
 Input file:
-  <a href="/capture/sources">-r &lt;infile|-&gt;</a>            set the filename to read from (or '-' for stdin)
+  <a href="/capture/sources/">-r &lt;infile|-&gt;</a>            set the filename to read from (or '-' for stdin)
 
 Processing:
   <a href="/analyze/packet_hunting/packet_hunting/#2-pass-analysis-with-r-y-and-2">-2</a>                       perform a two-pass analysis
   -M &lt;packet count&gt;        perform session auto reset
    <a href="/analyze/packet_hunting/packet_hunting/#2-pass-analysis-with-r-y-and-2">-R &lt;read filter&gt;</a>         packet Read filter in Wireshark display filter syntax
                            (requires -2)
-  <a href="/analyze/packet_hunting/packet_hunting">-Y &lt;display filter&gt;</a>      packet displaY filter in Wireshark display filter
+  <a href="/analyze/packet_hunting/packet_hunting/">-Y &lt;display filter&gt;</a>      packet displaY filter in Wireshark display filter
                            syntax
-  <a href="/packetcraft/add_context/name_resolution">-n</a>                       disable all name resolutions (def: all enabled)
-  <a href="/packetcraft/add_context/name_resolution">-N &lt;name resolve flags&gt;</a>  enable specific name resolution(s): "mnNtdv"
+  <a href="/packetcraft/add_context/name_resolution/">-n</a>                       disable all name resolutions (def: all enabled)
+  <a href="/packetcraft/add_context/name_resolution/">-N &lt;name resolve flags&gt;</a>  enable specific name resolution(s): "mnNtdv"
   -d &lt;layer_type&gt;==&lt;selector&gt;,&lt;decode_as_protocol&gt; ...
                            "Decode As", see the man page for details
                            Example: tcp.port==8888,http
-  <a href="/packetcraft/add_context/name_resolution">-H &lt;hosts file&gt;</a>          read a list of entries from a hosts file, which will
+  <a href="/packetcraft/add_context/name_resolution/">-H &lt;hosts file&gt;</a>          read a list of entries from a hosts file, which will
                            then be written to a capture file. (Implies -W n)
   --enable-protocol &lt;proto_name&gt;
                            enable dissection of proto_name
@@ -70,17 +70,17 @@ Processing:
   --disable-heuristic &lt;short_name&gt;
                            disable dissection of heuristic protocol
 Output:
-  <a href="/formats">-w &lt;outfile|-</a>&gt;           write packets to a pcapng-format file named "outfile"
+  <a href="/formats/">-w &lt;outfile|-</a>&gt;           write packets to a pcapng-format file named "outfile"
                            (or '-' for stdout)
   <a href="/packetcraft/arcana/profiles/#tshark-config-flags">-C &lt;config profile&gt;</a>      start with specified configuration profile
-  <a href="/formats">-F &lt;output file type&gt;</a>    set the output file type, default is pcapng
+  <a href="/formats/">-F &lt;output file type&gt;</a>    set the output file type, default is pcapng
                            an <a href="/capture/sources/sample_interfaces/#sample-capture-file-types">empty "-F" option</a> will list the file types
   -V                       add output of packet tree        (Packet Details)
   -O &lt;protocols&gt;           Only show packet details of these protocols, comma
                            separated
   -P                       print packet summary even when writing to a file
   -S &lt;separator&gt;           the line separator to print between packets
-  <a href="/edit/text2pcap">-x</a>                       add output of hex and ASCII dump (Packet Bytes)
+  <a href="/edit/text2pcap/">-x</a>                       add output of hex and ASCII dump (Packet Bytes)
   -T pdml|ps|psml|json|jsonraw|ek|tabs|text|fields|?
                            format of text output (def: text)
   -j &lt;protocolfilter&gt;      protocols layers filter if -T ek|pdml|json selected
@@ -105,17 +105,17 @@ Output:
   -q                       be more quiet on stdout (e.g. when using statistics)
   -Q                       only log true errors to stderr (quieter than -q)
   -g                       enable group read access on the output file(s)
-  <a href="/packetcraft/add_context/name_resolution">-W n</a>                     Save extra information in the file, if supported.
+  <a href="/packetcraft/add_context/name_resolution/">-W n</a>                     Save extra information in the file, if supported.
                            n = write network address resolution information
-  <a href="/packetcraft/scripting/lua_scripts">-X &lt;key&gt;:&lt;value&gt;</a>         eXtension options, see the man page for details
+  <a href="/packetcraft/scripting/lua_scripts/">-X &lt;key&gt;:&lt;value&gt;</a>         eXtension options, see the man page for details
   -U tap_name              PDUs export mode, see the man page for details
   -z &lt;statistics&gt;          various statistics, see the man page for details
   --capture-comment &lt;comment&gt;
                            add a capture comment to the newly created
                            output file (only for pcapng)
-  <a href="/export">--export-objects &lt;protocol&gt;,&lt;destdir&gt;</a> save exported objects for a protocol to
+  <a href="/export/">--export-objects &lt;protocol&gt;,&lt;destdir&gt;</a> save exported objects for a protocol to
                            a directory named "destdir"
-  <a href="/packetcraft/add_context/tshark_colorized">--color</a>                  color output text similarly to the Wireshark GUI,
+  <a href="/packetcraft/add_context/tshark_colorized/">--color</a>                  color output text similarly to the Wireshark GUI,
                            requires a terminal with 24-bit color support
                            Also supplies color attributes to pdml and psml formats
                            (Note that attributes are nonstandard)
@@ -126,11 +126,11 @@ Output:
                            specified protocols within the mapping file
 
 Miscellaneous:
-  <a href="/capture/tshark">-h</a>                       display this help and exit
+  <a href="/capture/tshark/">-h</a>                       display this help and exit
   -v                       display version info and exit
   <a href="/packetcraft/arcana/profiles/#tshark-config-flags">-o &lt;name&gt;:&lt;value&gt;</a> ...    override preference setting
   <a href="/packetcraft/add_context/tshark_decryption/#kerberos">-K &lt;keytab&gt;</a>              keytab file to use for kerberos decryption
-  <a href="/packetcraft/arcana/profiles">-G [report]</a>              dump one of several available reports and exit
+  <a href="/packetcraft/arcana/profiles/">-G [report]</a>              dump one of several available reports and exit
                            default report="fields"</pre>
 
 ## Table of Contents

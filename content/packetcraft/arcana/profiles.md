@@ -95,19 +95,19 @@ These files are from the Wireshark Repo or my system.
 
 #### My system files
 
-* [hosts](https://dl.dropboxusercontent.com/s/3ghd7fwufzj07be/hosts): Hosts file from an install of Ubuntu 18.04
-* [preferences](https://dl.dropboxusercontent.com/s/7h4uqs97951y6an/preferences): Preferences file from Macos
-* [recent](https://dl.dropboxusercontent.com/s/hwrieakon3ho0gr/recent): Recent GUI settings from Macos
-* [disabled_protos](https://dl.dropboxusercontent.com/s/d97lgjqnzs5q9de/disabled_protos): Contains some gaming protocols that I'll never look at
-* [ethers](https://dl.dropboxusercontent.com/s/sy07uj010bzl342/ethers): List of 3 MAC addresses and names
+* [hosts](/images/hosts): Hosts file from an install of Ubuntu 18.04
+* [preferences](/images/preferences): Preferences file from Macos
+* [recent](/images/recent): Recent GUI settings from Macos
+* [disabled_protos](/images/disabled_protos): Contains some gaming protocols that I'll never look at
+* [ethers](/images/ethers): List of 3 MAC addresses and names
 
 #### For Use with VLAN Example
 
-Example In [Name Resolutions](/packetcraft/add_context/name_resolution).
+Example In [Name Resolutions](/packetcraft/add_context/name_resolution/).
 
-* [ipxnets](/files/ipxnets): Based on [vlan.cap](/files/vlan.cap)
-* [subnets](/files/subnets): Based on [vlan.cap](/files/vlan.cap)
-* [vlans](/files/vlans): Based on [vlan.cap](/files/vlan.cap)
+* [ipxnets](/files/ipxnets/): Based on [vlan.cap](/files/vlan.cap/)
+* [subnets](/files/subnets/): Based on [vlan.cap](/files/vlan.cap/)
+* [vlans](/files/vlans/): Based on [vlan.cap](/files/vlan.cap/)
 
 <!--
 /files/vlan.cap
@@ -197,7 +197,7 @@ tshark -r temp -o ip.check_checksum:true -V -c 1 | grep checksum
 ```
 
 `-o` is most used for specifying a series of required cryptographic settings like [WEP](https://stackoverflow.com/questions/34172493/not-able-to-set-tshark-preferences-from-command-line) or [ESP](https://wiki.wireshark.org/TShark_ESP_Preferences).
-In this guide, `-o` is used for [WPA2](/packetcraft/add_context/tshark_decryption/#wpa2-decryption) and [TLS1.2](/export/export_tls) decryption.
+In this guide, `-o` is used for [WPA2](/packetcraft/add_context/tshark_decryption/#wpa2-decryption) and [TLS1.2](/export/export_tls/) decryption.
 
 ### -H ${hosts}
 

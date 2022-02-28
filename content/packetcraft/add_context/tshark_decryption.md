@@ -26,7 +26,7 @@ TLS decryption, for the most part, is setting the $SSLKEYLOGFILE to the destinat
 To my knowledge, these applications support it:
 * Chrome (and Chromium-based like Opera, Brave, Vivaldi, etc.)
 * Firefox
-* Curl (and any [libcurl-based appliaction](https://ec.haxx.se/tls-sslkeylogfile.html))
+* Curl (and any [libcurl-based appliaction](https://everything.curl.dev/usingcurl/tls/sslkeylogfile))
 
 Unsupported:
 * [Edge/IE](http://blog.ucomsgeek.com/2016/06/decrypting-https-web-traffic-without.html), but this will likely change for Edge though as it will [soon be Chromium-based](https://support.microsoft.com/en-us/help/4501095/download-microsoft-edge-based-on-chromium).

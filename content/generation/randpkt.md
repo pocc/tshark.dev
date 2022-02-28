@@ -11,13 +11,13 @@ draft: false
 
 ## About
 
-randpkt is a tool used to generate [fuzzed](https://www.owasp.org/index.php/Fuzzing) packets for a specific protocol or randomly from a list. While randpkt has a more limited feature set than [similar tools](#further-reading), it is only has 4 flags and generates packets quickly.
+randpkt is a tool used to generate [fuzzed](https://owasp.org/www-community/Fuzzing) packets for a specific protocol or randomly from a list. While randpkt has a more limited feature set than [similar tools](#further-reading), it is only has 4 flags and generates packets quickly.
 
-`randpktdump` is available as an [extcap interface](/capture/sources/extcap_interfaces) if you want to tshark to treat this generator as if it were an interface.
+`randpktdump` is available as an [extcap interface](/capture/sources/extcap_interfaces/) if you want to tshark to treat this generator as if it were an interface.
 
 ## Caveats
 
-* On <i class="fab fa-windows"></i><b>Windows</b>, the default is to not install randpkt. You must select randpkt manually during [installation](/setup/install).
+* On <i class="fab fa-windows"></i><b>Windows</b>, the default is to not install randpkt. You must select randpkt manually during [installation](/setup/install/).
 * The `tcp` option uses token-ring instead of ethernet at layer 2. To get packets using the eth/ip/tcp stack, use `giop`, `tdp`, or `bgp`.
 * If you set `-b`, byte counts will vary wildly *up to* this byte count ceiling.
 * [~~randpkt -r crashes for -c > 1~~](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15627)
@@ -30,7 +30,7 @@ In this asciicast, we'll create pcap with 100 ethernet-II frames and then read i
 
 <script id="asciicast-235407" src="https://asciinema.org/a/235407.js" async></script>
 
-To get an idea of possible traffic, [this capture](https://dl.dropboxusercontent.com/s/y9sm8cf885k3q3b/randpkt_all.pcap) contains a fuzzed packet of every available type (2019).
+To get an idea of possible traffic, [this capture](/pcaps/randpkt_all.pcap) contains a fuzzed packet of every available type (2019).
 
 ### stdout
 

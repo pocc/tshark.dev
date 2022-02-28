@@ -14,7 +14,7 @@ Applications of creating traffic include fuzzing, security auditing, bug reprodu
 Fuzzing will focus on the creation of packets that test boundary conditions while the latter three require
 sending packets out of your network interface. Which tool you use will largely depend on your use case.
 
-If you want to use a programming language to [script packets](/packetcraft/scripting/scripted_gen), there are resources in [Packetcraft](/packetcraft).
+If you want to use a programming language to [script packets](/packetcraft/scripting/scripted_gen/), there are resources in [Packetcraft](/packetcraft/).
 
 #### Table of Contents
 

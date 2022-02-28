@@ -12,7 +12,7 @@ draft: false
 Get information and meta-data from your capture.
 
 {{%notice note%}}
-Looking for `tshark -G` or `tshark -z`? Articles on using these flags are [not yet written](/nextsteps/wishlist), but will be put here once they are.
+Looking for `tshark -G` or `tshark -z`? Articles on using these flags are [not yet written](/nextsteps/wishlist/), but will be put here once they are.
 {{%/notice%}}
 
 #### Table of Contents

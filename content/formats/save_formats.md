@@ -78,4 +78,4 @@ INFO: Saving 100 packet capture
   visual
 ```
 
-To take a look at what the headers of these filetypes look like, check out [Sample Headers](/formats/sample_capture_headers).
+To take a look at what the headers of these filetypes look like, check out [Sample Headers](/formats/sample_capture_headers/).

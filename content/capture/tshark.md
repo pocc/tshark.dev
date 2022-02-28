@@ -9,7 +9,7 @@ weight: 30
 draft: false
 ---
 
-Tshark is the namesake of this website. Like Wireshark, tshark uses [dumpcap](/capture/dumpcap) as its capturing engine.
+Tshark is the namesake of this website. Like Wireshark, tshark uses [dumpcap](/capture/dumpcap/) as its capturing engine.
 
 {{%notice tip%}}
 Below is tshark's help page, with links to relevant pages. Use it as another map if you are trying to better understand an option.

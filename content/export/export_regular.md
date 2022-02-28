@@ -24,7 +24,7 @@ Wireshark can extract these protocols:
 - **smb**: Windows network share file
 - **tftp**: Unsecured file
 
-To do this in tshark, use `tshark -r ${file} --export-object ${protocol},${path}` (WS > File > Export Objects >). If you would like to extract files from a TLS-encrypted capture, you will need to first [decrypt it](/packetcraft/add_context/tshark_decryption).
+To do this in tshark, use `tshark -r ${file} --export-object ${protocol},${path}` (WS > File > Export Objects >). If you would like to extract files from a TLS-encrypted capture, you will need to first [decrypt it](/packetcraft/add_context/tshark_decryption/).
 
 ## Example: Capture HTTP object in transit
 
@@ -91,6 +91,5 @@ If the extraction was successful, `diff neverssl.html '%2f'` will return nothing
 
 ## Further Reading
 
-- [GUI: Exporting HTTP](http://securabit.com/2013/04/06/wireshark-export-http-objects/)
-- [GUI: Exporting SMB](https://www.networkdatapedia.com/single-post/2019/02/28/Wireshark---Export-SMB2-Objects)
+- [GUI: Exporting HTTP](http://web.archive.org/web/20150111165124/http://securabit.com/2013/04/06/wireshark-export-http-objects/)
 - [GUI: Exporting FTP](https://shankaraman.wordpress.com/tag/how-to-extract-ftp-files-from-wireshark-packet/)

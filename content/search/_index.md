@@ -12,7 +12,7 @@ draft: false
 ## Searching Captures
 
 Wouldn't it be nice if you could search existing packet captures for a protocol?  
-Well now you can with [Search Pcaps](/search/pcaptable). Search over 6000 pcaps to find the right one!
+Well now you can with [Search Pcaps](/search/pcaptable/). Search over 6000 pcaps to find the right one!
 
 <a href="/search/pcaptable"><img src="/images/pcapsearch_screenshot.png" alt="Searching Packet Capturesl" /></a>
 
@@ -43,7 +43,7 @@ Well now you can with [Search Pcaps](/search/pcaptable). Search over 6000 pcaps 
 
 * <a href="https://wiki.wireshark.org/SampleCaptures">Wireshark's Sample Captures</a>
 * <a href="https://packetlife.net/captures/">Packetlife's Captures</a>
-* <a href="https://bugs.wireshark.org/">Wireshark Bugzilla Captures</a>
+* <a href="https://bugs.wireshark.org/bugzilla/">Wireshark Bugzilla Captures</a>
 
 ## Finding Captures
 

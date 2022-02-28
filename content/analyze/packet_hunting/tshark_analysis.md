@@ -24,7 +24,7 @@ association](https://mrncciew.com/2014/10/27/cwap-802-11-probe-requestresponse/)
 ## What to look for
 
 {{% notice tip %}}
-When in doubt, consult relevant [RFCs](https://tools.ietf.org/rfc/index), protocol documentation, and product manuals.
+When in doubt, consult relevant [RFCs](https://www.rfc-editor.org/rfc-index.html), protocol documentation, and product manuals.
 {{% /notice %}}
 
 While analysis will depend on your domain experience, there are general classes of problems that you can identify with Wireshark.
