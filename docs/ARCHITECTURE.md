@@ -6,7 +6,7 @@
 
 - **Live site:** https://tshark.dev
 - **Source:** https://github.com/pocc/tshark.dev
-- **Hosting:** Netlify (auto-deploys from GitHub)
+- **Hosting:** Cloudflare Workers (auto-deploys via GitHub Actions)
 - **Generator:** [Hugo](https://gohugo.io/) (static site generator, Go-based)
 - **Theme:** [Hugo Learn Theme](https://learn.netlify.com/en/) (customized)
 - **Language:** English only (i18n files exist for 10 languages but only English is active)
@@ -28,10 +28,9 @@
 | Content format  | Markdown with YAML front matter                |
 | Syntax highlighting | Hugo Pygments (Chroma) with CSS classes    |
 | Search          | Lunr.js (client-side full-text search)         |
-| Analytics       | Google Analytics (UA-143435644-1)              |
-| Code highlighting | highlight.js (Atom One Dark Reasonable)      |
+| Code highlighting | Hugo Chroma (build-time, github/github-dark) |
 | Icons           | Font Awesome 5 (minified custom subset)        |
-| Fonts           | Open Sans, Roboto, Source Code Pro (self-hosted woff2) |
+| Fonts           | Inter, JetBrains Mono (Google Fonts) + legacy woff2 |
 | Comments        | Disabled (Disqus template exists but commented out) |
 | Charts          | Google Charts (pie chart on Format Usage page) |
 | Data tables     | jQuery DataTables (pcap search table)          |
@@ -116,19 +115,36 @@ The site overrides several Learn Theme partials:
 ## Build & Development
 
 ```bash
-# Serve locally (requires Hugo installed)
-hugo server
+# Install dependencies (wrangler)
+npm install
+
+# Serve locally via Hugo dev server
+npm run dev
 # Default: http://localhost:1313
 
 # Build static site
-hugo
-```
+npm run build
 
-No npm, no build pipeline. Hugo is the only build dependency.
+# Preview via Cloudflare Workers local runtime
+npm run preview
+# Default: http://localhost:8787
+
+# Deploy to Cloudflare Workers
+npm run deploy
+```
 
 ## Deployment
 
-Deployed via Netlify. Push to GitHub triggers an automatic build and deploy. The Netlify badge in README confirms this: `pedantic-lumiere-bf6286`.
+Deployed via **Cloudflare Workers** with static assets. Two deployment paths:
+
+1. **GitHub Actions** (automatic): Push to `master` triggers `.github/workflows/deploy.yml` which builds Hugo and runs `wrangler deploy`. Requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repo secrets.
+2. **Local** (manual): Run `npm run deploy` to build and deploy from your machine.
+
+### Worker Architecture
+
+- **`wrangler.toml`** — Workers project config, static assets from `public/`
+- **`src/worker.ts`** — Worker entry point, serves static assets with stub for future API routes
+- **`package.json`** — Build/deploy scripts, wrangler as devDependency
 
 ## Key Features
 

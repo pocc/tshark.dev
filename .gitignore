@@ -9,6 +9,9 @@
 node_modules/
 package-lock.json
 
+# Cloudflare Workers
+.wrangler/
+
 # generated
 __pycache__/
 _gen/
