@@ -1,16 +1,16 @@
         {{ if .Params.chapter }}
             </div> <!-- end chapter-->
         {{ end }}
-        </div> 
+        </div>
         {{ partial "custom-comments.html" . }}
       </div>
 
     <div id="navigation">
         <!-- Next prev page -->
         {{ $currentNode := . }}
-        
+
         {{ template "menu-nextprev" dict "menu" .Site.Home "currentnode" $currentNode }}
-        
+
         {{ define "menu-nextprev" }}
             {{$currentNode := .currentnode }}
             {{ if ne .menu.Params.hidden true}}
@@ -52,21 +52,33 @@
     </div>
 
     </section>
-    
-    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
-      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
-    </div>
-    <script src="{{"js/clipboard.min.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
-    <script src="{{"js/perfect-scrollbar.min.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
-    <script src="{{"js/perfect-scrollbar.jquery.min.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
-    <script src="{{"js/jquery.sticky.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
-    <script src="{{"js/featherlight.min.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
-    <script src="{{"js/html5shiv-printshiv.min.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
-    <script src="{{"js/highlight.pack.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="{{"js/modernizr.custom-3.6.0.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
-    <script src="{{"js/learn.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
-    <script src="{{"js/hugo-learn.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
+
+    <!-- Dark mode toggle button -->
+    <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+
+    <!-- Legacy JS kept for sidebar mechanics & Pcap Table DataTables -->
+    <script src="{{"js/clipboard.min.js" | relURL}}"></script>
+    <script src="{{"js/perfect-scrollbar.min.js" | relURL}}"></script>
+    <script src="{{"js/perfect-scrollbar.jquery.min.js" | relURL}}"></script>
+    <script src="{{"js/jquery.sticky.js" | relURL}}"></script>
+    <script src="{{"js/featherlight.min.js" | relURL}}"></script>
+    <script src="{{"js/learn.js" | relURL}}"></script>
+    <script src="{{"js/hugo-learn.js" | relURL}}"></script>
+
+    <!-- Modern vanilla JS: copy-to-clipboard, dark mode toggle, Cmd+K search -->
+    {{ $mainJS := resources.Get "js/main.js" }}
+    {{ if hugo.IsProduction }}
+      {{ $mainJS = $mainJS | minify | fingerprint }}
+    {{ end }}
+    <script src="{{ $mainJS.RelPermalink }}" defer></script>
+
     {{ partial "custom-footer.html" . }}
   </body>
 </html>

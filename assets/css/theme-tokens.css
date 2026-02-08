@@ -1,0 +1,165 @@
+/* =============================================================================
+   tshark.dev — Design Tokens (Light + Dark)
+   ============================================================================= */
+
+:root,
+[data-theme="light"] {
+    /* Font families */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+
+    /* Font sizes */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+
+    /* Font weights */
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* Line heights */
+    --leading-tight: 1.25;
+    --leading-normal: 1.6;
+    --leading-relaxed: 1.75;
+
+    /* Spacing */
+    --sidebar-width: 280px;
+    --content-max-width: 820px;
+
+    /* Backgrounds */
+    --color-bg: #ffffff;
+    --color-bg-secondary: #f8f9fa;
+    --color-bg-tertiary: #f1f3f5;
+    --color-sidebar-bg: #f8f9fa;
+    --color-sidebar-hover: rgba(0, 0, 0, 0.04);
+
+    /* Text */
+    --color-text: #1a1a2e;
+    --color-text-muted: #6b7280;
+    --color-text-faint: #9ca3af;
+
+    /* Borders */
+    --color-border: #e5e7eb;
+    --color-border-light: #f3f4f6;
+
+    /* Primary accent */
+    --color-primary: #2563eb;
+    --color-primary-hover: #1d4ed8;
+
+    /* Code */
+    --color-code-bg: #f3f4f6;
+    --color-code-border: #e5e7eb;
+    --color-pre-bg: #f6f8fa;
+
+    /* Links */
+    --color-link: #2563eb;
+    --color-link-hover: #1d4ed8;
+
+    /* Notices/callouts */
+    --color-info-bg: #eff6ff;
+    --color-info-border: #3b82f6;
+    --color-info-text: #1e40af;
+    --color-warning-bg: #fffbeb;
+    --color-warning-border: #f59e0b;
+    --color-warning-text: #92400e;
+    --color-danger-bg: #fef2f2;
+    --color-danger-border: #ef4444;
+    --color-danger-text: #991b1b;
+    --color-tip-bg: #f0fdf4;
+    --color-tip-border: #22c55e;
+    --color-tip-text: #166534;
+
+    /* Sidebar header (keep the blue brand) */
+    --color-sidebar-header-bg: #1C90F3;
+    --color-sidebar-header-border: #33a1ff;
+
+    /* Logo text */
+    --color-logo-fill: #fff;
+}
+
+/* =============================================================================
+   DARK THEME
+   ============================================================================= */
+[data-theme="dark"] {
+    --color-bg: #0d1117;
+    --color-bg-secondary: #161b22;
+    --color-bg-tertiary: #21262d;
+    --color-sidebar-bg: #161b22;
+    --color-sidebar-hover: rgba(255, 255, 255, 0.04);
+
+    --color-text: #e6edf3;
+    --color-text-muted: #8b949e;
+    --color-text-faint: #6e7681;
+
+    --color-border: #30363d;
+    --color-border-light: #21262d;
+
+    --color-primary: #58a6ff;
+    --color-primary-hover: #79c0ff;
+
+    --color-code-bg: #161b22;
+    --color-code-border: #30363d;
+    --color-pre-bg: #0d1117;
+
+    --color-link: #58a6ff;
+    --color-link-hover: #79c0ff;
+
+    --color-info-bg: #0c2d6b;
+    --color-info-border: #58a6ff;
+    --color-info-text: #a5d6ff;
+    --color-warning-bg: #3b2300;
+    --color-warning-border: #d29922;
+    --color-warning-text: #e3b341;
+    --color-danger-bg: #3c1014;
+    --color-danger-border: #f85149;
+    --color-danger-text: #ff7b72;
+    --color-tip-bg: #04260d;
+    --color-tip-border: #3fb950;
+    --color-tip-text: #56d364;
+
+    --color-sidebar-header-bg: #0d419d;
+    --color-sidebar-header-border: #1a5bb5;
+}
+
+/* System preference detection (no manual override stored) */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --color-bg: #0d1117;
+        --color-bg-secondary: #161b22;
+        --color-bg-tertiary: #21262d;
+        --color-sidebar-bg: #161b22;
+        --color-sidebar-hover: rgba(255, 255, 255, 0.04);
+        --color-text: #e6edf3;
+        --color-text-muted: #8b949e;
+        --color-text-faint: #6e7681;
+        --color-border: #30363d;
+        --color-border-light: #21262d;
+        --color-primary: #58a6ff;
+        --color-primary-hover: #79c0ff;
+        --color-code-bg: #161b22;
+        --color-code-border: #30363d;
+        --color-pre-bg: #0d1117;
+        --color-link: #58a6ff;
+        --color-link-hover: #79c0ff;
+        --color-info-bg: #0c2d6b;
+        --color-info-border: #58a6ff;
+        --color-info-text: #a5d6ff;
+        --color-warning-bg: #3b2300;
+        --color-warning-border: #d29922;
+        --color-warning-text: #e3b341;
+        --color-danger-bg: #3c1014;
+        --color-danger-border: #f85149;
+        --color-danger-text: #ff7b72;
+        --color-tip-bg: #04260d;
+        --color-tip-border: #3fb950;
+        --color-tip-text: #56d364;
+        --color-sidebar-header-bg: #0d419d;
+        --color-sidebar-header-border: #1a5bb5;
+    }
+}

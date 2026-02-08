@@ -1,0 +1,139 @@
+# tshark.dev Architecture
+
+## Overview
+
+**tshark.dev** is a static documentation website that teaches packet analysis using tshark and the Wireshark CLI toolsuite. It is authored by Ross Jacobs and licensed under Apache 2.0.
+
+- **Live site:** https://tshark.dev
+- **Source:** https://github.com/pocc/tshark.dev
+- **Hosting:** Netlify (auto-deploys from GitHub)
+- **Generator:** [Hugo](https://gohugo.io/) (static site generator, Go-based)
+- **Theme:** [Hugo Learn Theme](https://learn.netlify.com/en/) (customized)
+- **Language:** English only (i18n files exist for 10 languages but only English is active)
+
+## Project History
+
+- Initial commit: 2019 (content dates back to March 2019)
+- 166 total commits
+- Last commit: 2022-02-28
+- Author: Ross Jacobs (rj@tshark.dev)
+
+## Tech Stack
+
+| Component       | Technology                                     |
+|-----------------|------------------------------------------------|
+| Static generator | Hugo                                          |
+| Theme           | Hugo Learn Theme (blue variant)                |
+| Config format   | TOML (`config.toml`)                           |
+| Content format  | Markdown with YAML front matter                |
+| Syntax highlighting | Hugo Pygments (Chroma) with CSS classes    |
+| Search          | Lunr.js (client-side full-text search)         |
+| Analytics       | Google Analytics (UA-143435644-1)              |
+| Code highlighting | highlight.js (Atom One Dark Reasonable)      |
+| Icons           | Font Awesome 5 (minified custom subset)        |
+| Fonts           | Open Sans, Roboto, Source Code Pro (self-hosted woff2) |
+| Comments        | Disabled (Disqus template exists but commented out) |
+| Charts          | Google Charts (pie chart on Format Usage page) |
+| Data tables     | jQuery DataTables (pcap search table)          |
+| jQuery          | 3.4.1                                          |
+
+## Directory Structure
+
+```
+tshark.dev/
+├── config.toml          # Hugo site configuration
+├── README.md            # Project readme with build instructions
+├── LICENSE.md            # Apache 2.0
+├── content/             # All Markdown content (see CONTENT_MAP.md)
+│   ├── _index.md        # Homepage — annotated tshark --help + sitemap
+│   ├── home/            # Redirect to /
+│   ├── setup/           # Installation & configuration (weight: 10)
+│   ├── capture/         # Capturing packets (weight: 20)
+│   ├── search/          # Searching pcap repositories (weight: 30)
+│   ├── generation/      # Generating packets (weight: 40)
+│   ├── formats/         # Capture file formats (weight: 50)
+│   ├── edit/            # Editing pcaps (weight: 60)
+│   ├── export/          # Exporting files from captures (weight: 70)
+│   ├── analyze/         # Analysis tools & techniques (weight: 80)
+│   ├── packetcraft/     # Advanced: scripting, profiles, decryption (weight: 90)
+│   ├── share/           # Sharing results (weight: 100)
+│   └── nextsteps/       # Contributing, links, wishlist (weight: 200)
+├── layouts/             # Hugo template overrides
+│   ├── _default/        # list.html, single.html
+│   ├── partials/        # Header, footer, menu, TOC, meta, etc.
+│   └── shortcodes/      # Custom Hugo shortcodes
+├── static/              # Static assets served as-is
+│   ├── css/             # Stylesheets (theme + custom)
+│   ├── js/              # JavaScript (jQuery, highlight.js, search, etc.)
+│   ├── fonts/           # Self-hosted web fonts (woff2)
+│   ├── webfonts/        # Font Awesome webfonts
+│   ├── images/          # Screenshots, diagrams, logos
+│   ├── pcaps/           # Sample packet capture files
+│   ├── data/            # min_captures.json (pcap search database)
+│   └── files/           # Wireshark config file examples
+├── i18n/                # Translation strings (10 languages, only EN active)
+└── utils/               # Build utilities
+    ├── make_lua_table.py
+    ├── make_sitemap.py
+    ├── minify_font_awesome.py
+    ├── requirements.txt  # Python deps: toml, PyYAML
+    └── files/            # Source files for utils (drawio, mermaid, CSS)
+```
+
+## Hugo Configuration
+
+Key settings from `config.toml`:
+
+- `baseURL = "https://tshark.dev/"`
+- `metaDataFormat = "yaml"` — front matter is YAML, not TOML
+- `themeVariant = "blue"` — blue color theme
+- `editURL` points to GitHub master branch for "Edit this page" links
+- `disableNextPrev = true` — no prev/next navigation arrows
+- `disableInlineCopyToClipBoard = "true"`
+- `enableRobotsTXT = true`
+- Outputs: HTML, RSS, JSON (JSON enables Lunr.js search)
+- `markup.goldmark.renderer.unsafe = true` — allows raw HTML in Markdown
+
+## Custom Layout Overrides
+
+The site overrides several Learn Theme partials:
+
+- **custom-header.html**: Google Analytics, max-width CSS for images, Google Charts (Format Usage page), jQuery DataTables (Pcap Table page)
+- **custom-footer.html**: Empty (placeholder)
+- **custom-comments.html**: Disqus (commented out)
+- **favicon.html**: Custom favicon set (generated by realfavicongenerator.net)
+- **logo.html**: Site logo in sidebar
+
+## Custom Shortcodes
+
+- `attachments`, `button`, `children`, `expand` — from Learn Theme
+- `ghcontributors` — GitHub contributors widget
+- `jsontable` — renders JSON as an HTML table
+- `mermaid` — Mermaid.js diagram rendering
+- `notice` — callout boxes (tip, warning, info, note)
+- `ref`, `relref`, `siteparam` — Hugo built-in overrides
+
+## Build & Development
+
+```bash
+# Serve locally (requires Hugo installed)
+hugo server
+# Default: http://localhost:1313
+
+# Build static site
+hugo
+```
+
+No npm, no build pipeline. Hugo is the only build dependency.
+
+## Deployment
+
+Deployed via Netlify. Push to GitHub triggers an automatic build and deploy. The Netlify badge in README confirms this: `pedantic-lumiere-bf6286`.
+
+## Key Features
+
+1. **Annotated tshark --help**: The homepage is a hyperlinked version of `tshark --help` where each flag links to its documentation page
+2. **Pcap Search**: Interactive searchable table of 6000+ public packet captures with inequality filters (size, length, packets)
+3. **Mermaid sitemap**: Visual sitemap using Mermaid.js diagrams
+4. **Wireshark config files**: Downloadable example config files (hosts, ethers, vlans, etc.)
+5. **Sample pcaps**: Bundled packet captures for hands-on examples

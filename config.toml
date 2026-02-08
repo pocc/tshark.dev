@@ -2,26 +2,25 @@ baseURL = "https://tshark.dev/"
 languageCode = "en-US"
 defaultContentLanguage = "en"
 
-title = "Packet Analysis"
+title = "tshark.dev — Packet Analysis"
 themesdir = "themes"
 metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= true
 
-pygmentsUseClasses = true
-pygmentsCodeFences = true
 enableRobotsTXT = true
+enableGitInfo = true
 
 [params]
-  # Combined with current relative page, shows source page on Github
   editURL = "https://github.com/pocc/tshark.dev/blob/master/content/"
-  description = "Capture Lifecycle"
+  description = "Your complete guide to packet analysis on the command line"
   author = "Ross Jacobs"
   showVisitedLinks = false
   disableBreadcrumb = false
   disableNextPrev = true
   themeVariant = "blue"
   disableInlineCopyToClipBoard = "true"
-  version = "v0.1"
+  disableAssetsBusting = true
+  version = "v2.0"
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
@@ -30,6 +29,26 @@ home = ["HTML", "RSS", "JSON"]
 [Languages.en]
 languageName = "English"
 
-# In order to get raw HTML (https://discourse.gohugo.io/t/raw-html-getting-omitted-in-0-60-0/22032)
-[markup.goldmark.renderer]
-unsafe = true
+# Syntax highlighting via Chroma (build-time, no JS needed)
+[markup]
+  [markup.highlight]
+    noClasses = false
+    lineNos = false
+    lineNumbersInTable = true
+    tabWidth = 4
+    guessSyntax = true
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
+
+# Minification safety for SVGs
+[minify]
+  [minify.tdewolff]
+    [minify.tdewolff.svg]
+      precision = 0
+    [minify.tdewolff.html]
+      keepEndTags = true
+      keepQuotes = true
