@@ -73,20 +73,20 @@ If you like C-style syntax, you can also use `&&` instead of `and` and `||` inst
 ### Finding Components of Protocols
 
 Sometimes you know the protocol you're looking for, just not the relevant fields you need to filter with.
-`tshark -G` will print all protocols, so you can use it in conjunction with grep to find fields of interest.
+`tshark -G protocols` will print all protocols, so you can use it in conjunction with grep to find fields of interest.
 
 #### grep for a specific field by name
 
 If we already know what the field name is, we can get the full display filter by searching for it.
 
-    bash$ tshark -G | grep -E "sec_websocket_version"
+    bash$ tshark -G fields | grep -E "sec_websocket_version"
     F	Sec-WebSocket-Version	http.sec_websocket_version	FT_STRING	http		0x0	
 
 #### find all subfields of a protocol
 
 In this example, use `http.response`, and escape the periods.
 
-    bash$ tshark -G | grep -E "http\.response\."
+    bash$ tshark -G fields | grep -E "http\.response\."
     F	Response line	http.response.line	FT_STRING	http		0x0	
     F	Response Version	http.response.version	FT_STRING	http		0x0	HTTP Response HTTP-Version
     F	Status Code	http.response.code	FT_UINT16	http	BASE_DEC	0x0	HTTP Response Status Code
