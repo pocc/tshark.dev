@@ -521,3 +521,41 @@ img {
         margin: 0.25rem 0;
     }
 }
+
+/* =============================================================================
+   Table of Contents Text Size (Issue #32)
+   ============================================================================= */
+
+/* Increase TOC text size for better readability */
+#TableOfContents {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+#TableOfContents ul {
+    font-size: 1rem;
+}
+
+#TableOfContents li {
+    margin-bottom: 0.5rem;
+}
+
+#TableOfContents a {
+    font-size: 1rem;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+#TableOfContents a:hover {
+    color: var(--color-link);
+}
+
+/* Chapter/section TOC (sidebar) */
+#sidebar ul.topics li a {
+    font-size: 0.95rem !important;
+    line-height: 1.5;
+}
+
+#sidebar .dd-item a {
+    font-size: 0.95rem !important;
+}

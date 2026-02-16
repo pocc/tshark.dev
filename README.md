@@ -10,14 +10,20 @@
 <a href="https://tshark.dev"><img src="/images/tshark_logo.cmp.png" alt="tshark.dev screenshot"/></a>
 <br><br>
 
-[tshark.dev](https://tshark.dev) exists to teach you about packet analysis.
+[tshark.dev](https://tshark.dev) exists to teach you about packet analysis using **tshark**, the command-line packet analyzer that's part of the Wireshark project.
 
-The main aim for the site is to provide example usage of
-working with packets and hopefully give back something
-to the networking community in the process.
+## About tshark and Wireshark
 
-This website is built using [hugo](https://gohugo.io/), an open-source static
-site generator. Most of the HTML/CSS/JS, shortcodes, and partials come from the [Learn Theme](https://learn.netlify.com/en/).
+- **tshark** (lowercase) is the command-line network protocol analyzer
+- **Wireshark** refers to:
+  - The GUI application for packet analysis
+  - The Wireshark project/suite of tools (which includes tshark, dumpcap, editcap, and more)
+
+This site focuses primarily on command-line packet analysis with **tshark**, though many concepts apply across the entire Wireshark suite.
+
+The main aim for the site is to provide example usage of working with packets and hopefully give back something to the networking community in the process.
+
+This website is built using [hugo](https://gohugo.io/), an open-source static site generator. Most of the HTML/CSS/JS, shortcodes, and partials come from the [Learn Theme](https://learn.netlify.com/en/).
 
 ## Build it
 

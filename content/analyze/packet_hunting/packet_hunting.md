@@ -134,7 +134,7 @@ sys   0m0.781s
 One of the biggest differences between tshark and Wireshark is that you can change the
 Termshark is the way to analyze a capture in the terminal. You can change filters just like Wireshark's GUI to see what's happening.
 
-<a href="https://termshark.io"><img src="https://termshark.io/images/termshark.gif" alt="Termshark: A UI for tshark"></a>
+See [Termshark](https://termshark.io) for an interactive terminal UI for packet analysis.
 
 ## Filter with Regex: matches and contains
 
