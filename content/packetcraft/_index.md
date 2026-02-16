@@ -18,4 +18,4 @@ Counter-intuitive elements of tshark will go here.
 
 #### Table of Contents
 
-{{% children description="true" depth="4" %}}
+{{< children description="true" depth="4" >}}

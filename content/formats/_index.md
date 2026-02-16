@@ -38,4 +38,4 @@ Packet-Foo has a [good article](https://blog.packet-foo.com/2015/08/frame-bytes-
 
 #### Table of Contents
 
-{{% children description="true" depth="4" %}}
+{{< children description="true" depth="4" >}}

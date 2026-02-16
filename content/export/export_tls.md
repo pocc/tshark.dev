@@ -11,7 +11,7 @@ draft: false
 
 {{%notice note%}}
 You must have [tshark 2.4.0](https://github.com/wireshark/wireshark/commit/20c57cb298e4f3b7ac66a22fb7477e4cf424a11b) or higher to use the `--export-files` flag.
-You must have [tshark 2.6.3](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=12779) or higher to decrypt TLS1.3.
+You must have [tshark 2.6.3](https://gitlab.com/wireshark/wireshark/-/issues/12779) or higher to decrypt TLS1.3.
 {{%/notice%}}
 
 ## About
@@ -143,6 +143,17 @@ REG delete HKCU\Environment /F /V SSLKEYLOGFILE
 ### Asciicast of This Example
 
 <script id="asciicast-239566" src="https://asciinema.org/a/239566.js" async></script>
+
+## Tools Supporting SSLKEYLOGFILE
+
+The `$SSLKEYLOGFILE` environment variable is supported by an increasing number of tools and libraries:
+
+* **Browsers**: Chrome, Firefox, Edge
+* **HTTP Clients**: curl (7.83.0+)
+* **FTP Clients**: [gFTP](https://github.com/masneyb/gftp) (master branch as of 2026)
+* **Network Tools**: [socat](https://repo.or.cz/socat.git) (patched version, pending merge)
+* **.NET**: dotnet 9+ (debug mode by default, production mode via runtime config)
+* **Other**: NSS-based applications
 
 ## Further Reading
 

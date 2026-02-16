@@ -21,4 +21,4 @@ This section covers how to extract files from HTTP in both encypted and unencypt
 
 #### Table of Contents
 
-{{% children description="true" depth="4" %}}
+{{< children description="true" depth="4" >}}

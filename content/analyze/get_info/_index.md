@@ -17,7 +17,7 @@ Looking for `tshark -G` or `tshark -z`? Articles on using these flags are [not y
 
 #### Table of Contents
 
-{{% children description="true" depth="4" %}}
+{{< children description="true" depth="4" >}}
 
 <!-- * [ ] Add page for statistics and reports from tshark -G -->
 

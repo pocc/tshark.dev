@@ -12,4 +12,4 @@ draft: false
 One of the main reasons to use tshark is because it is easy to call from scripts.
 This section covers various tools that you can use on the command-line, as well as Wireshark's Lua API.
 
-{{% children description="true" depth="4" %}}
+{{< children description="true" depth="4" >}}

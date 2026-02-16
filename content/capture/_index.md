@@ -35,4 +35,4 @@ Also see https://wiki.wireshark.org/CaptureSetup.
 
 #### Table of Contents
 
-{{% children description="true" depth="4" %}}
+{{< children description="true" depth="4" >}}

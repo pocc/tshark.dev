@@ -135,4 +135,4 @@ Miscellaneous:
 
 ## Table of Contents
 
-{{% children depth="4" %}}
+{{< children depth="4" >}}

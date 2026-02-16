@@ -43,7 +43,7 @@ Well now you can with [Search Pcaps](/search/pcaptable/). Search over 6000 pcaps
 
 * <a href="https://wiki.wireshark.org/SampleCaptures">Wireshark's Sample Captures</a>
 * <a href="https://packetlife.net/captures/">Packetlife's Captures</a>
-* <a href="https://bugs.wireshark.org/bugzilla/">Wireshark Bugzilla Captures</a>
+* <a href="https://gitlab.com/wireshark/wireshark/-/issues">Wireshark GitLab Issues</a>
 
 ## Finding Captures
 
@@ -60,4 +60,4 @@ Of these, Wireshark's [Sample Captures](https://wiki.wireshark.org/SampleCapture
 
 ## Table of Contents
 
-{{% children description="true" depth="4" %}}
+{{< children description="true" depth="4" >}}

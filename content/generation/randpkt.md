@@ -20,7 +20,7 @@ randpkt is a tool used to generate [fuzzed](https://owasp.org/www-community/Fuzz
 * On <i class="fab fa-windows"></i><b>Windows</b>, the default is to not install randpkt. You must select randpkt manually during [installation](/setup/install/).
 * The `tcp` option uses token-ring instead of ethernet at layer 2. To get packets using the eth/ip/tcp stack, use `giop`, `tdp`, or `bgp`.
 * If you set `-b`, byte counts will vary wildly *up to* this byte count ceiling.
-* [~~randpkt -r crashes for -c > 1~~](https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15627)
+* [~~randpkt -r crashes for -c > 1~~](https://gitlab.com/wireshark/wireshark/-/issues/15627)
 
 ## Examples
 

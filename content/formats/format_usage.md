@@ -23,7 +23,7 @@ The majority of captures that you will deal with today are `pcap` or `pcapng`. W
 
 <div id="piechart" style="width: 900px; height: 500px;"></div>
 
-_This pie chart is based on 6,734 captures from [PacketLife](http://packetlife.net/captures), [Wireshark Samples](https://wiki.wireshark.org/SampleCaptures), and [Wireshark Bugzilla](https://bugs.wireshark.org/bugzilla/) (2019). Gzipped versions of capture types are considered that capture type. Each other capture type constituted < 1%._
+_This pie chart is based on 6,734 captures from [PacketLife](http://packetlife.net/captures), [Wireshark Samples](https://wiki.wireshark.org/SampleCaptures), and [Wireshark GitLab](https://gitlab.com/wireshark/wireshark/-/issues) (2019). Gzipped versions of capture types are considered that capture type. Each other capture type constituted < 1%._
 
 ### Output Formats of Tshark & Friends
 

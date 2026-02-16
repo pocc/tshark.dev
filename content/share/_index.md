@@ -16,4 +16,4 @@ This section covers writing your analysis and sending it to relevant parties.
 
 #### Table of Contents
 
-{{% children description="true" depth="4" %}}
+{{< children description="true" depth="4" >}}

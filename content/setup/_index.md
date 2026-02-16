@@ -19,4 +19,4 @@ Installation and configuration are important first steps for any program.
 
 ## Table of Contents
 
-{{% children description="true" depth="4" %}}
+{{< children description="true" depth="4" >}}

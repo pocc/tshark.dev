@@ -21,4 +21,4 @@ When in doubt, consult relevant [RFCs](https://www.rfc-editor.org/rfc-index.html
 
 ## Table of Contents
 
-{{% children description="true" depth="4" %}}
+{{< children description="true" depth="4" >}}

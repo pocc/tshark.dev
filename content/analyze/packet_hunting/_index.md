@@ -12,4 +12,4 @@ draft: false
 Sometimes you need to know what you're looking for to find it.
 This section will help you with the last mile to your destination.
 
-{{% children description="true" depth="4" %}}
+{{< children description="true" depth="4" >}}

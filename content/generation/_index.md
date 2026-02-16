@@ -18,4 +18,4 @@ If you want to use a programming language to [script packets](/packetcraft/scrip
 
 #### Table of Contents
 
-{{% children description="true" depth="4" %}}
+{{< children description="true" depth="4" >}}
