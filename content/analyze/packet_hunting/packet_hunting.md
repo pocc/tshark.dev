@@ -73,7 +73,19 @@ If you like C-style syntax, you can also use `&&` instead of `and` and `||` inst
 ### Finding Components of Protocols
 
 Sometimes you know the protocol you're looking for, just not the relevant fields you need to filter with.
-`tshark -G protocols` will print all protocols, so you can use it in conjunction with grep to find fields of interest.
+`tshark -G fields` will print all fields, and `tshark -G protocols` will print all protocols. You can use them in conjunction with grep to find items of interest.
+
+#### list available protocols
+
+If you want to see what protocols tshark can dissect, or find the filter name for a specific protocol:
+
+    bash$ tshark -G protocols | grep -i "websocket\|tls"
+    Datagram Transport Layer Security	DTLS	dtls	T	T	T
+    Transport Layer Security	TLS	tls	T	T	T
+    WebSocket	WebSocket	websocket	T	T	T
+    Wireless Transport Layer Security	WTLS	wtls	T	T	T
+
+This shows the long name, short name, and filter name (third column) you'd use in a display filter.
 
 #### grep for a specific field by name
 
