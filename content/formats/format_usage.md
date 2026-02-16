@@ -40,3 +40,9 @@ to see formats available to tshark and friends.
 {{% notice note %}}
 This is a summary of a [larger table](/capture/sources/pipe/#piping-with-shark).
 {{% /notice %}}
+
+## Hexdump Output Options
+
+{{% ai-warning %}}
+
+The `--hexdump` flag provides fine-grained control over hex and ASCII dump output for binary protocol analysis.
