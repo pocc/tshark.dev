@@ -24,6 +24,281 @@ Capturing on 'Wi-Fi: en0'
 1 packet captured
 ```
 
+## Extension Options (-X)
+
+{{% ai-warning %}}
+
+The `-X` flag enables advanced extension options for tshark, including loading custom Lua scripts, passing arguments to scripts, and controlling read formats. This is critical for custom dissectors, proprietary protocols, and IoT/ICS environments.
+
+### Basic Syntax
+
+```bash
+tshark -X <key>:<value>
+```
+
+### Loading Lua Scripts
+
+Load custom dissectors or analysis scripts:
+
+```bash
+# Load a custom dissector
+tshark -X lua_script:custom_dissector.lua -r capture.pcap
+
+# Load multiple scripts
+tshark -X lua_script:dissector1.lua \
+       -X lua_script:dissector2.lua \
+       -r capture.pcap
+```
+
+**Real-world use cases:**
+- Proprietary protocol dissection
+- IoT/ICS protocol analysis
+- Custom field extraction
+- Real-time packet manipulation
+
+### Passing Arguments to Lua Scripts
+
+Pass configuration to loaded Lua scripts using `lua_scriptnum:argument`:
+
+```bash
+# Load script and pass an argument to it
+tshark -X lua_script:my_parser.lua \
+       -X lua_script1:config_value \
+       -r capture.pcap
+
+# Pass arguments to multiple scripts
+tshark -X lua_script:script1.lua \
+       -X lua_script:script2.lua \
+       -X lua_script1:arg_for_script1 \
+       -X lua_script2:arg_for_script2 \
+       -r capture.pcap
+```
+
+**Script indexing:** Scripts are numbered in the order they're loaded (1, 2, 3, etc.).
+
+**Example Lua script that uses arguments:**
+
+```lua
+-- my_parser.lua
+-- Access the argument via arg global variable
+local function init()
+    local config = arg or "default_value"
+    print("Script started with config: " .. config)
+end
+
+init()
+```
+
+Usage:
+```bash
+tshark -X lua_script:my_parser.lua \
+       -X lua_script1:production_mode \
+       -r capture.pcap
+```
+
+### Custom Read Formats
+
+Override the file format detection to force tshark to read a file as a specific format:
+
+```bash
+# Read file as a specific format
+tshark -r unusual.bin \
+       -X read_format:Custom_Format \
+       -X lua_script:custom_format_handler.lua
+```
+
+**Use cases:**
+- Proprietary capture formats
+- Custom binary logs
+- Non-standard packet captures
+
+### Practical Examples
+
+#### Custom Protocol Dissector for IoT
+
+```lua
+-- iot_protocol.lua
+-- Simple dissector for proprietary IoT protocol
+
+local iot_proto = Proto("iot", "Custom IoT Protocol")
+
+local f_type = ProtoField.uint8("iot.type", "Packet Type", base.DEC)
+local f_device_id = ProtoField.uint32("iot.device_id", "Device ID", base.HEX)
+local f_data = ProtoField.bytes("iot.data", "Payload Data")
+
+iot_proto.fields = {f_type, f_device_id, f_data}
+
+function iot_proto.dissector(buffer, pinfo, tree)
+    pinfo.cols.protocol = "IoT"
+
+    local subtree = tree:add(iot_proto, buffer())
+    subtree:add(f_type, buffer(0,1))
+    subtree:add(f_device_id, buffer(1,4))
+    subtree:add(f_data, buffer(5))
+end
+
+-- Register on specific UDP port
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add(5000, iot_proto)
+```
+
+Usage:
+```bash
+# Analyze IoT traffic with custom dissector
+tshark -X lua_script:iot_protocol.lua \
+       -r iot_capture.pcap \
+       -Y "iot.device_id==0x12345678" \
+       -T fields -e iot.type -e iot.data
+```
+
+#### Field Extraction with Configuration
+
+```lua
+-- field_extractor.lua
+-- Extract specific fields based on configuration
+
+local config = arg or "ip.src,ip.dst"
+print("Extracting fields: " .. config)
+
+-- Add extraction logic here
+```
+
+Usage:
+```bash
+# Extract configured fields
+tshark -X lua_script:field_extractor.lua \
+       -X lua_script1:"tcp.stream,tcp.port,http.host" \
+       -r web.pcap
+```
+
+#### MODBUS/ICS Analysis
+
+```lua
+-- modbus_analyzer.lua
+-- Analyze MODBUS function codes for anomalies
+
+local modbus_proto = Proto("modbus_ext", "MODBUS Analyzer")
+
+function modbus_proto.dissector(buffer, pinfo, tree)
+    -- Check for dangerous function codes
+    local func_code = buffer(7,1):uint()
+
+    if func_code == 0x06 or func_code == 0x10 then
+        pinfo.cols.info:prepend("[WRITE OPERATION] ")
+        tree:add_expert_info(PI_SECURITY, PI_WARN, "MODBUS write detected")
+    end
+end
+
+DissectorTable.get("tcp.port"):add(502, modbus_proto)
+```
+
+Usage:
+```bash
+# Monitor MODBUS traffic for write operations
+tshark -X lua_script:modbus_analyzer.lua \
+       -i eth0 \
+       -f "tcp port 502" \
+       -Y "modbus_ext"
+```
+
+### Automation with Extension Options
+
+#### CI/CD Custom Protocol Testing
+
+```bash
+#!/bin/bash
+# Test custom protocol implementation
+
+tshark -X lua_script:protocol_validator.lua \
+       -X lua_script1:strict_mode \
+       -r test_capture.pcap \
+       -q > validation_results.txt
+
+if grep -q "VALIDATION FAILED" validation_results.txt; then
+    echo "Protocol validation failed!"
+    exit 1
+fi
+```
+
+#### Multi-Protocol IoT Analysis Pipeline
+
+```bash
+#!/bin/bash
+# Analyze mixed IoT protocols
+
+declare -a protocols=("zigbee" "zwave" "custom_rf")
+
+for proto in "${protocols[@]}"; do
+    tshark -X lua_script:${proto}_dissector.lua \
+           -r iot_capture.pcap \
+           -Y ${proto} \
+           -T json > ${proto}_data.json
+done
+```
+
+### Available Extension Keys
+
+While `-X` primarily focuses on `lua_script` and `read_format`, it can also be used for other internal options. Check the tshark man page for the most current list:
+
+```bash
+man tshark | grep -A 20 "^[[:space:]]*-X"
+```
+
+### Troubleshooting
+
+#### Script Not Loading
+
+```bash
+# Verify script syntax
+lua script.lua
+
+# Check tshark recognizes the script
+tshark -X lua_script:script.lua -v
+```
+
+#### Arguments Not Passed Correctly
+
+```bash
+# Debug: Print all arguments in Lua
+print("Args:", table.concat({...}, ", "))
+```
+
+#### Dissector Not Triggering
+
+```lua
+-- Ensure protocol is registered correctly
+local function register()
+    print("Registering protocol...")
+    DissectorTable.get("tcp.port"):add(12345, my_proto)
+end
+
+register()
+```
+
+### Performance Considerations
+
+Lua scripts add processing overhead. Optimize by:
+
+1. **Filter early:** Use `-Y` to reduce packets processed by Lua
+   ```bash
+   tshark -Y "tcp.port==502" -X lua_script:heavy_script.lua -r capture.pcap
+   ```
+
+2. **Disable unnecessary protocols:** Speed up dissection
+   ```bash
+   tshark --disable-all-protocols \
+          --enable-protocol ip --enable-protocol tcp \
+          -X lua_script:custom.lua -r capture.pcap
+   ```
+
+3. **Minimize string operations:** Use buffers directly in Lua
+
+### Further Reading
+
+- [Wireshark Lua API Documentation](https://www.wireshark.org/docs/wsdg_html_chunked/lua_module_Proto.html)
+- [Lua Examples - Wireshark Wiki](https://wiki.wireshark.org/Lua/Examples)
+- [Custom Dissector Development](https://mika-s.github.io/wireshark/lua/dissector/2017/11/04/creating-a-wireshark-dissector-in-lua-1.html)
+
 ## Metaprogramming
 
 There are two libraries I came across that are more metaprogramming that lua dissectors:

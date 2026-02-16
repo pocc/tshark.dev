@@ -199,6 +199,185 @@ tshark -r temp -o ip.check_checksum:true -V -c 1 | grep checksum
 `-o` is most used for specifying a series of required cryptographic settings like [WEP](https://stackoverflow.com/questions/34172493/not-able-to-set-tshark-preferences-from-command-line) or [ESP](https://wiki.wireshark.org/TShark_ESP_Preferences).
 In this guide, `-o` is used for [WPA2](/packetcraft/add_context/tshark_decryption/#wpa2-decryption) and [TLS1.2](/export/export_tls/) decryption.
 
+#### Comprehensive Preference Override Guide
+
+{{% ai-warning %}}
+
+The `-o` flag is **critical for CI/CD environments and containerized deployments** where editing configuration files is not practical. It enables reproducible analysis without persisting changes to disk.
+
+**Common Use Cases:**
+
+1. **Custom Port Assignments**
+
+```bash
+# Analyze HTTP on non-standard port
+tshark -r capture.pcap -o "http.tcp.port:8080,8888,9000" -Y http
+
+# Multiple protocols on custom ports
+tshark -r capture.pcap \
+    -o "http.tcp.port:8080" \
+    -o "tls.port:8443" \
+    -Y "http or tls"
+```
+
+2. **TLS Decryption**
+
+```bash
+# Decrypt TLS with session keys
+tshark -r encrypted.pcap \
+    -o "tls.keylog_file:/path/to/sslkeylog.txt" \
+    -Y "http" -T fields -e http.request.uri
+
+# Use RSA private key (older TLS versions only)
+tshark -r capture.pcap \
+    -o "tls.keys_list:192.168.1.1,443,http,/path/to/server.key" \
+    -Y "http"
+```
+
+3. **Protocol Dissection Control**
+
+```bash
+# Force decode specific port as HTTP
+tshark -r capture.pcap \
+    -o "http.tcp.port:12345" \
+    -Y http
+
+# Disable TCP checksum validation (for corrupted captures)
+tshark -r damaged.pcap \
+    -o "tcp.check_checksum:false" \
+    -Y tcp
+
+# Enable IPv6 GeoIP lookups
+tshark -r capture.pcap \
+    -o "ipv6.use_geoip:true" \
+    -T fields -e ip.geoip.country
+```
+
+4. **Name Resolution Settings**
+
+```bash
+# Disable all name resolution for speed
+tshark -r huge.pcap -o "nameres.use_external_name_resolver:false" -q -z io,stat,1
+
+# Enable MAC address resolution only
+tshark -r capture.pcap \
+    -o "nameres.mac_name:true" \
+    -o "nameres.network_name:false" \
+    -T fields -e eth.src
+```
+
+5. **Performance Optimization**
+
+```bash
+# Disable protocol features for faster processing
+tshark -r huge.pcap \
+    -o "tcp.analyze_sequence_numbers:false" \
+    -o "tcp.calculate_timestamps:false" \
+    -o "tcp.track_bytes_in_flight:false" \
+    -Y "tcp.port==80"
+
+# Disable reassembly for speed (when you don't need it)
+tshark -r capture.pcap \
+    -o "tcp.reassemble_out_of_order:false" \
+    -o "ip.defragment:false" \
+    -Y tcp
+```
+
+**Finding Available Preferences:**
+
+```bash
+# List all preferences
+tshark -G currentprefs | less
+
+# Search for specific protocol preferences
+tshark -G defaultprefs | grep -i "^http\."
+tshark -G defaultprefs | grep -i "^tcp\."
+tshark -G defaultprefs | grep -i "^tls\."
+
+# Find checksum-related settings
+tshark -G defaultprefs | grep -i checksum
+```
+
+**Common Preferences by Protocol:**
+
+| Protocol | Preference | Description | Example |
+|----------|-----------|-------------|---------|
+| HTTP | `http.tcp.port` | Additional TCP ports | `-o "http.tcp.port:8080,8888"` |
+| HTTP | `http.decompress_body` | Decompress gzip/deflate | `-o "http.decompress_body:true"` |
+| TLS | `tls.keylog_file` | Session keys file | `-o "tls.keylog_file:keys.log"` |
+| TLS | `tls.port` | Additional ports | `-o "tls.port:8443,9443"` |
+| TCP | `tcp.check_checksum` | Validate checksums | `-o "tcp.check_checksum:false"` |
+| TCP | `tcp.analyze_sequence_numbers` | Track seq/ack | `-o "tcp.analyze_sequence_numbers:false"` |
+| TCP | `tcp.relative_sequence_numbers` | Use relative seq nums | `-o "tcp.relative_sequence_numbers:false"` |
+| IP | `ip.check_checksum` | Validate IP checksums | `-o "ip.check_checksum:true"` |
+| IP | `ip.defragment` | Reassemble fragments | `-o "ip.defragment:false"` |
+| DNS | `dns.use_for_addr_resolution` | Use DNS for resolution | `-o "dns.use_for_addr_resolution:true"` |
+
+**CI/CD Example - Reproducible Analysis:**
+
+```bash
+#!/bin/bash
+# Standardized analysis script for CI/CD
+
+analyze_capture() {
+    local pcap=$1
+
+    tshark -r "$pcap" \
+        -o "tcp.check_checksum:false" \
+        -o "ip.check_checksum:false" \
+        -o "http.tcp.port:8080,8888" \
+        -o "tls.port:8443" \
+        -o "tcp.relative_sequence_numbers:false" \
+        -Y "http or tls" \
+        -T json > analysis.json
+
+    # Analysis is reproducible across environments
+}
+```
+
+**Docker/Container Usage:**
+
+```dockerfile
+# Dockerfile
+FROM ubuntu:22.04
+RUN apt-get update && apt-get install -y tshark
+
+# No need to mount config files - use -o flags
+ENTRYPOINT ["tshark", "-o", "tcp.check_checksum:false", "-o", "http.tcp.port:8080"]
+```
+
+**Multiple Preferences:**
+
+You can specify `-o` multiple times in a single command:
+
+```bash
+tshark -r capture.pcap \
+    -o "http.tcp.port:8080" \
+    -o "tls.port:8443" \
+    -o "tcp.check_checksum:false" \
+    -o "ip.check_checksum:false" \
+    -o "tls.keylog_file:/tmp/keys.log" \
+    -Y "http or tls"
+```
+
+**Debugging Preference Issues:**
+
+```bash
+# Check if preference was applied
+tshark -o "http.tcp.port:8080" -G currentprefs | grep "http.tcp.port"
+
+# Verify preference name is correct
+tshark -G defaultprefs | grep -i "http.*port"
+
+# Test with verbose output
+tshark -o "nonexistent.preference:value" -v 2>&1 | grep -i preference
+```
+
+**See Also:**
+- [Reports (-G)](/packetcraft/arcana/reports/) for discovering available preferences
+- [TLS Decryption](/export/export_tls/) for TLS-specific preferences
+- [WPA2 Decryption](/packetcraft/add_context/tshark_decryption/#wpa2-decryption) for wireless preferences
+
 ### -H ${hosts}
 
 Specify a hosts file by name. Let's say that burritos and tacos found their way into our hosts file. I don't know how, but it was delicious.
