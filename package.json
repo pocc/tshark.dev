@@ -1,12 +1,13 @@
 {
   "private": true,
   "scripts": {
-    "build": "hugo --gc --minify",
+    "build": "hugo --gc --minify && npx pagefind --site public",
     "dev": "hugo server",
     "preview": "npm run build && wrangler dev",
     "deploy": "npm run build && wrangler deploy"
   },
   "devDependencies": {
+    "pagefind": "^1.4.0",
     "wrangler": "^4"
   }
 }

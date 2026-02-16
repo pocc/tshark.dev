@@ -624,3 +624,171 @@ img {
     shape-rendering: geometricPrecision;
     text-rendering: optimizeLegibility;
 }
+
+/* =============================================================================
+   Pagefind Search Styling (Issue #9)
+   ============================================================================= */
+
+/* Search container in sidebar */
+.searchbox {
+    margin: 1rem 0.5rem;
+}
+
+#pagefind-search {
+    width: 100%;
+}
+
+/* Override Pagefind default styles to match theme */
+.pagefind-ui__search-input {
+    background: var(--color-bg-primary, #fff) !important;
+    color: var(--color-text, #333) !important;
+    border: 1px solid var(--color-border, #ccc) !important;
+    border-radius: 4px !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.9rem !important;
+    width: 100% !important;
+    font-family: var(--font-sans) !important;
+}
+
+.pagefind-ui__search-input:focus {
+    outline: none !important;
+    border-color: var(--color-link, #007bff) !important;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.1) !important;
+}
+
+/* Search clear button */
+.pagefind-ui__search-clear {
+    color: var(--color-text-muted, #666) !important;
+}
+
+/* Results container */
+.pagefind-ui__results-area {
+    margin-top: 0.5rem;
+    font-family: var(--font-sans) !important;
+}
+
+.pagefind-ui__results {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* Individual result */
+.pagefind-ui__result {
+    padding: 0.75rem !important;
+    margin-bottom: 0.5rem !important;
+    border: 1px solid var(--color-border, #e0e0e0) !important;
+    border-radius: 4px !important;
+    background: var(--color-bg-primary, #fff) !important;
+    transition: box-shadow 0.2s ease !important;
+}
+
+.pagefind-ui__result:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+    border-color: var(--color-link, #007bff) !important;
+}
+
+/* Result title */
+.pagefind-ui__result-title {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.5rem !important;
+    font-family: var(--font-sans) !important;
+}
+
+.pagefind-ui__result-link {
+    color: var(--color-link, #007bff) !important;
+    text-decoration: none !important;
+}
+
+.pagefind-ui__result-link:hover {
+    text-decoration: underline !important;
+}
+
+/* Result excerpt with context */
+.pagefind-ui__result-excerpt {
+    color: var(--color-text, #333) !important;
+    line-height: 1.6 !important;
+    margin-top: 0.5rem !important;
+    font-size: 0.9rem !important;
+    font-family: var(--font-sans) !important;
+}
+
+/* Highlighted search terms - the key feature of Issue #9 */
+.pagefind-ui__result-excerpt mark {
+    background-color: #fff3cd !important;
+    color: #856404 !important;
+    padding: 0.1rem 0.3rem !important;
+    border-radius: 2px !important;
+    font-weight: 600 !important;
+}
+
+/* Result URL/breadcrumb */
+.pagefind-ui__result-nested {
+    color: var(--color-text-muted, #666) !important;
+    font-size: 0.85rem !important;
+    margin-top: 0.25rem !important;
+}
+
+/* Loading state */
+.pagefind-ui__loading {
+    text-align: center !important;
+    padding: 1.5rem !important;
+    color: var(--color-text-muted, #666) !important;
+}
+
+/* No results message */
+.pagefind-ui__message {
+    padding: 1.5rem !important;
+    text-align: center !important;
+    color: var(--color-text-muted, #666) !important;
+}
+
+/* Result count */
+.pagefind-ui__results-heading {
+    font-size: 0.85rem !important;
+    color: var(--color-text-muted, #666) !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: normal !important;
+}
+
+/* Mobile responsive adjustments */
+@media only screen and (max-width: 59.938em) {
+    .searchbox {
+        margin: 0.75rem 0.5rem;
+    }
+
+    .pagefind-ui__results {
+        max-height: 50vh;
+    }
+
+    .pagefind-ui__result {
+        padding: 0.5rem !important;
+    }
+
+    .pagefind-ui__result-title {
+        font-size: 0.95rem !important;
+    }
+
+    .pagefind-ui__result-excerpt {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* Dark mode support (if theme has dark mode) */
+@media (prefers-color-scheme: dark) {
+    .pagefind-ui__search-input {
+        background: var(--color-bg-secondary, #2d2d2d) !important;
+        color: var(--color-text, #e0e0e0) !important;
+        border-color: var(--color-border, #444) !important;
+    }
+
+    .pagefind-ui__result {
+        background: var(--color-bg-secondary, #2d2d2d) !important;
+        border-color: var(--color-border, #444) !important;
+    }
+
+    .pagefind-ui__result-excerpt mark {
+        background-color: #4a4a00 !important;
+        color: #ffeb3b !important;
+    }
+}
