@@ -7,7 +7,6 @@
 
 # Packages
 node_modules/
-package-lock.json
 
 # Cloudflare Workers
 .wrangler/
