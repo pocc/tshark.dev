@@ -394,3 +394,130 @@ img {
     #sidebar, #theme-toggle, .copy-btn, #top-bar { display: none !important; }
     #body { margin-left: 0 !important; }
 }
+
+/* =============================================================================
+   Mobile Optimizations (Lighthouse Improvements)
+   ============================================================================= */
+
+/* --- Fix viewport sizing for mobile (Issue #10) --- */
+@media only screen and (max-width: 59.938em) {
+    /* Ensure content width matches viewport */
+    #body {
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+
+    #body .padding {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Prevent horizontal overflow */
+    body, html {
+        overflow-x: hidden;
+        max-width: 100vw;
+    }
+
+    /* Responsive tables */
+    table {
+        display: block;
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    /* Responsive images */
+    img {
+        max-width: 100% !important;
+        height: auto;
+    }
+
+    /* Responsive pre/code blocks */
+    pre {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+}
+
+/* --- Improve tap target sizes for mobile (Issue #13) --- */
+@media only screen and (max-width: 59.938em) {
+    /* Increase tap target size for links */
+    a {
+        min-height: 48px;
+        min-width: 48px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 0.25rem;
+    }
+
+    /* TOC links - the main problem area */
+    #TableOfContents a,
+    #sidebar a {
+        min-height: 48px !important;
+        padding: 0.75rem 1rem !important;
+        display: flex !important;
+        align-items: center;
+    }
+
+    /* Navigation buttons */
+    button,
+    .button,
+    input[type="button"],
+    input[type="submit"] {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.75rem 1rem;
+    }
+
+    /* Sidebar toggle */
+    #sidebar-toggle {
+        min-height: 48px !important;
+        min-width: 48px !important;
+        padding: 0.75rem !important;
+    }
+
+    /* TOC menu toggle */
+    #toc-menu {
+        min-height: 48px !important;
+        min-width: 48px !important;
+        padding: 0.75rem !important;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Breadcrumb links */
+    #breadcrumbs a {
+        padding: 0.5rem 0.25rem;
+    }
+
+    /* Search input */
+    input[type="search"],
+    input[type="text"] {
+        min-height: 48px;
+        font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+
+    /* Theme toggle button */
+    #theme-toggle {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.75rem !important;
+    }
+}
+
+/* --- Ensure tap targets have enough spacing --- */
+@media only screen and (max-width: 59.938em) {
+    /* Add spacing between adjacent tap targets */
+    #sidebar li {
+        margin-bottom: 0.25rem;
+    }
+
+    #TableOfContents li {
+        margin-bottom: 0.5rem;
+    }
+
+    /* Navigation elements spacing */
+    nav a {
+        margin: 0.25rem 0;
+    }
+}

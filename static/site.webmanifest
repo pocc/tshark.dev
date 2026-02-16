@@ -1,19 +1,26 @@
 {
-    "name": "Tshark.dev",
+    "name": "Tshark.dev — Packet Analysis Guide",
     "short_name": "Tshark.dev",
+    "description": "Your complete guide to packet analysis on the command line",
+    "start_url": "/",
+    "scope": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         },
         {
             "src": "/android-chrome-256x256.png",
             "sizes": "256x256",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         }
     ],
-    "theme_color": "#ffffff",
+    "theme_color": "#5bbad5",
     "background_color": "#ffffff",
-    "display": "standalone"
+    "display": "standalone",
+    "orientation": "any",
+    "categories": ["education", "developer tools", "networking"]
 }

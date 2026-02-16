@@ -10,6 +10,9 @@ defaultContentLanguageInSubdir= true
 enableRobotsTXT = true
 enableGitInfo = true
 
+# Disqus comments
+disqusShortname = "tshark-dev"
+
 [params]
   editURL = "https://github.com/pocc/tshark.dev/blob/master/content/"
   description = "Your complete guide to packet analysis on the command line"
