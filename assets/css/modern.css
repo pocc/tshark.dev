@@ -559,3 +559,68 @@ img {
 #sidebar .dd-item a {
     font-size: 0.95rem !important;
 }
+
+/* =============================================================================
+   Mermaid Diagram Responsive Behavior (Issue #31, #7)
+   ============================================================================= */
+
+/* Make Mermaid diagram scrollable on tablets */
+@media only screen and (max-width: 768px) and (min-width: 480px) {
+    .mermaid-map {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    /* Add scrollbar hint */
+    .mermaid-map-wrapper {
+        position: relative;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .mermaid-map-wrapper::after {
+        content: "← Scroll →";
+        display: block;
+        text-align: center;
+        color: var(--color-text-muted);
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Hide Mermaid diagram on very small mobile screens (Issue #31) */
+@media only screen and (max-width: 479px) {
+    .mermaid-map {
+        display: none;
+    }
+
+    /* Show a message that diagram is hidden */
+    .mermaid-map + .mermaid-mobile-note {
+        display: block;
+        padding: 1rem;
+        background: var(--color-bg-secondary);
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        text-align: center;
+        color: var(--color-text-muted);
+        font-size: 0.875rem;
+    }
+}
+
+/* Ensure text in Mermaid is visible on mobile (Issue #7) */
+.mermaid-map text {
+    font-size: 14px !important;
+    font-family: var(--font-sans) !important;
+}
+
+.mermaid-map .label text,
+.mermaid-map .sectionTitle {
+    font-size: 16px !important;
+    font-weight: 600;
+}
+
+/* Improve SVG rendering on Android Chrome */
+.mermaid-map {
+    shape-rendering: geometricPrecision;
+    text-rendering: optimizeLegibility;
+}

@@ -50,14 +50,14 @@ really possible to use rawshark without piping as it expects a FIFO or stream.
       - tabs: Same as text, but uses tab as delimiter
       - fields: Specify which values of the packet to show with [display filters]()
     - JSON-based
-      - json: All the json, all the time.
-      - jsonraw:
-      - ek:
+      - json: Standard JSON format with full packet details
+      - jsonraw: Raw JSON format (minimal processing)
+      - ek: Elasticsearch-compatible JSON format
     - XML-based
-      - pdml:
-      - psml:
+      - pdml: Packet Details Markup Language (full packet tree)
+      - psml: Packet Summary Markup Language (summary view)
     - PS-based
-      - ps: Adobe <u>**P**</u>ost<u>**S**</u>cript file that con be converted to pdf
+      - ps: Adobe <u>**P**</u>ost<u>**S**</u>cript file that can be converted to pdf
 
 ## Using temp files instead of pipes
 
