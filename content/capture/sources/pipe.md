@@ -14,17 +14,30 @@ draft: false
 Piping is important to using many of these utilities. For example, it is not
 really possible to use rawshark without piping as it expects a FIFO or stream.
 
+The table below shows what formats each Wireshark utility accepts and produces. Parentheses `()` indicate the default format when writing files.
+
 | Utility        | stdin formats        | input formats      | stdout formats     | output formats (default)    |
 |----------------|----------------------|--------------------|--------------------|-----------------------------|
-| **capinfos**   | -                    | *pcaps<sup>1</sup> | report<sup>2</sup> | -                           |
-| **dumpcap**    | -                    | -                  | rawpcap            | *pcaps (pcapng)<sup>3</sup> |
-| **editcap**    | -                    | *pcaps             | -                  | *pcaps (pcapng)             |
-| **mergecap**   | -                    | *pcaps             | -                  | *pcaps (pcapng)             |
-| **randpkt**    | -                    | -                  | -                  | (pcap)                      |
-| **rawshark**   | raw pcap<sup>4</sup> | -                  | report             | -                           |
-| **reordercap** | -                    | *pcaps             | -                  | (Same as input)             |
-| **text2pcap**  | hexdump<sup>5</sup>  | -                  | -                  | (pcap), pcapng              |
-| **tshark**     | raw pcap             | *pcaps             | *many<sup>6</sup>  | *pcaps, (pcapng)            |
+| [capinfos](https://www.wireshark.org/docs/man-pages/capinfos.html)   | -                    | *pcaps<sup>1</sup> | report<sup>2</sup> | -                           |
+| [dumpcap](https://www.wireshark.org/docs/man-pages/dumpcap.html)    | -                    | -                  | rawpcap            | *pcaps (pcapng)<sup>3</sup> |
+| [editcap](https://www.wireshark.org/docs/man-pages/editcap.html)    | -                    | *pcaps             | -                  | *pcaps (pcapng)             |
+| [mergecap](https://www.wireshark.org/docs/man-pages/mergecap.html)   | -                    | *pcaps             | -                  | *pcaps (pcapng)             |
+| [randpkt](https://www.wireshark.org/docs/man-pages/randpkt.html)    | -                    | -                  | -                  | (pcap)                      |
+| [rawshark](https://www.wireshark.org/docs/man-pages/rawshark.html)   | raw pcap<sup>4</sup> | -                  | report             | -                           |
+| [reordercap](https://www.wireshark.org/docs/man-pages/reordercap.html) | -                    | *pcaps             | -                  | (Same as input)             |
+| [text2pcap](https://www.wireshark.org/docs/man-pages/text2pcap.html)  | hexdump<sup>5</sup>  | -                  | -                  | (pcap), pcapng              |
+| [tshark](https://www.wireshark.org/docs/man-pages/tshark.html)     | raw pcap             | *pcaps             | *many<sup>6</sup>  | *pcaps, (pcapng)            |
+
+**Tool Quick Reference:**
+- **capinfos**: Display capture file information
+- **dumpcap**: Network traffic dump tool (no dissection)
+- **editcap**: Edit and translate capture files
+- **mergecap**: Merge multiple capture files
+- **randpkt**: Generate random packet capture files
+- **rawshark**: Raw packet filter (no GUI/TUI)
+- **reordercap**: Reorder packets by timestamp
+- **text2pcap**: Convert hexdumps to pcap files
+- **tshark**: Network protocol analyzer (CLI Wireshark)
 
 ---
 

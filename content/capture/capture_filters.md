@@ -36,6 +36,6 @@ You cannot use them on an existing file or when reading from stdin for this reas
 
 ## Further Reading
 
-* [Packetlife Cheatsheet](https://packetlife.net/blog/2008/oct/18/cheat-sheets-tcpdump-and-wireshark/)
+* [Packetlife: tcpdump & libpcap Cheat Sheet](https://packetlife.net/library/cheat-sheets/) — Network reference sheets including capture filters
 * [Display/Capture Filters for 50.X.X.152](https://ask.wireshark.org/question/5647/how-to-filter-for-partial-ip-such-as-50xxxxxx152/)
-* [Perhaps a top 15 Wireshark Capture Filter List](https://www.cellstream.com/reference-reading/tipsandtricks/379-top-10-wireshark-filters-2)
+* [Top 10 Wireshark Capture Filters](https://www.cellstream.com/2018/02/28/top-10-wireshark-filters-2/) — Common capture filter examples
