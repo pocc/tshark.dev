@@ -9,5 +9,8 @@
   "devDependencies": {
     "pagefind": "^1.4.0",
     "wrangler": "^4"
+  },
+  "overrides": {
+    "undici": "^7.24.6"
   }
 }
