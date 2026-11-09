@@ -62,34 +62,40 @@ curl $pcap_url | tar -xzv
 
 ### 2. Decrypt
 
+With tshark 4.0 or later, use `-U IP` to export decrypted IP packets. Plain
+`-w` writes the original packet bytes, even when decryption is enabled.
 Set the values of vars to whatever they are in your case.
 
 ```bash
 infile="WPA2-PSK-Final.cap"
-outfile="decrypted.pcap"
+outfile="decrypted.pcapng"
 ssid='TEST1'
 psk='Cisco123Cisco123'
 
-tshark -r $infile -w $outfile \
+tshark -r "$infile" -U IP -F pcapng -w "$outfile" \
        -o wlan.enable_decryption:TRUE \
        -o "uat:80211_keys:\"wpa-pwd\",\"${psk}:${ssid}\""
 ```
 
 We can now send the result to a colleague who will not need to know the SSID/PSK.
+The export contains IP packets only: it removes the original radio and link-layer
+headers and omits non-IP packets such as EAPOL and ARP. Keep the original capture
+for wireless troubleshooting, and treat the exported plaintext as sensitive data.
+
+On older tshark versions, analyze the original capture with the same decryption
+options instead; saving it with plain `-w` does not remove encryption.
 
 ### 3. Analyze
 
 Let's pretend we care about TCP resets in the decrypted traffic. We can check
-for it with `tcp.connection.rst` with output that should look something like:
+for it with `tcp.connection.rst`. For the sample capture above:
 
 ```sh
-bash-5.0$ tshark -r decrypted.pcap -Y "tcp.connection.rst"
-  487  38.407227 192.168.140.1 → 192.168.140.100 TCP 112 2000 → 1091 [RST, ACK] 
-    Seq=1 Ack=1 Win=0 Len=0
-  626  41.687352 192.168.140.1 → 192.168.140.100 TCP 112 2000 → 1092 [RST, ACK] 
-    Seq=1 Ack=1 Win=0 Len=0
-  1226  52.758103 192.168.140.1 → 192.168.140.100 TCP 112 2000 → 1093 [RST, ACK
-    Seq=1 Ack=1 Win=0 Len=0
+tshark -n -r decrypted.pcapng -Y "tcp.connection.rst" \
+       -T fields -e frame.number -e ip.src -e ip.dst -e tcp.flags.reset
+14      192.168.140.1   192.168.140.100   True
+60      192.168.140.1   192.168.140.100   True
+258     192.168.140.1   192.168.140.100   True
 ```
 
 ### WPA2 In Summary
