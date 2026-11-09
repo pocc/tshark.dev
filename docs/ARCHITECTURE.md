@@ -6,7 +6,7 @@
 
 - **Live site:** https://tshark.dev
 - **Source:** https://github.com/pocc/tshark.dev
-- **Production builds:** The existing Cloudflare Git-connected project builds `master` using Hugo 0.155.2 and `npm run build`. The repository also retains a separate legacy GitHub Actions Worker deployment workflow; it is not changed by the accessibility work.
+- **Production builds:** The existing Cloudflare Git-connected project builds `master` using Hugo 0.155.2 and `npm run build`. The repository also retains a separate manual GitHub Actions Worker deployment workflow that requires repository credentials.
 - **Generator:** [Hugo](https://gohugo.io/) (static site generator, Go-based)
 - **Theme:** [Hugo Learn Theme](https://learn.netlify.com/en/) (customized)
 - **Language:** English only (i18n files exist for 10 languages but only English is active)
@@ -141,7 +141,7 @@ The currently configured Cloudflare Git-connected production build uses `npm run
 Configured deployment paths:
 
 1. **Cloudflare Git integration** (current production): Builds `master` with Hugo 0.155.2 and `npm run build`, publishing `public`.
-2. **Legacy GitHub Actions Worker deployment**: `.github/workflows/deploy.yml` separately invokes `wrangler deploy` and requires repository credentials. It currently lacks those credentials; the accessibility changes do not repair, disable, or rely on it.
+2. **Manual GitHub Actions Worker deployment**: `.github/workflows/deploy.yml` can be invoked explicitly with GitHub's Run workflow control. It does not run on pushes. It invokes `wrangler deploy` and requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`; the API token is currently missing, so a manual invocation will fail until that credential is configured. Routine pushes use the existing native Cloudflare integration.
 3. **Local Worker deployment**: `npm run deploy` builds and invokes Wrangler using local authentication. This is distinct from the Git-connected production build.
 
 ### Worker Architecture
