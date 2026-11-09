@@ -57,6 +57,8 @@ The audit recursively inventories the generated site, checks each page in deskto
 
 Results and representative screenshots are written to `artifacts/accessibility/`. The GitHub **Accessibility checks** workflow runs the same checks on pushes and pull requests and uploads the report. It does not deploy the site or require Cloudflare credentials. See [the page-by-page audit](docs/ACCESSIBILITY_AUDIT.md) for findings, verification, and remaining human-review limits. Automated checks do not replace screen-reader testing or caption/image review.
 
+The first-party browser scan blocks analytics, comments, and external Asciinema recording requests. This keeps unavailable third-party recordings from preventing article checks. Recording playback, accessibility, captions/transcripts, and external service availability remain explicitly flagged for separate review (M03).
+
 To use an already-installed compatible headless browser, set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` to its executable. Otherwise install the browser with Playwright as shown above.
 
 ## Contributing

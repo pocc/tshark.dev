@@ -66,7 +66,8 @@ async function worker() {
   while (cursor < tasks.length) {
     const task = tasks[cursor++];
     const context = await browser.newContext({ viewport: { width: task.mode.width, height: task.mode.height }, colorScheme: task.mode.colorScheme, serviceWorkers: 'block' });
-    await context.route(/(?:disqus|google-analytics|googletagmanager|doubleclick)/, route => route.abort());
+    // External recordings are a separate manual review (M03), not a prerequisite for first-party page checks.
+    await context.route(/(?:asciinema\.org|disqus|google-analytics|googletagmanager|doubleclick)/, route => route.abort());
     await context.addInitScript(dark => { if (dark) localStorage.setItem('theme', 'dark'); else localStorage.removeItem('theme'); }, task.mode.name === 'desktop-dark');
     const page = await context.newPage();
     const errors: string[] = [];
