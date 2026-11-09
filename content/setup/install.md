@@ -143,10 +143,10 @@ at /usr/lib/x86_64-linux-gnu/wireshark/extcap. To add them to your path, use
 
 Currently, extcap utils [need to be
 moved](https://www.wireshark.org/lists/wireshark-dev/201608/msg00161.html) from Wireshark\\extcap => Wireshark
-to be useable. If you have not added your %Program Files% to your $PATH, you can
+to be useable. If you have not added your %Program Files% to your PATH, you can
 do that with an Admin user:
 
-`[Environment]::SetEnvironmentVariable(`  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`"PATH", "$PATH;$ENV:ProgramFiles\Wireshark", "Machine")`
+`$machinePath = [Environment]::GetEnvironmentVariable('Path', 'Machine')`  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`[Environment]::SetEnvironmentVariable('Path', "$machinePath;$env:ProgramFiles\Wireshark", 'Machine')`
 
-You will need to reopen Powershell for the $PATH to be updated.
+You will need to reopen Powershell for the PATH to be updated.
