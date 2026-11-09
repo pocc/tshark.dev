@@ -6,7 +6,7 @@
 
 - **Live site:** https://tshark.dev
 - **Source:** https://github.com/pocc/tshark.dev
-- **Hosting:** Cloudflare Workers (auto-deploys via GitHub Actions)
+- **Production builds:** The existing Cloudflare Git-connected project builds `master` using Hugo 0.155.2 and `npm run build`. The repository also retains a separate legacy GitHub Actions Worker deployment workflow; it is not changed by the accessibility work.
 - **Generator:** [Hugo](https://gohugo.io/) (static site generator, Go-based)
 - **Theme:** [Hugo Learn Theme](https://learn.netlify.com/en/) (customized)
 - **Language:** English only (i18n files exist for 10 languages but only English is active)
@@ -27,11 +27,11 @@
 | Config format   | TOML (`config.toml`)                           |
 | Content format  | Markdown with YAML front matter                |
 | Syntax highlighting | Hugo Pygments (Chroma) with CSS classes    |
-| Search          | Lunr.js (client-side full-text search)         |
-| Code highlighting | Hugo Chroma (build-time, github/github-dark) |
+| Search          | Pagefind (build-time index with client-side search) |
+| Code highlighting | Hugo Chroma (build-time, github light theme) |
 | Icons           | Font Awesome 5 (minified custom subset)        |
 | Fonts           | Inter, JetBrains Mono (Google Fonts) + legacy woff2 |
-| Comments        | Disabled (Disqus template exists but commented out) |
+| Comments        | Disqus on article pages; third-party frames excluded from automated accessibility checks |
 | Charts          | Google Charts (pie chart on Format Usage page) |
 | Data tables     | jQuery DataTables (pcap search table)          |
 | jQuery          | 3.4.1                                          |
@@ -90,7 +90,8 @@ Key settings from `config.toml`:
 - `disableNextPrev = true` — no prev/next navigation arrows
 - `disableInlineCopyToClipBoard = "true"`
 - `enableRobotsTXT = true`
-- Outputs: HTML, RSS, JSON (JSON enables Lunr.js search)
+- Outputs: HTML, RSS, JSON; Pagefind indexes the generated main content
+- Canonical article URLs have no `/en/` prefix; `static/_redirects` preserves older prefixed URLs
 - `markup.goldmark.renderer.unsafe = true` — allows raw HTML in Markdown
 
 ## Custom Layout Overrides
@@ -135,10 +136,13 @@ npm run deploy
 
 ## Deployment
 
-Deployed via **Cloudflare Workers** with static assets. Two deployment paths:
+The currently configured Cloudflare Git-connected production build uses `npm run build` and publishes `public`. The accessibility workflow validates changes independently and never deploys. See `docs/ACCESSIBILITY_AUDIT.md` and the README audit commands for the complete page inventory and regression checks.
 
-1. **GitHub Actions** (automatic): Push to `master` triggers `.github/workflows/deploy.yml` which builds Hugo and runs `wrangler deploy`. Requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repo secrets.
-2. **Local** (manual): Run `npm run deploy` to build and deploy from your machine.
+Configured deployment paths:
+
+1. **Cloudflare Git integration** (current production): Builds `master` with Hugo 0.155.2 and `npm run build`, publishing `public`.
+2. **Legacy GitHub Actions Worker deployment**: `.github/workflows/deploy.yml` separately invokes `wrangler deploy` and requires repository credentials. It currently lacks those credentials; the accessibility changes do not repair, disable, or rely on it.
+3. **Local Worker deployment**: `npm run deploy` builds and invokes Wrangler using local authentication. This is distinct from the Git-connected production build.
 
 ### Worker Architecture
 
@@ -147,6 +151,8 @@ Deployed via **Cloudflare Workers** with static assets. Two deployment paths:
 - **`package.json`** — Build/deploy scripts, wrangler as devDependency
 
 ## Key Features
+
+The site uses light mode only. System dark-mode preferences and previously saved theme choices are ignored; there is no theme toggle.
 
 1. **Annotated tshark --help**: The homepage is a hyperlinked version of `tshark --help` where each flag links to its documentation page
 2. **Pcap Search**: Interactive searchable table of 6000+ public packet captures with inequality filters (size, length, packets)

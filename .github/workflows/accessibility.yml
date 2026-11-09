@@ -1,0 +1,38 @@
+name: Accessibility checks
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+      - uses: peaceiris/actions-hugo@v3.2.1
+        with:
+          hugo-version: '0.155.2'
+          extended: true
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - run: npm run audit:a11y
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: accessibility-report
+          path: artifacts/accessibility/
+          if-no-files-found: warn

@@ -1,13 +1,16 @@
 {
   "private": true,
   "scripts": {
-    "build": "hugo --gc --minify && npx pagefind --site public",
+    "build": "hugo --gc --minify --cleanDestinationDir && npx pagefind --site public",
+    "audit:a11y": "node utils/audit_accessibility.mts",
     "dev": "hugo server",
     "preview": "npm run build && wrangler dev",
     "deploy": "npm run build && wrangler deploy"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
     "pagefind": "^1.4.0",
+    "playwright": "1.65.0",
     "wrangler": "^4"
   },
   "overrides": {

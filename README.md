@@ -42,6 +42,23 @@ This website is built using [hugo](https://gohugo.io/), an open-source static si
 
 4. Open the address in a browser (default is localhost:1313)
 
+## Accessibility checks
+
+Use Hugo **0.155.2** for reproducible builds. The site is light-only, uses the original root documentation URLs, and redirects older `/en/` URLs to the matching page.
+
+```sh
+npm ci
+npx playwright install chromium
+npm run build
+npm run audit:a11y
+```
+
+The audit recursively inventories the generated site, checks each page in desktop light, saved-dark-preference, mobile, and 320px reflow views, and verifies keyboard navigation, search, copy feedback, capture-table filtering, and old URL redirects. It exits unsuccessfully for automated accessibility failures, broken internal links, JavaScript errors, or failed interaction checks.
+
+Results and representative screenshots are written to `artifacts/accessibility/`. The GitHub **Accessibility checks** workflow runs the same checks on pushes and pull requests and uploads the report. It does not deploy the site or require Cloudflare credentials. See [the page-by-page audit](docs/ACCESSIBILITY_AUDIT.md) for findings, verification, and remaining human-review limits. Automated checks do not replace screen-reader testing or caption/image review.
+
+To use an already-installed compatible headless browser, set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` to its executable. Otherwise install the browser with Playwright as shown above.
+
 ## Contributing
 
 <a href="https://www.patreon.com/bePatron?u=23107486"><img class="patreon" src="/images/patreon_button.png" alt="Become a Patron!"></a>

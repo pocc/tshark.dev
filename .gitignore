@@ -18,5 +18,6 @@ _build/
 resources/
 public/
 .hugo_build.lock
+/artifacts/accessibility/
 *pdf*
 *tex*
