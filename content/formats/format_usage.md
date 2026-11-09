@@ -21,9 +21,16 @@ The internet is a testament to our ability to put aside our differences and agre
 
 The majority of captures that you will deal with today are `pcap` or `pcapng`. With the prevalence of linux, libpcap, tcpdump, and Wireshark in network devices, most vendors now support the pcap-type natively or produce a hexdump that [can be converted](/edit/text2pcap/).
 
-<div id="piechart" style="width: 900px; height: 500px;"></div>
+<div id="piechart" aria-hidden="true" style="width:100%; height:360px;"></div>
 
-_This pie chart is based on 6,734 captures from [PacketLife](http://packetlife.net/captures), [Wireshark Samples](https://wiki.wireshark.org/SampleCaptures), and [Wireshark GitLab](https://gitlab.com/wireshark/wireshark/-/issues) (2019). Gzipped versions of capture types are considered that capture type. Each other capture type constituted < 1%._
+| Capture format | Number of captures |
+| --- | ---: |
+| pcap | 5,187 |
+| pcapng | 1,755 |
+| Other formats | 627 |
+| Total | 7,569 |
+
+_This pie chart is based on 7,569 captures from [PacketLife](http://packetlife.net/captures), [Wireshark Samples](https://wiki.wireshark.org/SampleCaptures), and [Wireshark GitLab](https://gitlab.com/wireshark/wireshark/-/issues) (2019). Gzipped versions of capture types are considered that capture type. Each other capture type constituted < 1%._
 
 ### Output Formats of Tshark & Friends
 

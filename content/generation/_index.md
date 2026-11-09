@@ -16,6 +16,6 @@ sending packets out of your network interface. Which tool you use will largely d
 
 If you want to use a programming language to [script packets](/packetcraft/scripting/scripted_gen/), there are resources in [Packetcraft](/packetcraft/).
 
-#### Table of Contents
+## Table of Contents
 
 {{< children description="true" depth="4" >}}

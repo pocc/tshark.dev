@@ -105,7 +105,7 @@ In this example, use `http.response`, and escape the periods.
     F	Status Code Description	http.response.code.desc	FT_STRING	http		0x0	HTTP Response Status Code Description
     F	Response Phrase	http.response.phrase	FT_STRING	http		0x0	HTTP Response Reason Phrase
 
-## 2-pass analysis with -R, -Y, and -2
+## 2-pass analysis with -R, -Y, and -2 {#2-pass-analysis-with-r-y-and-2}
 
 If you would like to optimize display filtering over 2
 passes, you can specify the first and second with `-R <filter> -2 -Y <2nd filter>`.

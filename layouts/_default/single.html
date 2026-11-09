@@ -5,8 +5,8 @@
 <div class="page-description"><i class="fas fa-clock"></i> {{ .ReadingTime }} min　|　<i class="fas fa-feather-alt"></i> {{ .Params.Author }}　|　<i class="far fa-calendar-check"></i> {{ .Date.Format "January 1, 2006"}}</div>
 
 {{ if ne .Title "Pcap Table" }}
-<h4>Table of Contents</h4>
-{{ .TableOfContents }}
+<h2 id="page-contents-heading">Table of Contents</h2>
+{{ replace .TableOfContents "<nav id=\"TableOfContents\">" "<nav id=\"TableOfContents\" aria-label=\"Page contents\">" | safeHTML }}
 {{ end }}
 {{ if and (isset .Params "summary") (ne .Params.summary "") }}
   <p><i class="fas fa-external-link-square-alt"></i> <b>Quicklinks:</b> {{ .Summary }}</p>

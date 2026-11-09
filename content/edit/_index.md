@@ -14,6 +14,6 @@ Which utility you use depends on what you are trying to do.
 Wireshark has useful utilities for this purpose, but good tools also exist in other software suites.
 This section covers editing, adding, removing, and converting data in packet captures.
 
-#### Table of Contents
+## Table of Contents
 
 {{< children description="true" depth="4" >}}

@@ -5,7 +5,7 @@ defaultContentLanguage = "en"
 title = "tshark.dev — Packet Analysis"
 themesdir = "themes"
 metaDataFormat = "yaml"
-defaultContentLanguageInSubdir= true
+defaultContentLanguageInSubdir = false
 
 enableRobotsTXT = true
 enableGitInfo = true

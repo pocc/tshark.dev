@@ -71,7 +71,7 @@ $.fn.dataTable.ext.search.push(
   function(settings, data, dataIndex) {
     function convert_to_bytes(size_str) {
       size_number = parseInt(size_str)
-      if (size_str === NaN) {return 0;}
+      if (Number.isNaN(size_number)) {return 0;}
       if (size_str.includes("KB")) {
         return 1024*size_number;
       } if (size_str.includes("MB")) {
@@ -122,16 +122,12 @@ $.fn.dataTable.ext.search.push(
   }
 );
 
-function resize_searchboxes() {
-  var table_width = $('#pcap-search').width()
-  $("#pcap-search_filter > label").css({"width": parseInt(table_width/2-20).toString() + "px"})
-  $("#pcap-search-qualifiers").css({"width":parseInt(table_width/2-20).toString() + "px"})
-}
-
 $(document).ready(function(){
   var table = $('#pcap-search').DataTable(
     {
       responsive: true,
+      scrollX: true,
+      autoWidth: false,
       ajax: "/data/min_captures.json",
       "columnDefs": [
       { "width": "15%", "targets": 0 },
@@ -141,11 +137,10 @@ $(document).ready(function(){
       { "width": "8%", "targets": 6 },
     ],
   });
-  qualifiers_input = '&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="text" id="pcap-search-qualifiers" name="pcap-search-qualifiers" placeholder="Inequality like `size > 100KB`"></label>'
+  qualifiers_input = '<label for="pcap-search-qualifiers">Numeric filter<input type="text" id="pcap-search-qualifiers" name="pcap-search-qualifiers" placeholder="size > 100KB"></label>'
   help_link = '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Use one or both search boxes&nbsp;&nbsp;&nbsp;[<a href="/search/#search-syntax">Search Syntax</a>]'
   $("#pcap-search_length").append(help_link)
   $("#pcap-search_filter").append(qualifiers_input)
-  resize_searchboxes()
   $("#pcap-search_filter > label > input[type=search]").attr("placeholder","Search term like `igmp \"AirPcap trace\"`")
   $('#pcap-search-qualifiers').keyup(function() {
       table.draw();

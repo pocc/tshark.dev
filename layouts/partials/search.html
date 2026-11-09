@@ -1,5 +1,6 @@
 <!-- Pagefind Search -->
-<div class="searchbox">
+<div class="site-searchbox">
+    <label id="site-search-label" class="search-label" for="site-search-input">Search documentation</label>
     <div id="pagefind-search"></div>
 </div>
 
@@ -17,5 +18,10 @@
                 return result;
             }
         });
+        const input = document.querySelector('#pagefind-search input');
+        if (input) {
+            input.id = 'site-search-input';
+            input.setAttribute('aria-labelledby', 'site-search-label');
+        }
     });
 </script>

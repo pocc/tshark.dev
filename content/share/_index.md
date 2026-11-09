@@ -14,6 +14,6 @@ If you think that a packet capture says something, you will want to filter
 it for relevant traffic and send it off.
 This section covers writing your analysis and sending it to relevant parties.
 
-#### Table of Contents
+## Table of Contents
 
 {{< children description="true" depth="4" >}}

@@ -25,10 +25,7 @@ function getScrollBarWidth() {
     return (w1 - w2);
 };
 
-function setMenuHeight() {
-    $('#sidebar .highlightable').height($('#sidebar').innerHeight() - $('#header-wrapper').height() - 40);
-    $('#sidebar .highlightable').perfectScrollbar('update');
-}
+
 
 function fallbackMessage(action) {
     var actionMsg = '';
@@ -49,7 +46,7 @@ function fallbackMessage(action) {
 
 // for the window resize
 $(window).resize(function() {
-    setMenuHeight();
+
 });
 
 // debouncing function from John Hann
@@ -90,8 +87,6 @@ jQuery(document).ready(function() {
     });
 
     var sidebarStatus = searchStatus = 'open';
-    $('#sidebar .highlightable').perfectScrollbar();
-    setMenuHeight();
 
     jQuery('#overlay').on('click', function() {
         jQuery(document.body).toggleClass('sidebar-hidden');
@@ -244,25 +239,6 @@ jQuery(document).ready(function() {
 
     $('#top-bar a:not(:has(img)):not(.btn)').addClass('highlight');
     $('#body-inner a:not(:has(img)):not(.btn):not(a[rel="footnote"])').addClass('highlight');
-
-    var touchsupport = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)
-    if (!touchsupport){ // browser doesn't support touch
-        $('#toc-menu').hover(function() {
-            $('.progress').stop(true, false, true).fadeToggle(100);
-        });
-
-        $('.progress').hover(function() {
-            $('.progress').stop(true, false, true).fadeToggle(100);
-        });
-    }
-    if (touchsupport){ // browser does support touch
-        $('#toc-menu').click(function() {
-            $('.progress').stop(true, false, true).fadeToggle(100);
-        });
-        $('.progress').click(function() {
-            $('.progress').stop(true, false, true).fadeToggle(100);
-        });
-    }
 
     /** 
     * Fix anchor scrolling that hides behind top nav bar

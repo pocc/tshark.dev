@@ -28,7 +28,7 @@ captype: "topsecret" is a directory (folder), not a file.
 It's easy to parse this format with awk. `awk -F ': '`, where `$1` is the filename and `$2` is the filetype.
 Any errors will put `captype:` in place of the filename.
 
-## When Your Pcap Extension != Filetype
+## When Your Pcap Extension != Filetype {#when-your-pcap-extension-filetype}
 
 You may have a file that has a `.pcap` extension but is actually a `.pcapng` file.
 This can easily happen if you save to a file like `tshark -w example.pcap` without specifying an encoding.

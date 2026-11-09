@@ -36,6 +36,6 @@ Of those, the first 4 bytes, `D4C3 B2A1`, are the [magic bytes](/formats/magic_n
 
 Packet-Foo has a [good article](https://blog.packet-foo.com/2015/08/frame-bytes-vs-frame-file-headers/) on the difference between file header and file bytes that goes into more depth.
 
-#### Table of Contents
+## Table of Contents
 
 {{< children description="true" depth="4" >}}

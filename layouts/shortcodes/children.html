@@ -5,7 +5,7 @@
 {{ $withDescription :=  .Get "description" | default false }}
 {{ $sortTerm :=  .Get "sort" | default "Weight" }}
 
-<ul class="children children-{{$style}}">
+{{ if hasPrefix $style "h" }}<div class="children children-{{$style}}">{{ else }}<ul class="children children-{{$style}}">{{ end }}
 	{{ .Scratch.Set "pages" .Page.Pages }}
 
 	{{if .Page.IsHome}}
@@ -33,7 +33,7 @@
 	{{else}}
 		{{template "childs" dict "menu" $pages "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $withDescription "sortTerm" $sortTerm}}
 	{{end}}
-</ul>
+{{ if hasPrefix $style "h" }}</div>{{ else }}</ul>{{ end }}
 
 {{ define "childs" }}
 	{{ range .menu }}
@@ -51,7 +51,6 @@
 				{{else}}
 {{(printf "<%s>" $.style)|safeHTML}}
 <a href="{{.RelPermalink}}" >{{ .Title }}</a>
-{{(printf "</%s>" $.style)|safeHTML}}
 				{{end}}
 
 				{{if $.description}}
@@ -94,6 +93,7 @@
 </ul>
 				{{end}}
 			{{end}}
+{{ if and (not .IsHome) (not (hasPrefix $.style "h")) }}{{ (printf "</%s>" $.style) | safeHTML }}{{ end }}
 		{{end}}
 	{{end}}
 {{end}}

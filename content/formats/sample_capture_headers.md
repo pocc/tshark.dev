@@ -16,7 +16,7 @@ Before writing this, I was not of aware of Wireshark's `View -> "Reload as File 
 tshark does not have the ability to show capture file components.
 {{%/notice%}}
 
-Using the available file headers on your system from [Capture Formats](/formats/format_usage/#determining-file-headers), we can determine what hex each capture type has in its header.
+Using the available file headers on your system from [Capture Formats](/formats/), we can determine what hex each capture type has in its header.
 We do this by filtering out all packets and sending to xxd. If a capture type also has a footer, that too will be included here.
 
 ```bash

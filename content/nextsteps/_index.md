@@ -13,6 +13,6 @@ We hope you have enjoyed using this guide. Other adventures await.
 
 <a href="/nextsteps/links"><img src="/images/thank_you_mario.png" alt="OUR PRINCESS IS IN ANOTHER CASTLE"></a>
 
-#### Table of Contents
+## Table of Contents
 
 {{< children description="true" depth="4" >}}

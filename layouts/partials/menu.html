@@ -1,8 +1,9 @@
-<nav id="sidebar" class="{{if $.Site.Params.showVisitedLinks }}showVisitedLinks{{end}}">
+<nav id="sidebar" aria-label="Documentation sections" class="{{if $.Site.Params.showVisitedLinks }}showVisitedLinks{{end}}">
 
 {{ $currentNode := . }}
 {{ $showvisitedlinks := .Site.Params.showVisitedLinks }}
   <div id="header-wrapper">
+    <button type="button" id="sidebar-close" data-sidebar-toggle="" aria-label="Close navigation">Close</button>
     <div id="header">
       {{ partial "logo.html" . }}
     </div>

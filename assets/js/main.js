@@ -1,7 +1,7 @@
 /**
  * tshark.dev — Modern vanilla JS
  * Replaces jQuery dependencies for: copy-to-clipboard, sidebar toggle,
- * dark mode, and Cmd+K search.
+ * and Cmd+K search.
  */
 
 (function () {
@@ -22,55 +22,23 @@
             var btn = document.createElement('button');
             btn.className = 'copy-btn';
             btn.setAttribute('aria-label', 'Copy to clipboard');
-            btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span>Copy</span>';
+            btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span aria-live="polite">Copy</span>';
 
             btn.addEventListener('click', function () {
                 var text = codeEl.textContent;
-                navigator.clipboard.writeText(text).then(function () {
+                Promise.resolve().then(function () { return navigator.clipboard.writeText(text); }).then(function () {
                     btn.querySelector('span').textContent = 'Copied!';
                     setTimeout(function () {
                         btn.querySelector('span').textContent = 'Copy';
                     }, 2000);
+                }).catch(function () {
+                    btn.querySelector('span').textContent = 'Copy unavailable';
                 });
             });
 
             pre.parentNode.insertBefore(wrapper, pre);
             wrapper.appendChild(btn);
             wrapper.appendChild(pre);
-        });
-    }
-
-    /* =========================================================================
-       Dark Mode Toggle
-       ========================================================================= */
-    function initThemeToggle() {
-        var btn = document.getElementById('theme-toggle');
-        if (!btn) return;
-
-        btn.addEventListener('click', function () {
-            var current = document.documentElement.getAttribute('data-theme');
-            var isDark = current === 'dark' ||
-                (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
-            var next = isDark ? 'light' : 'dark';
-
-            document.documentElement.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-
-            // Update utterances theme if present
-            var utterances = document.querySelector('.utterances-frame');
-            if (utterances) {
-                utterances.contentWindow.postMessage(
-                    { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
-                    'https://utteranc.es'
-                );
-            }
-        });
-
-        // Listen for system theme changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
-            if (!localStorage.getItem('theme')) {
-                document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-            }
         });
     }
 
@@ -86,8 +54,12 @@
                 var legacyInput = document.querySelector('[data-search-input]');
                 var target = pagefindInput || legacyInput;
                 if (target) {
-                    target.focus();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    var toggle = document.getElementById('sidebar-toggle');
+                    if (toggle && window.matchMedia('(max-width: 47.938em)').matches && !document.body.classList.contains('sidebar-hidden')) toggle.click();
+                    requestAnimationFrame(function () {
+                        target.focus();
+                        target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+                    });
                 }
             }
         });
@@ -113,9 +85,93 @@
     /* =========================================================================
        Init on DOM ready
        ========================================================================= */
+
+    function initAccessibility() {
+        document.querySelectorAll('pre, #body table').forEach(function (element) {
+            element.setAttribute('tabindex', '0');
+        });
+        document.querySelectorAll('input[type="checkbox"][disabled]').forEach(function (input) {
+            var text = input.closest('li').textContent.trim();
+            input.setAttribute('aria-label', text);
+        });
+        document.querySelectorAll('i.fas, i.fa, i.far').forEach(function (icon) {
+            icon.setAttribute('aria-hidden', 'true');
+        });
+        var sidebar = document.getElementById('sidebar');
+        var toggle = document.getElementById('sidebar-toggle');
+        var main = document.getElementById('body');
+        var skip = document.querySelector('.skip-link');
+        if (skip && main) skip.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            main.focus({ preventScroll: true });
+            main.scrollIntoView({ behavior: 'auto', block: 'start' });
+        });
+        var wasOpen = false;
+        var mobile = window.matchMedia('(max-width: 47.938em)');
+        function syncSidebar() {
+            if (!sidebar || !toggle) return;
+            var hidden = mobile.matches && !document.body.classList.contains('sidebar-hidden');
+            var open = mobile.matches && !hidden;
+            sidebar.inert = hidden;
+            if (main) main.inert = open;
+            if (skip) skip.inert = open;
+            toggle.setAttribute('aria-expanded', String(!hidden));
+            toggle.setAttribute('aria-label', hidden ? 'Open navigation' : 'Close navigation');
+            if (open && !wasOpen) sidebar.querySelector('input,button,a[href]').focus();
+            if (hidden && wasOpen) toggle.focus();
+            wasOpen = open;
+        }
+        document.querySelectorAll('[data-sidebar-toggle]').forEach(function (button) {
+            button.addEventListener('click', function () { requestAnimationFrame(syncSidebar); });
+        });
+        var overlay = document.getElementById('overlay');
+        if (overlay) overlay.addEventListener('click', function () { requestAnimationFrame(syncSidebar); });
+        mobile.addEventListener('change', syncSidebar);
+        syncSidebar();
+        var contentsButton = document.getElementById('toc-menu');
+        var contents = document.getElementById('toc-panel');
+        function closeContents() {
+            if (!contents || !contentsButton) return;
+            contents.hidden = true;
+            contents.style.display = 'none';
+            contentsButton.setAttribute('aria-expanded', 'false');
+        }
+        if (contentsButton && contents) {
+            contentsButton.addEventListener('click', function () {
+                contents.hidden = !contents.hidden;
+                contents.style.display = contents.hidden ? 'none' : 'block';
+                contentsButton.setAttribute('aria-expanded', String(!contents.hidden));
+            });
+            document.addEventListener('click', function (event) {
+                if (!contentsButton.contains(event.target) && !contents.contains(event.target)) closeContents();
+            });
+        }
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Tab' && mobile.matches && document.body.classList.contains('sidebar-hidden')) {
+                var controls = Array.from(sidebar.querySelectorAll('a[href],button,input,select,textarea,[tabindex="0"]')).filter(function (element) {
+                    return !element.disabled && element.getClientRects().length && !element.closest('[hidden]');
+                });
+                var first = controls[0];
+                var last = controls[controls.length - 1];
+                if (controls.length && ((event.shiftKey && document.activeElement === first) || (!event.shiftKey && document.activeElement === last) || !sidebar.contains(document.activeElement))) {
+                    event.preventDefault();
+                    (event.shiftKey ? last : first).focus();
+                }
+            }
+            if (event.key !== 'Escape') return;
+            if (contents && !contents.hidden) {
+                closeContents();
+                contentsButton.focus();
+            } else if (toggle && mobile.matches && document.body.classList.contains('sidebar-hidden')) {
+                toggle.click();
+            }
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
+        initAccessibility();
         initCopyButtons();
-        initThemeToggle();
         initCmdK();
         initSidebar();
     });

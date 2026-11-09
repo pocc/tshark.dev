@@ -1,5 +1,5 @@
-<div class="progress">
+<div class="progress" id="toc-panel" hidden>
     <div class="wrapper">
-{{ .TableOfContents }}
+{{ replace .TableOfContents "<nav id=\"TableOfContents\">" "<nav id=\"quick-contents\" aria-label=\"Quick page contents\">" | safeHTML }}
     </div>
 </div>

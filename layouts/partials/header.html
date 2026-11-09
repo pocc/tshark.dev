@@ -1,23 +1,13 @@
 <!DOCTYPE html>
-<html lang="{{ .Page.Language | default "en" }}" class="js csstransforms3d">
+<html lang="{{ .Page.Language | default "en" }}" class="js csstransforms3d" data-theme="light">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
     {{ hugo.Generator }}
     {{ partial "meta.html" . }}
     {{ partial "favicon.html" . }}
     <title>tshark.dev | {{ .Title }}</title>
-
-    <!-- Prevent FOUC: apply stored/system dark mode before first paint -->
-    <script>
-      (function() {
-        var s = localStorage.getItem('theme');
-        if (s) { document.documentElement.setAttribute('data-theme', s); }
-        else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        }
-      })();
-    </script>
 
     <!-- Modern fonts: Inter + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +17,6 @@
     <!-- Legacy Learn Theme CSS (kept for structural layout compatibility) -->
     <link href="{{"css/nucleus.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/fontawesome-custom.min.css" | relURL}}" rel="stylesheet">
-    <link href="{{"css/hybrid.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/theme.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/hugo-theme.css" | relURL}}" rel="stylesheet">
     {{with .Site.Params.themeVariant}}
@@ -38,17 +27,11 @@
     {{ $tokens := resources.Get "css/theme-tokens.css" }}
     {{ $modern := resources.Get "css/modern.css" }}
     {{ $syntaxLight := resources.Get "css/syntax-light.css" }}
-    {{ $syntaxDark := resources.Get "css/syntax-dark.css" }}
     {{ $styles := slice $tokens $modern $syntaxLight | resources.Concat "css/modern-bundle.css" }}
     {{ if hugo.IsProduction }}
       {{ $styles = $styles | minify | fingerprint }}
     {{ end }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
-    <!-- Dark syntax highlighting for users with system dark preference -->
-    {{ if hugo.IsProduction }}
-      {{ $syntaxDark = $syntaxDark | minify | fingerprint }}
-    {{ end }}
-    <link rel="stylesheet" href="{{ $syntaxDark.RelPermalink }}" media="(prefers-color-scheme: dark)">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -74,8 +57,9 @@
     {{ partial "custom-header.html" . }}
   </head>
   <body class="" data-url="{{ .RelPermalink }}">
+    <a class="skip-link" href="#body">Skip to content</a>
     {{ partial "menu.html" . }}
-        <section id="body">
+        <main id="body" tabindex="-1" data-pagefind-body>
         <div id="overlay"></div>
         <div class="padding highlightable">
               <div>
@@ -95,12 +79,12 @@
                 {{$toc := (and (not .Params.disableToc) (not .Params.chapter))}}
                 <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                     <span id="sidebar-toggle-span">
-                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
-                          <i class="fas fa-bars"></i>
-                        </a>
+                        <button type="button" id="sidebar-toggle" data-sidebar-toggle="" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false">
+                          <i class="fas fa-bars" aria-hidden="true"></i>
+                        </button>
                     </span>
                   {{ if $toc }}
-                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  <button type="button" id="toc-menu" aria-label="Show page contents" aria-controls="toc-panel" aria-expanded="false"><i class="fas fa-list-alt" aria-hidden="true"></i></button>
                   {{ end }}
                   <span class="links">
                  {{$showBreadcrumb := (and (not .Params.disableBreadcrumb) (not .Site.Params.disableBreadcrumb))}}

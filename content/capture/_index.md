@@ -33,6 +33,6 @@ Also see https://wiki.wireshark.org/CaptureSetup.
 |        |                                           | -b Ring Buffers                               |                                                                |                               |
 -->
 
-#### Table of Contents
+## Table of Contents
 
 {{< children description="true" depth="4" >}}

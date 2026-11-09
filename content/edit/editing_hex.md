@@ -13,7 +13,7 @@ draft: false
 
 There are many ways to edit the hex of a packet capture. Whether you want to script it
 or edit it by hand depends on how many occurrences need to be changed. If you are trying
-to figure out which hex to edit, you might find it with a [regex with tshark](/analyze/packet_hunting#matches).
+to figure out which hex to edit, you might find it with a [regex with tshark](/analyze/packet_hunting/packet_hunting/#filter-with-regex-matches-and-contains).
 
 For this scenario,
 let's say we want to change all instances of broadcast address 255.255.255.255

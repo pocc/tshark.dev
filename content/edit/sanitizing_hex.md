@@ -45,7 +45,7 @@ It is possible to manually [edit the hex](/edit/editing_hex/); however, there ar
 [TraceWrangler](https://www.tracewrangler.com/) is a utility written for Windows that can anonymize various fields. It can also
 be installed under Macos and Linux using wine.
 
-![](https://www.tracewrangler.com/images/TeaserMain.png)
+![TraceWrangler interface for anonymizing packet capture fields](https://www.tracewrangler.com/images/TeaserMain.png)
 
 ### tcprewrite
 

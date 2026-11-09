@@ -440,18 +440,9 @@ img {
 
 /* --- Improve tap target sizes for mobile (Issue #13) --- */
 @media only screen and (max-width: 59.938em) {
-    /* Increase tap target size for links */
-    a {
-        min-height: 48px;
-        min-width: 48px;
-        display: inline-flex;
-        align-items: center;
-        padding: 0.5rem 0.25rem;
-    }
-
     /* TOC links - the main problem area */
     #TableOfContents a,
-    #sidebar a {
+    #sidebar .topics a {
         min-height: 48px !important;
         padding: 0.75rem 1rem !important;
         display: flex !important;
@@ -630,7 +621,7 @@ img {
    ============================================================================= */
 
 /* Search container in sidebar */
-.searchbox {
+.site-searchbox {
     margin: 1rem 0.5rem;
 }
 
@@ -753,7 +744,7 @@ img {
 
 /* Mobile responsive adjustments */
 @media only screen and (max-width: 59.938em) {
-    .searchbox {
+    .site-searchbox {
         margin: 0.75rem 0.5rem;
     }
 
@@ -774,21 +765,95 @@ img {
     }
 }
 
-/* Dark mode support (if theme has dark mode) */
-@media (prefers-color-scheme: dark) {
-    .pagefind-ui__search-input {
-        background: var(--color-bg-secondary, #2d2d2d) !important;
-        color: var(--color-text, #e0e0e0) !important;
-        border-color: var(--color-border, #444) !important;
-    }
 
-    .pagefind-ui__result {
-        background: var(--color-bg-secondary, #2d2d2d) !important;
-        border-color: var(--color-border, #444) !important;
-    }
-
-    .pagefind-ui__result-excerpt mark {
-        background-color: #4a4a00 !important;
-        color: #ffeb3b !important;
-    }
+.skip-link {
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    transform: translateY(-200%);
+    z-index: 1000;
+    padding: 0.75rem 1rem;
+    background: #fff;
+    color: #174b7a;
+    border: 2px solid currentColor;
 }
+.skip-link:focus { transform: none; }
+:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 3px; }
+#body:focus { outline: none; }
+[hidden] { display: none !important; }
+#sidebar-toggle, #toc-menu {
+    border: 0;
+    background: transparent;
+    color: #374151;
+    cursor: pointer;
+    min-width: 32px;
+    min-height: 32px;
+}
+#sidebar ul.topics li a { min-height: 32px; padding: 0.25rem 1rem; }
+#sidebar #footer { color: #4b5563; }
+#sidebar #footer a, #body p a, #body li a { text-decoration: underline; text-underline-offset: 0.15em; }
+#sidebar ul.topics a, #breadcrumbs a { text-decoration: none; }
+#sidebar #footer a { color: #374151 !important; }
+#sidebar #footer p { color: #4b5563; }
+pre, pre code { color: var(--color-text) !important; }
+pre { white-space: pre; }
+pre code { white-space: inherit; }
+#sidebar-close { display: none; }
+#body pre a { color: #174b7a !important; text-decoration: underline; }
+blockquote, blockquote p { color: #4b5563 !important; }
+#body .notices a { color: #174b7a !important; }
+.code-block:focus-within .copy-btn, .code-block .copy-btn:focus-visible { opacity: 1; }
+.code-block .copy-btn { min-height: 28px; }
+.site-searchbox .search-label { display: block; position: static; color: #0f172a; font-size: 0.875rem; font-weight: 600; line-height: 1.4; margin-bottom: 0.375rem; }
+#pagefind-search { --pagefind-ui-scale: 0.75; }
+.site-searchbox .pagefind-ui__search-input {
+    height: 40px !important;
+    min-height: 40px !important;
+    font-size: 16px !important;
+    line-height: 24px !important;
+    padding: 7px 52px 7px 36px !important;
+    box-sizing: border-box;
+}
+.site-searchbox .pagefind-ui__search-input::placeholder { color: #4b5563 !important; opacity: 1 !important; }
+.site-searchbox .pagefind-ui__form::before { width: 16px; height: 16px; left: 12px; top: 12px; opacity: 1; }
+.site-searchbox .pagefind-ui__search-clear {
+    width: 48px;
+    height: 40px;
+    min-height: 40px !important;
+    min-width: 40px !important;
+    padding: 0 4px !important;
+    top: 0;
+    right: 0;
+}
+.site-searchbox .pagefind-ui__search-input:focus { outline: 2px solid #fff !important; outline-offset: 2px; border-color: #174b7a !important; box-shadow: 0 0 0 4px #174b7a !important; }
+.mermaid-map a { color: #174b7a !important; text-decoration: underline; }
+#body .padding { min-width: 0; }
+#body p, #body li, #body td { overflow-wrap: anywhere; }
+#body table { max-width: 100%; }
+#pcap-search_wrapper .dataTables_filter { display: flex; flex-wrap: wrap; gap: 0.75rem; width: 100%; text-align: left; }
+#pcap-search_wrapper .dataTables_filter label { display: flex; flex-direction: column; flex: 1 1 14rem; gap: 0.25rem; margin: 0; }
+#pcap-search_wrapper input { width: 100%; min-width: 0; box-sizing: border-box; }
+#pcap-search_wrapper .dataTables_length { white-space: normal; text-align: left; }
+#pcap-search_wrapper .dataTables_scrollBody { max-width: 100%; }
+#pcap-search_wrapper table { display: table; }
+#pcap-search_wrapper td { overflow-wrap: anywhere; }
+#pcap-search-qualifiers { width: 100%; }
+#piechart { max-width: 100%; }
+@media (max-width: 47.938em) {
+    #sidebar #header-wrapper { position: relative; }
+    #sidebar-close { display: block; position: absolute; top: 0.25rem; right: 0.25rem; padding: 0.25rem 0.5rem; min-width: 44px; min-height: 32px; background: #fff; color: #174b7a; border: 1px solid currentColor; z-index: 2; }
+    #sidebar ul.topics li a { min-height: 44px !important; padding: 0.5rem 1rem !important; }
+    #TableOfContents a { min-height: 32px !important; padding: 0.25rem 0 !important; }
+    #body #breadcrumbs { width: 100%; white-space: normal; }
+    #body #top-bar { padding-right: 0.5rem; }
+    #body #top-github-link { float: none; text-align: right; }
+    #body .mermaid-map { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+
+#sidebar { display: flex; flex-direction: column; }
+#sidebar #header-wrapper { flex-shrink: 0; }
+#sidebar .highlightable { flex: 1; min-height: 0; height: auto !important; overflow-y: auto; overflow-x: hidden; }

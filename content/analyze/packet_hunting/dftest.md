@@ -14,7 +14,7 @@ draft: false
 dftest (<u>**D**</u>isplay <u>**F**</u>ilter <u>**TEST**</u>) is a tool to show how a display filter should be interpreted.
 You should use this tool if you are confused why a display filter is filtering for or out the wrong traffic.
 
-## Example: != Behavior
+## Example: != Behavior {#example-behavior}
 
 `ip.addr != 10.0.0.1` will not filter out all packets from/to 10.0.0.1.
 Without further context, this seems counter-intuitive.

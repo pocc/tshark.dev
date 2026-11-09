@@ -105,9 +105,9 @@ These files are from the Wireshark Repo or my system.
 
 Example In [Name Resolutions](/packetcraft/add_context/name_resolution/).
 
-* [ipxnets](/files/ipxnets/): Based on [vlan.cap](/files/vlan.cap/)
-* [subnets](/files/subnets/): Based on [vlan.cap](/files/vlan.cap/)
-* [vlans](/files/vlans/): Based on [vlan.cap](/files/vlan.cap/)
+* [ipxnets](/files/ipxnets): Based on [vlan.cap](/files/vlan.cap)
+* [subnets](/files/subnets): Based on [vlan.cap](/files/vlan.cap)
+* [vlans](/files/vlans): Based on [vlan.cap](/files/vlan.cap)
 
 <!--
 /files/vlan.cap
@@ -170,7 +170,7 @@ Note that "missing" a documented config is not a bad thing. For example, you wil
 <script src="https://gist.github.com/pocc/08f43a0bf7b50a7f4c9dff93de60bc0e.js"></script>
 {{%/expand%}}
 
-## Tshark Profile Configuration Flags
+## Tshark Profile Configuration Flags {#tshark-config-flags}
 
 For when you don't want to edit the defaults, tshark allow you to use a different config file or change values inline.
 
