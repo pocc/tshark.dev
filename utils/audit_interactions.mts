@@ -134,5 +134,36 @@ export async function runInteractionChecks(browser: Browser, origin: string, out
         await phone.waitForFunction(() => (document.querySelector('.dataTables_scrollBody')?.scrollLeft ?? 0) > 0);
     });
     await mobile.close();
+    await check('Search results wrap inside cards and Clear stays inside the input at desktop and mobile widths', async () => {
+        for (const width of [1365, 375, 320]) {
+            const context = await browser.newContext({ viewport: { width, height: 900 }, serviceWorkers: 'block' });
+            try {
+                await context.route(/(?:disqus|google-analytics|googletagmanager|doubleclick)/, route => route.abort());
+                const searchPage = await context.newPage();
+                await searchPage.goto(origin + '/', { waitUntil: 'load' });
+                if (width < 768) await searchPage.locator('#sidebar-toggle').click();
+                await searchPage.locator('#site-search-input').fill('kerberos');
+                await searchPage.locator('.pagefind-ui__result-link').first().waitFor();
+                const layout = await searchPage.evaluate(() => {
+                    const input = document.querySelector('#site-search-input')!.getBoundingClientRect();
+                    const clear = document.querySelector('.pagefind-ui__search-clear')!.getBoundingClientRect();
+                    const overflow = [...document.querySelectorAll<HTMLElement>('.pagefind-ui__result')].filter(card => {
+                        const bounds = card.getBoundingClientRect();
+                        return card.scrollWidth > card.clientWidth + 1 || [...card.querySelectorAll('.pagefind-ui__result-title,.pagefind-ui__result-excerpt,.pagefind-ui__result-nested')].some(element => {
+                            const rectangle = element.getBoundingClientRect();
+                            return rectangle.right > bounds.right + 1 || rectangle.left < bounds.left - 1;
+                        });
+                    }).length;
+                    return { overflow, input: input.toJSON(), clear: clear.toJSON() };
+                });
+                assert.equal(layout.overflow, 0, `Search results overflow at ${width}px`);
+                assert.ok(layout.clear.top >= layout.input.top - 1 && layout.clear.bottom <= layout.input.bottom + 1, `Clear exceeds input height at ${width}px`);
+                assert.ok(layout.clear.left >= layout.input.left - 1 && layout.clear.right <= layout.input.right + 1, `Clear exceeds input width at ${width}px`);
+                await searchPage.screenshot({ path: join(output, `search-layout-${width}.png`) });
+                await searchPage.locator('.pagefind-ui__search-clear').click();
+                assert.equal(await searchPage.locator('#site-search-input').inputValue(), '');
+            } finally { await context.close(); }
+        }
+    });
     return results;
 }

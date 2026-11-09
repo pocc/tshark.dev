@@ -816,7 +816,7 @@ blockquote, blockquote p { color: #4b5563 !important; }
 }
 .site-searchbox .pagefind-ui__search-input::placeholder { color: #4b5563 !important; opacity: 1 !important; }
 .site-searchbox .pagefind-ui__form::before { width: 16px; height: 16px; left: 12px; top: 12px; opacity: 1; }
-.site-searchbox .pagefind-ui__search-clear {
+#pagefind-search .pagefind-ui__search-clear {
     width: 48px;
     height: 40px;
     min-height: 40px !important;
@@ -825,6 +825,10 @@ blockquote, blockquote p { color: #4b5563 !important; }
     top: 0;
     right: 0;
 }
+#pagefind-search .pagefind-ui__results-area { text-align: left; }
+#pagefind-search .pagefind-ui__result-inner,
+#pagefind-search .pagefind-ui__result-excerpt,
+#pagefind-search .pagefind-ui__result-nested { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
 .site-searchbox .pagefind-ui__search-input:focus { outline: 2px solid #fff !important; outline-offset: 2px; border-color: #174b7a !important; box-shadow: 0 0 0 4px #174b7a !important; }
 .mermaid-map a { color: #174b7a !important; text-decoration: underline; }
 #body .padding { min-width: 0; }
